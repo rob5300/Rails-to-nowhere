@@ -1,2 +1,2 @@
 # Rails-to-nowhere
-Our cool awesome game
+I don't know what to put here.
