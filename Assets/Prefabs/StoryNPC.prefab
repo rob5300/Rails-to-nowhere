@@ -23,7 +23,7 @@ GameObject:
   - 95: {fileID: 95000011792739908}
   - 114: {fileID: 114000013532545116}
   m_Layer: 0
-  m_Name: NPCtest
+  m_Name: StoryNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
