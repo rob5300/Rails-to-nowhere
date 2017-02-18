@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012714978838}
   - 54: {fileID: 54000013670033078}
-  - 114: {fileID: 114000012162251912}
   - 95: {fileID: 95000011792739908}
+  - 114: {fileID: 114000013532545116}
   m_Layer: 0
   m_Name: NPCtest
   m_TagString: Untagged
@@ -154,7 +154,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000012162251912
+--- !u!114 &114000013532545116
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -162,9 +162,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011304046794}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0a70548e66e4f14c82c1bca8b527c64, type: 3}
+  m_Script: {fileID: 11500000, guid: 64006c55c231a8049a568b0226f521bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Name: New NPC
   Interactable: 1
   Health: 1
+  Essential: 0
