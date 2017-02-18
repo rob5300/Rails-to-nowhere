@@ -44,7 +44,9 @@ public class SolderIron : MonoBehaviour
 			}
 			if (children.Where(x => x.GetComponent<BoxCollider2D>().IsTouching(coll)).Count() < 2)
 			{
-				Instantiate(_solder, coll.bounds.min - coll.bounds.center, coll.transform.rotation);
+				GameObject solderBlock = Instantiate(_solder, coll.transform.position, coll.transform.rotation) as GameObject;
+				solderBlock.GetComponent<SpriteRenderer>().sortingOrder = 101;
+				solderBlock.transform.position = new Vector3(solderBlock.transform.position.x, coll.transform.position.y, 0.1046143f);
 			}
 		}
 	}
