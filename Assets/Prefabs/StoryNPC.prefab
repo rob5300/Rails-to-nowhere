@@ -169,3 +169,4 @@ MonoBehaviour:
   Interactable: 1
   Health: 1
   Essential: 0
+  InitialDialogueNodeName: 
