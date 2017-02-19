@@ -31,7 +31,6 @@ public class SolderIron : MonoBehaviour
 		{
 			PerformSolderCheck(mouse);
 		}
-	
 	}
 
 	private void PerformSolderCheck(Vector3 mouse)
