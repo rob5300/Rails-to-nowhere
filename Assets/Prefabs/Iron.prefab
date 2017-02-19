@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d036fad224d14b240b6a8f6863e9820d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _solder: {fileID: 0}
+  _prefab: {fileID: 1000012434396406, guid: 9c636272edb017148a8f89387a692cba, type: 2}
   _puzzleCam: {fileID: 0}
 --- !u!212 &212000011100455098
 SpriteRenderer:

@@ -3634,48 +3634,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1001 &273189619
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4000013185210772, guid: 9c636272edb017148a8f89387a692cba, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 11.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013185210772, guid: 9c636272edb017148a8f89387a692cba, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 4.606973
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013185210772, guid: 9c636272edb017148a8f89387a692cba, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 574.24384
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013185210772, guid: 9c636272edb017148a8f89387a692cba, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013185210772, guid: 9c636272edb017148a8f89387a692cba, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013185210772, guid: 9c636272edb017148a8f89387a692cba, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013185210772, guid: 9c636272edb017148a8f89387a692cba, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013185210772, guid: 9c636272edb017148a8f89387a692cba, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 9c636272edb017148a8f89387a692cba, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &279212201
 GameObject:
   m_ObjectHideFlags: 0
@@ -9242,11 +9200,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1 &533120997 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000012434396406, guid: 9c636272edb017148a8f89387a692cba,
-    type: 2}
-  m_PrefabInternal: {fileID: 273189619}
 --- !u!1 &533561245
 GameObject:
   m_ObjectHideFlags: 0
@@ -18680,12 +18633,19 @@ Prefab:
         type: 2}
       propertyPath: _solder
       value: 
-      objectReference: {fileID: 533120997}
+      objectReference: {fileID: 1000012434396406, guid: 9c636272edb017148a8f89387a692cba,
+        type: 2}
     - target: {fileID: 114000010126223058, guid: b10212114f8c9ef4fa259ed946083d0a,
         type: 2}
       propertyPath: _puzzleCam
       value: 
       objectReference: {fileID: 2107134663}
+    - target: {fileID: 114000010126223058, guid: b10212114f8c9ef4fa259ed946083d0a,
+        type: 2}
+      propertyPath: _prefab
+      value: 
+      objectReference: {fileID: 1000012434396406, guid: 9c636272edb017148a8f89387a692cba,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b10212114f8c9ef4fa259ed946083d0a, type: 2}
   m_IsPrefabParent: 0
