@@ -37,12 +37,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692504, g: 0.4967869, b: 0.57508504, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 7
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -241,6 +241,7 @@ GameObject:
   - 114: {fileID: 901239419}
   - 54: {fileID: 901239421}
   - 114: {fileID: 901239420}
+  - 114: {fileID: 901239422}
   m_Layer: 0
   m_Name: Cube
   m_TagString: pickup
@@ -350,6 +351,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &901239422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 901239414}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 210d84824cedbd14d9d88da6cc5f3e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReachDistance: 20
+  velocityRatio: 5
+  debugVel: {fileID: 0}
+  VelocityClamp: 10
 --- !u!1001 &1441126695
 Prefab:
   m_ObjectHideFlags: 0
