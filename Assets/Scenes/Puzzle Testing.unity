@@ -4050,6 +4050,21 @@ Prefab:
       propertyPath: _connected
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0b3a1612c2e1814096846bbbaaf5923, type: 2}
   m_IsPrefabParent: 0
@@ -6394,6 +6409,21 @@ Prefab:
         type: 2}
       propertyPath: _connected
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0b3a1612c2e1814096846bbbaaf5923, type: 2}
@@ -9180,6 +9210,7 @@ GameObject:
   - 4: {fileID: 533120999}
   - 212: {fileID: 533120998}
   - 114: {fileID: 533121001}
+  - 61: {fileID: 533121002}
   m_Layer: 0
   m_Name: SolderSprite
   m_TagString: Circuit
@@ -9245,6 +9276,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _connected: 0
+--- !u!61 &533121002
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 533120997}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.32, y: 0.32}
 --- !u!1 &533561245
 GameObject:
   m_ObjectHideFlags: 0
@@ -12644,6 +12689,21 @@ Prefab:
       propertyPath: _connected
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0b3a1612c2e1814096846bbbaaf5923, type: 2}
   m_IsPrefabParent: 0
@@ -12689,6 +12749,21 @@ Prefab:
     - target: {fileID: 1000010878228120, guid: d0b3a1612c2e1814096846bbbaaf5923, type: 2}
       propertyPath: m_Name
       value: TestCircuitSprite (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0b3a1612c2e1814096846bbbaaf5923, type: 2}
@@ -14854,6 +14929,21 @@ Prefab:
       propertyPath: _connected
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0b3a1612c2e1814096846bbbaaf5923, type: 2}
   m_IsPrefabParent: 0
@@ -15524,6 +15614,21 @@ Prefab:
         type: 2}
       propertyPath: _connected
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0b3a1612c2e1814096846bbbaaf5923, type: 2}
@@ -16381,6 +16486,21 @@ Prefab:
         type: 2}
       propertyPath: _connected
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0b3a1612c2e1814096846bbbaaf5923, type: 2}
@@ -19047,6 +19167,21 @@ Prefab:
       propertyPath: _connected
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0b3a1612c2e1814096846bbbaaf5923, type: 2}
   m_IsPrefabParent: 0
@@ -19903,6 +20038,21 @@ Prefab:
         type: 2}
       propertyPath: _connected
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0b3a1612c2e1814096846bbbaaf5923, type: 2}
@@ -22365,6 +22515,21 @@ Prefab:
         type: 2}
       propertyPath: _connected
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0b3a1612c2e1814096846bbbaaf5923, type: 2}
@@ -26308,6 +26473,21 @@ Prefab:
         type: 2}
       propertyPath: _connected
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0b3a1612c2e1814096846bbbaaf5923, type: 2}
@@ -32433,6 +32613,21 @@ Prefab:
         type: 2}
       propertyPath: _connected
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012020936744, guid: d0b3a1612c2e1814096846bbbaaf5923,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0b3a1612c2e1814096846bbbaaf5923, type: 2}
