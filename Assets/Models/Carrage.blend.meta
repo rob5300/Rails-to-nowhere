@@ -1,0 +1,220 @@
+fileFormatVersion: 2
+guid: c284f54ee746ac146b484e1acc4a14e9
+timeCreated: 1487505217
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Cealing_001
+    100004: Floor
+    100006: Floor_001
+    100008: Luggage_Holder
+    100010: Luggage_Holder_001
+    100012: Luggage_Holder_002
+    100014: Luggage_Holder_003
+    100016: Luggage_Holder_004
+    100018: Luggage_Holder_005
+    100020: Luggage_Holder_2
+    100022: Luggage_Holder_3
+    100024: Luggage_Holder_4
+    100026: Luggage_Holder_5
+    100028: Luggage_Holder_6
+    100030: Roof
+    100032: Wall_L
+    100034: Wall_R
+    100036: Window_Hole_003
+    100038: Window_type_2
+    100040: Window_type_2_001
+    100042: Window_type_2_002
+    100044: Window_type_2_003
+    100046: Window_type_2_004
+    100048: Window_type_2_005
+    100050: Window_type_2_2
+    100052: Window_type_2_3
+    100054: Window_type_2_4
+    100056: Window_type_2_5
+    100058: Window_type_2_6
+    400000: //RootNode
+    400002: Cealing_001
+    400004: Floor
+    400006: Floor_001
+    400008: Luggage_Holder
+    400010: Luggage_Holder_001
+    400012: Luggage_Holder_002
+    400014: Luggage_Holder_003
+    400016: Luggage_Holder_004
+    400018: Luggage_Holder_005
+    400020: Luggage_Holder_2
+    400022: Luggage_Holder_3
+    400024: Luggage_Holder_4
+    400026: Luggage_Holder_5
+    400028: Luggage_Holder_6
+    400030: Roof
+    400032: Wall_L
+    400034: Wall_R
+    400036: Window_Hole_003
+    400038: Window_type_2
+    400040: Window_type_2_001
+    400042: Window_type_2_002
+    400044: Window_type_2_003
+    400046: Window_type_2_004
+    400048: Window_type_2_005
+    400050: Window_type_2_2
+    400052: Window_type_2_3
+    400054: Window_type_2_4
+    400056: Window_type_2_5
+    400058: Window_type_2_6
+    2300000: Cealing_001
+    2300002: Floor
+    2300004: Floor_001
+    2300006: Luggage_Holder
+    2300008: Luggage_Holder_001
+    2300010: Luggage_Holder_002
+    2300012: Luggage_Holder_003
+    2300014: Luggage_Holder_004
+    2300016: Luggage_Holder_005
+    2300018: Luggage_Holder_2
+    2300020: Luggage_Holder_3
+    2300022: Luggage_Holder_4
+    2300024: Luggage_Holder_5
+    2300026: Luggage_Holder_6
+    2300028: Roof
+    2300030: Wall_L
+    2300032: Wall_R
+    2300034: Window_Hole_003
+    2300036: Window_type_2
+    2300038: Window_type_2_001
+    2300040: Window_type_2_002
+    2300042: Window_type_2_003
+    2300044: Window_type_2_004
+    2300046: Window_type_2_005
+    2300048: Window_type_2_2
+    2300050: Window_type_2_3
+    2300052: Window_type_2_4
+    2300054: Window_type_2_5
+    2300056: Window_type_2_6
+    3300000: Cealing_001
+    3300002: Floor
+    3300004: Floor_001
+    3300006: Luggage_Holder
+    3300008: Luggage_Holder_001
+    3300010: Luggage_Holder_002
+    3300012: Luggage_Holder_003
+    3300014: Luggage_Holder_004
+    3300016: Luggage_Holder_005
+    3300018: Luggage_Holder_2
+    3300020: Luggage_Holder_3
+    3300022: Luggage_Holder_4
+    3300024: Luggage_Holder_5
+    3300026: Luggage_Holder_6
+    3300028: Roof
+    3300030: Wall_L
+    3300032: Wall_R
+    3300034: Window_Hole_003
+    3300036: Window_type_2
+    3300038: Window_type_2_001
+    3300040: Window_type_2_002
+    3300042: Window_type_2_003
+    3300044: Window_type_2_004
+    3300046: Window_type_2_005
+    3300048: Window_type_2_2
+    3300050: Window_type_2_3
+    3300052: Window_type_2_4
+    3300054: Window_type_2_5
+    3300056: Window_type_2_6
+    4300000: Roof
+    4300002: Floor
+    4300004: Luggage_Holder_001
+    4300006: Luggage_Holder_002
+    4300008: Luggage_Holder_003
+    4300010: Luggage_Holder_004
+    4300012: Luggage_Holder_005
+    4300014: Window_type_2_001
+    4300016: Window_type_2_002
+    4300018: Window_type_2_003
+    4300020: Window_type_2_004
+    4300022: Window_type_2_005
+    4300024: Luggage_Holder_2
+    4300026: Luggage_Holder_3
+    4300028: Luggage_Holder_4
+    4300030: Luggage_Holder_5
+    4300032: Luggage_Holder_6
+    4300034: Window_type_2_2
+    4300036: Window_type_2_3
+    4300038: Window_type_2_4
+    4300040: Window_type_2_5
+    4300042: Window_type_2_6
+    4300044: Luggage_Holder
+    4300046: Floor_001
+    4300048: Wall_R
+    4300050: Wall_L
+    4300052: Cealing_001
+    4300054: Window_Hole_003
+    4300056: Window_type_2
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
