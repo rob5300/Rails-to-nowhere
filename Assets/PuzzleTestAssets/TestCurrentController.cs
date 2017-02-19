@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class TestCurrentController : MonoBehaviour {
-	private List<EngComponent> _circuits;
+	public List<EngComponent> _circuits;
 	public GameObject _pcb;
 	// Use this for initialization
 	void Start () {
