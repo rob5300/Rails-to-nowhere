@@ -10,7 +10,6 @@ public class DragAndDrop : MonoBehaviour
     bool hasPlayer = false;
     bool beingCarried = false;
     private bool touched = false;
-	private float _timeSinceCarry = 0f;
 
     void Start()
     {
@@ -19,7 +18,6 @@ public class DragAndDrop : MonoBehaviour
 
     void Update()
     {
-		_timeSinceCarry += Time.deltaTime;
         float dist = Vector3.Distance(gameObject.transform.position, player.position); //checks distance between game object and player
         if (dist <= 5f)
         {
@@ -29,13 +27,13 @@ public class DragAndDrop : MonoBehaviour
         {
             hasPlayer = false;
         }
-        if (hasPlayer && Input.GetMouseButtonDown(1)) //if the object can be picked up, it will follow the camera
+        if (hasPlayer && Input.GetMouseButton(1)) //if the object can be picked up, it will follow the camera
         {
             GetComponent<Rigidbody>().isKinematic = true;
             transform.parent = playerCam;
             beingCarried = true;
         }
-		else if (beingCarried && _timeSinceCarry > 1f && Input.GetMouseButtonDown(1))
+		else if (beingCarried && !Input.GetMouseButton(1))
 		{
 			GetComponent<Rigidbody>().isKinematic = false;
 			transform.parent = null;
