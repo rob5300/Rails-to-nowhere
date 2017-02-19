@@ -39,30 +39,7 @@ public class DragAndDrop : MonoBehaviour
 			transform.parent = null;
 			beingCarried = false;
 		}
-        //if (beingCarried) -- what is this doing?
-        //{
-        //    if (touched)
-        //    {
-        //        GetComponent<Rigidbody>().isKinematic = false;
-        //        transform.parent = null;
-        //        beingCarried = false;
-        //        touched = false;
-        //    }
-        //    if (Input.GetMouseButtonDown(0))
-        //    {
-        //        GetComponent<Rigidbody>().isKinematic = false;
-        //        transform.parent = null;
-        //        beingCarried = false;
-        //        GetComponent<Rigidbody>().AddForce(playerCam.forward * throwForce);
-       
-        //    }
-        //    else if (Input.GetMouseButtonDown(1))
-        //    {
-        //        GetComponent<Rigidbody>().isKinematic = false;
-        //        transform.parent = null;
-        //        beingCarried = false;
-        //    }
-        //}
+     
     }
 
     void OnTriggerEnter() //if the object touches something else, it falls down
