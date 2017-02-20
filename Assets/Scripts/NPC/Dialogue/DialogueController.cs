@@ -36,11 +36,6 @@ public static class DialogueController{
 
     public static List<DialogueNode> GetNodeResponses(string nodename) {
         DialogueNode node = GetNode(nodename);
-        List<DialogueNode> responses = new List<DialogueNode>();
-        foreach (string key in node.Responses) {
-            responses.Add(GetNode(key));
-        }
-
-        return responses;
+        return GetNodeResponses(node);
     }
 }
