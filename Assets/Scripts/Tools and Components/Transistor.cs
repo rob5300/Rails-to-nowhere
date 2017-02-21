@@ -18,11 +18,15 @@ public class Transistor : BaseCircuit
         base.Update();
         if (_updateResults.Where(x => x.transform.position.y > transform.position.y && _pseudoParents.Contains(x.transform.GetComponent<BaseCircuit>())).Any())
         {
-            if (_pseudoParents.Where(x => x.transform.position.y > transform.position.y).First().GetComponent<BaseCircuit>().Current > 0f)
+            if (_pseudoParents.Where(x => x.transform.position.y > transform.position.y).First().Current > 0f)
             {
-                BaseCircuit botSideConnection = _updateResults.Where(x => x.transform.position.y < transform.position.y).First().transform.GetComponent<BaseCircuit>();
-                print(botSideConnection.Current);
-                Current = botSideConnection.Current;
+				List<RaycastHit2D> conns = _updateResults.Where(x => x.transform.position.y < transform.position.y).ToList();
+				if (conns.Count > 0)
+				{
+					BaseCircuit botSideConnection = conns.First().transform.GetComponent<BaseCircuit>();
+					Current = botSideConnection.Current;
+				}
+
             }
         }
         else
