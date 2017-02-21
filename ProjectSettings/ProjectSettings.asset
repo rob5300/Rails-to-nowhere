@@ -176,7 +176,13 @@ PlayerSettings:
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
   resolutionDialogBanner: {fileID: 0}
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 0}
+      m_Width: 128
+      m_Height: 128
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []
   webPlayerTemplate: APPLICATION:Default
@@ -339,12 +345,12 @@ PlayerSettings:
   spritePackerPolicy: 
   scriptingDefineSymbols:
     1: CROSS_PLATFORM_INPUT
-    4: CROSS_PLATFORM_INPUT
-    7: CROSS_PLATFORM_INPUT
-    14: CROSS_PLATFORM_INPUT
-    17: 
-    20: 
-    22: 
+    4: CROSS_PLATFORM_INPUT;MOBILE_INPUT
+    7: CROSS_PLATFORM_INPUT;MOBILE_INPUT
+    14: CROSS_PLATFORM_INPUT;MOBILE_INPUT
+    17: MOBILE_INPUT
+    20: MOBILE_INPUT
+    22: MOBILE_INPUT
   metroPackageName: Rails to Nowhere
   metroPackageVersion: 
   metroCertificatePath: 
@@ -467,7 +473,7 @@ PlayerSettings:
   PSM::VR::enable: 0
   PSP2::VR::enable: 0
   SamsungTV::VR::enable: 0
-  Standalone::VR::enable: 0
+  Standalone::VR::enable: 1
   Tizen::VR::enable: 0
   WebGL::VR::enable: 0
   WebGL::analyzeBuildSize: 0

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class BaseTool : MonoBehaviour {
+public abstract class BaseTool : MonoBehaviour {
 	[SerializeField]
 	protected GameObject _prefab;
 	[SerializeField]
@@ -83,7 +83,7 @@ public class BaseTool : MonoBehaviour {
 	protected virtual void RemoveObject(Vector3 position)
 	{
 		GameObject closestObj = _blocks.OrderBy(x => Vector2.Distance(position, x.transform.position)).First().gameObject;
-		if (Vector2.Distance(closestObj.transform.position, position) < 1 && closestObj.tag == Prefab.tag)
+		if (Vector2.Distance(closestObj.transform.position, position) < 1 && closestObj.tag == Prefab.tag && closestObj.name.Contains(Prefab.name))
 		{
 			_blocks.Remove(closestObj.GetComponent<EngComponent>());
 			closestObj.transform.parent.GetComponent<TestCurrentController>()._circuits.Remove(closestObj.GetComponent<EngComponent>());
@@ -93,15 +93,17 @@ public class BaseTool : MonoBehaviour {
 
 	protected virtual void PlaceObject(Vector3 position)
 	{
-		GameObject closestObj = _boardAreas.OrderBy(x => Vector2.Distance(position, x.transform.position)).First();
-		if (Vector2.Distance(closestObj.transform.position, position) < 1 && closestObj.tag == "BoardCell")
+		GameObject closestBoardObj = _boardAreas.OrderBy(x => Vector2.Distance(position, x.transform.position)).First();
+		GameObject closestCircuitObj = _blocks.OrderBy(x => Vector2.Distance(position, x.transform.position)).First().gameObject;
+		print(Vector2.Distance(closestBoardObj.transform.position, closestCircuitObj.transform.position));
+		if (Vector2.Distance(closestBoardObj.transform.position, position) < 1 && Vector2.Distance(closestBoardObj.transform.position, closestCircuitObj.transform.position) > 0.1)
 		{
-			GameObject block = Instantiate(Prefab, closestObj.transform.position, closestObj.transform.rotation) as GameObject;
+			GameObject block = Instantiate(Prefab, closestBoardObj.transform.position, closestBoardObj.transform.rotation) as GameObject;
 			SpriteRenderer renderer = block.GetComponent<SpriteRenderer>();
 			renderer.sortingOrder = 101;
-			block.transform.position = new Vector3(block.transform.position.x, closestObj.transform.position.y, 0.1046143f);
-			block.transform.parent = closestObj.transform.parent.parent;
-			closestObj.transform.parent.parent.GetComponent<TestCurrentController>()._circuits.Add(block.GetComponent<BaseCircuit>());
+			block.transform.position = new Vector3(block.transform.position.x, closestBoardObj.transform.position.y, 0.1046143f);
+			block.transform.parent = closestBoardObj.transform.parent.parent;
+			closestBoardObj.transform.parent.parent.GetComponent<TestCurrentController>()._circuits.Add(block.GetComponent<BaseCircuit>());
 			_blocks.Add(block.GetComponent<EngComponent>());
 		}
 	}
