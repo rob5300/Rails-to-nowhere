@@ -8,8 +8,8 @@ public class BaseCircuit : EngComponent
 	protected List<RaycastHit2D> _oldResults;
 	[SerializeField]
 	protected float _current;
-	private List<BaseCircuit> _pseudoParents = new List<BaseCircuit>();
-	private List<BaseCircuit> _pseudoChildren = new List<BaseCircuit>();
+	protected List<BaseCircuit> _pseudoParents = new List<BaseCircuit>();
+    protected List<BaseCircuit> _pseudoChildren = new List<BaseCircuit>();
 	public virtual float Current
 	{
 		get
@@ -73,7 +73,7 @@ public class BaseCircuit : EngComponent
 		Current = power;
 	}
 
-	private void VerifyCurrent(List<RaycastHit2D> rayCollection)
+	protected void VerifyCurrent(List<RaycastHit2D> rayCollection)
 	{
 		foreach (RaycastHit2D result in rayCollection)
 		{

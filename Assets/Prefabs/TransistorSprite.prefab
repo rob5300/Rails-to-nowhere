@@ -9,57 +9,57 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000013222309778}
+  m_RootGameObject: {fileID: 1000012864504050}
   m_IsPrefabParent: 1
---- !u!1 &1000013222309778
+--- !u!1 &1000012864504050
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000012090370916}
-  - 212: {fileID: 212000011100455098}
-  - 114: {fileID: 114000010126223058}
+  - 4: {fileID: 4000010382751820}
+  - 212: {fileID: 212000011231123460}
+  - 114: {fileID: 114000010273499204}
   m_Layer: 0
-  m_Name: Iron
+  m_Name: TransistorSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000012090370916
+--- !u!4 &4000010382751820
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013222309778}
+  m_GameObject: {fileID: 1000012864504050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.758, y: 4.417, z: 574.75}
+  m_LocalPosition: {x: 7.871868, y: 2.5567586, z: 573.4868}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000010126223058
+--- !u!114 &114000010273499204
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013222309778}
+  m_GameObject: {fileID: 1000012864504050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d036fad224d14b240b6a8f6863e9820d, type: 3}
+  m_Script: {fileID: 11500000, guid: 69940f77556149f4184c508def95a036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 1000012434396406, guid: 9c636272edb017148a8f89387a692cba, type: 2}
-  _puzzleCam: {fileID: 0}
---- !u!212 &212000011100455098
+  _connected: 0
+  _current: 0
+--- !u!212 &212000011231123460
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013222309778}
+  m_GameObject: {fileID: 1000012864504050}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 101
-  m_Sprite: {fileID: 21300000, guid: 83b0896f5e194a04d90df988087bd707, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 54f1bdabd2b2cc54f9faac2a01442bec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -13,6 +13,7 @@ public class TestCurrentController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        _circuits.RemoveAll(x => x == null);
 		if (_circuits.Where(x => x.name == "EndGoal" && x.Connected == true).Any())
 		{
 			Destroy(_pcb);

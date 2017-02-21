@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692546, g: 0.49678743, b: 0.5750859, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692492, g: 0.4967869, b: 0.57508546, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -15543,7 +15543,7 @@ Prefab:
     - target: {fileID: 114000013009607870, guid: d0b3a1612c2e1814096846bbbaaf5923,
         type: 2}
       propertyPath: _current
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0b3a1612c2e1814096846bbbaaf5923, type: 2}
@@ -21016,6 +21016,75 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1001 &1330350128
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000012090370916, guid: b10212114f8c9ef4fa259ed946083d0a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012090370916, guid: b10212114f8c9ef4fa259ed946083d0a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.417
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012090370916, guid: b10212114f8c9ef4fa259ed946083d0a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 574.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012090370916, guid: b10212114f8c9ef4fa259ed946083d0a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012090370916, guid: b10212114f8c9ef4fa259ed946083d0a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012090370916, guid: b10212114f8c9ef4fa259ed946083d0a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012090370916, guid: b10212114f8c9ef4fa259ed946083d0a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012090370916, guid: b10212114f8c9ef4fa259ed946083d0a, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010126223058, guid: b10212114f8c9ef4fa259ed946083d0a,
+        type: 2}
+      propertyPath: _solder
+      value: 
+      objectReference: {fileID: 1000012434396406, guid: 9c636272edb017148a8f89387a692cba,
+        type: 2}
+    - target: {fileID: 114000010126223058, guid: b10212114f8c9ef4fa259ed946083d0a,
+        type: 2}
+      propertyPath: _puzzleCam
+      value: 
+      objectReference: {fileID: 2107134663}
+    - target: {fileID: 114000010126223058, guid: b10212114f8c9ef4fa259ed946083d0a,
+        type: 2}
+      propertyPath: _prefab
+      value: 
+      objectReference: {fileID: 1000012864504050, guid: f9de8ba123c12e740b5c3a18f3eef5f0,
+        type: 2}
+    - target: {fileID: 1000013222309778, guid: b10212114f8c9ef4fa259ed946083d0a, type: 2}
+      propertyPath: m_Name
+      value: Transistor Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000011100455098, guid: b10212114f8c9ef4fa259ed946083d0a,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 54f1bdabd2b2cc54f9faac2a01442bec,
+        type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b10212114f8c9ef4fa259ed946083d0a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1338361865
 GameObject:
   m_ObjectHideFlags: 0
