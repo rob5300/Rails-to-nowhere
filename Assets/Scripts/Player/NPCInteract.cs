@@ -3,26 +3,14 @@ using System.Collections;
 
 public class NPCInteract : MonoBehaviour {
 
-    float ReachDistance = 5;
+    void Start() {
+        Player.interactEvent += OnRaycastHit;
+    }
 
-    Vector3 raycastStart;
-    Vector3 fowardDirection;
-
-    RaycastHit hitNPC;
-
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.F)) {
-            raycastStart = Camera.main.transform.position;
-            fowardDirection = Camera.main.transform.TransformDirection(Vector3.forward);
-
-            if (Physics.Raycast(raycastStart, fowardDirection, out hitNPC, ReachDistance)) {
-                StoryNPC npc = hitNPC.transform.GetComponent<StoryNPC>();
-                if (npc != null) {
-                    if (npc.Interactable) {
-
-                    }
-                }
-            }
+    void OnRaycastHit(GameObject hit) {
+        StoryNPC npc = hit.gameObject.GetComponent<StoryNPC>();
+        if (npc != null && !UI.MenuOpen) {
+            if (npc.Interactable && npc.InitialDialogueNodeName != null) UI.DialogueConversation(DialogueController.GetNode(npc.InitialDialogueNodeName)); 
         }
     }
 }

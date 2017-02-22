@@ -2,18 +2,24 @@
 
 public class DialogueNode {
     public string Text = "";
-    public string Name = "New Node";
-    public string Optiontitle;
+    public string Key = "New Node";
+    public string ResponseText;
     //key is the shown text on the response button, value is the name of the corrisponding dialoguenode.
-    public List<string> Responses = new List<string>();
+    public List<string> ResponseNodes = new List<string>();
 
-    public DialogueNode(string name, string text) {
-        Name = name;
+    public DialogueNode(string key, string text) {
+        Key = key.ToLower();
         Text = text;
     }
 
+    public DialogueNode(string key, string text, string responsetext) {
+        Key = key.ToLower();
+        Text = text;
+        ResponseText = responsetext;
+    }
+
     public void AddResponse(string key) {
-        if (Responses.Contains(key)) return;
-        Responses.Add(key);
+        if (ResponseNodes.Contains(key)) return;
+        ResponseNodes.Add(key);
     }
 }
