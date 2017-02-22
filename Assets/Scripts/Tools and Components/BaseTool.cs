@@ -54,6 +54,7 @@ public abstract class BaseTool : MonoBehaviour {
 	// Update is called once per frame
 	protected virtual void Update()
 	{
+		_blocks.RemoveAll(x => x == null);
 		_mouseInWorldSpace = PuzzleCam.ScreenToWorldPoint(Input.mousePosition);
 		if (Input.GetKeyDown(KeyCode.E) && !_move && Vector2.Distance(_mouseInWorldSpace, transform.position) < 0.4)
 		{
@@ -86,7 +87,7 @@ public abstract class BaseTool : MonoBehaviour {
 		if (Vector2.Distance(closestObj.transform.position, position) < 1 && closestObj.tag == Prefab.tag && closestObj.name.Contains(Prefab.name))
 		{
 			_blocks.Remove(closestObj.GetComponent<EngComponent>());
-			closestObj.transform.parent.GetComponent<TestCurrentController>()._circuits.Remove(closestObj.GetComponent<EngComponent>());
+			closestObj.transform.parent.GetComponent<TestCurrentController>()._components.Remove(closestObj.GetComponent<EngComponent>());
 			Destroy(closestObj);
 		}
 	}
@@ -94,13 +95,6 @@ public abstract class BaseTool : MonoBehaviour {
 	protected virtual void PlaceObject(Vector3 position)
 	{
 		GameObject closestBoardObj = _boardAreas.OrderBy(x => Vector2.Distance(position, x.transform.position)).First();
-		foreach (EngComponent comp in _blocks)
-		{
-			if (comp == null)
-			{
-				_blocks.Remove(comp);
-			}
-		}
 		GameObject closestCircuitObj = _blocks.OrderBy(x => Vector2.Distance(position, x.transform.position)).First().gameObject;
 		if (Vector2.Distance(closestBoardObj.transform.position, position) < 1 && Vector2.Distance(closestBoardObj.transform.position, closestCircuitObj.transform.position) > 0.1)
 		{
@@ -109,7 +103,7 @@ public abstract class BaseTool : MonoBehaviour {
 			renderer.sortingOrder = 101;
 			block.transform.position = new Vector3(block.transform.position.x, closestBoardObj.transform.position.y, 0.1046143f);
 			block.transform.parent = closestBoardObj.transform.parent.parent;
-			closestBoardObj.transform.parent.parent.GetComponent<TestCurrentController>()._circuits.Add(block.GetComponent<BaseCircuit>());
+			closestBoardObj.transform.parent.parent.GetComponent<TestCurrentController>()._components.Add(block.GetComponent<BaseCircuit>());
 			_blocks.Add(block.GetComponent<EngComponent>());
 		}
 	}
