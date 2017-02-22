@@ -5,12 +5,6 @@ using System.Linq;
 
 public class Transistor : BaseCircuit 
 {
-
-    public override float Current { get; set; }
-                                       // Use this for initialization
-    void Start () {
-	
-	}
 	
 	// Update is called once per frame
 	protected override void Update () 
@@ -25,6 +19,10 @@ public class Transistor : BaseCircuit
 				{
 					BaseCircuit botSideConnection = conns.First().transform.GetComponent<BaseCircuit>();
 					Current = botSideConnection.Current;
+				}
+				else
+				{
+					Current = 0f;
 				}
 
             }

@@ -55,7 +55,7 @@ public abstract class BaseTool : MonoBehaviour {
 	protected virtual void Update()
 	{
 		_mouseInWorldSpace = PuzzleCam.ScreenToWorldPoint(Input.mousePosition);
-		if (Input.GetKeyDown(KeyCode.E) && !_move && Vector2.Distance(_mouseInWorldSpace, transform.position) < 1)
+		if (Input.GetKeyDown(KeyCode.E) && !_move && Vector2.Distance(_mouseInWorldSpace, transform.position) < 0.4)
 		{
 			_move = true;
 		}
@@ -94,8 +94,14 @@ public abstract class BaseTool : MonoBehaviour {
 	protected virtual void PlaceObject(Vector3 position)
 	{
 		GameObject closestBoardObj = _boardAreas.OrderBy(x => Vector2.Distance(position, x.transform.position)).First();
+		foreach (EngComponent comp in _blocks)
+		{
+			if (comp == null)
+			{
+				_blocks.Remove(comp);
+			}
+		}
 		GameObject closestCircuitObj = _blocks.OrderBy(x => Vector2.Distance(position, x.transform.position)).First().gameObject;
-		print(Vector2.Distance(closestBoardObj.transform.position, closestCircuitObj.transform.position));
 		if (Vector2.Distance(closestBoardObj.transform.position, position) < 1 && Vector2.Distance(closestBoardObj.transform.position, closestCircuitObj.transform.position) > 0.1)
 		{
 			GameObject block = Instantiate(Prefab, closestBoardObj.transform.position, closestBoardObj.transform.rotation) as GameObject;

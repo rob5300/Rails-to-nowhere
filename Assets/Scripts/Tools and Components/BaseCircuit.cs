@@ -5,6 +5,15 @@ using System.Linq;
 
 public class BaseCircuit : EngComponent
 {
+	[SerializeField]
+	protected  List<string> _sourceNames;
+
+	protected List<string> SourceNames
+	{
+		get { return _sourceNames; }
+		set { _sourceNames = value; }
+	}
+	
 	protected List<RaycastHit2D> _oldResults;
 	[SerializeField]
 	protected float _current;
@@ -42,6 +51,15 @@ public class BaseCircuit : EngComponent
 		}
 	}
 
+	protected virtual void Start()
+	{
+		if (_sourceNames == null)
+		{
+			_sourceNames = new List<string>();
+		}
+
+	}
+
 	protected override void Update()
 	{
 		base.Update();
@@ -54,16 +72,39 @@ public class BaseCircuit : EngComponent
 		{
 			if (_updateResults.Where(x => x.transform.GetComponent<BaseCircuit>().Current > 0).Any())
 			{
+
 				foreach (BaseCircuit circuitInstance in _updateResults.Select(x => x.transform.GetComponent<BaseCircuit>()).Where(x => x.Current > 0))
 				{
 					_pseudoParents.Add(circuitInstance);
 				}
 			}
 		}
+		else if (_updateResults.Where(x => x.transform.GetComponent<BaseCircuit>().SourceNames.Except(SourceNames).Any() && !_pseudoParents.Contains(x.transform.GetComponent<BaseCircuit>()) && !_pseudoChildren.Contains(x.transform.GetComponent<BaseCircuit>())).Any())
+		{
+			foreach (BaseCircuit circ in _updateResults.Where(x => x.transform.GetComponent<BaseCircuit>().SourceNames.Except(SourceNames).Any() && !_pseudoParents.Contains(x.transform.GetComponent<BaseCircuit>())).Select(x => x.transform.GetComponent<BaseCircuit>()))
+			{
+				_pseudoParents.Add(circ);
+			}
+		}
 		if (_pseudoParents.Contains(this))
 		{
 			_pseudoParents.Remove(this);
 		}
+		foreach (List<string> source in _pseudoParents.Select(x => x.SourceNames))
+		{
+			if (!SourceNames.Any() || source.Except(SourceNames).Any())
+			{
+				foreach (string sourceName in source.Except(SourceNames))
+				{
+					if (sourceName != gameObject.name)
+					{
+						SourceNames.Add(sourceName);
+					}
+
+				}
+			}
+		}
+
 		float power = 0;
 		foreach (BaseCircuit parentCircuit in _pseudoParents)
 		{

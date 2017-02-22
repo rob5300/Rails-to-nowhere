@@ -9,45 +9,45 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000012864504050}
+  m_RootGameObject: {fileID: 1000012731927462}
   m_IsPrefabParent: 1
---- !u!1 &1000012864504050
+--- !u!1 &1000012731927462
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000010382751820}
-  - 212: {fileID: 212000011231123460}
-  - 114: {fileID: 114000010273499204}
-  - 61: {fileID: 61000010456214964}
+  - 4: {fileID: 4000013407097596}
+  - 212: {fileID: 212000013425982258}
+  - 114: {fileID: 114000010052614368}
+  - 61: {fileID: 61000010959678736}
   m_Layer: 0
-  m_Name: TransistorSprite
+  m_Name: ResistorSprite
   m_TagString: Circuit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000010382751820
+--- !u!4 &4000013407097596
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012864504050}
+  m_GameObject: {fileID: 1000012731927462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.871868, y: 2.5567586, z: 573.4868}
+  m_LocalPosition: {x: 5.4821167, y: 3.10034, z: 572.8457}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &61000010456214964
+--- !u!61 &61000010959678736
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012864504050}
+  m_GameObject: {fileID: 1000012731927462}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -56,26 +56,26 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
---- !u!114 &114000010273499204
+--- !u!114 &114000010052614368
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012864504050}
+  m_GameObject: {fileID: 1000012731927462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69940f77556149f4184c508def95a036, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c480ca9f894e7f498d8d06626fd2d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _connected: 0
   _sourceNames: []
   _current: 0
---- !u!212 &212000011231123460
+--- !u!212 &212000013425982258
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012864504050}
+  m_GameObject: {fileID: 1000012731927462}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -99,7 +99,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 54f1bdabd2b2cc54f9faac2a01442bec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70c1ee79f55f1c641b97006aa5700363, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
