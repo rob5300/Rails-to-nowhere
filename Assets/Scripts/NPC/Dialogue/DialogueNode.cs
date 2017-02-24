@@ -1,11 +1,40 @@
 ﻿using System.Collections.Generic;
 
 public class DialogueNode {
-    public string Text = "";
-    public string Key = "New Node";
-    public string ResponseText;
-    //key is the shown text on the response button, value is the name of the corrisponding dialoguenode.
+    private string _text = "";
+    private string _key = "New Node";
+    private string _responseText;
     public List<string> ResponseNodes = new List<string>();
+
+    public string Text {
+        get {
+            return _text;
+        }
+
+        set {
+            _text = value;
+        }
+    }
+
+    public string Key {
+        get {
+            return _key;
+        }
+
+        set {
+            _key = value;
+        }
+    }
+
+    public string ResponseText {
+        get {
+            return _responseText;
+        }
+
+        set {
+            _responseText = value;
+        }
+    }
 
     public DialogueNode(string key, string text) {
         Key = key.ToLower();
