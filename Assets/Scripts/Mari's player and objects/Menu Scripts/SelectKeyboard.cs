@@ -23,6 +23,11 @@ public class SelectKeyboard : MonoBehaviour {
             eventSystem.SetSelectedGameObject(selectedObject);
             buttonSelected = true;
         }
+
+       // if(!selectedObject.parent.enabled)
+       // {
+           // eventSystem.SetSelectedGameObject(mainmenu.buttons[0]);
+       // }
     }
 
     private void OnDisable()
