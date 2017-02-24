@@ -366,10 +366,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -768,7 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -825,7 +825,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400008, guid: a571fc874b3aa49478e3ef19da2a119a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.039
+      value: -0.008
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a571fc874b3aa49478e3ef19da2a119a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -833,23 +833,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a571fc874b3aa49478e3ef19da2a119a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.051
+      value: -0.034
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a571fc874b3aa49478e3ef19da2a119a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 2.7524907e-20
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a571fc874b3aa49478e3ef19da2a119a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.037223686
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a571fc874b3aa49478e3ef19da2a119a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.0000000044374087
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a571fc874b3aa49478e3ef19da2a119a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.999307
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a571fc874b3aa49478e3ef19da2a119a, type: 3}
       propertyPath: m_RootOrder
@@ -1198,6 +1198,10 @@ Prefab:
     - target: {fileID: 100008, guid: a571fc874b3aa49478e3ef19da2a119a, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: a571fc874b3aa49478e3ef19da2a119a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 4.144
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a571fc874b3aa49478e3ef19da2a119a, type: 3}
