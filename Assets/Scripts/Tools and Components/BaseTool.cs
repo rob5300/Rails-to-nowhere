@@ -56,7 +56,7 @@ public abstract class BaseTool : MonoBehaviour {
 	{
 		_blocks.RemoveAll(x => x == null);
 		_mouseInWorldSpace = PuzzleCam.ScreenToWorldPoint(Input.mousePosition);
-		if (Input.GetKeyDown(KeyCode.E) && !_move && Vector2.Distance(_mouseInWorldSpace, transform.position) < 0.4)
+		if (Input.GetKeyDown(KeyCode.E) && !_move && Vector2.Distance(_mouseInWorldSpace, transform.position) < (GetComponent<Renderer>().bounds.size.x / 2) + 0.02f)
 		{
 			_move = true;
 		}

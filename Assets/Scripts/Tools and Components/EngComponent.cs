@@ -33,6 +33,6 @@ public abstract class EngComponent : MonoBehaviour
 
 	protected List<RaycastHit2D> CheckConnections()
 	{
-		return Physics2D.CircleCastAll(transform.position, 0.180f, Vector2.zero, 0f).Where(x => x.transform.tag == "Circuit").ToList();
+		return Physics2D.CircleCastAll(transform.position, (GetComponent<Renderer>().bounds.size.x / 2) + 0.01f, Vector2.zero, 0f).Where(x => x.transform.tag == "Circuit").ToList();
 	}
 }
