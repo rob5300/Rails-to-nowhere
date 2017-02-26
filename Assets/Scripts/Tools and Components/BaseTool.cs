@@ -81,7 +81,7 @@ public abstract class BaseTool : MonoBehaviour {
 
 	}
 
-	protected virtual void RemoveObject(Vector3 position)
+	protected virtual void RemoveObject(Vector3 position = default(Vector3))
 	{
 		GameObject closestObj = _blocks.OrderBy(x => Vector2.Distance(position, x.transform.position)).First().gameObject;
 		if (Vector2.Distance(closestObj.transform.position, position) < 1 && closestObj.tag == Prefab.tag && closestObj.name.Contains(Prefab.name))
@@ -92,7 +92,7 @@ public abstract class BaseTool : MonoBehaviour {
 		}
 	}
 
-	protected virtual void PlaceObject(Vector3 position)
+	protected virtual void PlaceObject(Vector3 position = default(Vector3))
 	{
 		GameObject closestBoardObj = _boardAreas.OrderBy(x => Vector2.Distance(position, x.transform.position)).First();
 		GameObject closestCircuitObj = _blocks.OrderBy(x => Vector2.Distance(position, x.transform.position)).First().gameObject;
