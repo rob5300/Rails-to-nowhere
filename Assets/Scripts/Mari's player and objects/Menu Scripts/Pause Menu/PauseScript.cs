@@ -24,12 +24,14 @@ public class PauseScript : MonoBehaviour {
             image.gameObject.SetActive(true);
             Time.timeScale = 0;
             FPlayer.GetComponent<FirstPersonController>().enabled = false;
+            UnlockCursor();
         }
         else
         {
             image.gameObject.SetActive(false);
             Time.timeScale = 1;
             FPlayer.GetComponent<FirstPersonController>().enabled = true;
+            LockCursor();
         }
     }
 
@@ -37,16 +39,6 @@ public class PauseScript : MonoBehaviour {
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-    }
-
-    public static void UnlockPlayerController()
-    {
-        Player.player.Controller.enabled = true;
-    }
-
-    public static void LockPlayerController()
-    {
-        Player.player.Controller.enabled = false;
     }
 
     public static void LockCursor()
