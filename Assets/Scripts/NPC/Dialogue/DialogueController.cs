@@ -2,10 +2,15 @@
 
 public static class DialogueController{
 
-    private static Dictionary<string, DialogueNode> _NodeLibrary = new Dictionary<string, DialogueNode>();
+    private static Dictionary<string, DialogueNode> _nodeLibrary = new Dictionary<string, DialogueNode>();
 
-    //For testing purposes.
-    static DialogueController() {
+	public static Dictionary<string, DialogueNode> NodeDictionary
+	{
+		get { return _nodeLibrary; }
+	}
+
+	//For testing purposes.
+	static DialogueController() {
         DialogueNode test01 = new DialogueNode("test01", "This is a test text node.", "Back to test01");
         test01.AddResponse("response1");
         test01.AddResponse("response2");
@@ -19,14 +24,14 @@ public static class DialogueController{
     }
 
     public static void AddDialogueNode(DialogueNode node) {
-        if (_NodeLibrary.ContainsKey(node.Key)) {
+        if (_nodeLibrary.ContainsKey(node.Key)) {
             return;
         }
-        _NodeLibrary.Add(node.Key, node);
+        _nodeLibrary.Add(node.Key, node);
     }
 
     public static DialogueNode GetNode(string nodeKey) {
-        return _NodeLibrary[nodeKey.ToLower()];
+        return _nodeLibrary[nodeKey.ToLower()];
     }
 
     public static List<DialogueNode> GetNodeResponses(DialogueNode node) {
