@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class InteractTest : MonoBehaviour {
+public class EntityInteract : MonoBehaviour {
 
     public float ReachDistance;
-    public float velocityRatio = 0f;
+    public float velocityRatio = 10f;
     public Text debugVel;
     public float VelocityClamp = 10;
 
@@ -16,6 +16,7 @@ public class InteractTest : MonoBehaviour {
     Vector3 newMovePoint;
 
     GameObject grabbedObject;
+    Entity grabbedEntity;
 
     void Update() {
         //--We have to recalculate these each frame, as the camera moves all the time--
@@ -26,23 +27,27 @@ public class InteractTest : MonoBehaviour {
 
         //We check if the right mouse button is being held down AND we are not already holding an object.
         if (Input.GetMouseButton(1) && !_haveGrabbedObject) {
-            //We perform a raycast to find an object in front of us. Physics.Raycast returns true if it has hit an object.
-            if (Physics.Raycast(raycastStart, fowardDirection, out grabbedHit, ReachDistance)) {
-                //We have hit an object. Check if it has a rigidbody.
-                if (grabbedHit.collider.GetComponent<Rigidbody>() != null) {
-                    //Record that we are now carrying an object.
-                    _haveGrabbedObject = true;
-                    //Store the gameobject for later use.
-                    grabbedObject = grabbedHit.collider.gameObject;
-                    //Record the initial offset from the object to the camera. Means that the new position that we move the object to will be the same distance away from the camera always.
-                    offset = Camera.main.transform.InverseTransformPoint(grabbedObject.transform.position);
-                }
-            }
+            GrabObject();
         }
         //If we release right click and have an object, we drop it.
         else if (_haveGrabbedObject && !Input.GetMouseButton(1)) {
-            _haveGrabbedObject = false;
-            grabbedObject = null;
+            DropObject();
+        }
+    }
+
+    private void GrabObject() {
+        //We perform a raycast to find an object in front of us. Physics.Raycast returns true if it has hit an object.
+        if (Physics.Raycast(raycastStart, fowardDirection, out grabbedHit, ReachDistance)) {
+            //We have hit an object. Check if it has a rigidbody.
+            if (grabbedHit.collider.GetComponent<Rigidbody>() != null && grabbedHit.collider.GetComponent<Entity>() != null) {
+                //Record that we are now carrying an object.
+                _haveGrabbedObject = true;
+                //Store the gameobject for later use.
+                grabbedObject = grabbedHit.collider.gameObject;
+                grabbedEntity = grabbedHit.collider.GetComponent<Entity>();
+                //Record the initial offset from the object to the camera. Means that the new position that we move the object to will be the same distance away from the camera always.
+                offset = Camera.main.transform.InverseTransformPoint(grabbedObject.transform.position);
+            }
         }
     }
 
@@ -59,7 +64,15 @@ public class InteractTest : MonoBehaviour {
             //Apply this velocity.
             grabbedObject.GetComponent<Rigidbody>().velocity = newVelocity;
             //Show the object velocity for debugging purposes.
-            debugVel.text = "Velocity: " + grabbedObject.GetComponent<Rigidbody>().velocity;
+            if (debugVel) debugVel.text = "Velocity: " + grabbedObject.GetComponent<Rigidbody>().velocity;
+        }
+    }
+
+    void DropObject() {
+        _haveGrabbedObject = false;
+        grabbedObject = null;
+        if(grabbedEntity is Cog) {
+            ((Cog)grabbedEntity).OnDrop();
         }
     }
 }

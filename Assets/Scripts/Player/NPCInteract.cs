@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Player))]
 public class NPCInteract : MonoBehaviour {
 
     void Start() {
