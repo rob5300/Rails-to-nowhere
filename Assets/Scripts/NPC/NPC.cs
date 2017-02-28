@@ -1,14 +1,58 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
-public abstract class NPC : MonoBehaviour {
+public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
+{
+	[SerializeField]
+	private string _name = "New NPC";
+	[SerializeField]
+	private bool _interactable = true;
+	[SerializeField]
+	private float _health = 1;
 
-    public string Name = "New NPC";
-    public bool Interactable = true;
-    public float Health = 1;
+	public string Name
+	{
+		get
+		{
+			return _name;
+		}
 
-    public abstract void Interact();
+		set
+		{
+			_name = value;
+		}
+	}
+
+	public bool Interactable
+	{
+		get
+		{
+			return _interactable;
+		}
+
+		set
+		{
+			_interactable = value;
+		}
+	}
+
+	public float Health
+	{
+		get
+		{
+			return _health;
+		}
+
+		set
+		{
+			_health = value;
+		}
+	}
+
+	public abstract void Interact();
 
     public void OnTaskComplete() {
 
@@ -34,4 +78,13 @@ public abstract class NPC : MonoBehaviour {
     public void Die() {
         Destroy(this);
     }
+
+	public virtual List<string> GetSerialiseTargets()
+	{
+		List <string> baseProps = new List<string>();
+		baseProps.Add("Name");
+		baseProps.Add("Interactable");
+		baseProps.Add("Health");
+		return baseProps;
+	}
 }
