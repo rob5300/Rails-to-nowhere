@@ -47,6 +47,7 @@ public class EntityInteract : MonoBehaviour {
                 grabbedEntity = grabbedHit.collider.GetComponent<Entity>();
                 //Record the initial offset from the object to the camera. Means that the new position that we move the object to will be the same distance away from the camera always.
                 offset = Camera.main.transform.InverseTransformPoint(grabbedObject.transform.position);
+                EntityTasks();
             }
         }
     }
@@ -65,6 +66,14 @@ public class EntityInteract : MonoBehaviour {
             grabbedObject.GetComponent<Rigidbody>().velocity = newVelocity;
             //Show the object velocity for debugging purposes.
             if (debugVel) debugVel.text = "Velocity: " + grabbedObject.GetComponent<Rigidbody>().velocity;
+        }
+    }
+
+    void EntityTasks() {
+        if(grabbedEntity is Cog) {
+            if (((Cog)grabbedEntity).Mounted) {
+                ((Cog)grabbedEntity).OnPickup();
+            }
         }
     }
 
