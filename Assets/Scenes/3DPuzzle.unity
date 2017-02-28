@@ -288,8 +288,9 @@ GameObject:
   - 33: {fileID: 708494285}
   - 23: {fileID: 708494284}
   - 64: {fileID: 708494283}
+  - 114: {fileID: 708494287}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Cog Mount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,9 +354,22 @@ Transform:
   m_LocalPosition: {x: -3.54, y: 2.13, z: 6.195}
   m_LocalScale: {x: 0.71687573, y: 0.4, z: 0.71687496}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 996952667}
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!114 &708494287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 708494282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b3c06a5e17cc048b0f26081dd34373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MountPosition: {fileID: 996952667}
 --- !u!1 &979722416
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +432,34 @@ Transform:
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!1 &996952666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 996952667}
+  m_Layer: 0
+  m_Name: MountPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &996952667
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 996952666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.47, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 708494286}
   m_RootOrder: 0
 --- !u!1001 &1145501308
 Prefab:
