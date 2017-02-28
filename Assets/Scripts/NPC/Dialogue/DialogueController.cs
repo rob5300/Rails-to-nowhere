@@ -7,7 +7,7 @@ public static class DialogueController{
 	public static Dictionary<string, DialogueNode> NodeDictionary
 	{
 		get { return _nodeLibrary; }
-	}
+	}   
 
 	//For testing purposes.
 	static DialogueController() {
