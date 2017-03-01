@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Player))]
 public class EntityInteract : MonoBehaviour {
 
     public float ReachDistance;
@@ -17,6 +19,17 @@ public class EntityInteract : MonoBehaviour {
 
     GameObject grabbedObject;
     Entity grabbedEntity;
+
+    void Start() {
+        Player.interactEvent += OnRaycastHit;
+    }
+    
+    //Ensures that Entities can react if they are interacted with.
+    private void OnRaycastHit(GameObject eventObject) {
+        if(eventObject.GetComponent<Entity>() != null) {
+            eventObject.GetComponent<Entity>().OnInteract();
+        }
+    }
 
     void Update() {
         //--We have to recalculate these each frame, as the camera moves all the time--
