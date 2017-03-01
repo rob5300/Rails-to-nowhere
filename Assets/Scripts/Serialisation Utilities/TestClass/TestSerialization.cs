@@ -13,9 +13,13 @@ public class TestSerialization : MonoBehaviour {
 
 	public void Serialise()
 	{
-		print("fired");
 		_storyNPCSerialiser.SerialiseInstance(NPC.GetComponent<StoryNPC>(), new System.IO.FileInfo("test.xml"));
 
+	}
+
+	public void Deserialise()
+	{
+		StoryNPC npc =	_storyNPCSerialiser.DeserialiseXML(new System.IO.FileInfo("test.xml"));
 	}
 
 }
