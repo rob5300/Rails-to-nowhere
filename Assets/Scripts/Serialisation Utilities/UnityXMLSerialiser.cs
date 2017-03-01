@@ -7,7 +7,6 @@ using System.Xml.Serialization;
 using System.Xml;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Linq.Expressions;
 using System;
 
 /// <summary>
@@ -98,15 +97,27 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 				prop.SetValue(newObj, Convert.ChangeType(propDeserialiser.Deserialize(xr), prop.PropertyType), null);
 			}
 		}
-		List<PropertyInfo> inheritedProps = typeof(T).GetType().BaseType.GetProperties().Where(x => targets.Contains(x.Name)).Intersect(props).ToList();
-		foreach (PropertyInfo prop in inheritedProps)
+		Type baseType = typeof(T).BaseType;
+		while (baseType != typeof(MonoBehaviour))
 		{
-			using (XmlReader xr = objDoc.Root.CreateReader())
+			IEnumerable<PropertyInfo> inheritedProps = baseType.GetProperties(BindingFlags.DeclaredOnly).Where(x => targets.Contains(x.Name));
+			if (inheritedProps.Any())
 			{
-				XmlSerializer propDeserialiser = new XmlSerializer(prop.PropertyType, new XmlRootAttribute("Inject"));
-				prop.SetValue(newObj, Convert.ChangeType(propDeserialiser.Deserialize(xr), prop.PropertyType), null);
+				inheritedProps = inheritedProps.Intersect(props).ToList();
+				foreach (PropertyInfo prop in inheritedProps)
+				{
+					using (XmlReader xr = objDoc.Root.CreateReader())
+					{
+						XmlSerializer propDeserialiser = new XmlSerializer(prop.PropertyType, new XmlRootAttribute("Inject"));
+						prop.SetValue(newObj, Convert.ChangeType(propDeserialiser.Deserialize(xr), prop.PropertyType), null);
+					}
+				}
 			}
+
+			baseType = baseType.BaseType;
+
 		}
+
 		return newObj;
 	}
 }

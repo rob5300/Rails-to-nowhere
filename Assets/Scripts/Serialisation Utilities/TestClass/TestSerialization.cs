@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 public class TestSerialization : MonoBehaviour {
 
 	private UnityXMLSerialiser<StoryNPC> _storyNPCSerialiser;
@@ -20,6 +19,11 @@ public class TestSerialization : MonoBehaviour {
 	public void Deserialise()
 	{
 		StoryNPC npc =	_storyNPCSerialiser.DeserialiseXML(new System.IO.FileInfo("test.xml"));
+	}
+
+	public void TestStringLambda()
+	{
+
 	}
 
 }
