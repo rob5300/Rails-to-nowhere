@@ -16,5 +16,10 @@ public class VolumeChange : MonoBehaviour
     {
         masterMixer.SetFloat("MusicVol", musicLvl); //same as above but for music
     }
+
+    public void SetMasterLvl(float masterLvl )
+    {
+        masterMixer.SetFloat("masterVolume", masterLvl);
+    }
 }
 
