@@ -1531,9 +1531,7 @@ GameObject:
   - 33: {fileID: 901239417}
   - 65: {fileID: 901239416}
   - 23: {fileID: 901239415}
-  - 114: {fileID: 901239419}
   - 54: {fileID: 901239421}
-  - 114: {fileID: 901239420}
   - 114: {fileID: 901239422}
   m_Layer: 0
   m_Name: Cube
@@ -1597,38 +1595,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 901239414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!114 &901239419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 901239414}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7950a1d32654eb428385aaa1eedf7a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collidedmesh: 
---- !u!114 &901239420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 901239414}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196e28a44270ff24798634cd1d5659c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 563872847}
-  playerCam: {fileID: 497933408}
-  throwForce: 200
 --- !u!54 &901239421
 Rigidbody:
   m_ObjectHideFlags: 0

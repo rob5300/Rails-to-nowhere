@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class SelectKeyboard : MonoBehaviour {
 
@@ -7,11 +8,12 @@ public class SelectKeyboard : MonoBehaviour {
     public GameObject onenableob;
     public GameObject ondisableob;
 
-    public void OnEnable() {
-        eventSystem.SetSelectedGameObject(onenableob);
+    public void OnEnable()
+    {
+            eventSystem.SetSelectedGameObject(onenableob);
     }
 
-    private void OnDisable() {
+    public void OnDisable() {
         eventSystem.SetSelectedGameObject(ondisableob);
     }
 }
