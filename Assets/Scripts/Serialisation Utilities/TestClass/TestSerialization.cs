@@ -15,7 +15,7 @@ public class TestSerialization : MonoBehaviour {
 
 	public void Serialise()
 	{
-		_storyNPCSerialiser.SerialiseInstance(NPC.GetComponent<StoryNPC>(), new System.IO.FileInfo("test.xml"));
+		_storyNPCSerialiser.SerialiseInstance(NPC.GetComponent<StoryNPC>(), new System.IO.FileInfo(Application.streamingAssetsPath + @"\StoryNPC.xml"));
 
 	}
 

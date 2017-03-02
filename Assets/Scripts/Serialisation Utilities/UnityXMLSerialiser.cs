@@ -78,9 +78,9 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 	/// </summary>
 	/// <param name="targetInfo">Location of the file to deserialise.</param>
 	/// <returns>Target MonoBehaviour type with deserialised values.</returns>
-	public T DeserialiseXML(FileInfo targetInfo)
+	public T DeserialiseXML(FileInfo targetInfo, bool clearOldInstances = true)
 	{
-		if (_template.GetComponent<T>() != null)
+		if (_template.GetComponent<T>() != null && clearOldInstances)
 		{
 			GameObject.Destroy(_template.GetComponent<T>());
 		}
