@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1615521436}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &119900577
@@ -226,6 +226,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!1 &150793640 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012110130350, guid: d55baefa12603b640a70cb3b879cafdd,
+    type: 2}
+  m_PrefabInternal: {fileID: 489314268}
 --- !u!1 &258795031
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,22 +374,22 @@ Prefab:
     - target: {fileID: 224000013540083370, guid: d55baefa12603b640a70cb3b879cafdd,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 160
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 224000013540083370, guid: d55baefa12603b640a70cb3b879cafdd,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: -225.13
       objectReference: {fileID: 0}
     - target: {fileID: 224000013540083370, guid: d55baefa12603b640a70cb3b879cafdd,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -420
+      value: 380
       objectReference: {fileID: 0}
     - target: {fileID: 224000013540083370, guid: d55baefa12603b640a70cb3b879cafdd,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: -218
+      value: 383
       objectReference: {fileID: 0}
     - target: {fileID: 224000013540083370, guid: d55baefa12603b640a70cb3b879cafdd,
         type: 2}
@@ -394,12 +399,12 @@ Prefab:
     - target: {fileID: 224000013540083370, guid: d55baefa12603b640a70cb3b879cafdd,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224000013540083370, guid: d55baefa12603b640a70cb3b879cafdd,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224000013540083370, guid: d55baefa12603b640a70cb3b879cafdd,
         type: 2}
@@ -431,6 +436,90 @@ Prefab:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 684406181}
+    - target: {fileID: 1000013705083278, guid: d55baefa12603b640a70cb3b879cafdd, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013248427206, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013248427206, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000012511046694, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000012511046694, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000012511046694, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000012427243524, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.8888889
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000012427243524, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010046543016, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.8888889
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010046543016, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.8888889
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010046543016, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000014186299088, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013167080976, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010573072482, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: onenableob
+      value: 
+      objectReference: {fileID: 150793640}
+    - target: {fileID: 114000010573072482, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: ondisableob
+      value: 
+      objectReference: {fileID: 1615521436}
+    - target: {fileID: 114000013340664118, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013340664118, guid: d55baefa12603b640a70cb3b879cafdd,
+        type: 2}
+      propertyPath: m_MaxValue
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d55baefa12603b640a70cb3b879cafdd, type: 2}
   m_IsPrefabParent: 0
@@ -1330,7 +1419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 119900576}
-  selectedObject: {fileID: 2075462967}
+  onenableob: {fileID: 0}
+  ondisableob: {fileID: 0}
 --- !u!1 &958997716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,7 +1941,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 119900576}
-  selectedObject: {fileID: 1615521436}
+  onenableob: {fileID: 0}
+  ondisableob: {fileID: 0}
 --- !u!1 &1615521436
 GameObject:
   m_ObjectHideFlags: 0

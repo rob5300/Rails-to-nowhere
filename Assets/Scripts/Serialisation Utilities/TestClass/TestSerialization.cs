@@ -21,7 +21,7 @@ public class TestSerialization : MonoBehaviour {
 
 	public void Deserialise()
 	{
-		StoryNPC npc =	_storyNPCSerialiser.DeserialiseXML(new System.IO.FileInfo("test.xml"));
+		StoryNPC npc =	_storyNPCSerialiser.DeserialiseXML(new System.IO.FileInfo(Application.streamingAssetsPath + @"\StoryNPC.xml"));
 	}
 
 }
