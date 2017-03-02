@@ -50,16 +50,6 @@ public class SerialiserUI : EditorWindow
 				DrawFields(instance);
 			}
 		}
-
-
-
-		//myString = EditorGUILayout.TextField("Text Field", myString);
-		//ditorGUILayout.Toggle()
-		//EditorGUILayout.
-		//groupEnabled = EditorGUILayout.BeginToggleGroup("Optional Settings", groupEnabled);
-		//myBool = EditorGUILayout.Toggle("Toggle", myBool);
-		//myFloat = EditorGUILayout.Slider("Slider", myFloat, -3, 3);
-		//EditorGUILayout.EndToggleGroup();
 	}
 
 	private static void DynamicallyLoadSerialisedFiles()
@@ -95,8 +85,6 @@ public class SerialiserUI : EditorWindow
 		}
 		foreach (string prop in targetProps)
 		{
-			//if (!existingUnityFields.Where(x => x.name == prop).Any())
-			//{
 			PropertyInfo propInfo = target.GetType().GetProperty(prop);
 			if (propInfo.PropertyType.IsAssignableFrom(typeof(UnityEngine.Object)))
 			{
@@ -118,16 +106,7 @@ public class SerialiserUI : EditorWindow
 					Debug.Log("Non-monobehaviour type could not be serialised. Reason: Not primitive.");
 				}
 			}
-			//this.Repaint();
 		}
 		EditorGUILayout.Space();
 	}
-
-	//void OnValidate()
-	//{
-	//	foreach (IUnityXMLSerialisable instance in _instances)
-	//	{
-	//		DrawFields(instance);
-	//	}
-	//}
 }
