@@ -12,7 +12,7 @@ public class LevelGenerator : MonoBehaviour {
     Vector3 _placementPoint;
     GameObject _selectedCarriage;
 
-    public int TotalCarriageAmount { get { return StoryCarriageAmount + FillerCarriageAmount; }}
+    public int TotalCarriageAmount { get { return StoryCarriageAmount + FillerCarriageAmount; } }
     public int StoryCarriageAmount = 1;
     public int FillerCarriageAmount = 0;
 
@@ -35,13 +35,19 @@ public class LevelGenerator : MonoBehaviour {
         _storyCarriages.Add(Resources.Load<GameObject>("Carriages/StoryCarriage1"));
         _fillerCarriages.Add(Resources.Load<GameObject>("Carriages/FillerCarriage1"));
 
+
+        if (StoryCarriageAmount < 1) {
+            StoryCarriageAmount = 1;
+            Debug.LogError("Story Carriage Amount was Zero (0). Generation will continue with one forced Story Carriage.");
+        }
         int storyCount = 0;
         int storyPlaced = 0;
         int fillerCount = 0;
         GameObject toAddCandidate;
         //Select random carriages and place into list.
         while (_carriagesToPlace.Count < TotalCarriageAmount) {
-            if(storyPlaced < Mathf.Floor(StoryCarriageAmount / FillerCarriageAmount)) {
+            //The logic here is moved to a method to allow the filler carriage count to be 0. This avoids a DevideByZero.
+            if (StoryToFillerCalc(storyPlaced)) {
                 //Add Story Carriage
                 while (true) {
                     toAddCandidate = _storyCarriages[random.Next(_storyCarriages.Count - 1)];
@@ -51,7 +57,7 @@ public class LevelGenerator : MonoBehaviour {
                         storyPlaced++;
                         break;
                     }
-                    else if(_storyCarriages.Count <= storyCount){
+                    else if (_storyCarriages.Count <= storyCount) {
                         //We need to check if there are not enough carriages to have no duplicates, if there are not then we must accept this selected carriage.
                         _carriagesToPlace.Add(toAddCandidate);
                         storyPlaced++;
@@ -81,6 +87,11 @@ public class LevelGenerator : MonoBehaviour {
                 }
             }
         }
+    }
+
+    bool StoryToFillerCalc(int storyPlaced) {
+        if (FillerCarriageAmount < 1) return false;
+        return storyPlaced < Mathf.Floor(StoryCarriageAmount / FillerCarriageAmount);
     }
 
     void GenerateLevel() {
