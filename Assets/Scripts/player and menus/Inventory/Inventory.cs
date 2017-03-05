@@ -1,16 +1,13 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 public class Inventory {
 
-    public List<ItemSlot> ItemSlots = new List<ItemSlot>();
+    private List<ItemSlot> ItemSlots = new List<ItemSlot>();
 
     public Inventory(int capacity)
     {
         ItemSlots = new List<ItemSlot>(capacity);
-
         ItemSlots.AddRange(Enumerable.Repeat(new ItemSlot(), capacity));
     }
 

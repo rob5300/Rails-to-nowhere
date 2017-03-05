@@ -1,23 +1,21 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 
 public class Item {
 
-    public string itemID;
-    public string itemName;
-    public string itemInfo;
-    public Sprite itemImg;
-    public GameObject itemPrefab;
+    public string ID;
+    public string Name;
+    public string Description;
+    public Sprite InventorySprite;
+    public GameObject Prefab;
 
-    public Item(string name, string id, string info, Sprite img, GameObject prefab)
+    public Item(string name, string id, string description, Sprite img, GameObject prefab)
     {
-        itemName = name;
-        itemID = id;
-        itemInfo = info;
-        itemImg = img;
-        itemPrefab = prefab;
+        Name = name;
+        ID = id;
+        Description = description;
+        InventorySprite = img;
+        Prefab = prefab;
 
         ItemList.Add(id, this);
     }
