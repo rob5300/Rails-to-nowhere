@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -86,5 +87,10 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 		baseProps.Add("Interactable");
 		baseProps.Add("Health");
 		return baseProps;
+	}
+
+	public virtual List<Func<object, object>> GetMappings(string propName)
+	{
+		return null;
 	}
 }

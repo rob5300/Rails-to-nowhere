@@ -6,14 +6,11 @@ using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Linq.Expressions;
 
 public class SerialiserUI : EditorWindow
 {
 	private static int _oldCount = 0;
-	string myString = "New NPC";
-	bool groupEnabled;
-	bool myBool = true;
-	float myFloat = 1.23f;
 	private static Dictionary<IUnityXMLSerialisable, List<UnityEngine.Object>> _serialiseableUnityObjectFields;
 	private static Dictionary<IUnityXMLSerialisable, List<object>> _serialisableObjectFields;
 	private static List<IUnityXMLSerialisable> _instances;
@@ -86,27 +83,118 @@ public class SerialiserUI : EditorWindow
 		foreach (string prop in targetProps)
 		{
 			PropertyInfo propInfo = target.GetType().GetProperty(prop);
+			List<Func<object, object>> anonymousMethods = target.GetMappings(prop);
 			if (propInfo.PropertyType.IsAssignableFrom(typeof(UnityEngine.Object)))
 			{
 				propInfo.SetValue(target, EditorGUILayout.ObjectField(prop + ":", (UnityEngine.Object)propInfo.GetValue(target, null), target.GetType(), true), null);
 			}
 			else if (propInfo.PropertyType.IsPrimitive || propInfo.PropertyType == typeof(string))
 			{
-				var methodGroup = typeof(EditorGUILayout).GetMethods().Where(x => (x.Name.Contains("Field") || x.Name.Contains("Toggle")) && x.IsStatic && !x.Name.Contains("Delay") && (x.ReturnType.IsPrimitive || x.ReturnType == typeof(string)) && !x.Name.Contains("Property"));
-				if (methodGroup.Where(x => x.ReturnType == propInfo.PropertyType).Any())
+				MethodInfo method = GetFieldMethod(target, prop, propInfo.PropertyType);
+				propInfo.SetValue(target, method.Invoke(null, new object[] { prop + ":", propInfo.GetValue(target, null), new GUILayoutOption[0] }), null);
+			}
+			else if (anonymousMethods != null && !propInfo.PropertyType.IsAssignableFrom(typeof(IList)))
+			{
+				RunAnonymousMethodDrawing(target, propInfo, anonymousMethods, propInfo.GetValue(target, null));
+			}
+			else
+			{
+				if (propInfo.PropertyType.IsAssignableFrom(typeof(IList)))
 				{
-					var methodToInvoke = methodGroup
-										.Where(x => x.ReturnType == propInfo.PropertyType && x.GetParameters().Count() == 3 && x.GetParameters()
-												.Where(y => y.GetCustomAttributes(typeof(ParamArrayAttribute), false).Length > 0).Any() && x.GetParameters()
-												.Where(z => z.Name == "label").Any()).First();
-					propInfo.SetValue(target, methodToInvoke.Invoke(null, new object[] { prop + ":", propInfo.GetValue(target, null), new GUILayoutOption[0] }), null);
+					IList resultList = (IList)propInfo.GetValue(target, null);
+					if (propInfo.PropertyType.GetElementType().IsAssignableFrom(typeof(UnityEngine.Object)))
+					{
+						for (int i = 0; i < resultList.Count; i++)
+						{
+							resultList[i] = EditorGUILayout.ObjectField(prop + " - " + i + ":", (UnityEngine.Object)resultList[i], target.GetType(), true);
+						}
+					}
+					else if (propInfo.PropertyType.GetElementType().IsPrimitive || propInfo.PropertyType.GetElementType() == typeof(string))
+					{
+						for (int i = 0; i < resultList.Count; i++)
+						{
+							MethodInfo method = GetFieldMethod(target, prop, propInfo.PropertyType);
+							resultList[i] = method.Invoke(null, new object[] { prop + " - " + i + ":", propInfo.GetValue(target, null), new GUILayoutOption[0] });
+						}
+					}
+					else if (anonymousMethods != null)
+					{
+						RunAnonymousMethodDrawing(target, propInfo, anonymousMethods, resultList);
+					}
+					else
+					{
+						Debug.Log("I died in a fire!");
+					}
 				}
-				else
-				{
-					Debug.Log("Non-monobehaviour type could not be serialised. Reason: Not primitive.");
-				}
+
 			}
 		}
 		EditorGUILayout.Space();
 	}
+
+	private static void RunAnonymousMethodDrawing(IUnityXMLSerialisable target, PropertyInfo prop, List<Func<object, object>> anonymousMethods, IList collection)
+	{
+
+		for (int i = 0; i < collection.Count; i++)
+		{
+			foreach (Func<object, object> methodToRun in anonymousMethods)
+			{
+				object result = methodToRun.Invoke(collection[i]);
+				if (result.GetType().IsPrimitive || result.GetType() == typeof(string))
+				{
+					MethodInfo method = GetFieldMethod(target, prop.Name, result.GetType());
+					result = method.Invoke(null, new object[] { prop + " - " + result.GetType().Name + ", index " + i + ":", result, new GUILayoutOption[0] });
+				}
+				else if (result.GetType().IsAssignableFrom(typeof(IList)))
+				{
+					RunAnonymousMethodDrawing(target, prop, target.GetMappings(result.GetType().Name), (IList)result);
+				}
+				else
+				{
+					RunAnonymousMethodDrawing(target, prop, target.GetMappings(result.GetType().Name), result);
+				}
+
+			}
+		}
+	}
+
+	private static void RunAnonymousMethodDrawing(IUnityXMLSerialisable target, PropertyInfo prop, List<Func<object, object>> anonymousMethods, object targetObject)
+	{
+		foreach (Func<object, object> methodToRun in anonymousMethods)
+		{
+			object result = methodToRun.Invoke(targetObject);
+			if (result.GetType().IsPrimitive || result.GetType() == typeof(string))
+			{
+				MethodInfo method = GetFieldMethod(target, prop.Name, result.GetType());
+				result = method.Invoke(null, new object[] { prop + " - " + result.GetType().Name + ":", result, new GUILayoutOption[0] });
+			}
+			else if (result.GetType().IsAssignableFrom(typeof(IList)))
+			{
+				RunAnonymousMethodDrawing(target, prop, target.GetMappings(result.GetType().Name), (IList)result);
+			}
+			else
+			{
+				RunAnonymousMethodDrawing(target, prop, target.GetMappings(result.GetType().Name), result);
+			}
+
+		}
+	}
+
+	private static MethodInfo GetFieldMethod(IUnityXMLSerialisable target, string prop, Type propInfo)
+	{
+		var methodGroup = typeof(EditorGUILayout).GetMethods().Where(x => (x.Name.Contains("Field") || x.Name.Contains("Toggle")) && x.IsStatic && !x.Name.Contains("Delay") && (x.ReturnType.IsPrimitive || x.ReturnType == typeof(string)) && !x.Name.Contains("Property"));
+		if (methodGroup.Where(x => x.ReturnType == propInfo).Any())
+		{
+			MethodInfo methodToInvoke = methodGroup
+								.Where(x => x.ReturnType == propInfo && x.GetParameters().Count() == 3 && x.GetParameters()
+										.Where(y => y.GetCustomAttributes(typeof(ParamArrayAttribute), false).Length > 0).Any() && x.GetParameters()
+										.Where(z => z.Name == "label").Any()).First();
+			return methodToInvoke;
+		}
+		else
+		{
+			return null;
+		}
+	}
 }
+
