@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692546, g: 0.49678743, b: 0.5750859, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692558, g: 0.49678743, b: 0.57508624, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -223,7 +223,6 @@ GameObject:
   - 114: {fileID: 147153751}
   - 114: {fileID: 147153750}
   - 114: {fileID: 147153754}
-  - 114: {fileID: 147153755}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -326,18 +325,6 @@ MonoBehaviour:
     MainTextArea: {fileID: 1568792194}
     ResponseButtonArea: {fileID: 188337334}
     ResponseButton: {fileID: 289594830}
---- !u!114 &147153755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 147153749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed5123f6795bd45438ce3bf2decf8089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPC: {fileID: 1204123286}
 --- !u!1 &172976470
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +401,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 147153755}
+      - m_Target: {fileID: 1365456135}
         m_MethodName: Serialise
         m_Mode: 1
         m_Arguments:
@@ -1109,7 +1096,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 147153755}
+      - m_Target: {fileID: 1365456135}
         m_MethodName: Deserialise
         m_Mode: 1
         m_Arguments:
@@ -1947,13 +1934,68 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 'Serialize
+
+'
 --- !u!222 &1336552525
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1336552522}
+--- !u!1 &1365456133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1365456136}
+  - 114: {fileID: 1365456135}
+  - 114: {fileID: 1365456134}
+  m_Layer: 0
+  m_Name: RobTestingInterface
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1365456134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1365456133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e08e6e2b311cf47a4dc5c0794cb7a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1365456135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1365456133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc39e3b2f91a9e44880f76407fc2aeeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testob: {fileID: 1365456133}
+--- !u!4 &1365456136
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1365456133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 277.06555, y: 414.73016, z: 16.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
 --- !u!1 &1568792192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2326,7 +2368,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 'de-serialize
+
+'
 --- !u!222 &1930124800
 CanvasRenderer:
   m_ObjectHideFlags: 0
