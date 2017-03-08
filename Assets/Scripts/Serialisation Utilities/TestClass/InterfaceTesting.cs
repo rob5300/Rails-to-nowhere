@@ -8,6 +8,8 @@ public class InterfaceTesting : MonoBehaviour, IUnityXMLSerialisable {
     private List<int> intList = new List<int>();
     private bool testBool = false;
     private Vector3 transformOb = new Vector3(1f, 2f, 3f);
+    [SerializeField]
+    private DialogueNode node = new DialogueNode("node", "textare");
     private List<GameObject> gameobList = new List<GameObject>();
 
 
@@ -51,11 +53,21 @@ public class InterfaceTesting : MonoBehaviour, IUnityXMLSerialisable {
         }
     }
 
+    public DialogueNode Node {
+        get {
+            return node;
+        }
+
+        set {
+            node = value;
+        }
+    }
+
     public List<Func<object, object>> GetMappings(string propName) {
         return new List<Func<object, object>>() { delegate(object o) { return ((DialogueNode)o).Key; }, delegate (object o) { return ((DialogueNode)o).Text; } };
     }
 
     public List<string> GetSerialiseTargets() {
-        return new List<string>() {"IntList", "TestBool", "TransformOb"};
+        return new List<string>() { "Node" };
     }
 }

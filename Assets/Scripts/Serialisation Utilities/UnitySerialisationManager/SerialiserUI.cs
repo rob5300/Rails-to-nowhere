@@ -166,7 +166,7 @@ public class SerialiserUI : EditorWindow
 			if (result.GetType().IsPrimitive || result.GetType() == typeof(string))
 			{
 				MethodInfo method = GetFieldMethod(target, prop.Name, result.GetType());
-				result = method.Invoke(null, new object[] { prop + " - " + result.GetType().Name + ":", result, new GUILayoutOption[0] });
+				result = method.Invoke(null, new object[] { prop + ":", result, new GUILayoutOption[0] });
 			}
 			else if (result.GetType().IsAssignableFrom(typeof(IList)))
 			{
