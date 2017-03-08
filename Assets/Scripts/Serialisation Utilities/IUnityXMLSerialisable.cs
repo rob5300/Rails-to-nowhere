@@ -7,5 +7,5 @@ using System.Linq.Expressions;
 public interface IUnityXMLSerialisable
 {
 	List<string> GetSerialiseTargets();
-	List<Func<object, object>> GetMappings(string propName);
+	List<Expression<Func<object, object>>> GetMappings(string propName);
 }

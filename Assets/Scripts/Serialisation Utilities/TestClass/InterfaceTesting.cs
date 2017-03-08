@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq.Expressions;
 
 public class InterfaceTesting : MonoBehaviour, IUnityXMLSerialisable {
 
@@ -63,8 +64,8 @@ public class InterfaceTesting : MonoBehaviour, IUnityXMLSerialisable {
         }
     }
 
-    public List<Func<object, object>> GetMappings(string propName) {
-        return new List<Func<object, object>>() { delegate(object o) { return ((DialogueNode)o).Key; }, delegate (object o) { return ((DialogueNode)o).Text; } };
+    public List<Expression<Func<object, object>>> GetMappings(string propName) {
+        return new List<Expression<Func<object, object>>>() { { x => ((DialogueNode)x).Key }, { x => ((DialogueNode)x).Text }  /*delegate(object o) { return ((DialogueNode)o).Key; }, delegate (object o) { return ((DialogueNode)o).Text; }*/ };
     }
 
     public List<string> GetSerialiseTargets() {

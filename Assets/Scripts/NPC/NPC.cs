@@ -89,7 +89,7 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 		return baseProps;
 	}
 
-	public virtual List<Func<object, object>> GetMappings(string propName)
+	public virtual List<Expression<Func<object, object>>> GetMappings(string propName)
 	{
 		return null;
 	}
