@@ -42,9 +42,16 @@ public class SerialiserUI : EditorWindow
 		}
 		else
 		{
-			foreach (IUnityXMLSerialisable instance in _instances)
+			Type baseInterfaceType = typeof(IUnityXMLSerialisable);
+			Type baseSerialiserType = typeof(UnityXMLSerialiser<>);
+			List<Type> types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes()).Where(y => baseInterfaceType.IsAssignableFrom(y) && y != baseInterfaceType && !y.IsAbstract).ToList();
+			foreach (Type serialiseableType in types)
 			{
-				DrawFields(instance);
+				GUILayout.Label(serialiseableType.Name + " Instances", EditorStyles.boldLabel);
+				foreach (IUnityXMLSerialisable instance in _instances.Where(x => x.GetType() == serialiseableType))
+				{
+					DrawFields(instance);
+				}
 			}
 		}
 	}
@@ -174,7 +181,7 @@ public class SerialiserUI : EditorWindow
 					{
 						MethodInfo method = GetFieldMethod(target, prop.Name, result.GetType());
 						object parent = prop.GetValue(target, null);
-						subProp.SetValue(target, method.Invoke(null, new object[] { prop + ":", subProp.GetValue(parent, null), new GUILayoutOption[0] }), null);
+						subProp.SetValue(parent, method.Invoke(null, new object[] { prop.Name + "." + memberName + ":", subProp.GetValue(parent, null), new GUILayoutOption[0] }), null);
 					}
 					else if (result.GetType().IsAssignableFrom(typeof(IList)))
 					{
