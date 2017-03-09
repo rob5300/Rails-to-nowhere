@@ -42,9 +42,16 @@ public class SerialiserUI : EditorWindow
 		}
 		else
 		{
-			foreach (IUnityXMLSerialisable instance in _instances)
+			Type baseInterfaceType = typeof(IUnityXMLSerialisable);
+			Type baseSerialiserType = typeof(UnityXMLSerialiser<>);
+			List<Type> types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes()).Where(y => baseInterfaceType.IsAssignableFrom(y) && y != baseInterfaceType && !y.IsAbstract).ToList();
+			foreach (Type serialiseableType in types)
 			{
-				DrawFields(instance);
+				GUILayout.Label(serialiseableType.Name + " Instances", EditorStyles.boldLabel);
+				foreach (IUnityXMLSerialisable instance in _instances.Where(x => x.GetType() == serialiseableType))
+				{
+					DrawFields(instance);
+				}
 			}
 		}
 	}
@@ -83,7 +90,7 @@ public class SerialiserUI : EditorWindow
 		foreach (string prop in targetProps)
 		{
 			PropertyInfo propInfo = target.GetType().GetProperty(prop);
-			List<Func<object, object>> anonymousMethods = target.GetMappings(prop);
+			List<Expression<Func<object, object>>> anonymousMethods = target.GetMappings(prop);
 			if (propInfo.PropertyType.IsAssignableFrom(typeof(UnityEngine.Object)))
 			{
 				propInfo.SetValue(target, EditorGUILayout.ObjectField(prop + ":", (UnityEngine.Object)propInfo.GetValue(target, null), target.GetType(), true), null);
@@ -158,23 +165,37 @@ public class SerialiserUI : EditorWindow
 		}
 	}
 
-	private static void RunAnonymousMethodDrawing(IUnityXMLSerialisable target, PropertyInfo prop, List<Func<object, object>> anonymousMethods, object targetObject)
+	private static void RunAnonymousMethodDrawing(IUnityXMLSerialisable target, PropertyInfo prop, List<Expression<Func<object, object>>> anonymousMethods, object targetObject)
 	{
-		foreach (Func<object, object> methodToRun in anonymousMethods)
+		foreach (Expression<Func<object, object>> methodToRun in anonymousMethods)
 		{
-			object result = methodToRun.Invoke(targetObject);
-			if (result.GetType().IsPrimitive || result.GetType() == typeof(string))
+			MemberExpression expr = (MemberExpression)methodToRun.Body;
+			string memberName = expr.Member.Name;
+			if (prop.PropertyType.GetProperties().Where(x => x.Name == memberName).Any())
 			{
-				MethodInfo method = GetFieldMethod(target, prop.Name, result.GetType());
-				result = method.Invoke(null, new object[] { prop + " - " + result.GetType().Name + ":", result, new GUILayoutOption[0] });
-			}
-			else if (result.GetType().IsAssignableFrom(typeof(IList)))
-			{
-				RunAnonymousMethodDrawing(target, prop, target.GetMappings(result.GetType().Name), (IList)result);
+				PropertyInfo subProp = prop.PropertyType.GetProperty(memberName);
+				object result = methodToRun.Compile().Invoke(targetObject);
+				if (result != null)
+				{
+					if (result.GetType().IsPrimitive || result.GetType() == typeof(string))
+					{
+						MethodInfo method = GetFieldMethod(target, prop.Name, result.GetType());
+						object parent = prop.GetValue(target, null);
+						subProp.SetValue(parent, method.Invoke(null, new object[] { prop.Name + "." + memberName + ":", subProp.GetValue(parent, null), new GUILayoutOption[0] }), null);
+					}
+					else if (result.GetType().IsAssignableFrom(typeof(IList)))
+					{
+						RunAnonymousMethodDrawing(target, prop, target.GetMappings(result.GetType().Name), (IList)result);
+					}
+					else
+					{
+						RunAnonymousMethodDrawing(target, prop, target.GetMappings(result.GetType().Name), result);
+					}
+				}
 			}
 			else
 			{
-				RunAnonymousMethodDrawing(target, prop, target.GetMappings(result.GetType().Name), result);
+				Debug.Log("Mapping error: Cannot locate Primitive type for " + memberName + " - did you write the map correctly?");
 			}
 
 		}
