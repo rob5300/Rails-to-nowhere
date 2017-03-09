@@ -2,7 +2,7 @@
 using System.Linq;
 
 public class Inventory {
-
+    private ItemSlot item;
     private List<ItemSlot> ItemSlots = new List<ItemSlot>();
 
     public Inventory(int capacity)
@@ -11,20 +11,91 @@ public class Inventory {
         ItemSlots.AddRange(Enumerable.Repeat(new ItemSlot(), capacity));
     }
 
-    void AddItem()
+    void AddItem(string id, int amount)
     {
-
+        ItemSlot itemSlot = GetItemSlot(id);
+        if (itemSlot != null)
+        {
+            itemSlot.ItemQuantity += amount;
+        }
+        else
+        {
+            foreach (ItemSlot slot in ItemSlots)
+            {
+                if (slot.ItemID == "" || slot.ItemID == null || slot.ItemID == string.Empty)
+                {
+                    slot.ItemID = id;
+                    slot.ItemQuantity = amount;
+                    break;
+                }
+            }
+        }
     }
 
-    void RemoveItem()
+    void RemoveItem(string id, int amount)
     {
-
+        ItemSlot itemSlot = GetItemSlot(id);
+        if (itemSlot != null)
+        {
+            itemSlot.ItemQuantity -= amount;
+        }
     }
+
+    private ItemSlot GetItemSlot(string itemID)
+    {
+        foreach (ItemSlot item in ItemSlots)
+        {
+            if (item.ItemID == itemID)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public Item GetItem(int SlotID)
+    {
+        string id = ItemSlots[SlotID].ItemID;
+        return Item.ItemList[id];
+    }
+
+
 
     private class ItemSlot
     {
-        public string itemID;
-        public int itemQuantity;
+        private string itemID;
+        private int itemQuantity;
+
+        public string ItemID
+        {
+            get
+            {
+                return itemID;
+            }
+
+            set
+            {
+                itemID = value;
+            }
+        }
+
+        public int ItemQuantity
+        {
+            get
+            {
+                return itemQuantity;
+            }
+
+            set
+            {
+                itemQuantity = value;
+                if(itemQuantity < 0)
+                {
+                    itemQuantity = 0;
+                    ItemID = "";
+                }
+            }
+        }
     }
 }
 

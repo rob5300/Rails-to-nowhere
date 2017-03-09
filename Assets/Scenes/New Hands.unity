@@ -342,17 +342,21 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: near clip plane
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_CullingMask.m_Bits
-      value: 4294967039
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 243000010247419216, guid: 5b6e0e0ab9083954da24b8addfa96df3,
         type: 2}
+    - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_BackGroundColor.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_IsPrefabParent: 0
@@ -651,7 +655,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000010683637124, guid: 1535fabe1a8cd0d4ba82f65944758741, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1535fabe1a8cd0d4ba82f65944758741, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &295125046
@@ -1106,6 +1111,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractDistance: 5
   Controller: {fileID: 199210081}
+--- !u!114 &563872845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 563872842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 210d84824cedbd14d9d88da6cc5f3e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReachDistance: 10
+  velocityRatio: 10
+  debugVel: {fileID: 0}
+  VelocityClamp: 10
 --- !u!4 &563872847 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -1116,7 +1136,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 563872842}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa5bec11ec7b35e4faa459933efc3cc8, type: 3}
   m_Name: 
@@ -2187,7 +2207,7 @@ Camera:
   m_GameObject: {fileID: 1449726643}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 3
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -2524,6 +2544,24 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1532099318}
+--- !u!1 &1556604273 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013324657562, guid: 1535fabe1a8cd0d4ba82f65944758741,
+    type: 2}
+  m_PrefabInternal: {fileID: 263167934}
+--- !u!114 &1556604274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1556604273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe4b3c254c58f6449124a20ef331e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Cube
+  Interactable: 1
 --- !u!1 &1649670007
 GameObject:
   m_ObjectHideFlags: 0
