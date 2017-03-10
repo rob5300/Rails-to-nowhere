@@ -17,15 +17,16 @@ public class Pickup : MonoBehaviour {
 
     void OnRaycastHit(GameObject hit)
     {
-        if (hit.tag == "pickup")
-                {
-            Entity objEntity = hit.GetComponent<Entity>();
-            if (hit.GetComponent<Entity>() != null)
+            WorldItem objWorldItem = hit.GetComponent<WorldItem>();
+            if (hit.GetComponent<WorldItem>() != null)
             {
-                Player.player.inventory.AddItem(objEntity.itemID, objEntity.amount);
-                Destroy(hit.gameObject);
+                if (objWorldItem.Interactable == true)
+                {
+                    Player.player.inventory.AddItem(objWorldItem.ItemID, objWorldItem.Quantity);
+                    Destroy(hit.gameObject);
+                }
             }
                 }
             }
-        }
+        
 
