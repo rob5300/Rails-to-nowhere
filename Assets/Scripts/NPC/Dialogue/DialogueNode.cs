@@ -36,6 +36,11 @@ public class DialogueNode {
         }
     }
 
+	public DialogueNode()
+	{
+
+	}
+
     public DialogueNode(string key, string text) {
         Key = key.ToLower();
         Text = text;
