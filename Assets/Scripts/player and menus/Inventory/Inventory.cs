@@ -11,7 +11,7 @@ public class Inventory {
         ItemSlots.AddRange(Enumerable.Repeat(new ItemSlot(), capacity));
     }
 
-    void AddItem(string id, int amount)
+   public void AddItem(string id, int amount)
     {
         ItemSlot itemSlot = GetItemSlot(id);
         if (itemSlot != null)
@@ -32,7 +32,7 @@ public class Inventory {
         }
     }
 
-    void RemoveItem(string id, int amount)
+   public void RemoveItem(string id, int amount)
     {
         ItemSlot itemSlot = GetItemSlot(id);
         if (itemSlot != null)

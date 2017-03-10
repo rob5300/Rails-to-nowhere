@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
     public static Player player;
-
+    public Inventory inventory;
     public float InteractDistance;
     public MonoBehaviour Controller;
 

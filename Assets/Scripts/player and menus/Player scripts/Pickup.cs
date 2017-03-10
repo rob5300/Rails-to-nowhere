@@ -1,41 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System;
+[RequireComponent(typeof(Player))]
 public class Pickup : MonoBehaviour {
 
 
-    public int distanceToItem;
+    void Start()
+    {
+        Player.interactEvent += OnRaycastHit;
+    }
 
     void Update()
     {
 
-        Collect();
-
     }
 
-    void Collect()
+    void OnRaycastHit(GameObject hit)
     {
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-
-            RaycastHit hit;
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-
-
-            if (Physics.Raycast(ray, out hit, distanceToItem))
-            {
-                if (hit.collider.gameObject.tag == "pickup")
+        if (hit.tag == "pickup")
                 {
-
-                    Destroy(hit.collider.gameObject);
-
-
-
+            Entity objEntity = hit.GetComponent<Entity>();
+            if (hit.GetComponent<Entity>() != null)
+            {
+                Player.player.inventory.AddItem(objEntity.itemID, objEntity.amount);
+                Destroy(hit.gameObject);
+            }
                 }
             }
         }
-    }
-}
+
