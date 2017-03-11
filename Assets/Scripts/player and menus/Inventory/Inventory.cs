@@ -56,7 +56,7 @@ public class Inventory {
     public Item GetItem(int SlotID)
     {
         string id = ItemSlots[SlotID].ItemID;
-        return Item.ItemList[id];
+        return Item.GetItem(id);
     }
 
 

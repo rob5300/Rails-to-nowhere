@@ -20,9 +20,16 @@ public class Item {
         ItemList.Add(id, this);
     }
 
-   
-    public static Dictionary<string, Item> ItemList = new Dictionary<string, Item>();
+    private static Dictionary<string, Item> ItemList = new Dictionary<string, Item>();
+    private static Item box = new Item("Test item", "1", "I am a box that does nothing", Resources.Load<Sprite>("ItemsToPickup/Cubeimage"), Resources.Load<GameObject>("ItemsToPickup/Cube"));
 
-    public static Item box = new Item("Test item", "1", "I am a box that does nothing", Resources.Load<Sprite>("ItemsToPickup/Cubeimage"), Resources.Load<GameObject>("ItemsToPickup/Cube"));
+    public static Item GetItem(string ItemID)
+    {
+        return ItemList[ItemID];
+    }
 
+    public static bool IsValidItemID(string ItemID)
+    {
+        return ItemList.ContainsKey(ItemID);
+    }
 }

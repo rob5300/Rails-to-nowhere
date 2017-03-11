@@ -4,12 +4,12 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
     public static Player player;
-    public Inventory inventory;
+    public Inventory inventory = new Inventory(4);
     public float InteractDistance;
     public MonoBehaviour Controller;
 
-    public delegate void InteractEvent(GameObject eventObject);
-    public static event InteractEvent interactEvent;
+    public delegate void WorldEvent(GameObject eventObject);
+    public static event WorldEvent InteractEvent;
 
     RaycastHit _hit;
 
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.E)) {
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out _hit,InteractDistance)) {
-                if(_hit.collider.gameObject != null) interactEvent.Invoke(_hit.transform.gameObject);
+                if(_hit.collider.gameObject != null) InteractEvent.Invoke(_hit.transform.gameObject);
             }
         }
     }

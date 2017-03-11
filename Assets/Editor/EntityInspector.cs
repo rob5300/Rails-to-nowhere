@@ -30,9 +30,9 @@ public class EntityInspector : Editor {
             EditorGUILayout.BeginVertical(EditorStyles.textArea);
             if (wItem.ItemID != null || wItem.ItemID != "") {
                 string itemid = wItem.ItemID;
-                if (CheckId(itemid)) {
+                if (Item.IsValidItemID(itemid)) {
                     EditorGUILayout.LabelField("Item information:", EditorStyles.boldLabel);
-                    Item founditem = Item.ItemList[wItem.ItemID];
+                    Item founditem = Item.GetItem(wItem.ItemID);
                     EditorGUILayout.LabelField("Item Name: ", founditem.Name);
                     EditorGUILayout.LabelField("Description: ", founditem.Description);
 
@@ -75,10 +75,6 @@ public class EntityInspector : Editor {
         //    //Interactable Toggle
         //    entity.Interactable = EditorGUILayout.Toggle("Interactable", entity.Interactable);
         //}
-    }
-
-    bool CheckId(string id) {
-        return Item.ItemList.ContainsKey(id);
     }
 
 }

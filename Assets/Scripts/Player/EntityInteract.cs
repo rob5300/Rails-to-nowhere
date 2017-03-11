@@ -21,7 +21,7 @@ public class EntityInteract : MonoBehaviour {
     Entity grabbedEntity;
 
     void Start() {
-        Player.interactEvent += OnRaycastHit;
+        Player.InteractEvent += OnRaycastHit;
     }
     
     //Ensures that Entities can react if they are interacted with.

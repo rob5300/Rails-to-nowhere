@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Entities/Entity", 0)]
+[RequireComponent(typeof(Collider))]
 public class Entity : MonoBehaviour {
 
     public string Name = "Entity";

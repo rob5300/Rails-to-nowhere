@@ -11,6 +11,8 @@ public class UI : MonoBehaviour {
     public static Text debugText;
 
     public Text debugTextObject;
+    public Text HoverName;
+    public Text HoverDescription;
     public DialogueUI dialogueUIObjects = new DialogueUI();
 
     public static List<GameObject> responseButtons = new List<GameObject>();

@@ -5,7 +5,7 @@ using System.Collections;
 public class NPCInteract : MonoBehaviour {
 
     void Start() {
-        Player.interactEvent += OnRaycastHit;
+        Player.InteractEvent += OnRaycastHit;
     }
 
     void OnRaycastHit(GameObject hit) {

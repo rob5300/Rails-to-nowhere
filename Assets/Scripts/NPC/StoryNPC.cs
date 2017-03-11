@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+[AddComponentMenu("NPC/Story NPC", 0)]
 public class StoryNPC : NPC {
 
 	public bool Essential = false;
