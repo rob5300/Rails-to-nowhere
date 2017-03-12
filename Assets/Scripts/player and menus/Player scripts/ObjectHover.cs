@@ -15,7 +15,7 @@ public class ObjectHover : MonoBehaviour
 
     void Start()
     {
-        if (UI.ui) {
+        if (UI.ui == null) {
             Debug.LogError("No UI found. Required for hover functionality. Object hover is now disabled.");
             GetComponent<ObjectHover>().enabled = false;
         }

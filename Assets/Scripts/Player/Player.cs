@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
 
     RaycastHit _hit;
 
-    void Start() {
+    void Awake() {
         //Assign the static variable player to the only instance of this class that should exist.
         if (!player) player = this;
         else Debug.LogError("Multiple player instances on objects: " + player.name + ", " + name);

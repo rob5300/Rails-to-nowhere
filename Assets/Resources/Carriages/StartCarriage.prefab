@@ -517,6 +517,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!1 &1000012779226798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000011667486308}
+  - 220: {fileID: 220000010187881704}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000013011786124
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,8 +785,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012135759354}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.443, z: 0}
-  m_LocalScale: {x: 29.09, y: 0.37, z: 2.05}
+  m_LocalPosition: {x: 0, y: 9.194, z: 0}
+  m_LocalScale: {x: 28.85, y: 0.37, z: 2.05}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000010918869668}
@@ -875,6 +891,7 @@ Transform:
   - {fileID: 4000010993436654}
   - {fileID: 4000011258484114}
   - {fileID: 4000010325013958}
+  - {fileID: 4000011667486308}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000010979496720
@@ -1026,6 +1043,19 @@ Transform:
   - {fileID: 4000011314561358}
   m_Father: {fileID: 4000012533239768}
   m_RootOrder: 6
+--- !u!4 &4000011667486308
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012779226798}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.48, y: 3.23, z: 0.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000010918869668}
+  m_RootOrder: 9
 --- !u!4 &4000011718516908
 Transform:
   m_ObjectHideFlags: 1
@@ -1525,7 +1555,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fed4e78bda2b3de45954637fee164b8c, type: 2}
+  - {fileID: 2100000, guid: 82096aab38f01cb40a1cbf8629a810ba, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -1751,7 +1781,7 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010808551962}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 2
   m_ReceiveShadows: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -1786,7 +1816,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fed4e78bda2b3de45954637fee164b8c, type: 2}
+  - {fileID: 2100000, guid: 82096aab38f01cb40a1cbf8629a810ba, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -2016,7 +2046,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011482406192}
-  m_Mesh: {fileID: 4300000, guid: 41247f1adae152d43abf316c6fcd579c, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5406e4eec7e84944c8dce5515431f789, type: 3}
 --- !u!33 &33000011615246604
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -2065,7 +2095,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010284061666}
-  m_Mesh: {fileID: 4300000, guid: 41247f1adae152d43abf316c6fcd579c, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5406e4eec7e84944c8dce5515431f789, type: 3}
 --- !u!33 &33000013415369266
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -2218,3 +2248,20 @@ MonoBehaviour:
   Type: 0
   NPCPosition: {fileID: 0}
   PuzzlePosition: {fileID: 0}
+--- !u!220 &220000010187881704
+LightProbeGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012779226798}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 4.4965563, y: 1, z: 1.656144}
+  - {x: 4.559011, y: 1, z: -1.3144636}
+  - {x: 9.185083, y: -1, z: 3.885493}
+  - {x: 8.266084, y: -1, z: -3.3315217}
+  - {x: -7.6610303, y: 1, z: 1.9862983}
+  - {x: -6.7633348, y: 1, z: -2.7334473}
+  - {x: -8.930212, y: -1, z: 3.8828208}
+  - {x: -8.428207, y: -1, z: -4.496536}
+  - {x: 0.48, y: -0.1252017, z: -0.28}

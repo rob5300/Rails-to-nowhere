@@ -17,7 +17,7 @@ public class UI : MonoBehaviour {
 
     public static List<GameObject> responseButtons = new List<GameObject>();
 
-    void Start() {
+    void Awake() {
         //Assign the static variable player to the only instance of this class that should exist.
         if (!ui) ui = this;
         else {
