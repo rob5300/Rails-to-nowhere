@@ -3,12 +3,18 @@ using System.Linq;
 
 public class Inventory {
     private ItemSlot item;
-    private List<ItemSlot> ItemSlots = new List<ItemSlot>();
+    private List<ItemSlot> itemSlots = new List<ItemSlot>();
+
+    public List<ItemSlot> ItemSlots {
+        get {
+            return itemSlots;
+        }
+    }
 
     public Inventory(int capacity)
     {
-        ItemSlots = new List<ItemSlot>(capacity);
-        ItemSlots.AddRange(Enumerable.Repeat(new ItemSlot(), capacity));
+        itemSlots = new List<ItemSlot>(capacity);
+        itemSlots.AddRange(Enumerable.Repeat(new ItemSlot(), capacity));
     }
 
    public void AddItem(string id, int amount)
@@ -20,7 +26,7 @@ public class Inventory {
         }
         else
         {
-            foreach (ItemSlot slot in ItemSlots)
+            foreach (ItemSlot slot in itemSlots)
             {
                 if (slot.ItemID == "" || slot.ItemID == null || slot.ItemID == string.Empty)
                 {
@@ -43,7 +49,7 @@ public class Inventory {
 
     private ItemSlot GetItemSlot(string itemID)
     {
-        foreach (ItemSlot item in ItemSlots)
+        foreach (ItemSlot item in itemSlots)
         {
             if (item.ItemID == itemID)
             {
@@ -55,13 +61,19 @@ public class Inventory {
 
     public Item GetItem(int SlotID)
     {
-        string id = ItemSlots[SlotID].ItemID;
+        string id = itemSlots[SlotID].ItemID;
         return Item.GetItem(id);
     }
 
+    public List<Item> GetItems() {
+        return itemSlots.Select(x => Item.GetItem(x.ItemID)).ToList();
+    }
 
+    public List<ItemSlot> GetPopulatedItemSlots() {
+        return itemSlots.Where(x => x.ItemID != null || x.ItemID != string.Empty || x.ItemID != "").ToList();
+    }
 
-    private class ItemSlot
+    public class ItemSlot
     {
         private string itemID;
         private int itemQuantity;
