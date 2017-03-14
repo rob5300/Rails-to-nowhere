@@ -1742,6 +1742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractDistance: 10
   Controller: {fileID: 508680884}
+  blurEffect: {fileID: 860277021}
 --- !u!114 &508680889
 MonoBehaviour:
   m_ObjectHideFlags: 0

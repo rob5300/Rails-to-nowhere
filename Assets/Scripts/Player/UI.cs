@@ -120,10 +120,12 @@ public class UI : MonoBehaviour {
 
     public static void UnlockPlayerController() {
         Player.player.Controller.enabled = true;
+        Player.player.blurEffect.enabled = false;
     }
 
     public static void LockPlayerController() {
         Player.player.Controller.enabled = false;
+        Player.player.blurEffect.enabled = true;
     }
 
     public static void LockCursor() {
@@ -141,6 +143,7 @@ public class UI : MonoBehaviour {
         if (popItemSlots.Count < 0) return;
         foreach (Inventory.ItemSlot itemSlot in popItemSlots) {
             newInvItem = (GameObject)Instantiate(inventoryUI.BaseInventoryItem, inventoryUI.InventoryItemArea.transform);
+            inventoryItems.Add(newInvItem);
             newSlot = newInvItem.GetComponent<UIItemSlot>();
             Item item = Item.GetItem(itemSlot.ItemID);
             newSlot.ItemSprite.sprite = item.InventorySprite;

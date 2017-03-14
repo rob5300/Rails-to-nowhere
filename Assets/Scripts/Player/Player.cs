@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.ImageEffects;
 
 public class Player : MonoBehaviour {
 
@@ -7,6 +8,7 @@ public class Player : MonoBehaviour {
     public Inventory inventory = new Inventory(4);
     public float InteractDistance;
     public MonoBehaviour Controller;
+    public BlurOptimized blurEffect;
 
     public delegate void WorldEvent(GameObject eventObject);
     public static event WorldEvent InteractEvent;
