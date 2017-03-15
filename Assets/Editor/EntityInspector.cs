@@ -9,7 +9,7 @@ public class EntityInspector : Editor {
 
     public override void OnInspectorGUI() {
         Entity entity = (Entity)target;
-        if(entity is Lever) {
+        if(entity is Lever || entity is Door) {
             DrawDefaultInspector();
             return;
         }
