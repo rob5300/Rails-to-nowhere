@@ -10,16 +10,20 @@ public class UI : MonoBehaviour {
     public static DialogueUI dialogueUI;
     public static InventoryUI inventoryUI;
     public static bool inventoryOpen = false;
+    public static bool puzzle2DOpen = false;
+    public static GameObject puzzle2D;
     public static Text debugText;
 
     public Text debugTextObject;
     public Text HoverName;
     public Text HoverDescription;
+    public GameObject CrosshairOb;
     public DialogueUI dialogueUIObjects = new DialogueUI();
     public InventoryUI inventoryUIObjects = new InventoryUI();
 
     public static List<GameObject> responseButtons = new List<GameObject>();
     public static List<GameObject> inventoryItems = new List<GameObject>();
+    public static GameObject Crosshair;
 
     void Awake() {
         //Assign the static variable player to the only instance of this class that should exist.
@@ -33,6 +37,7 @@ public class UI : MonoBehaviour {
         dialogueUI = dialogueUIObjects;
         inventoryUI = inventoryUIObjects;
         debugText = debugTextObject;
+        Crosshair = CrosshairOb;
 
         //Disable UI objects incase they are left enabled.
         dialogueUI.ResponseButton.SetActive(false);
@@ -59,6 +64,12 @@ public class UI : MonoBehaviour {
                 inventoryOpen = false;
                 LockCursor();
                 UnlockPlayerController();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (puzzle2DOpen) {
+                Hide2DPuzzle();
             }
         }
     }
@@ -115,6 +126,7 @@ public class UI : MonoBehaviour {
 
     public static void UnlockCursor() {
         Cursor.lockState = CursorLockMode.None;
+        Crosshair.SetActive(false);
         Cursor.visible = true;
     }
 
@@ -130,6 +142,7 @@ public class UI : MonoBehaviour {
 
     public static void LockCursor() {
         Cursor.lockState = CursorLockMode.Locked;
+        Crosshair.SetActive(true);
         Cursor.visible = false;
     }
 
@@ -169,6 +182,27 @@ public class UI : MonoBehaviour {
 
     public static void InventoryItemClickEvent(UIItemSlot slot){
 
+    }
+    #endregion
+
+    //Puzzle 2D Code
+    #region
+    public static void Show2DPuzzle(GameObject puzzleObject) {
+        if (!puzzle2DOpen) {
+            LockPlayerController();
+            UnlockCursor();
+            puzzle2D = puzzleObject;
+            puzzle2D.SetActive(true);
+            puzzle2DOpen = true;
+        }
+    }
+
+    public static void Hide2DPuzzle() {
+        if (puzzle2DOpen) {
+            LockCursor();
+            UnlockPlayerController();
+            puzzle2D.SetActive(false);
+        }
     }
     #endregion
 }

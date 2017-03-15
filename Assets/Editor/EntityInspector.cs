@@ -9,6 +9,10 @@ public class EntityInspector : Editor {
 
     public override void OnInspectorGUI() {
         Entity entity = (Entity)target;
+        if(entity is Lever) {
+            DrawDefaultInspector();
+            return;
+        }
         WorldItem wItem = null;
         if (entity is WorldItem)
             wItem = (WorldItem)entity;
