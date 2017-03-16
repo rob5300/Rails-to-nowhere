@@ -16,6 +16,7 @@ public class SerialiserUI : EditorWindow
 	private static List<IUnityXMLSerialisable> _instances;
 	private static SerialiserUI _window;
 	private static GameObject _templateInstance;
+	private static bool _save = false;
 
 	// Add menu named "My Window" to the Window menu
 	[MenuItem("Window/Unity-To-XML Serialiser")]
@@ -30,33 +31,20 @@ public class SerialiserUI : EditorWindow
 
 	void OnGUI()
 	{
+		_save = false;
 		if (_templateInstance == null)
 		{
 			_templateInstance = GameObject.Find("InstanceHolderObj");
 		}
 		if (GUILayout.Button("Save all"))
 		{
-			Type baseSerialiserType = typeof(UnityXMLSerialiser<>);
-			Type baseInterfaceType = typeof(IUnityXMLSerialisable);
-			List<Type> types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes()).Where(y => baseInterfaceType.IsAssignableFrom(y) && y != baseInterfaceType && !y.IsAbstract).ToList();
-			foreach (Type serialiseableType in types)
-			{
-				int i = 1;
-				foreach (IUnityXMLSerialisable instanceToSave in _instances.Where(x => x.GetType() == serialiseableType))
-				{
-					Type actualSerialiserType = baseSerialiserType.MakeGenericType(instanceToSave.GetType());
-					object instantiatedSerialiser = Activator.CreateInstance(actualSerialiserType);
-					FileInfo info = new FileInfo(Application.streamingAssetsPath + "\\" + instanceToSave.GetType().FullName + i + ".xml");
-					instantiatedSerialiser.GetType().GetMethod("SerialiseInstance").Invoke(instantiatedSerialiser, new object[2] { instanceToSave, info });
-					i++;
-				}
-			}
+			_save = true;
 		}
 		int newCount = Directory.GetFiles(Application.streamingAssetsPath).Where(x => x.Contains(".xml")).Count();
 
 		if (_instances == null || newCount != _oldCount)
 		{
-			IUnityXMLSerialisable[] resultColl = GameObject.Find("InstanceHolderObj").GetComponents<IUnityXMLSerialisable>();
+			IUnityXMLSerialisable[] resultColl = _templateInstance.GetComponents<IUnityXMLSerialisable>();
 			foreach (var behaviour in resultColl)
 			{
 				DestroyImmediate((MonoBehaviour)behaviour);
@@ -81,6 +69,27 @@ public class SerialiserUI : EditorWindow
 					DrawFields(instance);
 				}
 			}
+		}
+		if (_save)
+		{
+			Type baseSerialiserType = typeof(UnityXMLSerialiser<>);
+			Type baseInterfaceType = typeof(IUnityXMLSerialisable);
+			List<Type> types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes()).Where(y => baseInterfaceType.IsAssignableFrom(y) && y != baseInterfaceType && !y.IsAbstract).ToList();
+			foreach (Type serialiseableType in types)
+			{
+				int i = 1;
+				foreach (IUnityXMLSerialisable instanceToSave in _instances.Where(x => x.GetType() == serialiseableType))
+				{
+
+					Type actualSerialiserType = baseSerialiserType.MakeGenericType(instanceToSave.GetType());
+					object instantiatedSerialiser = Activator.CreateInstance(actualSerialiserType);
+					FileInfo info = new FileInfo(Application.streamingAssetsPath + "\\" + instanceToSave.GetType().FullName + i + ".xml");
+					instantiatedSerialiser.GetType().GetMethod("SerialiseInstance").Invoke(instantiatedSerialiser, new object[2] { instanceToSave, info });
+					i++;
+					//DestroyImmediate((MonoBehaviour)instanceToSave);
+				}
+			}
+			//DynamicallyLoadSerialisedFiles();
 		}
 	}
 

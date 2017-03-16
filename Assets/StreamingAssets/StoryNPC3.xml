@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Inject>
-  <Name>New NPC</Name>
-  <Interactable>false</Interactable>
-  <Health>1</Health>
-</Inject>

@@ -327,6 +327,10 @@ MonoBehaviour:
     MainTextArea: {fileID: 1568792194}
     ResponseButtonArea: {fileID: 188337334}
     ResponseButton: {fileID: 289594830}
+  inventoryUIObjects:
+    Parent: {fileID: 0}
+    BaseInventoryItem: {fileID: 0}
+    InventoryItemArea: {fileID: 0}
 --- !u!1 &172976470
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractDistance: 5
   Controller: {fileID: 213548460}
+  blurEffect: {fileID: 0}
 --- !u!114 &213548457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2240,8 +2245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64006c55c231a8049a568b0226f521bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: ayy
-  _interactable: 0
+  _name: New NPC
+  _interactable: 1
   _health: 1
   Essential: 0
   InitialDialogueNodeName: 

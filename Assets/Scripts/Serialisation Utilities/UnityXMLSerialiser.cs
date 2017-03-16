@@ -80,6 +80,7 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 	/// <returns>Target MonoBehaviour type with deserialised values.</returns>
 	public T DeserialiseXML(FileInfo targetInfo, bool clearOldInstances = true)
 	{
+		List<string> derivedPropNames = new List<string>();
 		if (_template.GetComponent<T>() != null && clearOldInstances)
 		{
 			GameObject.Destroy(_template.GetComponent<T>());
@@ -88,29 +89,40 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 		List<string> targets = new List<string>();
 		targets = newObj.GetSerialiseTargets();
 		XDocument objDoc = XDocument.Load(targetInfo.FullName);
-		List<PropertyInfo> props = typeof(T).GetType().GetProperties(BindingFlags.DeclaredOnly).Where(x => targets.Contains(x.Name)).ToList();
+		List<PropertyInfo> props = typeof(T).GetType().GetProperties().Where(x => targets.Contains(x.Name)).ToList();
 		foreach (PropertyInfo prop in props)
 		{
-			using (XmlReader xr = objDoc.Root.CreateReader())
+			if (prop.DeclaringType == typeof(T))
 			{
-				XmlSerializer propDeserialiser = new XmlSerializer(prop.PropertyType, new XmlRootAttribute("Inject"));
-				prop.SetValue(newObj, Convert.ChangeType(propDeserialiser.Deserialize(xr), prop.PropertyType), null);
+				using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
+				{
+					XmlSerializer propDeserialiser = new XmlSerializer(prop.PropertyType, new XmlRootAttribute(prop.Name));
+					prop.SetValue(newObj, propDeserialiser.Deserialize(xr), null);
+				}
+				targets.Remove(targets.Where(x => x == prop.Name).First());
 			}
+
 		}
 		Type baseType = typeof(T).BaseType;
 		while (baseType != typeof(MonoBehaviour))
 		{
-			IEnumerable<PropertyInfo> inheritedProps = baseType.GetProperties(BindingFlags.DeclaredOnly).Where(x => targets.Contains(x.Name));
+			List<PropertyInfo> inheritedProps = baseType.GetProperties().Where(x => targets.Contains(x.Name)).ToList();
 			if (inheritedProps.Any())
 			{
-				inheritedProps = inheritedProps.Intersect(props).ToList();
 				foreach (PropertyInfo prop in inheritedProps)
 				{
-					using (XmlReader xr = objDoc.Root.CreateReader())
+					if (prop.DeclaringType == baseType)
 					{
-						XmlSerializer propDeserialiser = new XmlSerializer(prop.PropertyType, new XmlRootAttribute("Inject"));
-						prop.SetValue(newObj, Convert.ChangeType(propDeserialiser.Deserialize(xr), prop.PropertyType), null);
+						using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
+						{
+							//XDocument doc = XDocument.Load(xr);
+							XmlSerializer propDeserialiser = new XmlSerializer(prop.PropertyType, new XmlRootAttribute(prop.Name));
+							prop.SetValue(newObj, propDeserialiser.Deserialize(xr), null);
+						}
+						targets.Remove(targets.Where(x => x == prop.Name).First());
 					}
+
+
 				}
 			}
 
