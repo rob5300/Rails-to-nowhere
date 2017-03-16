@@ -4,7 +4,10 @@ using UnityEngine;
 [AddComponentMenu("NPC/Story NPC", 0)]
 public class StoryNPC : NPC {
 
-	public bool Essential = false;
+    public delegate void NPCEvent(StoryNPC npc);
+    public event NPCEvent OpenDoor;
+
+    public bool Essential = false;
     public string InitialDialogueNodeName;
     public bool HasSpeach { get {
             if(InitialDialogueNodeName == null) {

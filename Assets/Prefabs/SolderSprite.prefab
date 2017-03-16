@@ -22,7 +22,7 @@ GameObject:
   - 212: {fileID: 212000012157746136}
   - 114: {fileID: 114000013801434092}
   - 61: {fileID: 61000010001232652}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SolderSprite
   m_TagString: Circuit
   m_Icon: {fileID: 0}
@@ -68,6 +68,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _connected: 0
+  _sourceNames: []
+  _current: 0
 --- !u!212 &212000012157746136
 SpriteRenderer:
   m_ObjectHideFlags: 1

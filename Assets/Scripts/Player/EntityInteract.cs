@@ -29,6 +29,10 @@ public class EntityInteract : MonoBehaviour {
         if(eventObject.GetComponent<Entity>() != null) {
             eventObject.GetComponent<Entity>().OnInteract();
         }
+
+        if(eventObject.GetComponent<Puzzle2D>() != null) {
+            UI.Show2DPuzzle(eventObject.GetComponent<Puzzle2D>().Puzzle);
+        }
     }
 
     void Update() {
