@@ -29,11 +29,10 @@ public class CogPuzzle : MonoBehaviour {
     }
 
     void PuzzleError() {
-        Debug.Log("Puzzle failed!");
+        UI.ShowMessage("Puzzle Failed");
     }
 
     public void PuzzleDone() {
-        Debug.Log("Puzzle complete");
         PuzzleComplete.Invoke(CarriagePuzzleController.PuzzleType.T3D);
     }
 }

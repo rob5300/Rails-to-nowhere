@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 [AddComponentMenu("Entities/Door", 3)]
 [RequireComponent(typeof(Rigidbody))]
@@ -18,7 +17,7 @@ public class Door : Entity {
             GetComponent<Rigidbody>().isKinematic = false;
             Locked = false;
         }
-        Debug.Log("Door is now open!");
+        UI.ShowMessage("The door was unlocked!");
     }
 
     public override void OnInteract() {

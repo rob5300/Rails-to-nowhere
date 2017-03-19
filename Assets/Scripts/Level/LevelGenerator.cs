@@ -34,8 +34,9 @@ public class LevelGenerator : MonoBehaviour {
 
     void PopulateCarriageLists() {
         System.Random random = new System.Random();
-        //Load in Carriages
-        _storyCarriages.Add(Resources.Load<GameObject>("Carriages/StoryCarriage1"));
+        //Tell Carriages to load in story carriages
+        Carriage.LoadStoryCarriages();
+        //Load in Filler carriages.
         _fillerCarriages.Add(Resources.Load<GameObject>("Carriages/FillerCarriage1"));
 
 

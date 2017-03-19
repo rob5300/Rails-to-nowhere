@@ -12,9 +12,11 @@ public class UI : MonoBehaviour {
     public static bool inventoryOpen = false;
     public static bool puzzle2DOpen = false;
     public static GameObject puzzle2D;
-    public static Text debugText;
+    public static Animator MessageAnimator;
+    public static Text MessageText;
 
-    public Text debugTextObject;
+    public Animator _MessageAnimator;
+    public Text _MessageText;
     public Text HoverName;
     public Text HoverDescription;
     public GameObject CrosshairOb;
@@ -36,8 +38,9 @@ public class UI : MonoBehaviour {
 
         dialogueUI = dialogueUIObjects;
         inventoryUI = inventoryUIObjects;
-        debugText = debugTextObject;
         Crosshair = CrosshairOb;
+        MessageAnimator = _MessageAnimator;
+        MessageText = _MessageText;
 
         //Disable UI objects incase they are left enabled.
         dialogueUI.ResponseButton.SetActive(false);
@@ -72,6 +75,11 @@ public class UI : MonoBehaviour {
                 Hide2DPuzzle();
             }
         }
+    }
+
+    public static void ShowMessage(string message) {
+        MessageText.text = message;
+        MessageAnimator.SetTrigger("Play");
     }
 
     //Dialogue Code

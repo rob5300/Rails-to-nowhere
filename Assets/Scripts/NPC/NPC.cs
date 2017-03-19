@@ -7,14 +7,19 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 {
+
 	[SerializeField]
 	private string _name = "New NPC";
 	[SerializeField]
 	private bool _interactable = true;
 	[SerializeField]
 	private float _health = 1;
+    private string initialDialogueNodeName;
 
-	public string Name
+    private int memoryResponseTotal = 0;
+    private string memoryItemKey = "memory.basic";
+
+    public string Name
 	{
 		get
 		{
@@ -53,7 +58,39 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 		}
 	}
 
-	public abstract void Interact();
+    public int MemoryResponseTotal {
+        get {
+            return memoryResponseTotal;
+        }
+
+        set {
+            memoryResponseTotal = value;
+        }
+    }
+
+    public string MemoryItemKey {
+        get {
+            return memoryItemKey;
+        }
+
+        set {
+            memoryItemKey = value;
+        }
+    }
+
+    public string InitialDialogueNodeName {
+        get {
+            return initialDialogueNodeName;
+        }
+
+        set {
+            initialDialogueNodeName = value;
+        }
+    }
+
+    public virtual void Interact() {
+
+    }
 
     public void OnTaskComplete() {
 
@@ -80,7 +117,11 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
         Destroy(this);
     }
 
-	public virtual List<string> GetSerialiseTargets()
+    public void AwardMemory() {
+        Player.player.inventory.AddItem(MemoryItemKey, 1);
+    }
+
+    public virtual List<string> GetSerialiseTargets()
 	{
 		List <string> baseProps = new List<string>();
 		baseProps.Add("Name");
