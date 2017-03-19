@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <Name>New NPC</Name>
+  <Name>big smoke</Name>
   <Interactable>true</Interactable>
-  <Health>1</Health>
+  <Health>18</Health>
 </Inject>

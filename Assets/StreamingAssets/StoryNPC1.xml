@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <Name>A</Name>
-  <Interactable>true</Interactable>
+  <Name>cj</Name>
+  <Interactable>false</Interactable>
   <Health>1</Health>
 </Inject>
