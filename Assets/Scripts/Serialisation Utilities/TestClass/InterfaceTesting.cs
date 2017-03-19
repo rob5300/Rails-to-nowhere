@@ -72,7 +72,7 @@ public class InterfaceTesting : MonoBehaviour, IUnityXMLSerialisable {
         return new List<string>() { "Node" };
     }
 
-	public string GetDeleteDisplayProp()
+	public string GetDisplayValue()
 	{
 		return "";
 	}

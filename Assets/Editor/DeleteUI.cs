@@ -13,15 +13,21 @@ public class DeleteUI : EditorWindow
 {
 	public Dictionary<FileInfo, IUnityXMLSerialisable> InstancePairs { get; set; }
 	private static int _selected = 0;
+	private static DeleteUI _deleteWindow;
 
 	void OnGUI()
 	{
-		string[] options = InstancePairs.Select(x => (string)x.GetType().GetProperty(x.Value.GetDeleteDisplayProp()).GetValue(x, null)).ToArray();
-		_selected = EditorGUILayout.Popup("Label", _selected, options);
-		if (GUILayout.Button("Delete"))
+		if (InstancePairs != null && InstancePairs.Count != 0)
 		{
-			KeyValuePair<FileInfo, IUnityXMLSerialisable> keyPairVals = InstancePairs.Select(x => x).Where(x => (string)x.GetType().GetProperty(x.Value.GetDeleteDisplayProp()).GetValue(x, null) == options[_selected]).First();
-			File.Delete(keyPairVals.Key.FullName);
+			string[] options = InstancePairs.Select(x => x.Value.GetDisplayValue()).ToArray();
+			_selected = EditorGUILayout.Popup("Label", _selected, options);
+			if (GUILayout.Button("Delete"))
+			{
+				KeyValuePair<FileInfo, IUnityXMLSerialisable> result = InstancePairs.Select(x => x).Where(x => x.Value.GetDisplayValue() == options[_selected]).First();
+				InstancePairs.Remove(result.Key);
+				File.Delete(result.Key.FullName);
+				_selected = 0;
+			}
 		}
 	}
 

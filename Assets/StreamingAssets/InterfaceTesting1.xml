@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Inject>
-  <Node xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <ResponseNodes />
-    <Text>textare</Text>
-    <Key>node</Key>
-  </Node>
-</Inject>
