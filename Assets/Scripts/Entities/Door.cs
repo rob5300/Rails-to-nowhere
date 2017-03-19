@@ -18,6 +18,7 @@ public class Door : Entity {
             GetComponent<Rigidbody>().isKinematic = false;
             Locked = false;
         }
+        Debug.Log("Door is now open!");
     }
 
     public override void OnInteract() {

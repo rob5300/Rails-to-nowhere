@@ -4,13 +4,12 @@ using UnityEngine.Events;
 public class CogPuzzle : MonoBehaviour {
 
     public CogMount[] CogMounts;
-    public UnityEvent WinEvent;
+    public event CarriagePuzzleController.PuzzleEvent PuzzleComplete;
 
     void Start() {
         foreach (CogMount mount in CogMounts) {
             if (mount.ParentPuzzle == null) mount.ParentPuzzle = this;
         }
-        WinEvent.AddListener(GenericWin);
     }
 
     public void CheckPuzzle() {
@@ -26,14 +25,15 @@ public class CogPuzzle : MonoBehaviour {
                 return;
             }
         }
-        WinEvent.Invoke();
+        PuzzleDone();
     }
 
     void PuzzleError() {
         Debug.Log("Puzzle failed!");
     }
 
-    public void GenericWin() {
-        Debug.Log("Puzzle complete!");
+    public void PuzzleDone() {
+        Debug.Log("Puzzle complete");
+        PuzzleComplete.Invoke(CarriagePuzzleController.PuzzleType.T3D);
     }
 }

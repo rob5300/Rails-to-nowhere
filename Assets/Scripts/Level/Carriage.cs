@@ -15,14 +15,30 @@ public class Carriage : MonoBehaviour {
 
     public CarriagePuzzleController PuzzleController;
 
-    public delegate void CarriageEvent(Carriage carriage);
-    public event CarriageEvent PuzzlesComplete;
+    public delegate void CarriageEvent();
+    //Used when ALL puzzles are done.
 
-    public void OpenDoor() {
-        CarriageDoor.Unlock();
+    public void Start() {
+        AddNPC();
+        AddPuzzles();
+        SetupExtraEvents();
     }
 
-    public void PuzzlesDone() {
+    public void AllPuzzlesComplete() {
+        CarriageDoor.Unlock();
+    }
+    
+    public void AddNPC() {
+        //Spawn npc
+        //Set up events
+    }
 
+    public void AddPuzzles() {
+        //Spawn puzzle
+        //Set up events.
+    }
+
+    public void SetupExtraEvents() {
+        PuzzleController.AllPuzzlesCompleted += AllPuzzlesComplete;
     }
 }
