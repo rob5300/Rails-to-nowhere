@@ -62,6 +62,7 @@ public class Item {
     private static Dictionary<string, Item> ItemList = new Dictionary<string, Item>();
     private static Item box = new Item("Box", "item.box", "I am a box that does nothing", Resources.Load<Sprite>("ItemsToPickup/Cubeimage"), Resources.Load<GameObject>("ItemsToPickup/Cube"));
     private static Item battery = new Item("AA Battery", "puzzle.battery", "A double a battery.");
+    private static Memory basicMemory = new Memory("Basic Memory", "memory.basic", "A basic memory", Resources.Load<Sprite>("Memories/BasicMemory"));
 
     public static Item GetItem(string ItemID)
     {

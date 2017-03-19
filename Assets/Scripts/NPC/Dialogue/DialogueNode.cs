@@ -3,6 +3,7 @@
 public class DialogueNode {
     private string _text = "";
     private string _key = "New Node";
+    private bool isMemoryResponse = false;
     private string _responseText;
     public List<string> ResponseNodes = new List<string>();
 
@@ -36,7 +37,17 @@ public class DialogueNode {
         }
     }
 
-	public DialogueNode()
+    public bool IsMemoryResponse {
+        get {
+            return isMemoryResponse;
+        }
+
+        set {
+            isMemoryResponse = value;
+        }
+    }
+
+    public DialogueNode()
 	{
 
 	}
