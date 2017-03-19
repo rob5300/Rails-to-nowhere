@@ -8,4 +8,5 @@ public interface IUnityXMLSerialisable
 {
 	List<string> GetSerialiseTargets();
 	List<Expression<Func<object, object>>> GetMappings(string propName);
+	string GetDeleteDisplayProp();
 }

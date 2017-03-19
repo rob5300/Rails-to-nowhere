@@ -71,4 +71,9 @@ public class InterfaceTesting : MonoBehaviour, IUnityXMLSerialisable {
     public List<string> GetSerialiseTargets() {
         return new List<string>() { "Node" };
     }
+
+	public string GetDeleteDisplayProp()
+	{
+		return "";
+	}
 }
