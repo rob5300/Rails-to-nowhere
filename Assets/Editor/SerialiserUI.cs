@@ -17,16 +17,19 @@ public class SerialiserUI : EditorWindow
 	private static SerialiserUI _window;
 	private static GameObject _templateInstance;
 	private static bool _save = false;
-
+	private static DeleteUI _deleteWindow;
 	// Add menu named "My Window" to the Window menu
 	[MenuItem("Window/Unity-To-XML Serialiser")]
 	static void Init()
 	{
+
 		// Get existing open window or if none, make a new one:
 		_window = GetWindow<SerialiserUI>();
 		_window.titleContent.text = "U2XML";
 		_window.Show();
 		_templateInstance = GameObject.Find("InstanceHolderObj");
+		_deleteWindow = GetWindow<DeleteUI>();
+		_deleteWindow.titleContent.text = "Delete";
 	}
 
 	void OnGUI()
@@ -41,6 +44,10 @@ public class SerialiserUI : EditorWindow
 			_save = true;
 		}
 		int newCount = Directory.GetFiles(Application.streamingAssetsPath).Where(x => x.Contains(".xml")).Count();
+		if(GUILayout.Button("Delete an instance"))
+		{
+			_deleteWindow.Show();
+		}
 
 		if (_instances == null || newCount != _oldCount)
 		{
@@ -95,6 +102,7 @@ public class SerialiserUI : EditorWindow
 
 	private static void DynamicallyLoadSerialisedFiles()
 	{
+		_deleteWindow.InstancePairs = new Dictionary<FileInfo, IUnityXMLSerialisable>();
 		_instances = new List<IUnityXMLSerialisable>();
 		Type baseInterfaceType = typeof(IUnityXMLSerialisable);
 		Type baseSerialiserType = typeof(UnityXMLSerialiser<>);
@@ -115,6 +123,7 @@ public class SerialiserUI : EditorWindow
 				string actualPath = file.Replace('/', '\\');
 				FileInfo fileInfo = new FileInfo(actualPath);
 				IUnityXMLSerialisable result = (IUnityXMLSerialisable)instantiatedSerialiser.GetType().GetMethod("DeserialiseXML").Invoke(instantiatedSerialiser, new object[2] { fileInfo, false });
+				_deleteWindow.InstancePairs.Add(fileInfo, result);
 				DrawFields(result);
 			}
 

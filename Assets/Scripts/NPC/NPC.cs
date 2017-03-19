@@ -93,4 +93,9 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 	{
 		return null;
 	}
+
+	public virtual string GetDeleteDisplayProp()
+	{
+		return Name;
+	}
 }
