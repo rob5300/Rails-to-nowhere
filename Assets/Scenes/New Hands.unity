@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692504, g: 0.4967869, b: 0.57508504, a: 1}
+  m_IndirectSpecularColor: {r: 0.180536, g: 0.22601806, b: 0.30718735, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -371,6 +371,52 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 199210080}
   m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
+--- !u!1001 &229569123
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400166, guid: ed0e181b4abb13f4f9832b0df4dc9213, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 400166, guid: ed0e181b4abb13f4f9832b0df4dc9213, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400166, guid: ed0e181b4abb13f4f9832b0df4dc9213, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 400166, guid: ed0e181b4abb13f4f9832b0df4dc9213, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400166, guid: ed0e181b4abb13f4f9832b0df4dc9213, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400166, guid: ed0e181b4abb13f4f9832b0df4dc9213, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400166, guid: ed0e181b4abb13f4f9832b0df4dc9213, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400166, guid: ed0e181b4abb13f4f9832b0df4dc9213, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: ed0e181b4abb13f4f9832b0df4dc9213, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4f2980b7df7589744bf46e0ff72b9700, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ed0e181b4abb13f4f9832b0df4dc9213, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1 &235309125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,8 +1229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3b3828b99d1944a1fcc33244b7fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReachDistance: 3
-  objectInfo: {fileID: 692284122}
 --- !u!114 &563872844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,6 +1242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractDistance: 5
   Controller: {fileID: 199210081}
+  blurEffect: {fileID: 0}
 --- !u!114 &563872845
 MonoBehaviour:
   m_ObjectHideFlags: 0
