@@ -412,6 +412,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013995078170}
   - 95: {fileID: 95000011991620720}
+  - 54: {fileID: 54000011382619652}
+  - 136: {fileID: 136000012165931512}
   m_Layer: 0
   m_Name: Nicholas_Holt_Unity
   m_TagString: Untagged
@@ -2022,7 +2024,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010604742044}
-  m_LocalRotation: {x: -0.035531394, y: -0.07232194, z: 0.74975276, w: 0.6567936}
+  m_LocalRotation: {x: -0.035531398, y: -0.072321944, z: 0.7497528, w: 0.65679365}
   m_LocalPosition: {x: -0.24345759, y: -0.038065244, z: -0.07362338}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2368,7 +2370,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011417158570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.192}
+  m_LocalPosition: {x: -3.711719, y: -0.00000017881393, z: 0.94800377}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2454,6 +2456,21 @@ Transform:
   - {fileID: 4000011007676918}
   m_Father: {fileID: 4000014091073230}
   m_RootOrder: 0
+--- !u!54 &54000011382619652
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011417158570}
+  serializedVersion: 2
+  m_Mass: 25
+  m_Drag: 1
+  m_AngularDrag: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!95 &95000011991620720
 Animator:
   serializedVersion: 3
@@ -2471,6 +2488,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!136 &136000012165931512
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011417158570}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.21176028
+  m_Height: 1.81
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.93, z: 0.09}
 --- !u!137 &137000010885375344
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

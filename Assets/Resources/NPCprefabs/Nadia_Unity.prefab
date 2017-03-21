@@ -50,6 +50,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012672522942}
   - 95: {fileID: 95000013628402532}
+  - 54: {fileID: 54000011089113398}
+  - 136: {fileID: 136000011737579226}
   m_Layer: 0
   m_Name: Nadia_Unity
   m_TagString: Untagged
@@ -2012,7 +2014,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010177456718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.436}
+  m_LocalPosition: {x: -2.0343337, y: -0.00000017881393, z: 0.94235325}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2454,6 +2456,21 @@ Transform:
   - {fileID: 4000011573324788}
   m_Father: {fileID: 4000010951048692}
   m_RootOrder: 0
+--- !u!54 &54000011089113398
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010177456718}
+  serializedVersion: 2
+  m_Mass: 25
+  m_Drag: 1
+  m_AngularDrag: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!95 &95000013628402532
 Animator:
   serializedVersion: 3
@@ -2471,6 +2488,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!136 &136000011737579226
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010177456718}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.21176028
+  m_Height: 1.5778849
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.79, z: 0.09}
 --- !u!137 &137000010449452204
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -319,9 +319,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d724a869d2971544da60a051c96c7f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugTextObject: {fileID: 0}
+  _MessageAnimator: {fileID: 0}
+  _MessageText: {fileID: 0}
   HoverName: {fileID: 0}
   HoverDescription: {fileID: 0}
+  CrosshairOb: {fileID: 0}
   dialogueUIObjects:
     Parent: {fileID: 618476788}
     MainTextArea: {fileID: 1568792194}
@@ -1799,7 +1801,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012714978838, guid: 3850b40bbf9e03344b0fd182822d8574, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000013532545116, guid: 3850b40bbf9e03344b0fd182822d8574,
         type: 2}
@@ -2202,7 +2204,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1782048954
 GameObject:
   m_ObjectHideFlags: 0
@@ -2249,7 +2251,6 @@ MonoBehaviour:
   _interactable: 1
   _health: 1
   Essential: 0
-  InitialDialogueNodeName: 
 --- !u!95 &1782048957
 Animator:
   serializedVersion: 3

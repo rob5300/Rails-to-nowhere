@@ -775,6 +775,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011568006264}
   - 95: {fileID: 95000011170132952}
+  - 136: {fileID: 136000013503904706}
+  - 54: {fileID: 54000010001705192}
   m_Layer: 0
   m_Name: Francois_Romain_Unity
   m_TagString: Untagged
@@ -1734,7 +1736,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012768619140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0802112, y: -8.035039e-17, z: 3.61866}
+  m_LocalPosition: {x: 2.621307, y: -0.00000011920929, z: 0.76147604}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2454,6 +2456,21 @@ Transform:
   - {fileID: 4000012370706640}
   m_Father: {fileID: 4000011568006264}
   m_RootOrder: 7
+--- !u!54 &54000010001705192
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012768619140}
+  serializedVersion: 2
+  m_Mass: 25
+  m_Drag: 1
+  m_AngularDrag: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!95 &95000011170132952
 Animator:
   serializedVersion: 3
@@ -2471,6 +2488,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!136 &136000013503904706
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012768619140}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.21176028
+  m_Height: 1.8007226
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.89, z: 0.09}
 --- !u!137 &137000011283965674
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

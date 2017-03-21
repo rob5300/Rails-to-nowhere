@@ -5,7 +5,17 @@ using System.Collections.Generic;
 public class StoryNPC : NPC {
 
     public static List<StoryNPC> StoryNPCs = new List<StoryNPC>();
-    public bool Essential = false;
+    private bool essential = false;
+
+    public bool Essential {
+        get {
+            return essential;
+        }
+
+        set {
+            essential = value;
+        }
+    }
 
     public override void Damage(float damage) {
         if (Health - damage <= 0) {

@@ -1091,6 +1091,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013884961462}
   - 95: {fileID: 95000012707703468}
+  - 54: {fileID: 54000010920808320}
+  - 136: {fileID: 136000012900292672}
   m_Layer: 0
   m_Name: Zayn_Smith_Unity
   m_TagString: Untagged
@@ -2343,7 +2345,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013560301760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.338}
+  m_LocalPosition: {x: -9.527889, y: -0.00000017881393, z: 1.2359443}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2454,6 +2456,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000012640315162}
   m_RootOrder: 0
+--- !u!54 &54000010920808320
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013560301760}
+  serializedVersion: 2
+  m_Mass: 25
+  m_Drag: 1
+  m_AngularDrag: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!95 &95000012707703468
 Animator:
   serializedVersion: 3
@@ -2471,6 +2488,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!136 &136000012900292672
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013560301760}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.21176028
+  m_Height: 1.93
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.96, z: 0.09}
 --- !u!137 &137000010781795350
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

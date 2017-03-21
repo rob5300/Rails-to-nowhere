@@ -18,6 +18,7 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 
     private int memoryResponseTotal = 0;
     private string memoryItemKey = "memory.basic";
+    private GameObject modelPrefab;
 
     public string Name
 	{
@@ -85,6 +86,16 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 
         set {
             initialDialogueNodeName = value;
+        }
+    }
+
+    public GameObject ModelPrefab {
+        get {
+            return modelPrefab;
+        }
+
+        set {
+            modelPrefab = value;
         }
     }
 
