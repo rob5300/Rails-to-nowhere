@@ -65,6 +65,6 @@ public class DialogueNode {
 
     public void AddResponse(string key) {
         if (ResponseNodes.Contains(key)) return;
-        ResponseNodes.Add(key.ToLower);
+        ResponseNodes.Add(key.ToLower());
     }
 }
