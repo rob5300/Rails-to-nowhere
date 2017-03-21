@@ -17,16 +17,19 @@ public class StoryNPC : NPC {
         }
     }
 
-    public override void Damage(float damage) {
-        if (Health - damage <= 0) {
-            Health = 0;
-            if (!Essential) {
-                Die();
-            }
-        }
-        else {
-            Health -= damage;
-        }
-    }
+	public override void Damage(float damage)
+	{
+		if (Health - damage <= 0)
+		{
+			Health = 0;
+			if (!Essential)
+			{
+				Die();
+			}
+		}
+		else {
+			Health -= damage;
+		}
+	}
 
 }

@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Inject>
-  <Name>CJ</Name>
-  <Interactable>false</Interactable>
-  <Health>1</Health>
-  <ModelPrefab>Camilla_Mayer_Unity</ModelPrefab>
-</Inject>

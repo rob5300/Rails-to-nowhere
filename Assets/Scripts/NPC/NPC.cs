@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Reflection;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -135,10 +136,13 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
     public virtual List<string> GetSerialiseTargets()
 	{
 		List <string> baseProps = new List<string>();
-		baseProps.Add("Name");
-		baseProps.Add("Interactable");
-		baseProps.Add("Health");
-		baseProps.Add("ModelPrefab");
+		foreach (PropertyInfo prop in GetType().GetProperties())
+		{
+			if (prop.DeclaringType == typeof(NPC) || prop.DeclaringType == GetType().BaseType || prop.DeclaringType == GetType())
+			{
+				baseProps.Add(prop.Name);
+			}
+		}
 		return baseProps;
 	}
 
