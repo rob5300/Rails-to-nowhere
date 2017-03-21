@@ -15,10 +15,13 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 	private bool _interactable = true;
 	[SerializeField]
 	private float _health = 1;
+    [SerializeField]
     private string initialDialogueNodeName;
-
+    [SerializeField]
     private int memoryResponseTotal = 0;
+    [SerializeField]
     private string memoryItemKey = "memory.basic";
+    [SerializeField]
     private GameObject modelPrefab;
 
     public string Name

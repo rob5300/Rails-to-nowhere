@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using System;
 
 public class UI : MonoBehaviour {
 
@@ -14,6 +15,10 @@ public class UI : MonoBehaviour {
     public static GameObject puzzle2D;
     public static Animator MessageAnimator;
     public static Text MessageText;
+
+    public static int DialogueMemoryCount = 0;
+    public static int DialogueMemoryTotal = 0;
+    public static string DialogueMemoryID = "";
 
     public Animator _MessageAnimator;
     public Text _MessageText;
@@ -88,13 +93,25 @@ public class UI : MonoBehaviour {
 
     //Dialogue Code
     #region
-    public static void DialogueConversation(DialogueNode node) {
+    public static void DialogueConversation(DialogueNode node, string MemoryID, int memoryTotal) {
+        if (MemoryID != "" && MemoryID != null) DialogueMemoryID = MemoryID;
+        else DialogueMemoryID = "";
+
+        DialogueMemoryTotal = memoryTotal;
+        DialogueMemoryCount = 0;
+
         MenuOpen = true;
         dialogueUI.MainTextArea.text = node.Text;
         //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
         ShowResponses(node);
 
         dialogueUI.Parent.SetActive(true);
+    }
+
+    public static void DialogueConversation(DialogueNode node) {
+        dialogueUI.MainTextArea.text = node.Text;
+        //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
+        ShowResponses(node);
     }
 
     public static void ShowResponses(DialogueNode currentNode) {
@@ -117,6 +134,13 @@ public class UI : MonoBehaviour {
         MenuOpen = false;
         LockCursor();
         UnlockPlayerController();
+
+        //We award a memory here, this assumes that the dialogue was closed ONLY this way.
+
+        if(DialogueMemoryCount >= DialogueMemoryTotal) {
+            Player.player.inventory.AddItem(DialogueMemoryID, 1);
+            UI.ShowMessage("You were awarded the memory: " + Item.GetItem(DialogueMemoryID).Name);
+        }
     }
 
     public void ProgressDialogue() {
@@ -124,7 +148,9 @@ public class UI : MonoBehaviour {
     }
 
     public static void HandleDialogueResponse(string nodekey) {
-        DialogueConversation(DialogueController.GetNode(nodekey));
+        DialogueNode node = DialogueController.GetNode(nodekey);
+        if (node.IsMemoryResponse) DialogueMemoryCount++;
+        DialogueConversation(node);
     }
 
     public static void CleanupSpeechUI() {

@@ -57,10 +57,24 @@ public class DialogueNode {
         Text = text;
     }
 
-    public DialogueNode(string key, string text, string responsetext) {
-        Key = key.ToLower();
-        Text = text;
+    public DialogueNode(string key, string text, string responsetext) : this(key, text){
         ResponseText = responsetext;
+    }
+
+    public DialogueNode(string key, string text, string responsetext, List<string> responseNodes) : this(key, text, responsetext) {
+        List<string> lowerN = new List<string>();
+        foreach(string n in responseNodes) {
+            lowerN.Add(n.ToLower());
+        }
+        ResponseNodes = lowerN;
+    }
+
+    public DialogueNode(string key, string text, string responsetext, List<string> responseNodes, bool memoryResponse) : this(key, text, responsetext, responseNodes) {
+        IsMemoryResponse = memoryResponse;
+    }
+
+    public DialogueNode(string key, string text, string responsetext, bool memoryResponse) : this(key, text, responsetext) {
+        IsMemoryResponse = memoryResponse;
     }
 
     public void AddResponse(string key) {
