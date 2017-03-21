@@ -32166,6 +32166,21 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 1.08
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013532545116, guid: 3850b40bbf9e03344b0fd182822d8574,
+        type: 2}
+      propertyPath: initialDialogueNodeName
+      value: test01
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013532545116, guid: 3850b40bbf9e03344b0fd182822d8574,
+        type: 2}
+      propertyPath: memoryResponseTotal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013532545116, guid: 3850b40bbf9e03344b0fd182822d8574,
+        type: 2}
+      propertyPath: memoryItemKey
+      value: memory.nadia
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65000013011763940, guid: 3850b40bbf9e03344b0fd182822d8574, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3850b40bbf9e03344b0fd182822d8574, type: 2}
@@ -33114,10 +33129,10 @@ RectTransform:
   - {fileID: 880536167}
   m_Father: {fileID: 883715762}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 184, y: -40}
+  m_SizeDelta: {x: 358, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1581101647
 MonoBehaviour:
@@ -38099,7 +38114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1803139063
 RectTransform:
   m_ObjectHideFlags: 0
