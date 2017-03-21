@@ -60,14 +60,30 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 			List<PropertyInfo> props = target.GetType().GetProperties().Where(x => targets.Contains(x.Name)).ToList();
 			foreach (PropertyInfo prop in props)
 			{
-				XDocument subDoc = new XDocument();
-				using (XmlWriter subXW = subDoc.CreateWriter())
+				if (prop.PropertyType.IsAssignableFrom(typeof(UnityEngine.Object)))
 				{
-					XmlSerializer serialiser = new XmlSerializer(prop.PropertyType, new XmlRootAttribute(prop.Name));
-					serialiser.Serialize(subXW, prop.GetValue(target, null));
+					string name = ((UnityEngine.Object)prop.GetValue(target, null)).name;
+					XDocument subDoc = new XDocument();
+					using (XmlWriter subXW = subDoc.CreateWriter())
+					{
+						XmlSerializer serialiser = new XmlSerializer(typeof(string), new XmlRootAttribute(prop.Name));
+						serialiser.Serialize(subXW, name);
+					}
+					subDoc.Root.Attributes("xmlns").Remove();
+					objDoc.Root.Add(subDoc.Root);
 				}
-				subDoc.Root.Attributes("xmlns").Remove();
-				objDoc.Root.Add(subDoc.Root);
+				else
+				{
+					XDocument subDoc = new XDocument();
+					using (XmlWriter subXW = subDoc.CreateWriter())
+					{
+						XmlSerializer serialiser = new XmlSerializer(prop.PropertyType, new XmlRootAttribute(prop.Name));
+						serialiser.Serialize(subXW, prop.GetValue(target, null));
+					}
+					subDoc.Root.Attributes("xmlns").Remove();
+					objDoc.Root.Add(subDoc.Root);
+				}
+
 			}
 		}
 		objDoc.Save(targetInfo.FullName);
@@ -94,12 +110,26 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 		{
 			if (prop.DeclaringType == typeof(T))
 			{
-				using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
+				if (prop.PropertyType.IsAssignableFrom(typeof(UnityEngine.Object)))
 				{
-					XmlSerializer propDeserialiser = new XmlSerializer(prop.PropertyType, new XmlRootAttribute(prop.Name));
-					prop.SetValue(newObj, propDeserialiser.Deserialize(xr), null);
+					using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
+					{
+						XmlSerializer propDeserialiser = new XmlSerializer(typeof(string), new XmlRootAttribute(prop.Name));
+						string result = (string)propDeserialiser.Deserialize(xr);
+						prop.SetValue(newObj, Resources.Load(result, prop.PropertyType), null);
+					}
+					targets.Remove(targets.Where(x => x == prop.Name).First());
 				}
-				targets.Remove(targets.Where(x => x == prop.Name).First());
+				else
+				{
+					using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
+					{
+						XmlSerializer propDeserialiser = new XmlSerializer(prop.PropertyType, new XmlRootAttribute(prop.Name));
+						prop.SetValue(newObj, propDeserialiser.Deserialize(xr), null);
+					}
+					targets.Remove(targets.Where(x => x == prop.Name).First());
+				}
+
 			}
 
 		}
@@ -111,11 +141,20 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 			{
 				foreach (PropertyInfo prop in inheritedProps)
 				{
-					if (prop.DeclaringType == baseType)
+					if (prop.PropertyType.IsAssignableFrom(typeof(UnityEngine.Object)))
 					{
 						using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
 						{
-							//XDocument doc = XDocument.Load(xr);
+							XmlSerializer propDeserialiser = new XmlSerializer(typeof(string), new XmlRootAttribute(prop.Name));
+							string result = (string)propDeserialiser.Deserialize(xr);
+							prop.SetValue(newObj, Resources.Load(result, prop.PropertyType), null);
+						}
+						targets.Remove(targets.Where(x => x == prop.Name).First());
+					}
+					else
+					{
+						using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
+						{
 							XmlSerializer propDeserialiser = new XmlSerializer(prop.PropertyType, new XmlRootAttribute(prop.Name));
 							prop.SetValue(newObj, propDeserialiser.Deserialize(xr), null);
 						}
