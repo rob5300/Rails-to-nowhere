@@ -26,6 +26,7 @@ public class UI : MonoBehaviour {
     public static List<GameObject> responseButtons = new List<GameObject>();
     public static List<GameObject> inventoryItems = new List<GameObject>();
     public static GameObject Crosshair;
+    public static Item selectedItem;
 
     void Awake() {
         //Assign the static variable player to the only instance of this class that should exist.
@@ -48,6 +49,8 @@ public class UI : MonoBehaviour {
 
         inventoryUI.Parent.SetActive(false);
         inventoryUI.BaseInventoryItem.SetActive(false);
+        inventoryUI.ItemInformationPanel.SetActive(false);
+        inventoryUI.MemoryParent.SetActive(false);
     }
 
     private void Update() {
@@ -63,6 +66,7 @@ public class UI : MonoBehaviour {
                 UnlockCursor();
             }
             else {
+                inventoryUI.MemoryParent.SetActive(false);
                 inventoryUI.Parent.SetActive(false);
                 inventoryOpen = false;
                 LockCursor();
@@ -159,6 +163,7 @@ public class UI : MonoBehaviour {
     public static void UpdateInventoryUI() {
         GameObject newInvItem;
         UIItemSlot newSlot;
+        inventoryUI.ItemInformationPanel.SetActive(false);
 
         List<Inventory.ItemSlot> popItemSlots = Player.player.inventory.GetPopulatedItemSlots();
         if (popItemSlots.Count < 0) return;
@@ -167,6 +172,7 @@ public class UI : MonoBehaviour {
             inventoryItems.Add(newInvItem);
             newSlot = newInvItem.GetComponent<UIItemSlot>();
             Item item = Item.GetItem(itemSlot.ItemID);
+            newSlot.item = item;
             newSlot.ItemSprite.sprite = item.InventorySprite;
             newSlot.ItemName.text = item.Name;
             newSlot.ItemType.text = item.GetType().ToString();
@@ -189,7 +195,33 @@ public class UI : MonoBehaviour {
     }
 
     public static void InventoryItemClickEvent(UIItemSlot slot){
+        inventoryUI.ItemInfoViewMemoryButton.SetActive(false);
+        selectedItem = slot.item;
+        inventoryUI.ItemInfoName.text = slot.ItemName.text;
+        inventoryUI.ItemInfoType.text = slot.ItemType.text;
+        inventoryUI.ItemInfoQuantity.text = slot.ItemQuantity.text;
+        inventoryUI.ItemInfoSprite.sprite = slot.ItemSprite.sprite;
+        inventoryUI.ItemInfoDescription.text = slot.item.Description;
+        if(slot.item is Memory) inventoryUI.ItemInfoViewMemoryButton.SetActive(true);
+        if (!slot.item.Dropable) inventoryUI.ItemInfoDropItemButton.GetComponent<Button>().interactable = false;
+        else inventoryUI.ItemInfoDropItemButton.GetComponent<Button>().interactable = true;
+        inventoryUI.ItemInformationPanel.SetActive(true);
+    }
 
+    public void ItemDrop() {
+        Player.player.inventory.RemoveItem(selectedItem.ID, 1);
+        CleanInventoryUI();
+        UpdateInventoryUI();
+    }
+    
+    public void ViewMemory() {
+        inventoryUI.Memory.sprite = ((Memory)selectedItem).MemorySprite;
+        inventoryUI.MemoryName.text = selectedItem.Name;
+        inventoryUI.MemoryParent.SetActive(true);
+    }
+
+    public void CloseMemory() {
+        inventoryUI.MemoryParent.SetActive(false);
     }
     #endregion
 
@@ -221,6 +253,7 @@ public struct DialogueUI {
     public InputField MainTextArea;
     public GameObject ResponseButtonArea;
     public GameObject ResponseButton;
+
 }
 
 [System.Serializable]
@@ -230,4 +263,16 @@ public struct InventoryUI
     public GameObject BaseInventoryItem;
     public GameObject InventoryItemArea;
 
+    public GameObject ItemInformationPanel;
+    public Text ItemInfoName;
+    public Text ItemInfoType;
+    public Text ItemInfoQuantity;
+    public Image ItemInfoSprite;
+    public Text ItemInfoDescription;
+    public GameObject ItemInfoViewMemoryButton;
+    public GameObject ItemInfoDropItemButton;
+
+    public GameObject MemoryParent;
+    public Image Memory;
+    public Text MemoryName;
 }
