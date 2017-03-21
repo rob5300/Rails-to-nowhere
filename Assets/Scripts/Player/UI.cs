@@ -139,7 +139,7 @@ public class UI : MonoBehaviour {
 
         if(DialogueMemoryCount >= DialogueMemoryTotal) {
             Player.player.inventory.AddItem(DialogueMemoryID, 1);
-            UI.ShowMessage("You were the memory: " + Item.GetItem(DialogueMemoryID).Name);
+            UI.ShowMessage("You were awarded the memory: " + Item.GetItem(DialogueMemoryID).Name);
         }
     }
 
