@@ -138,6 +138,7 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 		baseProps.Add("Name");
 		baseProps.Add("Interactable");
 		baseProps.Add("Health");
+		baseProps.Add("ModelPrefab");
 		return baseProps;
 	}
 
@@ -149,5 +150,14 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 	public virtual string GetDisplayValue()
 	{
 		return Name;
+	}
+
+	public virtual string GetUnityResourcesFolderPath(string propName)
+	{
+		if (propName == "ModelPrefab")
+		{
+			return "NPCPrefabs";
+		}
+		return "";
 	}
 }
