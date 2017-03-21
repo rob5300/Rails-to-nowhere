@@ -144,9 +144,9 @@ public class SerialiserUI : EditorWindow
 		{
 			PropertyInfo propInfo = target.GetType().GetProperty(prop);
 			List<Expression<Func<object, object>>> anonymousMethods = target.GetMappings(prop);
-			if (propInfo.PropertyType.IsAssignableFrom(typeof(UnityEngine.Object)))
+			if (propInfo.PropertyType.IsSubclassOf(typeof(UnityEngine.Object)))
 			{
-				propInfo.SetValue(target, EditorGUILayout.ObjectField(prop + ":", (UnityEngine.Object)propInfo.GetValue(target, null), target.GetType(), true), null);
+				propInfo.SetValue(target, EditorGUILayout.ObjectField(prop + ":", (UnityEngine.Object)propInfo.GetValue(target, null), propInfo.PropertyType, true), null);
 			}
 			else if (propInfo.PropertyType.IsPrimitive || propInfo.PropertyType == typeof(string))
 			{
@@ -162,11 +162,11 @@ public class SerialiserUI : EditorWindow
 				if (propInfo.PropertyType.IsAssignableFrom(typeof(IList)))
 				{
 					IList resultList = (IList)propInfo.GetValue(target, null);
-					if (propInfo.PropertyType.GetElementType().IsAssignableFrom(typeof(UnityEngine.Object)))
+					if (propInfo.PropertyType.GetElementType().IsSubclassOf(typeof(UnityEngine.Object)))
 					{
 						for (int i = 0; i < resultList.Count; i++)
 						{
-							resultList[i] = EditorGUILayout.ObjectField(prop + " - " + i + ":", (UnityEngine.Object)resultList[i], target.GetType(), true);
+							resultList[i] = EditorGUILayout.ObjectField(prop + " - " + i + ":", (UnityEngine.Object)resultList[i], propInfo.PropertyType, true);
 						}
 					}
 					else if (propInfo.PropertyType.GetElementType().IsPrimitive || propInfo.PropertyType.GetElementType() == typeof(string))

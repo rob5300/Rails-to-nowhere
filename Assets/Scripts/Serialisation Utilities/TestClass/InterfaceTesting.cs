@@ -76,4 +76,9 @@ public class InterfaceTesting : MonoBehaviour, IUnityXMLSerialisable {
 	{
 		return "";
 	}
+
+	public string GetUnityResourcesFolderPath(string propName)
+	{
+		return "";
+	}
 }

@@ -60,7 +60,7 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 			List<PropertyInfo> props = target.GetType().GetProperties().Where(x => targets.Contains(x.Name)).ToList();
 			foreach (PropertyInfo prop in props)
 			{
-				if (prop.PropertyType.IsAssignableFrom(typeof(UnityEngine.Object)))
+				if (prop.PropertyType.IsSubclassOf(typeof(UnityEngine.Object)))
 				{
 					string name = ((UnityEngine.Object)prop.GetValue(target, null)).name;
 					XDocument subDoc = new XDocument();
@@ -110,12 +110,17 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 		{
 			if (prop.DeclaringType == typeof(T))
 			{
-				if (prop.PropertyType.IsAssignableFrom(typeof(UnityEngine.Object)))
+				string propFolder = newObj.GetUnityResourcesFolderPath(prop.Name);
+				if (prop.PropertyType.IsSubclassOf(typeof(UnityEngine.Object)))
 				{
 					using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
 					{
 						XmlSerializer propDeserialiser = new XmlSerializer(typeof(string), new XmlRootAttribute(prop.Name));
 						string result = (string)propDeserialiser.Deserialize(xr);
+						if (propFolder != "")
+						{
+							result = propFolder + "/" + result;
+						}
 						prop.SetValue(newObj, Resources.Load(result, prop.PropertyType), null);
 					}
 					targets.Remove(targets.Where(x => x == prop.Name).First());
@@ -141,12 +146,17 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 			{
 				foreach (PropertyInfo prop in inheritedProps)
 				{
-					if (prop.PropertyType.IsAssignableFrom(typeof(UnityEngine.Object)))
+					if (prop.PropertyType.IsSubclassOf(typeof(UnityEngine.Object)))
 					{
 						using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
 						{
 							XmlSerializer propDeserialiser = new XmlSerializer(typeof(string), new XmlRootAttribute(prop.Name));
 							string result = (string)propDeserialiser.Deserialize(xr);
+							string propFolder = newObj.GetUnityResourcesFolderPath(prop.Name);
+							if (propFolder != "")
+							{
+								result = propFolder + "/" + result;
+							}
 							prop.SetValue(newObj, Resources.Load(result, prop.PropertyType), null);
 						}
 						targets.Remove(targets.Where(x => x == prop.Name).First());
