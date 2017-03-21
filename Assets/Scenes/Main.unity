@@ -32166,6 +32166,21 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 1.08
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013532545116, guid: 3850b40bbf9e03344b0fd182822d8574,
+        type: 2}
+      propertyPath: initialDialogueNodeName
+      value: test01
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013532545116, guid: 3850b40bbf9e03344b0fd182822d8574,
+        type: 2}
+      propertyPath: memoryResponseTotal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013532545116, guid: 3850b40bbf9e03344b0fd182822d8574,
+        type: 2}
+      propertyPath: memoryItemKey
+      value: memory.nadia
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65000013011763940, guid: 3850b40bbf9e03344b0fd182822d8574, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3850b40bbf9e03344b0fd182822d8574, type: 2}

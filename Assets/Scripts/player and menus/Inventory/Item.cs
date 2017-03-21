@@ -40,7 +40,7 @@ public class Item {
     private static Memory memoryMatilda = new Memory("Matilda's Memory", "memory.matilda", "A memory from Matilda.", Resources.Load<Sprite>("Memories/memoryMatilda"));
     private static Memory memoryArleana = new Memory("Arleana's Memory", "memory.arleana", "A memory from Arleana.", Resources.Load<Sprite>("Memories/memoryArleana"));
     private static Memory memoryJohn = new Memory("John's Memory", "memory.john", "A memory from John.", Resources.Load<Sprite>("Memories/memoryJohn"));
-    private static Memory memoryNadia = new Memory("Nadia's Memory", "memory.nadia", "A memory from Arlina.", Resources.Load<Sprite>("Memories/memoryArleana"));
+    private static Memory memoryNadia = new Memory("Nadia's Memory", "memory.nadia", "A memory from Nadia.", Resources.Load<Sprite>("Memories/memoryNadia"));
 
     public static Item GetItem(string ItemID)
     {
