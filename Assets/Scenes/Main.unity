@@ -1503,7 +1503,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5882353, g: 0.49019608, b: 0.49019608, a: 0.88235295}
+    m_NormalColor: {r: 0.39607844, g: 0.22352941, b: 0.22352941, a: 1}
     m_HighlightedColor: {r: 0.75908303, g: 0.7604403, b: 0.9558824, a: 1}
     m_PressedColor: {r: 0.5539576, g: 0.61711603, b: 0.8014706, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1567,7 +1567,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ec9a5a29d689b6045805382082a699f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7452947c232bf24e9424e526254046e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11702,7 +11702,7 @@ RectTransform:
   m_Father: {fileID: 148475098}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16481,7 +16481,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5882353, g: 0.49019608, b: 0.49019608, a: 0.88235295}
+    m_NormalColor: {r: 0.39607844, g: 0.22352941, b: 0.22352941, a: 1}
     m_HighlightedColor: {r: 0.75908303, g: 0.7604403, b: 0.9558824, a: 1}
     m_PressedColor: {r: 0.5539576, g: 0.61711603, b: 0.8014706, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -16534,7 +16534,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ec9a5a29d689b6045805382082a699f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7452947c232bf24e9424e526254046e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22622,7 +22622,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.58823526, g: 0.4887543, b: 0.4887543, a: 0.884}
+    m_NormalColor: {r: 0.39705884, g: 0.22188583, b: 0.22188583, a: 1}
     m_HighlightedColor: {r: 0.75908303, g: 0.7604403, b: 0.9558824, a: 1}
     m_PressedColor: {r: 0.5539576, g: 0.61711603, b: 0.8014706, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -22675,7 +22675,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ec9a5a29d689b6045805382082a699f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7452947c232bf24e9424e526254046e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23276,7 +23276,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5882353, g: 0.49019608, b: 0.49019608, a: 0.88235295}
+    m_NormalColor: {r: 0.39607844, g: 0.22352941, b: 0.22352941, a: 1}
     m_HighlightedColor: {r: 0.75908303, g: 0.7604403, b: 0.9558824, a: 1}
     m_PressedColor: {r: 0.5539576, g: 0.61711603, b: 0.8014706, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -23340,7 +23340,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ec9a5a29d689b6045805382082a699f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7452947c232bf24e9424e526254046e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -24895,7 +24895,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5882353, g: 0.49019608, b: 0.49019608, a: 0.88235295}
+    m_NormalColor: {r: 0.39607844, g: 0.22352941, b: 0.22352941, a: 1}
     m_HighlightedColor: {r: 0.75908303, g: 0.7604403, b: 0.9558824, a: 1}
     m_PressedColor: {r: 0.5539576, g: 0.61711603, b: 0.8014706, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -24959,7 +24959,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ec9a5a29d689b6045805382082a699f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7452947c232bf24e9424e526254046e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25904,7 +25904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4627451, g: 0.22745098, b: 0.22745098, a: 0.9529412}
+  m_Color: {r: 0.4627451, g: 0.22745098, b: 0.22745098, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -35076,7 +35076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.46323532, g: 0.2282115, b: 0.2282115, a: 0.953}
+  m_Color: {r: 0.46323532, g: 0.2282115, b: 0.2282115, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -39071,7 +39071,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5882353, g: 0.49019608, b: 0.49019608, a: 0.88235295}
+    m_NormalColor: {r: 0.39607844, g: 0.22352941, b: 0.22352941, a: 1}
     m_HighlightedColor: {r: 0.75908303, g: 0.7604403, b: 0.9558824, a: 1}
     m_PressedColor: {r: 0.5539576, g: 0.61711603, b: 0.8014706, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -39135,7 +39135,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ec9a5a29d689b6045805382082a699f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7452947c232bf24e9424e526254046e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -40348,7 +40348,7 @@ RectTransform:
   m_Father: {fileID: 1739494220}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
