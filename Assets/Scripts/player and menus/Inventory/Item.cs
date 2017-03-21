@@ -6,67 +6,45 @@ public class Item {
     public string ID;
     public string Name;
     public string Description;
+    public bool Dropable = true;
     public Sprite InventorySprite;
     public GameObject Prefab;
 
-    public Item(string name, string id, string description, Sprite inventorySprite, GameObject prefab)
-    {
-        Name = name;
-        ID = id;
-        Description = description;
+    public Item(string name, string id, string description, Sprite inventorySprite, GameObject prefab) : this(name, id, description) {
         InventorySprite = inventorySprite;
         Prefab = prefab;
-        ItemList.Add(id, this);
     }
 
+    //Base Constructor
     public Item(string name, string id, string description) {
         Name = name;
-        ID = id;
+        ID = id.ToLower();
         Description = description;
-
         //If a sprite is not supplied, use the unknown item sprite.
         InventorySprite = Resources.Load<Sprite>("ItemIcons/unknown item");
 
-        //If a prefab is not supplied, use a preset primivite as a placeholder.
-        Prefab = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        Prefab.SetActive(false);
-        Prefab.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-        Prefab.GetComponent<MeshRenderer>().material.color = Color.magenta;
-        WorldItem newEnt = Prefab.AddComponent<WorldItem>();
-        newEnt.ItemID = id;
-        newEnt.Name = name;
-        newEnt.Quantity = 1;
-
         ItemList.Add(id, this);
     }
 
-    public Item(string name, string id, string description, Sprite inventorySprite) {
-        Name = name;
-        ID = id;
-        Description = description;
+    public Item(string name, string id, string description, Sprite inventorySprite) : this(name, id, description) {
         InventorySprite = inventorySprite;
+    }
 
-        //If a prefab is not supplied, use a preset primivite as a placeholder.
-        Prefab = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        Prefab.SetActive(false);
-        Prefab.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-        Prefab.GetComponent<MeshRenderer>().material.color = Color.magenta;
-        WorldItem newEnt = Prefab.AddComponent<WorldItem>();
-        newEnt.ItemID = id;
-        newEnt.Name = name;
-        newEnt.Quantity = 1;
-
-        ItemList.Add(id, this);
+    public Item(string name, string id, string description, GameObject gameObject) : this(name, id, description) {
+        Prefab = gameObject;
     }
 
     private static Dictionary<string, Item> ItemList = new Dictionary<string, Item>();
-    private static Item box = new Item("Box", "item.box", "I am a box that does nothing", Resources.Load<Sprite>("ItemsToPickup/Cubeimage"), Resources.Load<GameObject>("ItemsToPickup/Cube"));
+    private static Item box = new Item("Box", "item.box", "I am a box that does nothing", Resources.Load<GameObject>("ItemsToPickup/Cube"));
     private static Item battery = new Item("AA Battery", "puzzle.battery", "A double a battery.");
-    private static Memory basicMemory = new Memory("Basic Memory", "memory.basic", "A basic memory", Resources.Load<Sprite>("Memories/BasicMemory"));
+    private static Memory memoryMatilda = new Memory("Matilda's Memory", "memory.matilda", "A memory from Matilda.", Resources.Load<Sprite>("Memories/memoryMatilda"));
+    private static Memory memoryArleana = new Memory("Arleana's Memory", "memory.arleana", "A memory from Arleana.", Resources.Load<Sprite>("Memories/memoryArleana"));
+    private static Memory memoryJohn = new Memory("John's Memory", "memory.john", "A memory from John.", Resources.Load<Sprite>("Memories/memoryJohn"));
+    private static Memory memoryNadia = new Memory("Nadia's Memory", "memory.nadia", "A memory from Arlina.", Resources.Load<Sprite>("Memories/memoryArleana"));
 
     public static Item GetItem(string ItemID)
     {
-        return ItemList[ItemID];
+        return ItemList[ItemID.ToLower()];
     }
 
     public static bool IsValidItemID(string ItemID)

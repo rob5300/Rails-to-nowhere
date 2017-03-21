@@ -84,7 +84,7 @@ public class Inventory {
 
             set {
                 itemQuantity = value;
-                if (itemQuantity < 0) {
+                if (itemQuantity <= 0) {
                     itemQuantity = 0;
                     ItemID = "";
                 }
