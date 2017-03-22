@@ -9,4 +9,16 @@ public class FillerNPC : NPC {
     public static void LoadFillerNPCSDUMMY() {
         FillerNPCs.Add(GameObject.Find("TestFillerNPC").GetComponent<FillerNPC>());
     }
+
+    public FillerNPC() {
+        TestProp = new List<GameObject>();
+    }
+
+    public List<GameObject> TestProp { get; set; }
+
+    public override List<string> GetSerialiseTargets() {
+        List<string> props = base.GetSerialiseTargets();
+        props.Add("TestProp");
+        return props;
+    }
 }
