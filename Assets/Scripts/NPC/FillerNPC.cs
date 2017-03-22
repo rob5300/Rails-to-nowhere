@@ -6,12 +6,12 @@ public class FillerNPC : NPC {
 
     public static List<FillerNPC> FillerNPCs = new List<FillerNPC>();
 
+	public FillerNPC()
+	{
+		TestProp = new List<GameObject>();
+	}
     public static void LoadFillerNPCSDUMMY() {
         FillerNPCs.Add(GameObject.Find("TestFillerNPC").GetComponent<FillerNPC>());
-    }
-
-    public FillerNPC() {
-        TestProp = new List<GameObject>();
     }
 
     public List<GameObject> TestProp { get; set; }
