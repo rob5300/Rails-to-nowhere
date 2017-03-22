@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System;
 
 public class LevelGenerator : MonoBehaviour {
 
@@ -8,6 +9,7 @@ public class LevelGenerator : MonoBehaviour {
     List<GameObject> _storyCarriages = new List<GameObject>();
     List<GameObject> _fillerCarriages = new List<GameObject>();
     List<GameObject> _carriagesToPlace = new List<GameObject>();
+    List<NPC> _carriageNPCs = new List<NPC>();
 
     Vector3 _placementPoint;
     GameObject _selectedCarriage;
@@ -18,6 +20,7 @@ public class LevelGenerator : MonoBehaviour {
     int storyCount = 0;
     int storyPlaced = 0;
     int fillerCount = 0;
+    System.Random random = new System.Random();
 
     public void OnEnable() {
         SceneManager.sceneLoaded += LevelLoad;
@@ -28,17 +31,22 @@ public class LevelGenerator : MonoBehaviour {
     }
 
     public void LevelLoad(Scene scene, LoadSceneMode mode) {
+        PopulateObjectLists();
         PopulateCarriageLists();
         GenerateLevel();
     }
 
-    void PopulateCarriageLists() {
-        System.Random random = new System.Random();
-        //Tell Carriages to load in story carriages
-        Carriage.LoadStoryCarriages();
+    void PopulateObjectLists() {
+        //Load Story NPCS.
+        StoryNPC.LoadStoryNPCSDUMMY();
+        //Load Filler NPCS.
+        FillerNPC.LoadFillerNPCSDUMMY();
         //Load in Filler carriages.
         _fillerCarriages.Add(Resources.Load<GameObject>("Carriages/FillerCarriage1"));
+    }
 
+    void PopulateCarriageLists() {
+        //We will pick story npcs first then add their carriage.
 
         if (StoryCarriageAmount < 1) {
             StoryCarriageAmount = 1;
@@ -48,31 +56,36 @@ public class LevelGenerator : MonoBehaviour {
         storyPlaced = 0;
         fillerCount = 0;
         GameObject toAddCandidate;
+        StoryNPC storyNPCCandidate;
+        FillerNPC fillerNPCCandidate;
         //Select random carriages and place into list.
         while (_carriagesToPlace.Count < TotalCarriageAmount) {
             //The logic here is moved to a method to allow the filler carriage count to be 0. This avoids a DevideByZero.
             if (StoryToFillerCalc()) {
                 //Add Story Carriage
-                while (true) {
-                    toAddCandidate = _storyCarriages[random.Next(_storyCarriages.Count - 1)];
-                    if (!_carriagesToPlace.Contains(toAddCandidate)) {
-                        _carriagesToPlace.Add(toAddCandidate);
-                        storyCount++;
-                        storyPlaced++;
-                        break;
-                    }
-                    else if (_storyCarriages.Count <= storyCount) {
-                        //We need to check if there are not enough carriages to have no duplicates, if there are not then we must accept this selected carriage.
-                        _carriagesToPlace.Add(toAddCandidate);
-                        storyPlaced++;
-                        storyCount++;
-                        break;
-                    }
-                }
-
+                //WHILE loop was removed, if old behaviour is replaced replicate system for filler carriages.
+                //toAddCandidate = _storyCarriages[random.Next(_storyCarriages.Count - 1)];
+                storyNPCCandidate = SelectStoryNPC();
+                _carriagesToPlace.Add(storyNPCCandidate.Carriage);
+                storyCount++;
+                storyPlaced++;
+                //if (!_carriagesToPlace.Contains(toAddCandidate)) {
+                //    _carriagesToPlace.Add(toAddCandidate);
+                //    storyCount++;
+                //    storyPlaced++;
+                //    break;
+                //}
+                //else if (_storyCarriages.Count <= storyCount) {
+                //    //We need to check if there are not enough carriages to have no duplicates, if there are not then we must accept this selected carriage.
+                //    _carriagesToPlace.Add(toAddCandidate);
+                //    storyPlaced++;
+                //    storyCount++;
+                //    break;
+                //}
             }
             else {
                 //Add Filler Carriage
+                fillerNPCCandidate = SelectFillerNPC();
                 while (true) {
                     toAddCandidate = _fillerCarriages[random.Next(_fillerCarriages.Count - 1)];
                     if (!_carriagesToPlace.Contains(toAddCandidate)) {
@@ -93,6 +106,78 @@ public class LevelGenerator : MonoBehaviour {
         }
     }
 
+    private StoryNPC SelectStoryNPC() {
+        StoryNPC toreturn;
+        if (StoryNPC.StoryNPCs.Count == 0) {
+            Debug.LogError("Story NPC list is empty");
+            return null;
+        }
+
+        while (true) {
+            toreturn = StoryNPC.StoryNPCs[random.Next(StoryNPC.StoryNPCs.Count - 1)];
+            if (!_carriageNPCs.Contains(toreturn)) {
+                _carriageNPCs.Add(toreturn);
+                break;
+            }
+            //Accept this npc as we only have 1 to use.
+            else if (StoryNPC.StoryNPCs.Count <= 1) {
+                _carriageNPCs.Add(toreturn);
+                break;
+            }
+        }
+        return toreturn;
+    }
+
+    private FillerNPC SelectFillerNPC() {
+        FillerNPC toreturn;
+        if (FillerNPC.FillerNPCs.Count == 0) {
+            Debug.LogError("Filler NPC list is empty");
+            return null;
+        }
+
+        while (true) {
+            toreturn = FillerNPC.FillerNPCs[random.Next(StoryNPC.StoryNPCs.Count - 1)];
+            if (!_carriageNPCs.Contains(toreturn)) {
+                _carriageNPCs.Add(toreturn);
+                break;
+            }
+            //Accept this npc as we only have 1 to use.
+            else if (StoryNPC.StoryNPCs.Count <= 1) {
+                _carriageNPCs.Add(toreturn);
+                break;
+            }
+        }
+        return toreturn;
+    }
+
+    void PlaceCarriageNPC(StoryNPC npc, GameObject carriageObject) {
+        Carriage carriage = carriageObject.GetComponent<Carriage>();
+        //Place NPC
+        GameObject newNPC = (GameObject)Instantiate(npc.ModelPrefab, carriage.NPCPosition.position, carriage.NPCPosition.rotation);
+        newNPC.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
+        StoryNPC newStoryNPC = newNPC.AddComponent<StoryNPC>();
+        newStoryNPC.Name = npc.Name;
+        newStoryNPC.MemoryItemKey = npc.MemoryItemKey;
+        newStoryNPC.MemoryResponseTotal = npc.MemoryResponseTotal;
+        newStoryNPC.InitialDialogueNodeName = npc.InitialDialogueNodeName;
+        newStoryNPC.Health = npc.Health;
+        newStoryNPC.Interactable = npc.Interactable;
+    }
+
+    void PlaceCarriageNPC(FillerNPC npc, GameObject carriageObject) {
+        Carriage carriage = carriageObject.GetComponent<Carriage>();
+        //Place NPC
+        GameObject newNPC = (GameObject)Instantiate(npc.ModelPrefab, carriage.NPCPosition.position, carriage.NPCPosition.rotation);
+        newNPC.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
+        FillerNPC newStoryNPC = newNPC.AddComponent<FillerNPC>();
+        newStoryNPC.Name = npc.Name;
+        newStoryNPC.MemoryItemKey = npc.MemoryItemKey;
+        newStoryNPC.MemoryResponseTotal = npc.MemoryResponseTotal;
+        newStoryNPC.InitialDialogueNodeName = npc.InitialDialogueNodeName;
+        newStoryNPC.Health = npc.Health;
+        newStoryNPC.Interactable = npc.Interactable;
+    }
+
     bool StoryToFillerCalc() {
         //returns true to place story carriage. returns false to place a filler carriage.
 
@@ -108,19 +193,26 @@ public class LevelGenerator : MonoBehaviour {
         else {
             return storyPlaced < Mathf.Floor(storyf / fillerf);
         }
-        
+
     }
 
     void GenerateLevel() {
         Carriage previousCarriage = startCarriage;
         GameObject placing;
         Carriage placingCarriage;
-        foreach(GameObject carriage in _carriagesToPlace) {
+        foreach (GameObject carriage in _carriagesToPlace) {
             placing = (GameObject)Instantiate(carriage, Vector3.zero, Quaternion.identity);
             placingCarriage = placing.GetComponent<Carriage>();
             Vector3 positionToPlaceAt = previousCarriage.FrontMountPoint.position - placingCarriage.RearMountPoint.position;
             placing.transform.position = positionToPlaceAt;
             previousCarriage = placingCarriage;
+            if (_carriageNPCs[0] is StoryNPC) {
+                PlaceCarriageNPC((StoryNPC)_carriageNPCs[0], placing);
+            }
+            else if (_carriageNPCs[0] is FillerNPC) {
+                PlaceCarriageNPC((FillerNPC)_carriageNPCs[0], placing);
+            }
+            _carriageNPCs.RemoveAt(0);
         }
     }
 }

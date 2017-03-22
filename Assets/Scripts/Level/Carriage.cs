@@ -3,13 +3,6 @@ using System.Collections.Generic;
 
 public class Carriage : MonoBehaviour {
 
-    public static Dictionary<string, GameObject> StoryCarriages = new Dictionary<string, GameObject>();
-
-    public static void LoadStoryCarriages(){
-        StoryCarriages.Add("StoryCarriage1", Resources.Load<GameObject>("Carriages/StoryCarriage1"));
-    }
-
-
     public Transform FrontMountPoint;
     public Transform RearMountPoint;
 
