@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfKeyValuePairOfStringDialogueNode xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <KeyValuePairOfStringDialogueNode>
+    <Key>test01</Key>
+    <Value>
+      <Text>This is a test text node.</Text>
+      <Key>test01</Key>
+      <ResponseText>Back to test01</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>response1</string>
+        <string>response2</string>
+        <string>response3</string>
+        <string>memorynode</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>response1</Key>
+    <Value>
+      <Text>This is a response node, 1.</Text>
+      <Key>response1</Key>
+      <ResponseText>Response 01</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>test01</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>response2</Key>
+    <Value>
+      <Text>This is a response node, 2.</Text>
+      <Key>response2</Key>
+      <ResponseText>Response 02</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>test01</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>response3</Key>
+    <Value>
+      <Text>This is a response node with no extra nodes to respond with, soo no buttons appear</Text>
+      <Key>response3</Key>
+      <ResponseText>Response with no responses</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes />
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>memorynode</Key>
+    <Value>
+      <Text>Here, have a memory!</Text>
+      <Key>memorynode</Key>
+      <ResponseText>Award memory</ResponseText>
+      <IsMemoryResponse>true</IsMemoryResponse>
+      <ResponseNodes />
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+</ArrayOfKeyValuePairOfStringDialogueNode>

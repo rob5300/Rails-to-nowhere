@@ -93,7 +93,7 @@ public class SerialiserUI : EditorWindow
 
 					Type actualSerialiserType = baseSerialiserType.MakeGenericType(instanceToSave.GetType());
 					object instantiatedSerialiser = Activator.CreateInstance(actualSerialiserType);
-					FileInfo info = new FileInfo(Application.streamingAssetsPath + "\\" + instanceToSave.GetType().FullName + i + ".xml");
+					FileInfo info = new FileInfo(Application.streamingAssetsPath.Replace('/', '\\') + "\\" + instanceToSave.GetType().FullName + i + ".xml");
 					instantiatedSerialiser.GetType().GetMethod("SerialiseInstance").Invoke(instantiatedSerialiser, new object[2] { instanceToSave, info });
 					i++;
 					//DestroyImmediate((MonoBehaviour)instanceToSave);

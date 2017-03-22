@@ -22,30 +22,6 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 		_template = GameObject.Find("InstanceHolderObj");
 	}
 
-	public static void SerialiseSingularNonGameObject<TTargetType>(TTargetType serialiseTarget, string targetFileLocation)
-	{
-		if (!Directory.Exists(targetFileLocation))
-		{
-			File.Create(targetFileLocation);
-		}
-		using (StreamWriter sw = new StreamWriter(targetFileLocation))
-		{
-			XmlSerializer serialiser = new XmlSerializer(typeof(TTargetType));
-			serialiser.Serialize(sw, serialiseTarget);
-		}
-	}
-
-	public static TTargetType DeserialiseSingularNonGameObject<TTargetType>(string targetFileLocation)
-	{
-		TTargetType result = default(TTargetType);
-		using (StreamReader sr = new StreamReader(targetFileLocation))
-		{
-			XmlSerializer serialiser = new XmlSerializer(typeof(TTargetType));
-			result = (TTargetType)serialiser.Deserialize(sr);
-		}
-		return result;
-	}
-
 	/// <summary>
 	/// Serialises a MonoBehaviour's targeted properties into XML.
 	/// </summary>

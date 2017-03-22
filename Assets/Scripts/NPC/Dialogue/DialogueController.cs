@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using UnityEngine;
 
 public static class DialogueController{
 
@@ -20,17 +23,44 @@ public static class DialogueController{
     }
 
     public static void AddDialogueNode(DialogueNode node) {
-        if (_nodeLibrary.ContainsKey(node.Key)) {
+        if (NodeDictionary.ContainsKey(node.Key)) {
             return;
         }
-        _nodeLibrary.Add(node.Key, node);
+        NodeDictionary.Add(node.Key, node);
     }
 
     public static DialogueNode GetNode(string nodeKey) {
-        return _nodeLibrary[nodeKey.ToLower()];
+        return NodeDictionary[nodeKey.ToLower()];
     }
 
-    public static List<DialogueNode> GetNodeResponses(DialogueNode node) {
+	public static void DeleteNode(DialogueNode node)
+	{
+		NodeDictionary.Remove(NodeDictionary.Where(pair => pair.Value == node).First().Key);
+	}
+
+	public static void DeleteNode(string key)
+	{
+		NodeDictionary.Remove(key);
+	}
+
+	public static void SaveDictionary()
+	{
+		FileInfo info = new FileInfo(Application.streamingAssetsPath.Replace('/', '\\') + "\\" +  "DialogueNodes.xml");
+		NodeDictionary.ToList().SerialiseSingularNonGameObject(info.FullName);
+	}
+
+	public static void LoadDictionary()
+	{
+		FileInfo info = new FileInfo(Application.streamingAssetsPath.Replace('/', '\\') + "\\" + "DialogueNodes.xml");
+		 List<KeyValuePair<string, DialogueNode>> nodeList = new List<KeyValuePair<string, DialogueNode>>().DeserialiseSingularNonGameObject(info.FullName);
+		_nodeLibrary = new Dictionary<string, DialogueNode>();
+		foreach (KeyValuePair<string, DialogueNode> pair in nodeList)
+		{
+			NodeDictionary.Add(pair.Key, pair.Value);
+		}
+	}
+
+	public static List<DialogueNode> GetNodeResponses(DialogueNode node) {
         List<DialogueNode> responses = new List<DialogueNode>();
         foreach(string key in node.ResponseNodes) {
             responses.Add(GetNode(key));

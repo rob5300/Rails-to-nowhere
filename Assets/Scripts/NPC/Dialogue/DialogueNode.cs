@@ -1,13 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Xml.Serialization;
 
-public class DialogueNode {
+public class DialogueNode
+{
     private string _text = "";
     private string _key = "New Node";
     private bool isMemoryResponse = false;
     private string _responseText;
-    public List<string> ResponseNodes = new List<string>();
+	private List<string> _responseNodes = new List<string>();
 
-    public string Text {
+
+	public string Text {
         get {
             return _text;
         }
@@ -17,7 +21,8 @@ public class DialogueNode {
         }
     }
 
-    public string Key {
+
+	public string Key {
         get {
             return _key;
         }
@@ -27,7 +32,8 @@ public class DialogueNode {
         }
     }
 
-    public string ResponseText {
+
+	public string ResponseText {
         get {
             return _responseText;
         }
@@ -37,7 +43,7 @@ public class DialogueNode {
         }
     }
 
-    public bool IsMemoryResponse {
+	public bool IsMemoryResponse {
         get {
             return isMemoryResponse;
         }
@@ -47,7 +53,20 @@ public class DialogueNode {
         }
     }
 
-    public DialogueNode()
+	public List<string> ResponseNodes
+	{
+		get
+		{
+			return _responseNodes;
+		}
+
+		set
+		{
+			_responseNodes = value;
+		}
+	}
+
+	public DialogueNode()
 	{
 
 	}
