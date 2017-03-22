@@ -59,4 +59,18 @@
       <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nadia.first</Key>
+    <Value>
+      <Text>"Isn't the train a bit empty? Do you agree with me, young man?"</Text>
+      <Key>nadia.first</Key>
+      <ResponseText>""</ResponseText>
+      <IsMemoryResponse>true</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nadia.first.yes</string>
+        <string>nadia.first.no</string>
+        <string>nadia.first.wtf</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
 </ArrayOfKeyValuePairOfStringDialogueNode>

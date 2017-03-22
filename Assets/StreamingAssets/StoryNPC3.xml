@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Inject>
+  <Essential>true</Essential>
+  <Carriage>StoryCarriage1</Carriage>
+  <Name>Arleana Lev</Name>
+  <Interactable>true</Interactable>
+  <Health>1</Health>
+  <MemoryResponseTotal>3</MemoryResponseTotal>
+  <MemoryItemKey>memory.arleana</MemoryItemKey>
+  <InitialDialogueNodeName>ArleanaDialogue1</InitialDialogueNodeName>
+  <ModelPrefab>Arleana_Unity</ModelPrefab>
+</Inject>
