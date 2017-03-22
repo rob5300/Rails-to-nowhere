@@ -8,8 +8,10 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 {
+    public delegate void NPCEvent(NPC npc);
+    public event NPCEvent NPCDeath;
 
-	[SerializeField]
+    [SerializeField]
 	private string _name = "New NPC";
 	[SerializeField]
 	private bool _interactable = true;
@@ -129,6 +131,7 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
     }
 
     public void Die() {
+        NPCDeath.Invoke(this);
         Destroy(this);
     }
 

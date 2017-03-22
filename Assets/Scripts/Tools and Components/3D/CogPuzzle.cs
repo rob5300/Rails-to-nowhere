@@ -5,10 +5,10 @@ public class CogPuzzle : MonoBehaviour {
 
     public static List<GameObject> PuzzleList;
 
-    public static void Load2DPuzzlePrefabs() {
+    public static void Load3DPuzzlePrefabs() {
         PuzzleList = new List<GameObject>(){
-            Resources.Load<GameObject>("2DPuzzles/Cog Puzzle"),
-
+            Resources.Load<GameObject>("3DPuzzles/Cog Puzzle"),
+            Resources.Load<GameObject>("3DPuzzles/Cog Puzzle Tri")
         };
     }
 
