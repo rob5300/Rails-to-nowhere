@@ -171,6 +171,10 @@ public class SerialiserUI : EditorWindow
 						_listObjs.Add(propInfo, new Dictionary<IUnityXMLSerialisable, int>());
 						_listObjs[propInfo][target] = 0;
 					}
+					if (!_listObjs[propInfo].Keys.Contains(target))
+					{
+						_listObjs[propInfo].Add(target, 0);
+					}
 					IList resultList = (IList)propInfo.GetValue(target, null);
 					_listObjs[propInfo][target] = EditorGUILayout.IntField(propInfo.Name + " Capacity:", _listObjs[propInfo][target]);
 					if (propInfo.PropertyType.IsArray)
@@ -181,12 +185,27 @@ public class SerialiserUI : EditorWindow
 							{
 								for (int i = resultList.Count; i < _listObjs[propInfo][target]; i++)
 								{
-									resultList.Add(_templateInstance.AddComponent(resultList[i].GetType()));
+									if (propInfo.PropertyType.GetGenericArguments()[0].IsSubclassOf(typeof(Component)))
+									{
+										resultList.Add(_templateInstance.AddComponent(resultList.GetType().GetElementType()));
+									}
+									else
+									{
+										GameObject oGo = GameObject.CreatePrimitive(PrimitiveType.Cube);
+										oGo.transform.position = _templateInstance.transform.position;
+										oGo.transform.parent = _templateInstance.transform;
+										resultList.Add(oGo);
+									}
 								}
 							}
 							for (int i = 0; i < _listObjs[propInfo][target]; i++)
 							{
-								resultList[i] = EditorGUILayout.ObjectField(prop + " - " + i + ":", (UnityEngine.Object)resultList[i], propInfo.PropertyType, true);
+								UnityEngine.Object oldRef = (UnityEngine.Object)resultList[i];
+								resultList[i] = EditorGUILayout.ObjectField(prop + " - " + i + ":", (UnityEngine.Object)resultList[i], propInfo.PropertyType.GetElementType(), true);
+								if ((UnityEngine.Object)resultList[i] != oldRef)
+								{
+									DestroyImmediate(oldRef);
+								}
 							}
 						}
 						else if (propInfo.PropertyType.GetElementType().IsPrimitive || propInfo.PropertyType.GetElementType() == typeof(string))
@@ -222,21 +241,37 @@ public class SerialiserUI : EditorWindow
 							{
 								for (int i = resultList.Count; i < _listObjs[propInfo][target]; i++)
 								{
-									resultList.Add(_templateInstance.AddComponent(resultList.GetType().GetElementType()));
+									if (propInfo.PropertyType.GetGenericArguments()[0].IsSubclassOf(typeof(Component)))
+									{
+										resultList.Add(_templateInstance.AddComponent(resultList.GetType().GetGenericArguments()[0]));
+									}
+									else
+									{
+										GameObject oGo = GameObject.CreatePrimitive(PrimitiveType.Cube);
+										oGo.transform.position = _templateInstance.transform.position;
+										oGo.transform.parent = _templateInstance.transform;
+										resultList.Add(oGo);
+									}
+
 								}
 							}
 							for (int i = 0; i < _listObjs[propInfo][target]; i++)
 							{
-								resultList[i] = EditorGUILayout.ObjectField(prop + " - " + i + ":", (UnityEngine.Object)resultList[i], propInfo.PropertyType, true);
+								UnityEngine.Object oldRef = (UnityEngine.Object)resultList[i];
+								resultList[i] = EditorGUILayout.ObjectField(prop + " - " + i + ":", (UnityEngine.Object)resultList[i], propInfo.PropertyType.GetGenericArguments()[0], true);
+								if ((UnityEngine.Object)resultList[i] != oldRef)
+								{
+									DestroyImmediate(oldRef);
+								}
 							}
 						}
-						else if (propInfo.PropertyType.GetGenericArguments()[0].IsPrimitive || propInfo.PropertyType.GetElementType() == typeof(string))
+						else if (propInfo.PropertyType.GetGenericArguments()[0].IsPrimitive || propInfo.PropertyType.GetGenericArguments()[0] == typeof(string))
 						{
 							if (resultList.Count < _listObjs[propInfo][target])
 							{
 								for (int i = resultList.Count; i < _listObjs[propInfo][target]; i++)
 								{
-									resultList.Add(Activator.CreateInstance(propInfo.PropertyType.GetElementType()));
+									resultList.Add(Activator.CreateInstance(propInfo.PropertyType.GetGenericArguments()[0]));
 								}
 							}
 							for (int i = 0; i < resultList.Count; i++)

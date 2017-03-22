@@ -333,6 +333,17 @@ MonoBehaviour:
     Parent: {fileID: 0}
     BaseInventoryItem: {fileID: 0}
     InventoryItemArea: {fileID: 0}
+    ItemInformationPanel: {fileID: 0}
+    ItemInfoName: {fileID: 0}
+    ItemInfoType: {fileID: 0}
+    ItemInfoQuantity: {fileID: 0}
+    ItemInfoSprite: {fileID: 0}
+    ItemInfoDescription: {fileID: 0}
+    ItemInfoViewMemoryButton: {fileID: 0}
+    ItemInfoDropItemButton: {fileID: 0}
+    MemoryParent: {fileID: 0}
+    Memory: {fileID: 0}
+    MemoryName: {fileID: 0}
 --- !u!1 &172976470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2215,6 +2226,10 @@ GameObject:
   - 4: {fileID: 1782048955}
   - 54: {fileID: 1782048958}
   - 95: {fileID: 1782048957}
+  - 114: {fileID: 1782048962}
+  - 114: {fileID: 1782048961}
+  - 114: {fileID: 1782048960}
+  - 114: {fileID: 1782048959}
   - 114: {fileID: 1782048956}
   m_Layer: 0
   m_Name: InstanceHolderObj
@@ -2247,9 +2262,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64006c55c231a8049a568b0226f521bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: CJ
-  _interactable: 0
+  _name: John Pierce
+  _interactable: 1
   _health: 1
+  initialDialogueNodeName: JohnDialogue1
+  memoryResponseTotal: 4
+  memoryItemKey: memory.john
+  modelPrefab: {fileID: 1000010896222072, guid: d05e860fb05cd1344a3993336f27e2ec,
+    type: 2}
 --- !u!95 &1782048957
 Animator:
   serializedVersion: 3
@@ -2282,6 +2302,81 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1782048959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1782048954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64006c55c231a8049a568b0226f521bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Arleana Lev
+  _interactable: 1
+  _health: 1
+  initialDialogueNodeName: ArleanaDialogue1
+  memoryResponseTotal: 3
+  memoryItemKey: memory.arleana
+  modelPrefab: {fileID: 1000011484509698, guid: f5a0077ddd62f42448b01c13bf9d6aa3,
+    type: 2}
+--- !u!114 &1782048960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1782048954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64006c55c231a8049a568b0226f521bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Matilda Lev
+  _interactable: 1
+  _health: 1
+  initialDialogueNodeName: MatildaDialogue1
+  memoryResponseTotal: 4
+  memoryItemKey: memory.matilda
+  modelPrefab: {fileID: 1000011484509698, guid: f5a0077ddd62f42448b01c13bf9d6aa3,
+    type: 2}
+--- !u!114 &1782048961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1782048954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64006c55c231a8049a568b0226f521bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Nadia Lev
+  _interactable: 1
+  _health: 1
+  initialDialogueNodeName: NadiaDialogue1
+  memoryResponseTotal: 3
+  memoryItemKey: memory.nadia
+  modelPrefab: {fileID: 1000010177456718, guid: 699d36e2fe3300040b89706a72e13be0,
+    type: 2}
+--- !u!114 &1782048962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1782048954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6797365e55b5a45b5fa24c08d08418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: test
+  _interactable: 1
+  _health: 1
+  initialDialogueNodeName: blerrr
+  memoryResponseTotal: 0
+  memoryItemKey: memory.basic
+  modelPrefab: {fileID: 0}
 --- !u!1 &1787263903
 GameObject:
   m_ObjectHideFlags: 0

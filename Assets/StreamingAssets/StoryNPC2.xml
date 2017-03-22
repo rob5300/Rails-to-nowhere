@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
   <Essential>false</Essential>
-  <Carriage>StoryCarriage1</Carriage>
+  <Carriage>Carrage</Carriage>
   <Name>Matilda Lev</Name>
   <Interactable>true</Interactable>
   <Health>1</Health>
   <MemoryResponseTotal>4</MemoryResponseTotal>
   <MemoryItemKey>memory.matilda</MemoryItemKey>
   <InitialDialogueNodeName>MatildaDialogue1</InitialDialogueNodeName>
-  <ModelPrefab>Girl</ModelPrefab>
+  <ModelPrefab>Arleana_Unity</ModelPrefab>
 </Inject>

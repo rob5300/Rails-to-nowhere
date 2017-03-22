@@ -36,9 +36,25 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 			List<PropertyInfo> props = target.GetType().GetProperties().Where(x => targets.Contains(x.Name)).ToList();
 			foreach (PropertyInfo prop in props)
 			{
-				if (prop.PropertyType.IsSubclassOf(typeof(UnityEngine.Object)))
+				Type propType;
+				if (prop.PropertyType.GetInterface("IList") != null)
 				{
-					if (prop.PropertyType.IsAssignableFrom(typeof(IList)))
+					if (prop.PropertyType.IsArray)
+					{
+						propType = prop.PropertyType.GetElementType();
+					}
+					else
+					{
+						propType = prop.PropertyType.GetGenericArguments()[0];
+					}
+				}
+				else
+				{
+					propType = prop.PropertyType;
+				}
+				if (propType.IsSubclassOf(typeof(UnityEngine.Object)))
+				{
+					if (prop.PropertyType.GetInterface("IList") != null)
 					{
 						IList bla = (IList)prop.GetValue(target, null);
 						List<string> listOfGameObjectNames = new List<string>();
@@ -108,10 +124,26 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 		{
 			if (prop.DeclaringType == typeof(T))
 			{
-				string propFolder = newObj.GetUnityResourcesFolderPath(prop.Name);
-				if (prop.PropertyType.IsSubclassOf(typeof(UnityEngine.Object)))
+				Type propType;
+				if (prop.PropertyType.GetInterface("IList") != null)
 				{
-					if (prop.PropertyType.IsAssignableFrom(typeof(IList)))
+					if (prop.PropertyType.IsArray)
+					{
+						propType = prop.PropertyType.GetElementType();
+					}
+					else
+					{
+						propType = prop.PropertyType.GetGenericArguments()[0];
+					}
+				}
+				else
+				{
+					propType = prop.PropertyType;
+				}
+				string propFolder = newObj.GetUnityResourcesFolderPath(prop.Name);
+				if (propType.IsSubclassOf(typeof(UnityEngine.Object)))
+				{
+					if (prop.PropertyType.GetInterface("IList") != null)
 					{
 						using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
 						{
@@ -169,7 +201,23 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 			{
 				foreach (PropertyInfo prop in inheritedProps)
 				{
-					if (prop.PropertyType.IsSubclassOf(typeof(UnityEngine.Object)))
+					Type propType;
+					if (prop.PropertyType.GetInterface("IList") != null)
+					{
+						if (prop.PropertyType.IsArray)
+						{
+							propType = prop.PropertyType.GetElementType();
+						}
+						else
+						{
+							propType = prop.PropertyType.GetGenericArguments()[0];
+						}
+					}
+					else
+					{
+						propType = prop.PropertyType;
+					}
+					if (propType.IsSubclassOf(typeof(UnityEngine.Object)))
 					{
 						string propFolder = newObj.GetUnityResourcesFolderPath(prop.Name);
 						if (prop.PropertyType.IsAssignableFrom(typeof(IList)))
