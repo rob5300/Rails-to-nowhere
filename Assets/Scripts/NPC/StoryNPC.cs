@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class StoryNPC : NPC {
 
     public static List<StoryNPC> StoryNPCs = new List<StoryNPC>();
+    [SerializeField]
     private GameObject carriage;
     private bool essential = false;
 
@@ -26,6 +27,10 @@ public class StoryNPC : NPC {
         set {
             carriage = value;
         }
+    }
+
+    public static void LoadStoryNPCSDUMMY() {
+        StoryNPCs.Add(GameObject.Find("TestStoryNPC").GetComponent<StoryNPC>());
     }
 
     public override void Damage(float damage)

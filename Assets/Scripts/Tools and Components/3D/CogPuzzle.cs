@@ -1,7 +1,16 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class CogPuzzle : MonoBehaviour {
+
+    public static List<GameObject> PuzzleList;
+
+    public static void Load2DPuzzlePrefabs() {
+        PuzzleList = new List<GameObject>(){
+            Resources.Load<GameObject>("2DPuzzles/Cog Puzzle"),
+
+        };
+    }
 
     public CogMount[] CogMounts;
     public event CarriagePuzzleController.PuzzleEvent PuzzleComplete;
