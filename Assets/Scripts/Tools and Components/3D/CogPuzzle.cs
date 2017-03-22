@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class CogPuzzle : MonoBehaviour {
+public class CogPuzzle : Puzzle {
 
     public static List<GameObject> PuzzleList;
 
@@ -13,7 +13,6 @@ public class CogPuzzle : MonoBehaviour {
     }
 
     public CogMount[] CogMounts;
-    public event CarriagePuzzleController.PuzzleEvent PuzzleComplete;
 
     void Start() {
         foreach (CogMount mount in CogMounts) {
@@ -34,14 +33,11 @@ public class CogPuzzle : MonoBehaviour {
                 return;
             }
         }
-        PuzzleDone();
+        PuzzleDone(CarriagePuzzleController.PuzzleType.T3D);
     }
 
     void PuzzleError() {
         UI.ShowMessage("Puzzle Failed");
     }
 
-    public void PuzzleDone() {
-        PuzzleComplete.Invoke(CarriagePuzzleController.PuzzleType.T3D);
-    }
 }

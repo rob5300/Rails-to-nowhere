@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.E)) {
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out _hit,InteractDistance)) {
-                if(_hit.collider.gameObject != null) InteractEvent.Invoke(_hit.transform.gameObject);
+                if(_hit.collider.gameObject != null) InteractEvent.Invoke(_hit.collider.gameObject);
             }
         }
     }

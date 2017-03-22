@@ -65,26 +65,14 @@ public class LevelGenerator : MonoBehaviour {
             //The logic here is moved to a method to allow the filler carriage count to be 0. This avoids a DevideByZero.
             if (StoryToFillerCalc()) {
                 //Add Story Carriage
-                //WHILE loop was removed, if old behaviour is replaced replicate system for filler carriages.
-                //toAddCandidate = _storyCarriages[random.Next(_storyCarriages.Count - 1)];
+                //Select NPC
                 storyNPCCandidate = SelectStoryNPC();
+                //Get the npcs carriage and add that to be placed.
                 _carriagesToPlace.Add(storyNPCCandidate.Carriage);
+                //Select a 3d Puzzle to use.
                 Select3DPuzzle();
                 storyCount++;
                 storyPlaced++;
-                //if (!_carriagesToPlace.Contains(toAddCandidate)) {
-                //    _carriagesToPlace.Add(toAddCandidate);
-                //    storyCount++;
-                //    storyPlaced++;
-                //    break;
-                //}
-                //else if (_storyCarriages.Count <= storyCount) {
-                //    //We need to check if there are not enough carriages to have no duplicates, if there are not then we must accept this selected carriage.
-                //    _carriagesToPlace.Add(toAddCandidate);
-                //    storyPlaced++;
-                //    storyCount++;
-                //    break;
-                //}
             }
             else {
                 //Add Filler Carriage

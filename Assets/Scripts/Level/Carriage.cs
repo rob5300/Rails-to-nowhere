@@ -12,12 +12,17 @@ public class Carriage : MonoBehaviour {
     public Door CarriageDoor;
 
     public Transform NPCPosition;
-    public Transform PuzzlePosition;
+    public Transform Puzzle3DPosition;
+    public Transform Puzzle2DPosition;
 
     public CarriagePuzzleController PuzzleController;
 
     public delegate void CarriageEvent();
     //Used when ALL puzzles are done.
+
+    public void Start() {
+        SetupExtraEvents();
+    }
 
     public void AllPuzzlesComplete() {
         UI.ShowMessage("The door was unlocked!");
@@ -30,7 +35,7 @@ public class Carriage : MonoBehaviour {
     }
 
     public void Place3DPuzzle(GameObject puzzle3D) {
-        GameObject puzzle = (GameObject)Instantiate(puzzle3D, PuzzlePosition.position, PuzzlePosition.rotation);
+        GameObject puzzle = (GameObject)Instantiate(puzzle3D, Puzzle3DPosition.position, Puzzle3DPosition.rotation);
         puzzle.GetComponent<CogPuzzle>().PuzzleComplete += PuzzleController.OnPuzzleCompleted;
     }
 

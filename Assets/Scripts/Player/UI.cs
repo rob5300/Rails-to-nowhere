@@ -56,6 +56,9 @@ public class UI : MonoBehaviour {
         inventoryUI.BaseInventoryItem.SetActive(false);
         inventoryUI.ItemInformationPanel.SetActive(false);
         inventoryUI.MemoryParent.SetActive(false);
+
+        //Load Dialogue Nodes
+        DialogueController.LoadDictionary();
     }
 
     private void Update() {

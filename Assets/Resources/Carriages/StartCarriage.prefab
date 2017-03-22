@@ -3029,7 +3029,7 @@ Rigidbody:
   m_Drag: 0.3
   m_AngularDrag: 0.3
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -3438,7 +3438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: DOOR TO OPEN
   Interactable: 1
-  Locked: 1
+  Locked: 0
 --- !u!114 &114000010371191288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3492,13 +3492,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6797365e55b5a45b5fa24c08d08418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: FillerNPC Test
+  _name: Rudoph
   _interactable: 1
   _health: 1
   initialDialogueNodeName: test01
   memoryResponseTotal: 0
   memoryItemKey: memory.basic
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 1000011117471480, guid: cdfc202d02045d84a952ae29c73a293e,
+    type: 2}
 --- !u!114 &114000011511697944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3541,7 +3542,7 @@ MonoBehaviour:
   _name: TestStoryNPC
   _interactable: 1
   _health: 1
-  initialDialogueNodeName: test01
+  initialDialogueNodeName: nadia.first
   memoryResponseTotal: 1
   memoryItemKey: memory.nadia
   modelPrefab: {fileID: 1000010177456718, guid: 699d36e2fe3300040b89706a72e13be0,

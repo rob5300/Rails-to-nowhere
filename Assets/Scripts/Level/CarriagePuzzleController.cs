@@ -46,8 +46,6 @@ public class CarriagePuzzleController : MonoBehaviour {
             }
         }
 
-        
-
         if (_allpuzzle3DDone && _allpuzzle2DDone) {
             AllPuzzlesCompleted.Invoke();
         }
