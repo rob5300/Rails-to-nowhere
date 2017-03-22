@@ -67,7 +67,7 @@
       <ResponseText>Yes, it does seem that way</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>nadia.second</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -93,7 +93,7 @@
       <ResponseText>Not really, I'm fine with it.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>nadia.second</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -105,7 +105,7 @@
       <ResponseText>What is this train anyway? </ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>nadia.second</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -131,7 +131,7 @@
       <ResponseText>He must be a horrible man.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>nadia.third</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -143,7 +143,7 @@
       <ResponseText>Sounds like he worked hard for his family.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>nadia.third</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -155,7 +155,7 @@
       <ResponseText>I don’t really care about this.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>nadia.third</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -231,7 +231,7 @@
       <ResponseText>What’s a kid like you doing by herself in this kind of place?</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>matilda.second</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -243,7 +243,7 @@
       <ResponseText>Is your mother around here?</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>matilda.second</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -281,7 +281,7 @@
       <ResponseText>Stop whining so much!</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>matilda.third</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -293,7 +293,7 @@
       <ResponseText>I’ll scare all the monsters away for you.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>matilda.third</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -305,7 +305,7 @@
       <ResponseText>You’re not alone now, though, are you?</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>matilda.third</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -331,7 +331,7 @@
       <ResponseText>But you,  how do you feel about him?</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>matilda.fourth</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -343,7 +343,7 @@
       <ResponseText>Your mother is probably right.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>matilda.fourth</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -355,7 +355,7 @@
       <ResponseText>I'm sorry...</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>matilda.fourth</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -418,7 +418,7 @@
       <ResponseText>Yeah both of us, here.. What a coincidence…</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>arleana.second</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -430,7 +430,7 @@
       <ResponseText>There are more people further back.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>arleana.second</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -468,7 +468,7 @@
       <ResponseText>A literal asshole.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>arleana.third</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -480,7 +480,7 @@
       <ResponseText>Sorry to hear that, it must have been difficult for you.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>arleana.third</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -492,7 +492,7 @@
       <ResponseText>And this concerns me how?</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>arleana.third</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -517,7 +517,7 @@
       <ResponseText>Alright, let me have a look.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>continue to puzzle</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -567,7 +567,7 @@
       <ResponseText>I just thought you were lonely, seeing as we’re the only two people in this car.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>john.second</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -579,7 +579,7 @@
       <ResponseText>I’ve read some interesting thing the other day about corruption in companies. It’s sad that society has come to this.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>john.second</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -604,7 +604,7 @@
       <ResponseText>I’m just telling you about what I read.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>john.third</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -616,7 +616,7 @@
       <ResponseText>Do you then, sir?</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>john.third</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -642,7 +642,7 @@
       <ResponseText>Well, I wish you good luck then.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>john.fourth</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -654,7 +654,7 @@
       <ResponseText>Everything? Does that include corruption? And possibly blaming your employees for it?</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>john.fourth</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -666,7 +666,7 @@
       <ResponseText>At least you get a lot of money out of it.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>john.fourth</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -703,7 +703,7 @@
       <ResponseText>I suppose I could have a look.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue</string>
+        <string>continue to puzzle</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
