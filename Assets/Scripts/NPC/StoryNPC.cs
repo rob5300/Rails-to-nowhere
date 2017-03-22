@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class StoryNPC : NPC {
 
     public static List<StoryNPC> StoryNPCs = new List<StoryNPC>();
+    private GameObject carriage;
     private bool essential = false;
 
     public bool Essential {
@@ -17,7 +18,17 @@ public class StoryNPC : NPC {
         }
     }
 
-	public override void Damage(float damage)
+    public GameObject Carriage {
+        get {
+            return carriage;
+        }
+
+        set {
+            carriage = value;
+        }
+    }
+
+    public override void Damage(float damage)
 	{
 		if (Health - damage <= 0)
 		{
