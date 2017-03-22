@@ -9,7 +9,6 @@ public class AddDialogueNodeUI : EditorWindow
 	private static AddDialogueNodeUI _window;
 	private static string _key;
 	private static string _text;
-	private static string _nodeResponseText;
 	private static bool _isMemory;
 	private static List<string> _responseNodes;
 	private static int _amountOfResponseNodes;
@@ -76,6 +75,11 @@ public class AddDialogueNodeUI : EditorWindow
 		{
 			DialogueNode node = new DialogueNode(_key, _text, _responseText, _responseNodes, _isMemory);
 			DialogueController.AddDialogueNode(node);
+			_amountOfResponseNodes = 0;
+			_isMemory = false;
+			_key = "";
+			_responseText = "";
+			_text = "";
 		}
 	}
 }

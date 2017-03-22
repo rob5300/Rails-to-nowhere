@@ -38,15 +38,37 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 			{
 				if (prop.PropertyType.IsSubclassOf(typeof(UnityEngine.Object)))
 				{
-					string name = ((UnityEngine.Object)prop.GetValue(target, null)).name;
-					XDocument subDoc = new XDocument();
-					using (XmlWriter subXW = subDoc.CreateWriter())
+					if (prop.PropertyType.IsAssignableFrom(typeof(IList)))
 					{
-						XmlSerializer serialiser = new XmlSerializer(typeof(string), new XmlRootAttribute(prop.Name));
-						serialiser.Serialize(subXW, name);
+						IList bla = (IList)prop.GetValue(target, null);
+						List<string> listOfGameObjectNames = new List<string>();
+						foreach (var unityObjItem in bla)
+						{
+							UnityEngine.Object actualItem = (UnityEngine.Object)unityObjItem;
+							string name = actualItem.name;
+						}
+						XDocument subDoc = new XDocument();
+						using (XmlWriter subXW = subDoc.CreateWriter())
+						{
+							XmlSerializer serialiser = new XmlSerializer(typeof(List<string>), new XmlRootAttribute(prop.Name));
+							serialiser.Serialize(subXW, listOfGameObjectNames);
+						}
+						subDoc.Root.Attributes("xmlns").Remove();
+						objDoc.Root.Add(subDoc.Root);
 					}
-					subDoc.Root.Attributes("xmlns").Remove();
-					objDoc.Root.Add(subDoc.Root);
+					else
+					{
+						string name = ((UnityEngine.Object)prop.GetValue(target, null)).name;
+						XDocument subDoc = new XDocument();
+						using (XmlWriter subXW = subDoc.CreateWriter())
+						{
+							XmlSerializer serialiser = new XmlSerializer(typeof(string), new XmlRootAttribute(prop.Name));
+							serialiser.Serialize(subXW, name);
+						}
+						subDoc.Root.Attributes("xmlns").Remove();
+						objDoc.Root.Add(subDoc.Root);
+					}
+
 				}
 				else
 				{
@@ -89,17 +111,42 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 				string propFolder = newObj.GetUnityResourcesFolderPath(prop.Name);
 				if (prop.PropertyType.IsSubclassOf(typeof(UnityEngine.Object)))
 				{
-					using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
+					if (prop.PropertyType.IsAssignableFrom(typeof(IList)))
 					{
-						XmlSerializer propDeserialiser = new XmlSerializer(typeof(string), new XmlRootAttribute(prop.Name));
-						string result = (string)propDeserialiser.Deserialize(xr);
-						if (propFolder != "")
+						using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
 						{
-							result = propFolder + "/" + result;
+							XmlSerializer propDeserialiser = new XmlSerializer(typeof(List<string>), new XmlRootAttribute(prop.Name));
+							List<string> result = (List<string>)propDeserialiser.Deserialize(xr);
+							List<UnityEngine.Object> resultList = new List<UnityEngine.Object>();
+							for (int i = 0; i < result.Count; i++)
+							{
+								string resultPath = result[i];
+								if (propFolder != "")
+								{
+									resultPath = propFolder + "/" + result[i];
+								}
+								resultList.Add(Resources.Load(resultPath, typeof(UnityEngine.Object)));
+							}
+							prop.SetValue(newObj, resultList, null);
+
 						}
-						prop.SetValue(newObj, Resources.Load(result, prop.PropertyType), null);
+						targets.Remove(targets.Where(x => x == prop.Name).First());
 					}
-					targets.Remove(targets.Where(x => x == prop.Name).First());
+					else
+					{
+						using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
+						{
+							XmlSerializer propDeserialiser = new XmlSerializer(typeof(string), new XmlRootAttribute(prop.Name));
+							string result = (string)propDeserialiser.Deserialize(xr);
+							if (propFolder != "")
+							{
+								result = propFolder + "/" + result;
+							}
+							prop.SetValue(newObj, Resources.Load(result, prop.PropertyType), null);
+						}
+						targets.Remove(targets.Where(x => x == prop.Name).First());
+					}
+
 				}
 				else
 				{
@@ -124,18 +171,42 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 				{
 					if (prop.PropertyType.IsSubclassOf(typeof(UnityEngine.Object)))
 					{
-						using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
+						string propFolder = newObj.GetUnityResourcesFolderPath(prop.Name);
+						if (prop.PropertyType.IsAssignableFrom(typeof(IList)))
 						{
-							XmlSerializer propDeserialiser = new XmlSerializer(typeof(string), new XmlRootAttribute(prop.Name));
-							string result = (string)propDeserialiser.Deserialize(xr);
-							string propFolder = newObj.GetUnityResourcesFolderPath(prop.Name);
-							if (propFolder != "")
+							using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
 							{
-								result = propFolder + "/" + result;
+								XmlSerializer propDeserialiser = new XmlSerializer(typeof(List<string>), new XmlRootAttribute(prop.Name));
+								List<string> result = (List<string>)propDeserialiser.Deserialize(xr);
+								List<UnityEngine.Object> resultList = new List<UnityEngine.Object>();
+								for (int i = 0; i < result.Count; i++)
+								{
+									string resultPath = result[i];
+									if (propFolder != "")
+									{
+										resultPath = propFolder + "/" + result[i];
+									}
+									resultList.Add(Resources.Load(resultPath, typeof(UnityEngine.Object)));
+								}
+								prop.SetValue(newObj, resultList, null);
+
 							}
-							prop.SetValue(newObj, Resources.Load(result, prop.PropertyType), null);
+							targets.Remove(targets.Where(x => x == prop.Name).First());
 						}
-						targets.Remove(targets.Where(x => x == prop.Name).First());
+						else
+						{
+							using (XmlReader xr = objDoc.Root.Element(prop.Name).CreateReader())
+							{
+								XmlSerializer propDeserialiser = new XmlSerializer(typeof(string), new XmlRootAttribute(prop.Name));
+								string result = (string)propDeserialiser.Deserialize(xr);
+								if (propFolder != "")
+								{
+									result = propFolder + "/" + result;
+								}
+								prop.SetValue(newObj, Resources.Load(result, prop.PropertyType), null);
+							}
+							targets.Remove(targets.Where(x => x == prop.Name).First());
+						}
 					}
 					else
 					{

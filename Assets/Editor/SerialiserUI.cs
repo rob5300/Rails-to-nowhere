@@ -19,6 +19,7 @@ public class SerialiserUI : EditorWindow
 	private static bool _save = false;
 	private static DeleteUI _deleteWindow;
 	private static Dictionary<FileInfo, IUnityXMLSerialisable> _instancePairs;
+	private static Dictionary<PropertyInfo, Dictionary<IUnityXMLSerialisable, int>> _listObjs;
 
 	// Add menu named "My Window" to the Window menu
 	[MenuItem("Window/Unity-To-XML Serialiser")]
@@ -45,7 +46,7 @@ public class SerialiserUI : EditorWindow
 			_save = true;
 		}
 		int newCount = Directory.GetFiles(Application.streamingAssetsPath).Where(x => x.Contains(".xml")).Count();
-		if(GUILayout.Button("Delete an instance"))
+		if (GUILayout.Button("Delete an instance"))
 		{
 			_deleteWindow = GetWindow<DeleteUI>();
 			_deleteWindow.titleContent.text = "Delete";
@@ -153,37 +154,105 @@ public class SerialiserUI : EditorWindow
 				MethodInfo method = GetFieldMethod(target, prop, propInfo.PropertyType);
 				propInfo.SetValue(target, method.Invoke(null, new object[] { prop + ":", propInfo.GetValue(target, null), new GUILayoutOption[0] }), null);
 			}
-			else if (anonymousMethods != null && !propInfo.PropertyType.IsAssignableFrom(typeof(IList)))
+			else if (anonymousMethods != null && propInfo.PropertyType.GetInterface("IList") == null)
 			{
 				RunAnonymousMethodDrawing(target, propInfo, anonymousMethods, propInfo.GetValue(target, null));
 			}
 			else
 			{
-				if (propInfo.PropertyType.IsAssignableFrom(typeof(IList)))
+				if (propInfo.PropertyType.GetInterface("IList") != null)
 				{
+					if (_listObjs == null)
+					{
+						_listObjs = new Dictionary<PropertyInfo, Dictionary<IUnityXMLSerialisable, int>>();
+					}
+					if (!_listObjs.Where(x => x.Key == propInfo).Any())
+					{
+						_listObjs.Add(propInfo, new Dictionary<IUnityXMLSerialisable, int>());
+						_listObjs[propInfo][target] = 0;
+					}
 					IList resultList = (IList)propInfo.GetValue(target, null);
-					if (propInfo.PropertyType.GetElementType().IsSubclassOf(typeof(UnityEngine.Object)))
+					_listObjs[propInfo][target] = EditorGUILayout.IntField(propInfo.Name + " Capacity:", _listObjs[propInfo][target]);
+					if (propInfo.PropertyType.IsArray)
 					{
-						for (int i = 0; i < resultList.Count; i++)
+						if (propInfo.PropertyType.GetElementType().IsSubclassOf(typeof(UnityEngine.Object)))
 						{
-							resultList[i] = EditorGUILayout.ObjectField(prop + " - " + i + ":", (UnityEngine.Object)resultList[i], propInfo.PropertyType, true);
+							if (resultList.Count < _listObjs[propInfo][target])
+							{
+								for (int i = resultList.Count; i < _listObjs[propInfo][target]; i++)
+								{
+									resultList.Add(_templateInstance.AddComponent(resultList[i].GetType()));
+								}
+							}
+							for (int i = 0; i < _listObjs[propInfo][target]; i++)
+							{
+								resultList[i] = EditorGUILayout.ObjectField(prop + " - " + i + ":", (UnityEngine.Object)resultList[i], propInfo.PropertyType, true);
+							}
 						}
-					}
-					else if (propInfo.PropertyType.GetElementType().IsPrimitive || propInfo.PropertyType.GetElementType() == typeof(string))
-					{
-						for (int i = 0; i < resultList.Count; i++)
+						else if (propInfo.PropertyType.GetElementType().IsPrimitive || propInfo.PropertyType.GetElementType() == typeof(string))
 						{
-							MethodInfo method = GetFieldMethod(target, prop, propInfo.PropertyType);
-							resultList[i] = method.Invoke(null, new object[] { prop + " - " + i + ":", propInfo.GetValue(target, null), new GUILayoutOption[0] });
+							if (resultList.Count < _listObjs[propInfo][target])
+							{
+								for (int i = resultList.Count; i < _listObjs[propInfo][target]; i++)
+								{
+									resultList.Add(Activator.CreateInstance(propInfo.PropertyType.GetElementType()));
+								}
+							}
+							for (int i = 0; i < resultList.Count; i++)
+							{
+								MethodInfo method = GetFieldMethod(target, prop, propInfo.PropertyType);
+								resultList[i] = method.Invoke(null, new object[] { prop + " - " + i + ":", propInfo.GetValue(target, null), new GUILayoutOption[0] });
+							}
 						}
-					}
-					else if (anonymousMethods != null)
-					{
-						RunAnonymousMethodDrawing(target, propInfo, anonymousMethods, resultList);
+						else if (anonymousMethods != null)
+						{
+							RunAnonymousMethodDrawing(target, propInfo, anonymousMethods, resultList);
+						}
+						else
+						{
+							Debug.Log("I died in a fire!");
+						}
+
 					}
 					else
 					{
-						Debug.Log("I died in a fire!");
+						if (propInfo.PropertyType.GetGenericArguments()[0].IsSubclassOf(typeof(UnityEngine.Object)))
+						{
+							if (resultList.Count < _listObjs[propInfo][target])
+							{
+								for (int i = resultList.Count; i < _listObjs[propInfo][target]; i++)
+								{
+									resultList.Add(_templateInstance.AddComponent(resultList.GetType().GetElementType()));
+								}
+							}
+							for (int i = 0; i < _listObjs[propInfo][target]; i++)
+							{
+								resultList[i] = EditorGUILayout.ObjectField(prop + " - " + i + ":", (UnityEngine.Object)resultList[i], propInfo.PropertyType, true);
+							}
+						}
+						else if (propInfo.PropertyType.GetGenericArguments()[0].IsPrimitive || propInfo.PropertyType.GetElementType() == typeof(string))
+						{
+							if (resultList.Count < _listObjs[propInfo][target])
+							{
+								for (int i = resultList.Count; i < _listObjs[propInfo][target]; i++)
+								{
+									resultList.Add(Activator.CreateInstance(propInfo.PropertyType.GetElementType()));
+								}
+							}
+							for (int i = 0; i < resultList.Count; i++)
+							{
+								MethodInfo method = GetFieldMethod(target, prop, propInfo.PropertyType);
+								resultList[i] = method.Invoke(null, new object[] { prop + " - " + i + ":", propInfo.GetValue(target, null), new GUILayoutOption[0] });
+							}
+						}
+						else if (anonymousMethods != null)
+						{
+							RunAnonymousMethodDrawing(target, propInfo, anonymousMethods, resultList);
+						}
+						else
+						{
+							Debug.Log("I died in a fire!");
+						}
 					}
 				}
 
@@ -205,7 +274,7 @@ public class SerialiserUI : EditorWindow
 					MethodInfo method = GetFieldMethod(target, prop.Name, result.GetType());
 					result = method.Invoke(null, new object[] { prop + " - " + result.GetType().Name + ", index " + i + ":", result, new GUILayoutOption[0] });
 				}
-				else if (result.GetType().IsAssignableFrom(typeof(IList)))
+				else if (result.GetType().GetInterface("IList") != null)
 				{
 					RunAnonymousMethodDrawing(target, prop, target.GetMappings(result.GetType().Name), (IList)result);
 				}
@@ -236,7 +305,7 @@ public class SerialiserUI : EditorWindow
 						object parent = prop.GetValue(target, null);
 						subProp.SetValue(parent, method.Invoke(null, new object[] { prop.Name + "." + memberName + ":", subProp.GetValue(parent, null), new GUILayoutOption[0] }), null);
 					}
-					else if (result.GetType().IsAssignableFrom(typeof(IList)))
+					else if (result.GetType().GetInterface("IList") != null)
 					{
 						RunAnonymousMethodDrawing(target, prop, target.GetMappings(result.GetType().Name), (IList)result);
 					}
