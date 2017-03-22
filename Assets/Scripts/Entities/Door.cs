@@ -17,7 +17,6 @@ public class Door : Entity {
             GetComponent<Rigidbody>().isKinematic = false;
             Locked = false;
         }
-        UI.ShowMessage("The door was unlocked!");
     }
 
     public override void OnInteract() {

@@ -9,6 +9,7 @@ public class LevelGenerator : MonoBehaviour {
     List<GameObject> _storyCarriages = new List<GameObject>();
     List<GameObject> _fillerCarriages = new List<GameObject>();
     List<GameObject> _carriagesToPlace = new List<GameObject>();
+    List<GameObject> _3DPuzzlesToPlace = new List<GameObject>();
     List<NPC> _carriageNPCs = new List<NPC>();
 
     Vector3 _placementPoint;
@@ -43,6 +44,7 @@ public class LevelGenerator : MonoBehaviour {
         FillerNPC.LoadFillerNPCSDUMMY();
         //Load in Filler carriages.
         _fillerCarriages.Add(Resources.Load<GameObject>("Carriages/FillerCarriage1"));
+        CogPuzzle.Load3DPuzzlePrefabs();
     }
 
     void PopulateCarriageLists() {
@@ -67,6 +69,7 @@ public class LevelGenerator : MonoBehaviour {
                 //toAddCandidate = _storyCarriages[random.Next(_storyCarriages.Count - 1)];
                 storyNPCCandidate = SelectStoryNPC();
                 _carriagesToPlace.Add(storyNPCCandidate.Carriage);
+                Select3DPuzzle();
                 storyCount++;
                 storyPlaced++;
                 //if (!_carriagesToPlace.Contains(toAddCandidate)) {
@@ -102,6 +105,29 @@ public class LevelGenerator : MonoBehaviour {
                         break;
                     }
                 }
+            }
+        }
+    }
+
+    private void Select3DPuzzle() {
+        GameObject puzzleObject;
+        while (true) {
+            int rand;
+            if (CogPuzzle.PuzzleList.Count == 1) {
+                rand = 0;
+            }
+            else {
+                rand = random.Next(0, CogPuzzle.PuzzleList.Count);
+            }
+            puzzleObject = CogPuzzle.PuzzleList[rand];
+            if (!_3DPuzzlesToPlace.Contains(puzzleObject)) {
+                _3DPuzzlesToPlace.Add(puzzleObject);
+                break;
+            }
+            //Accept this puzzle as we only have 1 to use or we have no more unique puzzles.
+            else if (CogPuzzle.PuzzleList.Count <= 1 || CogPuzzle.PuzzleList.Count <= _3DPuzzlesToPlace.Count) {
+                _3DPuzzlesToPlace.Add(puzzleObject);
+                break;
             }
         }
     }
@@ -150,34 +176,6 @@ public class LevelGenerator : MonoBehaviour {
         return toreturn;
     }
 
-    void PlaceCarriageNPC(StoryNPC npc, GameObject carriageObject) {
-        Carriage carriage = carriageObject.GetComponent<Carriage>();
-        //Place NPC
-        GameObject newNPC = (GameObject)Instantiate(npc.ModelPrefab, carriage.NPCPosition.position, carriage.NPCPosition.rotation);
-        newNPC.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
-        StoryNPC newStoryNPC = newNPC.AddComponent<StoryNPC>();
-        newStoryNPC.Name = npc.Name;
-        newStoryNPC.MemoryItemKey = npc.MemoryItemKey;
-        newStoryNPC.MemoryResponseTotal = npc.MemoryResponseTotal;
-        newStoryNPC.InitialDialogueNodeName = npc.InitialDialogueNodeName;
-        newStoryNPC.Health = npc.Health;
-        newStoryNPC.Interactable = npc.Interactable;
-    }
-
-    void PlaceCarriageNPC(FillerNPC npc, GameObject carriageObject) {
-        Carriage carriage = carriageObject.GetComponent<Carriage>();
-        //Place NPC
-        GameObject newNPC = (GameObject)Instantiate(npc.ModelPrefab, carriage.NPCPosition.position, carriage.NPCPosition.rotation);
-        newNPC.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
-        FillerNPC newStoryNPC = newNPC.AddComponent<FillerNPC>();
-        newStoryNPC.Name = npc.Name;
-        newStoryNPC.MemoryItemKey = npc.MemoryItemKey;
-        newStoryNPC.MemoryResponseTotal = npc.MemoryResponseTotal;
-        newStoryNPC.InitialDialogueNodeName = npc.InitialDialogueNodeName;
-        newStoryNPC.Health = npc.Health;
-        newStoryNPC.Interactable = npc.Interactable;
-    }
-
     bool StoryToFillerCalc() {
         //returns true to place story carriage. returns false to place a filler carriage.
 
@@ -201,18 +199,27 @@ public class LevelGenerator : MonoBehaviour {
         GameObject placing;
         Carriage placingCarriage;
         foreach (GameObject carriage in _carriagesToPlace) {
+            //We place the carriage and position it.
             placing = (GameObject)Instantiate(carriage, Vector3.zero, Quaternion.identity);
             placingCarriage = placing.GetComponent<Carriage>();
             Vector3 positionToPlaceAt = previousCarriage.FrontMountPoint.position - placingCarriage.RearMountPoint.position;
             placing.transform.position = positionToPlaceAt;
             previousCarriage = placingCarriage;
+
+            //We give the carriage the npc to add and the puzzle to add.
+            //We HAVE to remove it after we are finished to ensure that the element at index 0 is the next one to place.
             if (_carriageNPCs[0] is StoryNPC) {
-                PlaceCarriageNPC((StoryNPC)_carriageNPCs[0], placing);
+                placingCarriage.PlaceCarriageNPC((StoryNPC)_carriageNPCs[0]);
             }
             else if (_carriageNPCs[0] is FillerNPC) {
-                PlaceCarriageNPC((FillerNPC)_carriageNPCs[0], placing);
+                placingCarriage.PlaceCarriageNPC((FillerNPC)_carriageNPCs[0]);
             }
             _carriageNPCs.RemoveAt(0);
+
+            if (placingCarriage.Type == Carriage.CarriageType.Story) {
+                placingCarriage.Place3DPuzzle(_3DPuzzlesToPlace[0]);
+                _3DPuzzlesToPlace.RemoveAt(0); 
+            }
         }
     }
 }

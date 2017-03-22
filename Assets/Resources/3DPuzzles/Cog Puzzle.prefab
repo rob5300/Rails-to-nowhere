@@ -176,7 +176,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013686918000}
   - 114: {fileID: 114000013117971992}
-  - 114: {fileID: 114000012422630092}
   m_Layer: 0
   m_Name: Cog Puzzle
   m_TagString: Untagged
@@ -495,7 +494,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012549206278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.364517, y: -0.17000031, z: 1.9958591}
+  m_LocalPosition: {x: -40.136417, y: -0.17000031, z: 1.9208612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -941,18 +940,6 @@ MonoBehaviour:
   Size: 5
   MountPosition: {fileID: 4000010493166502}
   Mounted: 0
---- !u!114 &114000012422630092
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012549206278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d72865f820f6c24980a9e106e73af34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puzzleController: {fileID: 0}
 --- !u!114 &114000013003598186
 MonoBehaviour:
   m_ObjectHideFlags: 1

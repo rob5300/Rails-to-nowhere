@@ -777,7 +777,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011254142778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -49.94807, y: 1.42, z: 3.089766}
+  m_LocalPosition: {x: -51.89023, y: -0.17000401, z: 24.574364}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2353,7 +2353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FrontMountPoint: {fileID: 4000011989489268}
   RearMountPoint: {fileID: 4000013008160550}
-  Type: 0
+  Type: 1
   CarriageDoor: {fileID: 114000011988367024}
   NPCPosition: {fileID: 4000014273222612}
   PuzzlePosition: {fileID: 4000013849293998}
