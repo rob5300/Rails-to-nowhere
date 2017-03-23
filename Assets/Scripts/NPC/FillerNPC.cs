@@ -15,10 +15,4 @@ public class FillerNPC : NPC {
     }
 
     public List<GameObject> TestProp { get; set; }
-
-    public override List<string> GetSerialiseTargets() {
-        List<string> props = base.GetSerialiseTargets();
-        props.Add("TestProp");
-        return props;
-    }
 }
