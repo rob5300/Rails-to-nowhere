@@ -7,10 +7,13 @@ using System.Linq;
 public class StoryNPC : NPC {
 
     public static List<StoryNPC> StoryNPCs = new List<StoryNPC>();
+
+    public delegate void StoryNPCEvent();
+    public event StoryNPCEvent EnablePuzzles;
+
     [SerializeField]
-
     private bool essential = false;
-
+    public string EnablePuzzlesNode { get; set; }
     public bool Essential {
         get {
             return essential;
@@ -35,6 +38,10 @@ public class StoryNPC : NPC {
             }
 
         }
+    }
+
+    public void InvokeEnablePuzzles() {
+        EnablePuzzles.Invoke();
     }
 
     public override void Damage(float damage)

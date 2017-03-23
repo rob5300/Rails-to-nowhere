@@ -15,6 +15,9 @@ public class Carriage : MonoBehaviour {
     public Transform Puzzle3DPosition;
     public Transform Puzzle2DPosition;
 
+    private GameObject Puzzle2D;
+    private GameObject Puzzle3D;
+
     public CarriagePuzzleController PuzzleController;
 
     public delegate void CarriageEvent();
@@ -41,11 +44,17 @@ public class Carriage : MonoBehaviour {
         GameObject placedPuzzle = Instantiate(puzzleToPlace);
         placedOpener.GetComponent<Puzzle2D>().Puzzle = placedPuzzle;
         placedPuzzle.SetActive(false);
+
+        Puzzle2D = puzzleToPlace;
+        puzzleToPlace.SetActive(false);
     }
 
     public void Place3DPuzzle(GameObject puzzle3D) {
         GameObject puzzle = (GameObject)Instantiate(puzzle3D, Puzzle3DPosition.position, Puzzle3DPosition.rotation);
         puzzle.GetComponent<CogPuzzle>().PuzzleComplete += PuzzleController.OnPuzzleCompleted;
+
+        Puzzle3D = puzzle3D;
+        Puzzle3D.SetActive(false);
     }
 
     public void PlaceCarriageNPC(StoryNPC npc) {
@@ -59,6 +68,8 @@ public class Carriage : MonoBehaviour {
         newStoryNPC.Health = npc.Health;
         newStoryNPC.Interactable = npc.Interactable;
         newStoryNPC.NPCDeath += OnNPCDeath;
+        newStoryNPC.EnablePuzzlesNode = npc.EnablePuzzlesNode;
+        newStoryNPC.EnablePuzzles += ShowPuzzles;
     }
 
     public void PlaceCarriageNPC(FillerNPC npc) {
@@ -72,9 +83,18 @@ public class Carriage : MonoBehaviour {
         newFillerNPC.Health = npc.Health;
         newFillerNPC.Interactable = npc.Interactable;
         newFillerNPC.NPCDeath += OnNPCDeath;
+        newFillerNPC.OpenDoorNode = npc.OpenDoorNode;
+        newFillerNPC.DialogueDoorOpen += AllPuzzlesComplete;
     }
 
     public void SetupExtraEvents() {
         PuzzleController.AllPuzzlesCompleted += AllPuzzlesComplete;
     }
+
+    public void ShowPuzzles() {
+        UI.ShowMessage("Puzzles have appeared in the Carriage.");
+        Puzzle3D.SetActive(true);
+        Puzzle2D.SetActive(true);
+    }
+
 }

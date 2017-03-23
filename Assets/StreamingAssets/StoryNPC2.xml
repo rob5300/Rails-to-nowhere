@@ -9,4 +9,5 @@
   <MemoryItemKey>memory.matilda</MemoryItemKey>
   <InitialDialogueNodeName>MatildaDialogue1</InitialDialogueNodeName>
   <ModelPrefab>Arleana_Unity</ModelPrefab>
+  <EnablePuzzleNode></EnablePuzzleNode>
 </Inject>
