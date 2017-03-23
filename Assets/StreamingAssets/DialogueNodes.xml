@@ -707,4 +707,17 @@
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>this</Key>
+    <Value>
+      <Text>test</Text>
+      <Key>this</Key>
+      <ResponseText>sucks</ResponseText>
+      <IsMemoryResponse>true</IsMemoryResponse>
+      <ResponseNodes>
+        <string>n</string>
+        <string>m</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
 </ArrayOfKeyValuePairOfStringDialogueNode>
