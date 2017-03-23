@@ -13,13 +13,13 @@ public class FillerNPC : NPC {
 
     public FillerNPC()
 	{
-		TestProp = new List<GameObject>();
+        CarriageObjects = new List<GameObject>();
 	}
     public static void LoadFillerNPCSDUMMY() {
         FillerNPCs.Add(GameObject.Find("TestFillerNPC").GetComponent<FillerNPC>());
     }
 
-    public List<GameObject> TestProp { get; set; }
+    public List<GameObject> CarriageObjects { get; set; }
 
     public void InvokeDialogueDoorOpen() {
         DialogueDoorOpen.Invoke();
