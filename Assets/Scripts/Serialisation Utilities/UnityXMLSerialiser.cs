@@ -119,7 +119,7 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 		List<string> targets = new List<string>();
 		targets = newObj.GetSerialiseTargets();
 		XDocument objDoc = XDocument.Load(targetInfo.FullName);
-		List<PropertyInfo> props = typeof(T).GetType().GetProperties().Where(x => targets.Contains(x.Name)).ToList();
+		List<PropertyInfo> props = typeof(T).GetProperties().Where(x => targets.Contains(x.Name)).ToList();
 		foreach (PropertyInfo prop in props)
 		{
 			if (prop.DeclaringType == typeof(T))

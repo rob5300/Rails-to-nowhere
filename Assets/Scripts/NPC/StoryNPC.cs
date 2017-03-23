@@ -35,7 +35,8 @@ public class StoryNPC : NPC {
         foreach (string path in result) {
             FileInfo info = new FileInfo(path);
             if (info.FullName.Contains("StoryNPC") && info.Extension != ".meta") {
-                StoryNPCs.Add(serialiser.DeserialiseXML(info));
+				var resultObj = serialiser.DeserialiseXML(info);
+				StoryNPCs.Add(resultObj);
             }
 
         }

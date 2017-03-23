@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <Essential>true</Essential>
+  <EnablePuzzlesNode>memerrr</EnablePuzzlesNode>
   <Carriage>StoryCarriage1</Carriage>
+  <Essential>false</Essential>
   <Name>John Pierce</Name>
   <Interactable>true</Interactable>
   <Health>1</Health>
@@ -9,5 +10,4 @@
   <MemoryItemKey>memory.john</MemoryItemKey>
   <InitialDialogueNodeName>JohnDialogue1</InitialDialogueNodeName>
   <ModelPrefab>John_Pierce_Unity</ModelPrefab>
-  <EnablePuzzleNode></EnablePuzzleNode>
 </Inject>

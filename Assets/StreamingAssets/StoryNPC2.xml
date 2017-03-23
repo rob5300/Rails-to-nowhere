@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <Essential>false</Essential>
+  <EnablePuzzlesNode>meme</EnablePuzzlesNode>
   <Carriage>StoryCarriage1</Carriage>
+  <Essential>false</Essential>
   <Name>Matilda Lev</Name>
   <Interactable>true</Interactable>
   <Health>1</Health>
@@ -9,5 +10,4 @@
   <MemoryItemKey>memory.matilda</MemoryItemKey>
   <InitialDialogueNodeName>MatildaDialogue1</InitialDialogueNodeName>
   <ModelPrefab>Arleana_Unity</ModelPrefab>
-  <EnablePuzzleNode></EnablePuzzleNode>
 </Inject>
