@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using System;
+using System.Linq;
 
 public class LevelGenerator : MonoBehaviour {
 
@@ -40,7 +40,7 @@ public class LevelGenerator : MonoBehaviour {
 
     void PopulateObjectLists() {
         //Load Story NPCS.
-        StoryNPC.LoadStoryNPCSDUMMY();
+        StoryNPC.LoadStoryNPCs();
         //Load Filler NPCS.
         FillerNPC.LoadFillerNPCSDUMMY();
         //Load in Filler carriages.
@@ -50,7 +50,7 @@ public class LevelGenerator : MonoBehaviour {
 
     void PopulateCarriageLists() {
         //We will pick story npcs first then add their carriage.
-
+        int counter = 0;
         if (StoryCarriageAmount < 1) {
             StoryCarriageAmount = 1;
             Debug.LogError("Story Carriage Amount was Zero (0). Generation will continue with one forced Story Carriage.");
@@ -63,6 +63,7 @@ public class LevelGenerator : MonoBehaviour {
         FillerNPC fillerNPCCandidate;
         //Select random carriages and place into list.
         while (_carriagesToPlace.Count < TotalCarriageAmount) {
+            counter++;
             //The logic here is moved to a method to allow the filler carriage count to be 0. This avoids a DevideByZero.
             if (StoryToFillerCalc()) {
                 //Add Story Carriage
@@ -70,9 +71,10 @@ public class LevelGenerator : MonoBehaviour {
                 storyNPCCandidate = SelectStoryNPC();
                 //Get the npcs carriage and add that to be placed.
                 _carriagesToPlace.Add(storyNPCCandidate.Carriage);
+                //_carriagesToPlace.Add(Resources.Load<GameObject>("Carriages/" + storyNPCCandidate.Carriage));
                 //Select a 3d Puzzle to use.
                 Select3DPuzzle();
-				Select2DPuzzle();
+				_2DPuzzlesToPlace.Add(Select2DPuzzle());
                 storyCount++;
                 storyPlaced++;
             }
@@ -101,8 +103,10 @@ public class LevelGenerator : MonoBehaviour {
 
     private void Select3DPuzzle() {
         GameObject puzzleObject;
+        int counter = 0;
         while (true) {
             int rand;
+            counter++;
             if (CogPuzzle.PuzzleList.Count == 1) {
                 rand = 0;
             }
@@ -122,20 +126,30 @@ public class LevelGenerator : MonoBehaviour {
         }
     }
 
-	private void Select2DPuzzle()
+	private GameObject Select2DPuzzle()
 	{
-		 Resources.Load("2DPuzzles/Electrical Puzzle");
+		 return Resources.Load<GameObject>("2DPuzzles/Electrical Puzzle");
 	}
 
     private StoryNPC SelectStoryNPC() {
-        StoryNPC toreturn;
+        int counter = 0;
+        int rand;
+        counter++;
+        StoryNPC toreturn = null;
         if (StoryNPC.StoryNPCs.Count == 0) {
             Debug.LogError("Story NPC list is empty");
             return null;
         }
 
         while (true) {
-            toreturn = StoryNPC.StoryNPCs[random.Next(StoryNPC.StoryNPCs.Count - 1)];
+            counter++;
+            if (StoryNPC.StoryNPCs.Count == 1) {
+                rand = 0;
+            }
+            else {
+                rand = random.Next(0, StoryNPC.StoryNPCs.Count);
+            }
+            toreturn = StoryNPC.StoryNPCs[rand];
             if (!_carriageNPCs.Contains(toreturn)) {
                 _carriageNPCs.Add(toreturn);
                 break;
@@ -150,20 +164,29 @@ public class LevelGenerator : MonoBehaviour {
     }
 
     private FillerNPC SelectFillerNPC() {
+        int counter = 0;
+        int rand;
+        counter++;
+        if (FillerNPC.FillerNPCs.Count == 1) {
+            rand = 0;
+        }
+        else {
+            rand = random.Next(0, FillerNPC.FillerNPCs.Count);
+        }
         FillerNPC toreturn;
         if (FillerNPC.FillerNPCs.Count == 0) {
             Debug.LogError("Filler NPC list is empty");
             return null;
         }
-
         while (true) {
-            toreturn = FillerNPC.FillerNPCs[random.Next(StoryNPC.StoryNPCs.Count - 1)];
+            counter++;
+            toreturn = FillerNPC.FillerNPCs[random.Next(FillerNPC.FillerNPCs.Count - 1)];
             if (!_carriageNPCs.Contains(toreturn)) {
                 _carriageNPCs.Add(toreturn);
                 break;
             }
             //Accept this npc as we only have 1 to use.
-            else if (StoryNPC.StoryNPCs.Count <= 1) {
+            else if (FillerNPC.FillerNPCs.Count <= 1) {
                 _carriageNPCs.Add(toreturn);
                 break;
             }
@@ -213,6 +236,8 @@ public class LevelGenerator : MonoBehaviour {
 
             if (placingCarriage.Type == Carriage.CarriageType.Story) {
                 placingCarriage.Place3DPuzzle(_3DPuzzlesToPlace[0]);
+                placingCarriage.Place2DPuzzle(_2DPuzzlesToPlace[0]);
+                _2DPuzzlesToPlace.RemoveAt(0);
                 _3DPuzzlesToPlace.RemoveAt(0); 
             }
         }

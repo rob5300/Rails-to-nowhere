@@ -6,7 +6,12 @@ public class FillerNPC : NPC {
 
     public static List<FillerNPC> FillerNPCs = new List<FillerNPC>();
 
-	public FillerNPC()
+    public delegate void FillerNPCEvent();
+    public event FillerNPCEvent DialogueDoorOpen;
+
+    public string OpenDoorNode { get; set; }
+
+    public FillerNPC()
 	{
 		TestProp = new List<GameObject>();
 	}
@@ -15,4 +20,8 @@ public class FillerNPC : NPC {
     }
 
     public List<GameObject> TestProp { get; set; }
+
+    public void InvokeDialogueDoorOpen() {
+        DialogueDoorOpen.Invoke();
+    }
 }

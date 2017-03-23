@@ -168,6 +168,9 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 		{
 			return "NPCPrefabs";
 		}
+        else if(propName == "Carriage") {
+            return "Carriages";
+        }
 		return "";
 	}
 }

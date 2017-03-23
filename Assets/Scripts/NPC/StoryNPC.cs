@@ -1,14 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 [AddComponentMenu("NPC/Story NPC", 0)]
 public class StoryNPC : NPC {
 
     public static List<StoryNPC> StoryNPCs = new List<StoryNPC>();
-    [SerializeField]
-    private GameObject carriage;
-    private bool essential = false;
 
+    public delegate void StoryNPCEvent();
+    public event StoryNPCEvent EnablePuzzles;
+
+    [SerializeField]
+    private bool essential = false;
+    public string EnablePuzzlesNode { get; set; }
+    public GameObject Carriage { get; set; }
     public bool Essential {
         get {
             return essential;
@@ -19,18 +25,24 @@ public class StoryNPC : NPC {
         }
     }
 
-    public GameObject Carriage {
-        get {
-            return carriage;
-        }
+    public static void LoadStoryNPCSDUMMY() {
+        StoryNPCs.Add(GameObject.Find("TestStoryNPC").GetComponent<StoryNPC>());
+    }
 
-        set {
-            carriage = value;
+    public static void LoadStoryNPCs() {
+        UnityXMLSerialiser<StoryNPC> serialiser = new UnityXMLSerialiser<StoryNPC>();
+        List<string> result = Directory.GetFiles(Application.streamingAssetsPath.Replace('/', '\\')).ToList();
+        foreach (string path in result) {
+            FileInfo info = new FileInfo(path);
+            if (info.FullName.Contains("StoryNPC") && info.Extension != ".meta") {
+                StoryNPCs.Add(serialiser.DeserialiseXML(info));
+            }
+
         }
     }
 
-    public static void LoadStoryNPCSDUMMY() {
-        StoryNPCs.Add(GameObject.Find("TestStoryNPC").GetComponent<StoryNPC>());
+    public void InvokeEnablePuzzles() {
+        EnablePuzzles.Invoke();
     }
 
     public override void Damage(float damage)

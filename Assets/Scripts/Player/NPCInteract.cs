@@ -9,9 +9,9 @@ public class NPCInteract : MonoBehaviour {
     }
 
     void OnRaycastHit(GameObject hit) {
-        StoryNPC npc = hit.gameObject.GetComponent<StoryNPC>();
+        NPC npc = hit.gameObject.GetComponent<NPC>();
         if (npc != null && !UI.MenuOpen) {
-            if (npc.Interactable && npc.InitialDialogueNodeName != null) UI.DialogueConversation(DialogueController.GetNode(npc.InitialDialogueNodeName), npc.MemoryItemKey, npc.MemoryResponseTotal);
+            if (npc.Interactable && npc.InitialDialogueNodeName != null) UI.NewDialogueConversation(npc);
         }
     }
 }
