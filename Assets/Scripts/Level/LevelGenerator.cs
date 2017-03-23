@@ -40,7 +40,7 @@ public class LevelGenerator : MonoBehaviour {
 
     void PopulateObjectLists() {
         //Load Story NPCS.
-        StoryNPC.LoadStoryNPCSDUMMY();
+        StoryNPC.LoadStoryNPCs();
         //Load Filler NPCS.
         FillerNPC.LoadFillerNPCSDUMMY();
         //Load in Filler carriages.
