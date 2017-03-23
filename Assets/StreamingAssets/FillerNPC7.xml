@@ -2,11 +2,11 @@
 <Inject>
   <OpenDoorNode d2p1:nil="true" xmlns:d2p1="http://www.w3.org/2001/XMLSchema-instance" />
   <TestProp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
-  <Name>Johanna Starr</Name>
+  <Name>Zayn Smith</Name>
   <Interactable>true</Interactable>
   <Health>1</Health>
   <MemoryResponseTotal>0</MemoryResponseTotal>
   <MemoryItemKey></MemoryItemKey>
-  <InitialDialogueNodeName>jonanna.first</InitialDialogueNodeName>
-  <ModelPrefab>Johanna_Starr_Unity</ModelPrefab>
+  <InitialDialogueNodeName>zayn.first</InitialDialogueNodeName>
+  <ModelPrefab>Zayn_Smith_Unity</ModelPrefab>
 </Inject>
