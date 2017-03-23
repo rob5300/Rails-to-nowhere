@@ -10,6 +10,8 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 {
     public delegate void NPCEvent(NPC npc);
     public event NPCEvent NPCDeath;
+    public GameObject Carriage { get; set; }
+
 
     [SerializeField]
 	private string _name = "New NPC";
@@ -168,6 +170,9 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 		{
 			return "NPCPrefabs";
 		}
+        else if(propName == "Carriage") {
+            return "Carriages";
+        }
 		return "";
 	}
 }
