@@ -289,7 +289,9 @@ public class SerialiserUI : EditorWindow
 							Debug.Log("I died in a fire!");
 						}
 					}
+					propInfo.SetValue(target, resultList, null);
 				}
+
 
 			}
 		}

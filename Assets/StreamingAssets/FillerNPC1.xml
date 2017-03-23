@@ -7,5 +7,5 @@
   <MemoryResponseTotal>0</MemoryResponseTotal>
   <MemoryItemKey>memory.basic</MemoryItemKey>
   <InitialDialogueNodeName>blerrr</InitialDialogueNodeName>
-  <ModelPrefab>Carriage door 1</ModelPrefab>
+  <ModelPrefab>Francois_Romain_Unity</ModelPrefab>
 </Inject>

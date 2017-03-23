@@ -10,6 +10,7 @@ public class LevelGenerator : MonoBehaviour {
     List<GameObject> _fillerCarriages = new List<GameObject>();
     List<GameObject> _carriagesToPlace = new List<GameObject>();
     List<GameObject> _3DPuzzlesToPlace = new List<GameObject>();
+	List<GameObject> _2DPuzzlesToPlace = new List<GameObject>();
     List<NPC> _carriageNPCs = new List<NPC>();
 
     Vector3 _placementPoint;
@@ -71,6 +72,7 @@ public class LevelGenerator : MonoBehaviour {
                 _carriagesToPlace.Add(storyNPCCandidate.Carriage);
                 //Select a 3d Puzzle to use.
                 Select3DPuzzle();
+				Select2DPuzzle();
                 storyCount++;
                 storyPlaced++;
             }
@@ -119,6 +121,11 @@ public class LevelGenerator : MonoBehaviour {
             }
         }
     }
+
+	private void Select2DPuzzle()
+	{
+		 Resources.Load("2DPuzzles/Electrical Puzzle");
+	}
 
     private StoryNPC SelectStoryNPC() {
         StoryNPC toreturn;
