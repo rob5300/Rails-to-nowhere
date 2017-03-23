@@ -20,6 +20,7 @@ public class SerialiserUI : EditorWindow
 	private static DeleteUI _deleteWindow;
 	private static Dictionary<FileInfo, IUnityXMLSerialisable> _instancePairs;
 	private static Dictionary<PropertyInfo, Dictionary<IUnityXMLSerialisable, int>> _listObjs;
+    private static Vector2 _scrollPos;
 
 	// Add menu named "My Window" to the Window menu
 	[MenuItem("Window/Unity-To-XML Serialiser")]
@@ -31,11 +32,17 @@ public class SerialiserUI : EditorWindow
 		_window.titleContent.text = "U2XML";
 		_window.Show();
 		_templateInstance = GameObject.Find("InstanceHolderObj");
-
+        _scrollPos = new Vector2(0, 0);
 	}
 
 	void OnGUI()
 	{
+        if (_scrollPos == null)
+        {
+            _scrollPos = new Vector2(0, 0);
+
+        }
+        _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos);
 		_save = false;
 		if (_templateInstance == null)
 		{
@@ -102,6 +109,7 @@ public class SerialiserUI : EditorWindow
 			}
 			//DynamicallyLoadSerialisedFiles();
 		}
+        EditorGUILayout.EndScrollView();
 	}
 
 	private static void DynamicallyLoadSerialisedFiles()
