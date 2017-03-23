@@ -14,6 +14,7 @@ public class StoryNPC : NPC {
     [SerializeField]
     private bool essential = false;
     public string EnablePuzzlesNode { get; set; }
+    public GameObject Carriage { get; set; }
     public bool Essential {
         get {
             return essential;
