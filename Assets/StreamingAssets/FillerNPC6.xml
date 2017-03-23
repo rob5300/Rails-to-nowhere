@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Inject>
+  <OpenDoorNode d2p1:nil="true" xmlns:d2p1="http://www.w3.org/2001/XMLSchema-instance" />
+  <TestProp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+  <Name>Rudolph Knauss</Name>
+  <Interactable>true</Interactable>
+  <Health>1</Health>
+  <MemoryResponseTotal>0</MemoryResponseTotal>
+  <MemoryItemKey></MemoryItemKey>
+  <InitialDialogueNodeName>rudolph.first</InitialDialogueNodeName>
+  <ModelPrefab>Rudoph_Knauss_Unity</ModelPrefab>
+</Inject>
