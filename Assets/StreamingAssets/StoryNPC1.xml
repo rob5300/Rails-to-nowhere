@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <Essential>false</Essential>
+  <EnablePuzzlesNode d2p1:nil="true" xmlns:d2p1="http://www.w3.org/2001/XMLSchema-instance" />
   <Carriage>StoryCarriage1</Carriage>
+  <Essential>false</Essential>
   <Name>Nadia Lev</Name>
   <Interactable>true</Interactable>
   <Health>1</Health>
@@ -9,5 +10,4 @@
   <MemoryItemKey>memory.nadia</MemoryItemKey>
   <InitialDialogueNodeName>NadiaDialogue1</InitialDialogueNodeName>
   <ModelPrefab>Nadia_Unity</ModelPrefab>
-  <EnablePuzzleNode></EnablePuzzleNode>
 </Inject>
