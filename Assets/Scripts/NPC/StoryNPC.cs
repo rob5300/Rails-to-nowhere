@@ -8,7 +8,7 @@ public class StoryNPC : NPC {
 
     public static List<StoryNPC> StoryNPCs = new List<StoryNPC>();
     [SerializeField]
-    private GameObject carriage;
+
     private bool essential = false;
 
     public bool Essential {
@@ -18,16 +18,6 @@ public class StoryNPC : NPC {
 
         set {
             essential = value;
-        }
-    }
-
-    public GameObject Carriage {
-        get {
-            return carriage;
-        }
-
-        set {
-            carriage = value;
         }
     }
 
