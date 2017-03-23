@@ -72,7 +72,7 @@ public class LevelGenerator : MonoBehaviour {
                 _carriagesToPlace.Add(storyNPCCandidate.Carriage);
                 //Select a 3d Puzzle to use.
                 Select3DPuzzle();
-				Select2DPuzzle();
+				_2DPuzzlesToPlace.Add(Select2DPuzzle());
                 storyCount++;
                 storyPlaced++;
             }
@@ -122,9 +122,9 @@ public class LevelGenerator : MonoBehaviour {
         }
     }
 
-	private void Select2DPuzzle()
+	private GameObject Select2DPuzzle()
 	{
-		 Resources.Load("2DPuzzles/Electrical Puzzle");
+		 return Resources.Load<GameObject>("2DPuzzles/Electrical Puzzle");
 	}
 
     private StoryNPC SelectStoryNPC() {
@@ -213,6 +213,8 @@ public class LevelGenerator : MonoBehaviour {
 
             if (placingCarriage.Type == Carriage.CarriageType.Story) {
                 placingCarriage.Place3DPuzzle(_3DPuzzlesToPlace[0]);
+                placingCarriage.Place2DPuzzle(_2DPuzzlesToPlace[0]);
+                _2DPuzzlesToPlace.RemoveAt(0);
                 _3DPuzzlesToPlace.RemoveAt(0); 
             }
         }

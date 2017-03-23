@@ -34,6 +34,15 @@ public class Carriage : MonoBehaviour {
         CarriageDoor.Unlock();
     }
 
+    public void Place2DPuzzle(GameObject puzzleToPlace) {
+        GameObject puzzleOpener = Resources.Load<GameObject>("2DPuzzles/Electrical Puzzle Open");
+        GameObject placedOpener = (GameObject)Instantiate(puzzleOpener, Puzzle2DPosition.position, Puzzle2DPosition.rotation);
+        placedOpener.transform.position += new Vector3(0, 5, 0);
+        GameObject placedPuzzle = Instantiate(puzzleToPlace);
+        placedOpener.GetComponent<Puzzle2D>().Puzzle = placedPuzzle;
+        placedPuzzle.SetActive(false);
+    }
+
     public void Place3DPuzzle(GameObject puzzle3D) {
         GameObject puzzle = (GameObject)Instantiate(puzzle3D, Puzzle3DPosition.position, Puzzle3DPosition.rotation);
         puzzle.GetComponent<CogPuzzle>().PuzzleComplete += PuzzleController.OnPuzzleCompleted;
