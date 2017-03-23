@@ -19,8 +19,9 @@ public class PauseScript : MonoBehaviour {
 	
     public void Pause()
     {
-        if (image.gameObject.activeInHierarchy == false)
+        if (image.gameObject.activeInHierarchy == false && !UI.MenuOpen)
         {
+            UI.MenuOpen = true;
             image.gameObject.SetActive(true);
             Time.timeScale = 0;
             UI.LockPlayerController();
@@ -29,6 +30,7 @@ public class PauseScript : MonoBehaviour {
         else
         {
             image.gameObject.SetActive(false);
+            UI.MenuOpen = false;
             Time.timeScale = 1;
             UI.UnlockPlayerController();
             UI.LockCursor();
