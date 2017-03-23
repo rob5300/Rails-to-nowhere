@@ -9,4 +9,5 @@
   <MemoryItemKey>memory.arleana</MemoryItemKey>
   <InitialDialogueNodeName>ArleanaDialogue1</InitialDialogueNodeName>
   <ModelPrefab>Arleana_Unity</ModelPrefab>
+  <EnablePuzzleNode></EnablePuzzleNode>
 </Inject>

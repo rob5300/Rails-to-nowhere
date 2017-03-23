@@ -9,4 +9,5 @@
   <MemoryItemKey>memory.john</MemoryItemKey>
   <InitialDialogueNodeName>JohnDialogue1</InitialDialogueNodeName>
   <ModelPrefab>John_Pierce_Unity</ModelPrefab>
+  <EnablePuzzleNode></EnablePuzzleNode>
 </Inject>

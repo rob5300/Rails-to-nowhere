@@ -20,6 +20,7 @@ public class UI : MonoBehaviour {
     public static int DialogueMemoryCount = 0;
     public static int DialogueMemoryTotal = 0;
     public static string DialogueMemoryID = "";
+    public static NPC DialogueNPC;
 
     public Animator _MessageAnimator;
     public Text _MessageText;
@@ -110,14 +111,14 @@ public class UI : MonoBehaviour {
 
     //Dialogue Code
     #region
-    public static void NewDialogueConversation(DialogueNode node, string MemoryID, int memoryTotal) {
-        if (MemoryID != "" && MemoryID != null) DialogueMemoryID = MemoryID;
-        else DialogueMemoryID = "";
-
-        DialogueMemoryTotal = memoryTotal;
+    public static void NewDialogueConversation(NPC npc) {
+        DialogueNPC = npc;
+        DialogueMemoryID = npc.MemoryItemKey;
+        DialogueMemoryTotal = npc.MemoryResponseTotal;
         DialogueMemoryCount = 0;
         dialogueUIOpen = true;
         MenuOpen = true;
+        DialogueNode node = DialogueController.GetNode(npc.InitialDialogueNodeName);
         dialogueUI.MainTextArea.text = node.Text;
         //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
         ShowResponses(node);
@@ -129,6 +130,22 @@ public class UI : MonoBehaviour {
         dialogueUI.MainTextArea.text = node.Text;
         //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
         ShowResponses(node);
+
+        SpecialNodeCheck(node);
+    }
+
+    //Checks if a node corrisponds to a special node on the npc. If it does then invoke that corrisponding event on the npc.
+    private static void SpecialNodeCheck(DialogueNode node) {
+        if(DialogueNPC is StoryNPC) {
+            if(((StoryNPC)DialogueNPC).EnablePuzzlesNode == node.Key){
+                ((StoryNPC)DialogueNPC).InvokeEnablePuzzles();
+            }
+        }
+        else if(DialogueNPC is FillerNPC) {
+            if(((FillerNPC)DialogueNPC).OpenDoorNode == node.Key) {
+                ((FillerNPC)DialogueNPC).InvokeDialogueDoorOpen();
+            }
+        }
     }
 
     public static void ShowResponses(DialogueNode currentNode) {
