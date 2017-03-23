@@ -12,6 +12,7 @@ public class UI : MonoBehaviour {
     public static InventoryUI inventoryUI;
     public static bool inventoryOpen = false;
     public static bool puzzle2DOpen = false;
+    public static bool dialogueUIOpen = false;
     public static GameObject puzzle2D;
     public static Animator MessageAnimator;
     public static Text MessageText;
@@ -66,6 +67,7 @@ public class UI : MonoBehaviour {
             if (!inventoryOpen) {
                 inventoryUI.Parent.SetActive(true);
                 inventoryOpen = true;
+                MenuOpen = true;
 
                 CleanInventoryUI();
                 UpdateInventoryUI();
@@ -77,6 +79,7 @@ public class UI : MonoBehaviour {
                 inventoryUI.MemoryParent.SetActive(false);
                 inventoryUI.Parent.SetActive(false);
                 inventoryOpen = false;
+                MenuOpen = false;
                 LockCursor();
                 UnlockPlayerController();
             }
@@ -85,6 +88,17 @@ public class UI : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (puzzle2DOpen) {
                 Hide2DPuzzle();
+            }
+            if (dialogueUIOpen) {
+                ExitSpeechUI();
+            }
+            if (inventoryOpen) {
+                inventoryUI.MemoryParent.SetActive(false);
+                inventoryUI.Parent.SetActive(false);
+                inventoryOpen = false;
+                MenuOpen = false;
+                LockCursor();
+                UnlockPlayerController();
             }
         }
     }
@@ -96,13 +110,13 @@ public class UI : MonoBehaviour {
 
     //Dialogue Code
     #region
-    public static void DialogueConversation(DialogueNode node, string MemoryID, int memoryTotal) {
+    public static void NewDialogueConversation(DialogueNode node, string MemoryID, int memoryTotal) {
         if (MemoryID != "" && MemoryID != null) DialogueMemoryID = MemoryID;
         else DialogueMemoryID = "";
 
         DialogueMemoryTotal = memoryTotal;
         DialogueMemoryCount = 0;
-
+        dialogueUIOpen = true;
         MenuOpen = true;
         dialogueUI.MainTextArea.text = node.Text;
         //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
@@ -111,7 +125,7 @@ public class UI : MonoBehaviour {
         dialogueUI.Parent.SetActive(true);
     }
 
-    public static void DialogueConversation(DialogueNode node) {
+    public static void ContinueDialogueConversation(DialogueNode node) {
         dialogueUI.MainTextArea.text = node.Text;
         //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
         ShowResponses(node);
@@ -135,6 +149,7 @@ public class UI : MonoBehaviour {
     public void ExitSpeechUI() {
         dialogueUI.Parent.SetActive(false);
         MenuOpen = false;
+        dialogueUIOpen = false;
         LockCursor();
         UnlockPlayerController();
 
@@ -153,7 +168,7 @@ public class UI : MonoBehaviour {
     public static void HandleDialogueResponse(string nodekey) {
         DialogueNode node = DialogueController.GetNode(nodekey);
         if (node.IsMemoryResponse) DialogueMemoryCount++;
-        DialogueConversation(node);
+        ContinueDialogueConversation(node);
     }
 
     public static void CleanupSpeechUI() {
@@ -252,6 +267,7 @@ public class UI : MonoBehaviour {
     public void CloseMemory() {
         inventoryUI.MemoryParent.SetActive(false);
     }
+
     #endregion
 
     //Puzzle 2D Code
@@ -262,6 +278,7 @@ public class UI : MonoBehaviour {
             UnlockCursor();
             puzzle2D = puzzleObject;
             puzzle2D.SetActive(true);
+            MenuOpen = true;
             puzzle2DOpen = true;
         }
     }
@@ -271,6 +288,8 @@ public class UI : MonoBehaviour {
             LockCursor();
             UnlockPlayerController();
             puzzle2D.SetActive(false);
+            MenuOpen = false;
+            puzzle2DOpen = false;
         }
     }
     #endregion
