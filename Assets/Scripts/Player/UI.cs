@@ -16,6 +16,7 @@ public class UI : MonoBehaviour {
     public static GameObject puzzle2D;
     public static Animator MessageAnimator;
     public static Text MessageText;
+    public static Text TaskText;
 
     public static int DialogueMemoryCount = 0;
     public static int DialogueMemoryTotal = 0;
@@ -27,6 +28,7 @@ public class UI : MonoBehaviour {
     public Text HoverName;
     public Text HoverDescription;
     public GameObject CrosshairOb;
+    public Text taskText;
     public DialogueUI dialogueUIObjects = new DialogueUI();
     public InventoryUI inventoryUIObjects = new InventoryUI();
 
@@ -49,6 +51,7 @@ public class UI : MonoBehaviour {
         Crosshair = CrosshairOb;
         MessageAnimator = _MessageAnimator;
         MessageText = _MessageText;
+        TaskText = taskText;
 
         //Disable UI objects incase they are left enabled.
         dialogueUI.ResponseButton.SetActive(false);
@@ -107,6 +110,11 @@ public class UI : MonoBehaviour {
     public static void ShowMessage(string message) {
         MessageText.text = message;
         MessageAnimator.SetTrigger("Play");
+    }
+
+    public static void SetTask(string tasktext) {
+        if (tasktext == "") tasktext = "nothing! Relax!";
+        TaskText.text = "Current task: " + tasktext;
     }
 
     //Dialogue Code

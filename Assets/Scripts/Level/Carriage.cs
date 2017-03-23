@@ -45,8 +45,8 @@ public class Carriage : MonoBehaviour {
         placedOpener.GetComponent<Puzzle2D>().Puzzle = placedPuzzle;
         placedPuzzle.SetActive(false);
 
-        Puzzle2D = puzzleToPlace;
-        puzzleToPlace.SetActive(false);
+        Puzzle2D = placedOpener;
+        placedOpener.SetActive(false);
     }
 
     public void Place3DPuzzle(GameObject puzzle3D) {

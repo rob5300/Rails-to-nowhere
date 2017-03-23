@@ -6017,7 +6017,7 @@ RectTransform:
   - {fileID: 1650340428}
   - {fileID: 1259769491}
   m_Father: {fileID: 1317019538}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0.46397972}
@@ -6798,7 +6798,7 @@ RectTransform:
   - {fileID: 144160282}
   - {fileID: 705671927}
   m_Father: {fileID: 1317019538}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.25006104, y: 0.0010070801}
@@ -7790,6 +7790,7 @@ MonoBehaviour:
   HoverName: {fileID: 2125341089}
   HoverDescription: {fileID: 1636564961}
   CrosshairOb: {fileID: 103955363}
+  taskText: {fileID: 1599469510}
   dialogueUIObjects:
     Parent: {fileID: 1610167100}
     MainTextArea: {fileID: 291047781}
@@ -7880,12 +7881,12 @@ RectTransform:
   - {fileID: 103955366}
   - {fileID: 2125341092}
   - {fileID: 1636564964}
+  - {fileID: 1599469508}
   - {fileID: 1867272200}
   - {fileID: 1610167101}
   - {fileID: 1803139063}
   - {fileID: 1073351930}
   - {fileID: 1124009073}
-  - {fileID: 1599469508}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -10035,7 +10036,7 @@ GameObject:
   - 114: {fileID: 1599469510}
   - 114: {fileID: 1599469509}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Current Task
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10053,11 +10054,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1317019538}
-  m_RootOrder: 8
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 321.2, y: 19.2}
-  m_SizeDelta: {x: 629, y: 37.7}
+  m_AnchoredPosition: {x: 683, y: 19}
+  m_SizeDelta: {x: 810, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1599469509
 MonoBehaviour:
@@ -10099,13 +10100,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Current Task: '
+  m_Text: 'Current Task: Explore.'
 --- !u!222 &1599469511
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10214,7 +10215,7 @@ RectTransform:
   - {fileID: 1312436234}
   - {fileID: 757246620}
   m_Father: {fileID: 1317019538}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 685, y: 145.2}
@@ -11088,7 +11089,7 @@ RectTransform:
   - {fileID: 883715762}
   - {fileID: 1712313794}
   m_Father: {fileID: 1317019538}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.5, y: 1}
@@ -11575,7 +11576,7 @@ RectTransform:
   m_Children:
   - {fileID: 775125920}
   m_Father: {fileID: 1317019538}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -0.49997967, y: -45.5}
@@ -11907,6 +11908,7 @@ GameObject:
   - 4: {fileID: 1992963702}
   - 54: {fileID: 1992963701}
   - 95: {fileID: 1992963700}
+  - 114: {fileID: 1992963703}
   - 114: {fileID: 1992963699}
   - 114: {fileID: 1992963698}
   - 114: {fileID: 1992963697}
@@ -11926,6 +11928,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1992963695}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6797365e55b5a45b5fa24c08d08418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: New NPC
+  _interactable: 1
+  _health: 1
+  initialDialogueNodeName: 
+  memoryResponseTotal: 0
+  memoryItemKey: memory.basic
+  modelPrefab: {fileID: 0}
+--- !u!114 &1992963697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992963695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64006c55c231a8049a568b0226f521bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -11935,9 +11955,10 @@ MonoBehaviour:
   initialDialogueNodeName: JohnDialogue1
   memoryResponseTotal: 4
   memoryItemKey: memory.john
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 1000010896222072, guid: d05e860fb05cd1344a3993336f27e2ec,
+    type: 2}
   essential: 0
---- !u!114 &1992963697
+--- !u!114 &1992963698
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -11954,9 +11975,10 @@ MonoBehaviour:
   initialDialogueNodeName: ArleanaDialogue1
   memoryResponseTotal: 3
   memoryItemKey: memory.arleana
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 1000011484509698, guid: f5a0077ddd62f42448b01c13bf9d6aa3,
+    type: 2}
   essential: 0
---- !u!114 &1992963698
+--- !u!114 &1992963699
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -11973,26 +11995,8 @@ MonoBehaviour:
   initialDialogueNodeName: MatildaDialogue1
   memoryResponseTotal: 4
   memoryItemKey: memory.matilda
-  modelPrefab: {fileID: 0}
-  essential: 0
---- !u!114 &1992963699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1992963695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64006c55c231a8049a568b0226f521bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _name: Nadia Lev
-  _interactable: 1
-  _health: 1
-  initialDialogueNodeName: NadiaDialogue1
-  memoryResponseTotal: 3
-  memoryItemKey: memory.nadia
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 1000011484509698, guid: f5a0077ddd62f42448b01c13bf9d6aa3,
+    type: 2}
   essential: 0
 --- !u!95 &1992963700
 Animator:
@@ -12039,6 +12043,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 20
+--- !u!114 &1992963703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992963695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64006c55c231a8049a568b0226f521bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Nadia Lev
+  _interactable: 1
+  _health: 1
+  initialDialogueNodeName: NadiaDialogue1
+  memoryResponseTotal: 3
+  memoryItemKey: memory.nadia
+  modelPrefab: {fileID: 1000010177456718, guid: 699d36e2fe3300040b89706a72e13be0,
+    type: 2}
+  essential: 0
 --- !u!1 &2027353890
 GameObject:
   m_ObjectHideFlags: 0
