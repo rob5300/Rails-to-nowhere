@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.112443596, g: 0.11317444, b: 0.09321875, a: 1}
+  m_IndirectSpecularColor: {r: 0.11244344, g: 0.113174304, b: 0.09321861, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -11907,6 +11907,14 @@ GameObject:
   - 4: {fileID: 1992963702}
   - 54: {fileID: 1992963701}
   - 95: {fileID: 1992963700}
+  - 114: {fileID: 1992963710}
+  - 114: {fileID: 1992963709}
+  - 114: {fileID: 1992963708}
+  - 114: {fileID: 1992963707}
+  - 114: {fileID: 1992963706}
+  - 114: {fileID: 1992963705}
+  - 114: {fileID: 1992963704}
+  - 114: {fileID: 1992963703}
   - 114: {fileID: 1992963699}
   - 114: {fileID: 1992963698}
   - 114: {fileID: 1992963697}
@@ -11935,7 +11943,8 @@ MonoBehaviour:
   initialDialogueNodeName: JohnDialogue1
   memoryResponseTotal: 4
   memoryItemKey: memory.john
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 1000010896222072, guid: d05e860fb05cd1344a3993336f27e2ec,
+    type: 2}
   essential: 0
 --- !u!114 &1992963697
 MonoBehaviour:
@@ -11954,7 +11963,8 @@ MonoBehaviour:
   initialDialogueNodeName: ArleanaDialogue1
   memoryResponseTotal: 3
   memoryItemKey: memory.arleana
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 1000011484509698, guid: f5a0077ddd62f42448b01c13bf9d6aa3,
+    type: 2}
   essential: 0
 --- !u!114 &1992963698
 MonoBehaviour:
@@ -11973,7 +11983,8 @@ MonoBehaviour:
   initialDialogueNodeName: MatildaDialogue1
   memoryResponseTotal: 4
   memoryItemKey: memory.matilda
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 1000011484509698, guid: f5a0077ddd62f42448b01c13bf9d6aa3,
+    type: 2}
   essential: 0
 --- !u!114 &1992963699
 MonoBehaviour:
@@ -11992,7 +12003,8 @@ MonoBehaviour:
   initialDialogueNodeName: NadiaDialogue1
   memoryResponseTotal: 3
   memoryItemKey: memory.nadia
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 1000010177456718, guid: 699d36e2fe3300040b89706a72e13be0,
+    type: 2}
   essential: 0
 --- !u!95 &1992963700
 Animator:
@@ -12039,6 +12051,158 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 20
+--- !u!114 &1992963703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992963695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6797365e55b5a45b5fa24c08d08418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Camilla Mayer
+  _interactable: 1
+  _health: 1
+  initialDialogueNodeName: camilla.first
+  memoryResponseTotal: 0
+  memoryItemKey: 
+  modelPrefab: {fileID: 1000011791568698, guid: aaa6b819576d696469ed94fea112c2a2,
+    type: 2}
+--- !u!114 &1992963704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992963695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6797365e55b5a45b5fa24c08d08418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Zayn Smith
+  _interactable: 1
+  _health: 1
+  initialDialogueNodeName: zayn.first
+  memoryResponseTotal: 0
+  memoryItemKey: 
+  modelPrefab: {fileID: 1000013560301760, guid: 87755f347b1cadf4baa9fbbf1c02f703,
+    type: 2}
+--- !u!114 &1992963705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992963695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6797365e55b5a45b5fa24c08d08418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Rudolph Knauss
+  _interactable: 1
+  _health: 1
+  initialDialogueNodeName: rudolph.first
+  memoryResponseTotal: 0
+  memoryItemKey: 
+  modelPrefab: {fileID: 1000011117471480, guid: cdfc202d02045d84a952ae29c73a293e,
+    type: 2}
+--- !u!114 &1992963706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992963695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6797365e55b5a45b5fa24c08d08418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Iullia Rossi
+  _interactable: 1
+  _health: 1
+  initialDialogueNodeName: iullia.first
+  memoryResponseTotal: 0
+  memoryItemKey: 
+  modelPrefab: {fileID: 1000013902257606, guid: 8e54f609266549444a0b717348414339,
+    type: 2}
+--- !u!114 &1992963707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992963695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6797365e55b5a45b5fa24c08d08418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Francois Romain
+  _interactable: 1
+  _health: 1
+  initialDialogueNodeName: francois.first
+  memoryResponseTotal: 0
+  memoryItemKey: 
+  modelPrefab: {fileID: 1000012768619140, guid: 4c5587b6eb64dc24b8ae8141e807c49c,
+    type: 2}
+--- !u!114 &1992963708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992963695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6797365e55b5a45b5fa24c08d08418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Gina Schneider
+  _interactable: 1
+  _health: 1
+  initialDialogueNodeName: gina.first
+  memoryResponseTotal: 0
+  memoryItemKey: 
+  modelPrefab: {fileID: 1000011500470952, guid: cc3922eaf8e80454b9148169d4d45734,
+    type: 2}
+--- !u!114 &1992963709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992963695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6797365e55b5a45b5fa24c08d08418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Nicholas Holt
+  _interactable: 1
+  _health: 1
+  initialDialogueNodeName: nicholas.first
+  memoryResponseTotal: 0
+  memoryItemKey: 
+  modelPrefab: {fileID: 1000011417158570, guid: a4bc2f80c4a6b0b41b44d7a4967f7605,
+    type: 2}
+--- !u!114 &1992963710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992963695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6797365e55b5a45b5fa24c08d08418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Johanna Starr
+  _interactable: 1
+  _health: 1
+  initialDialogueNodeName: jonanna.first
+  memoryResponseTotal: 0
+  memoryItemKey: 
+  modelPrefab: {fileID: 1000013727087550, guid: cece21429dfc9674ab23d8814f969381,
+    type: 2}
 --- !u!1 &2027353890
 GameObject:
   m_ObjectHideFlags: 0
