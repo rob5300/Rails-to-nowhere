@@ -114,7 +114,7 @@
     <Value>
       <Text>I used to have a son who looked a bit like you. He was hard working but hardly ever called or visited me. From what I heard, he treated his wife and daughter the same. </Text>
       <Key>nadia.second</Key>
-      <ResponseText>""</ResponseText>
+      <ResponseText>Continue</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
         <string>nadia.second.horrible</string>
@@ -164,7 +164,7 @@
     <Value>
       <Text>Oh, right, do you know the door ahead is locked,? I happen to have the key. Would you fix this helpless old lady’s watch? It was a present from my dear son. </Text>
       <Key>nadia.third</Key>
-      <ResponseText>""</ResponseText>
+      <ResponseText>Continue</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
         <string>nadia.third.agree</string>
@@ -214,7 +214,7 @@
     <Value>
       <Text>...</Text>
       <Key>matilda.first</Key>
-      <ResponseText>""</ResponseText>
+      <ResponseText>Continue</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
         <string>matilda.first.kid</string>
@@ -264,7 +264,7 @@
     <Value>
       <Text>I hope mommy and daddy find me soon. I don’t like this place.. I don’t like being alone here. I’m scared… </Text>
       <Key>matilda.second</Key>
-      <ResponseText>""</ResponseText>
+      <ResponseText>Continue</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
         <string>matilda.second.whiny</string>
@@ -314,7 +314,7 @@
     <Value>
       <Text>I love my daddy but mommy always tells me he’s a bad person. I see mommy crying a lot because of him, so maybe she’s right. </Text>
       <Key>matilda.third</Key>
-      <ResponseText>""</ResponseText>
+      <ResponseText>Continue</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
         <string>matilda.third.howyoufeel</string>
@@ -364,7 +364,7 @@
     <Value>
       <Text>A toy that daddy got me broke… I wish I could fix it. Could you fix it for me, sir? I don’t have money to pay you but I can give you this key. </Text>
       <Key>matilda.fourth</Key>
-      <ResponseText>""</ResponseText>
+      <ResponseText>Continue</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
         <string>matilda.fourth.try</string>
@@ -401,7 +401,7 @@
     <Value>
       <Text>So there’s another person stuck in this place, huh…</Text>
       <Key>arleana.first</Key>
-      <ResponseText>""</ResponseText>
+      <ResponseText>Continue</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
         <string>arleana.first.key</string>
@@ -451,7 +451,7 @@
     <Value>
       <Text>I have a daughter. She’s all I have left after my asshole of a husband cheated on me. And with a man, of all people.</Text>
       <Key>arleana.second</Key>
-      <ResponseText>""</ResponseText>
+      <ResponseText>Continue</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
         <string>arleana.second.asshole</string>
@@ -501,7 +501,7 @@
     <Value>
       <Text>So, I have this key I could lend you to open the door up front, but I need you to fix this tiny radio for me. It can get boring around here and I could use some entertainment.</Text>
       <Key>arleana.third</Key>
-      <ResponseText>""</ResponseText>
+      <ResponseText>Continue</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
         <string>arleana.third.ok</string>
@@ -538,7 +538,7 @@
     <Value>
       <Text>Could you go away? I’m trying to focus on reading this newspaper.</Text>
       <Key>john.first</Key>
-      <ResponseText>""</ResponseText>
+      <ResponseText>Continue</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
         <string>john.first.lonely</string>
@@ -588,7 +588,7 @@
     <Value>
       <Text>It doesn’t sound like you know a lot about today’s economy, nor what it takes to successfully run a company. </Text>
       <Key>john.second</Key>
-      <ResponseText>""</ResponseText>
+      <ResponseText>Continue</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
         <string>john.second.doyou</string>
@@ -625,7 +625,7 @@
     <Value>
       <Text>Running a company is no easy job, I tell you, but I would do everything for the sake of succeeding.</Text>
       <Key>john.third</Key>
-      <ResponseText>""</ResponseText>
+      <ResponseText>Continue</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
         <string>john.third.goodluck</string>
@@ -675,7 +675,7 @@
     <Value>
       <Text>I have a key for the door up front but it seems like it’s broken. If you can fix it, I’ll let you through.</Text>
       <Key>john.fourth</Key>
-      <ResponseText>""</ResponseText>
+      <ResponseText>Continue</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
         <string>john.fourth.alright</string>
