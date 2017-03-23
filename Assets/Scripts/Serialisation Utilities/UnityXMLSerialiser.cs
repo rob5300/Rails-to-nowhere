@@ -62,6 +62,7 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 						{
 							UnityEngine.Object actualItem = (UnityEngine.Object)unityObjItem;
 							string name = actualItem.name;
+							listOfGameObjectNames.Add(name);
 						}
 						XDocument subDoc = new XDocument();
 						using (XmlWriter subXW = subDoc.CreateWriter())
@@ -149,7 +150,7 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 						{
 							XmlSerializer propDeserialiser = new XmlSerializer(typeof(List<string>), new XmlRootAttribute(prop.Name));
 							List<string> result = (List<string>)propDeserialiser.Deserialize(xr);
-							List<UnityEngine.Object> resultList = new List<UnityEngine.Object>();
+							 IList resultList = (IList)Activator.CreateInstance(prop.PropertyType);
 							for (int i = 0; i < result.Count; i++)
 							{
 								string resultPath = result[i];
@@ -157,7 +158,7 @@ public class UnityXMLSerialiser<T> where T : MonoBehaviour, IUnityXMLSerialisabl
 								{
 									resultPath = propFolder + "/" + result[i];
 								}
-								resultList.Add(Resources.Load(resultPath, typeof(UnityEngine.Object)));
+								resultList.Add(Resources.Load(resultPath, propType));
 							}
 							prop.SetValue(newObj, resultList, null);
 

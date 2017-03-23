@@ -136,13 +136,13 @@ public class SerialiserUI : EditorWindow
 				FileInfo fileInfo = new FileInfo(actualPath);
 				IUnityXMLSerialisable result = (IUnityXMLSerialisable)instantiatedSerialiser.GetType().GetMethod("DeserialiseXML").Invoke(instantiatedSerialiser, new object[2] { fileInfo, false });
 				_instancePairs.Add(fileInfo, result);
-				DrawFields(result);
+				DrawFields(result, true);
 			}
 
 		}
 	}
 
-	private static void DrawFields(IUnityXMLSerialisable target)
+	private static void DrawFields(IUnityXMLSerialisable target, bool isFileLoad = false)
 	{
 		List<string> targetProps = target.GetSerialiseTargets();
 		if (!_instances.Contains(target))
@@ -184,6 +184,10 @@ public class SerialiserUI : EditorWindow
 						_listObjs[propInfo].Add(target, 0);
 					}
 					IList resultList = (IList)propInfo.GetValue(target, null);
+					if (isFileLoad)
+					{
+						_listObjs[propInfo][target] = resultList.Count;
+					}
 					_listObjs[propInfo][target] = EditorGUILayout.IntField(propInfo.Name + " Capacity:", _listObjs[propInfo][target]);
 					if (propInfo.PropertyType.IsArray)
 					{

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <EnablePuzzlesNode d2p1:nil="true" xmlns:d2p1="http://www.w3.org/2001/XMLSchema-instance" />
+  <EnablePuzzlesNode></EnablePuzzlesNode>
   <Carriage>StoryCarriage1</Carriage>
   <Essential>false</Essential>
   <Name>Nadia Lev</Name>

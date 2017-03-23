@@ -171,6 +171,10 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
         else if(propName == "Carriage") {
             return "Carriages";
         }
+		else if (propName == "CarriageObjects")
+		{
+			return "NPCCarriageObjectPrefabs";
+		}
 		return "";
 	}
 }
