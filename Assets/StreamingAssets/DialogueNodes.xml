@@ -181,7 +181,7 @@
       <ResponseText>Alright, I will have a look at it.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue to puzzle</string>
+        <string>nadia.puzzle</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -193,7 +193,7 @@
       <ResponseText>I don’t know how to fix it.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed</string>
+        <string>nadia.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -205,7 +205,7 @@
       <ResponseText>Just give me the key.Now. I don’t have time for this.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill her</string>
+        <string>nadia.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -255,7 +255,7 @@
       <ResponseText>I know you have a key. Give it to me, or else!</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill her</string>
+        <string>matilda.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -380,7 +380,7 @@
       <ResponseText>I could try...</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue to puzzle</string>
+        <string>matilda.puzzle</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -392,7 +392,7 @@
       <ResponseText>I'm a bit busy right now.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed.</string>
+        <string>matilda.failed.</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -442,7 +442,7 @@
       <ResponseText>If yoou have a key, you better give it to me, or else!</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill her</string>
+        <string>arleana.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -517,7 +517,7 @@
       <ResponseText>Alright, let me have a look.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue to puzzle</string>
+        <string>arleana.puzzle</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -529,7 +529,7 @@
       <ResponseText>I'd rather help a woman who is more polite.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed</string>
+        <string>arleana.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -555,7 +555,7 @@
       <ResponseText>I need your key. Give it to me, or else!</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill him</string>
+        <string>john.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -691,7 +691,7 @@
       <ResponseText>You’re a sick old man. You can keep your key.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed</string>
+        <string>john.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -703,7 +703,7 @@
       <ResponseText>I suppose I could have a look.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
       <ResponseNodes>
-        <string>continue to puzzle</string>
+        <string>john.puzzle</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -742,7 +742,7 @@
       <ResponseText>Give me the key you have otherwise things might get...bad for you.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill her</string>
+        <string>johanna.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -891,7 +891,7 @@
       <ResponseText>Okay, I promise!</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>proceed to door</string>
+        <string>johanna.puzzle</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -903,7 +903,7 @@
       <ResponseText>Hmmm, I don’t know if I can come back.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed</string>
+        <string>johanna.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -941,7 +941,7 @@
       <ResponseText>Give me the key you have. I know you have it... or else...</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill him</string>
+        <string>nicholas.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1078,7 +1078,7 @@
       <ResponseText>Thanks, I’ll use it well.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>proceed to door</string>
+        <string>nicholas.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1090,7 +1090,7 @@
       <ResponseText>I’ll come back later after I see the rest of the train.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>proceed to door</string>
+        <string>nicholas.puzzle</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1116,7 +1116,7 @@
       <ResponseText>Give me the key to the next car, or else...</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill her</string>
+        <string>gina.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1215,7 +1215,7 @@
       <ResponseText>I’ll be on my way, then.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed</string>
+        <string>gina.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1227,7 +1227,7 @@
       <ResponseText>Thank you, I’ll talk to him.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>proceed to door</string>
+        <string>gina.puzzle</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1277,7 +1277,7 @@
       <ResponseText>Give me the key...now.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill him</string>
+        <string>francois.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1352,7 +1352,7 @@
       <ResponseText>I’d think about it more if I were you.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed</string>
+        <string>francois.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1364,7 +1364,7 @@
       <ResponseText>Alright, mate, best of luck to you!</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>proceed to door</string>
+        <string>francois.puzzle</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1390,7 +1390,7 @@
       <ResponseText>Give me the key or you'll be sorry.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill her</string>
+        <string>iullia.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1539,7 +1539,7 @@
       <ResponseText>Will you? That would be a great help.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>proceed to door</string>
+        <string>iullia.puzzle</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1551,7 +1551,7 @@
       <ResponseText>Sure, I’ll be going then.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed</string>
+        <string>iullia.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1589,7 +1589,7 @@
       <ResponseText>Give me the carriage key. Now.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill him</string>
+        <string>rudolph.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1726,7 +1726,7 @@
       <ResponseText>Alright, hope you feel better about your decisions.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>proceed to door</string>
+        <string>rudolph.puzzle</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1738,7 +1738,7 @@
       <ResponseText>See ya, dude.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed</string>
+        <string>rudolph.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1788,7 +1788,7 @@
       <ResponseText>You have the key, right? Give it to me, now!</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill him</string>
+        <string>zayn.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1913,7 +1913,7 @@
       <ResponseText>I’ll come by to chat later if you can think of other stories. </ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>proceed to door</string>
+        <string>zayn.puzzle</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1925,7 +1925,7 @@
       <ResponseText>Thank God.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed</string>
+        <string>zayn.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -1963,7 +1963,7 @@
       <ResponseText>Give me your key, or else you'll regret it...</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill her</string>
+        <string>camilla.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -2050,7 +2050,7 @@
       <ResponseText>Thanks, I hope it goes well for you. </ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>proceed to door</string>
+        <string>camilla.puzzle</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -2062,7 +2062,7 @@
       <ResponseText>Bye</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed</string>
+        <string>camilla.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>

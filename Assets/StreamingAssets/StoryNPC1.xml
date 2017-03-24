@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <EnablePuzzlesNode></EnablePuzzlesNode>
+  <EnablePuzzlesNode>nadia.puzzle</EnablePuzzlesNode>
   <Carriage>StoryCarriage1</Carriage>
   <Essential>false</Essential>
   <Name>Nadia Lev</Name>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <EnablePuzzlesNode>memerrr</EnablePuzzlesNode>
+  <EnablePuzzlesNode>john.puzzle</EnablePuzzlesNode>
   <Carriage>StoryCarriage1</Carriage>
   <Essential>false</Essential>
   <Name>John Pierce</Name>
