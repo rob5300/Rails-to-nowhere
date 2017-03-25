@@ -117,7 +117,7 @@ public abstract class BaseTool : MonoBehaviour {
 		if (Vector2.Distance(closestObj.transform.position, position) < 1 && closestObj.tag == Prefab.tag && closestObj.name.Contains(Prefab.name))
 		{
 			_blocks.Remove(closestObj.GetComponent<EngComponent>());
-			closestObj.transform.parent.GetComponent<TestCurrentController>()._components.Remove(closestObj.GetComponent<EngComponent>());
+			closestObj.transform.parent.GetComponent<TwoDimensionalPuzzle>()._components.Remove(closestObj.GetComponent<EngComponent>());
 			Destroy(closestObj);
 		}
 	}
@@ -137,7 +137,7 @@ public abstract class BaseTool : MonoBehaviour {
 			renderer.sortingOrder = 101;
 			block.transform.position = new Vector3(block.transform.position.x, closestBoardObj.transform.position.y, 0.1046143f);
 			block.transform.parent = closestBoardObj.transform.parent.parent;
-			closestBoardObj.transform.parent.parent.GetComponent<TestCurrentController>()._components.Add(block.GetComponent<BaseCircuit>());
+			closestBoardObj.transform.parent.parent.GetComponent<TwoDimensionalPuzzle>()._components.Add(block.GetComponent<BaseCircuit>());
 			_blocks.Add(block.GetComponent<EngComponent>());
 		}
 	}

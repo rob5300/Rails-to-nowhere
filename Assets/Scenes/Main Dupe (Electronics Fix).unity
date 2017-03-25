@@ -7630,6 +7630,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000013632079698, guid: 68bf2f2e4757d1f4a82862ef404dc51e,
+        type: 2}
+      propertyPath: _sourceNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013646484826, guid: 68bf2f2e4757d1f4a82862ef404dc51e,
+        type: 2}
+      propertyPath: _sourceNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4000013478763760, guid: 68bf2f2e4757d1f4a82862ef404dc51e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7665,6 +7675,30 @@ Prefab:
     - target: {fileID: 1000010004968480, guid: 68bf2f2e4757d1f4a82862ef404dc51e, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011667634038, guid: 68bf2f2e4757d1f4a82862ef404dc51e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013632079698, guid: 68bf2f2e4757d1f4a82862ef404dc51e,
+        type: 2}
+      propertyPath: _isPowerSource
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013646484826, guid: 68bf2f2e4757d1f4a82862ef404dc51e,
+        type: 2}
+      propertyPath: _isPowerSource
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013632079698, guid: 68bf2f2e4757d1f4a82862ef404dc51e,
+        type: 2}
+      propertyPath: _sourceNames.Array.data[0]
+      value: TestStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013646484826, guid: 68bf2f2e4757d1f4a82862ef404dc51e,
+        type: 2}
+      propertyPath: _sourceNames.Array.data[0]
+      value: TestStart (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68bf2f2e4757d1f4a82862ef404dc51e, type: 2}
@@ -7794,7 +7828,10 @@ MonoBehaviour:
   HoverName: {fileID: 2125341089}
   HoverDescription: {fileID: 1636564961}
   CrosshairOb: {fileID: 103955363}
-  taskText: {fileID: 1599469510}
+  _ThoughtsText: {fileID: 0}
+  _ThoughtsObject: {fileID: 0}
+  _ThoughtContButton: {fileID: 0}
+  _ThoughtExitButton: {fileID: 0}
   dialogueUIObjects:
     Parent: {fileID: 1610167100}
     MainTextArea: {fileID: 291047781}
@@ -8786,7 +8823,7 @@ MonoBehaviour:
   _name: Rudoph
   _interactable: 1
   _health: 1
-  initialDialogueNodeName: test01
+  initialDialogueNodeKey: 
   memoryResponseTotal: 0
   memoryItemKey: memory.basic
   modelPrefab: {fileID: 1000011117471480, guid: cdfc202d02045d84a952ae29c73a293e,
@@ -11938,7 +11975,7 @@ MonoBehaviour:
   _name: New NPC
   _interactable: 1
   _health: 1
-  initialDialogueNodeName: 
+  initialDialogueNodeKey: 
   memoryResponseTotal: 0
   memoryItemKey: memory.basic
   modelPrefab: {fileID: 0}
@@ -11956,12 +11993,14 @@ MonoBehaviour:
   _name: John Pierce
   _interactable: 1
   _health: 1
-  initialDialogueNodeName: JohnDialogue1
+  initialDialogueNodeKey: 
   memoryResponseTotal: 4
   memoryItemKey: memory.john
   modelPrefab: {fileID: 1000010896222072, guid: d05e860fb05cd1344a3993336f27e2ec,
     type: 2}
   essential: 0
+  enablePuzzlesNode: 
+  carriage: {fileID: 0}
 --- !u!114 &1992963698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11976,12 +12015,14 @@ MonoBehaviour:
   _name: Arleana Lev
   _interactable: 1
   _health: 1
-  initialDialogueNodeName: ArleanaDialogue1
+  initialDialogueNodeKey: 
   memoryResponseTotal: 3
   memoryItemKey: memory.arleana
   modelPrefab: {fileID: 1000011484509698, guid: f5a0077ddd62f42448b01c13bf9d6aa3,
     type: 2}
   essential: 0
+  enablePuzzlesNode: 
+  carriage: {fileID: 0}
 --- !u!114 &1992963699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11996,12 +12037,14 @@ MonoBehaviour:
   _name: Matilda Lev
   _interactable: 1
   _health: 1
-  initialDialogueNodeName: MatildaDialogue1
+  initialDialogueNodeKey: 
   memoryResponseTotal: 4
   memoryItemKey: memory.matilda
   modelPrefab: {fileID: 1000011484509698, guid: f5a0077ddd62f42448b01c13bf9d6aa3,
     type: 2}
   essential: 0
+  enablePuzzlesNode: 
+  carriage: {fileID: 0}
 --- !u!95 &1992963700
 Animator:
   serializedVersion: 3
@@ -12061,12 +12104,14 @@ MonoBehaviour:
   _name: Nadia Lev
   _interactable: 1
   _health: 1
-  initialDialogueNodeName: NadiaDialogue1
+  initialDialogueNodeKey: 
   memoryResponseTotal: 3
   memoryItemKey: memory.nadia
   modelPrefab: {fileID: 1000010177456718, guid: 699d36e2fe3300040b89706a72e13be0,
     type: 2}
   essential: 0
+  enablePuzzlesNode: 
+  carriage: {fileID: 0}
 --- !u!1 &2027353890
 GameObject:
   m_ObjectHideFlags: 0

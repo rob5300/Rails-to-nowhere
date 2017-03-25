@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Puzzle2D : MonoBehaviour {
+public class Puzzle2DEnvironmentLoader : MonoBehaviour {
 
     public GameObject Puzzle;
 
