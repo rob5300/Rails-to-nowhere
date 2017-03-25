@@ -42,9 +42,9 @@ public class Carriage : MonoBehaviour {
         GameObject placedOpener = (GameObject)Instantiate(puzzleOpener, Puzzle2DPosition.position, Puzzle2DPosition.rotation);
         placedOpener.transform.position += new Vector3(0, 5, 0);
         GameObject placedPuzzle = Instantiate(puzzleToPlace);
-        placedOpener.GetComponent<Puzzle2D>().Puzzle = placedPuzzle;
-        placedPuzzle.SetActive(false);
-
+        placedOpener.GetComponent<Puzzle2DEnvironmentLoader>().Puzzle = placedPuzzle;
+		placedPuzzle.GetComponent<TwoDimensionalPuzzle>().PuzzleComplete += PuzzleController.OnPuzzleCompleted;
+		placedPuzzle.SetActive(false);
         Puzzle2D = placedOpener;
         placedOpener.SetActive(false);
         placedOpener.transform.parent = transform;

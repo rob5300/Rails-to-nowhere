@@ -16273,6 +16273,7 @@ MonoBehaviour:
   _connected: 0
   _sourceNames: []
   _current: 0
+  _isPowerSource: 0
 --- !u!114 &114000010298023896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16300,6 +16301,7 @@ MonoBehaviour:
   _connected: 0
   _sourceNames: []
   _current: 0
+  _isPowerSource: 0
 --- !u!114 &114000011040801458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16314,6 +16316,7 @@ MonoBehaviour:
   _connected: 0
   _sourceNames: []
   _current: 0
+  _isPowerSource: 0
 --- !u!114 &114000011494340214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16328,6 +16331,7 @@ MonoBehaviour:
   _connected: 0
   _sourceNames: []
   _current: 0
+  _isPowerSource: 0
 --- !u!114 &114000011697069354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16342,6 +16346,7 @@ MonoBehaviour:
   _connected: 0
   _sourceNames: []
   _current: 0
+  _isPowerSource: 0
 --- !u!114 &114000011820726254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16356,6 +16361,7 @@ MonoBehaviour:
   _connected: 0
   _sourceNames: []
   _current: 0
+  _isPowerSource: 0
 --- !u!114 &114000012003274506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16383,6 +16389,7 @@ MonoBehaviour:
   _connected: 0
   _sourceNames: []
   _current: 0
+  _isPowerSource: 0
 --- !u!114 &114000012931263006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16397,6 +16404,7 @@ MonoBehaviour:
   _connected: 0
   _sourceNames: []
   _current: 0
+  _isPowerSource: 0
 --- !u!114 &114000013046998100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16411,6 +16419,7 @@ MonoBehaviour:
   _connected: 1
   _sourceNames: []
   _current: 0
+  _isPowerSource: 0
 --- !u!114 &114000013101882094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16425,6 +16434,7 @@ MonoBehaviour:
   _connected: 0
   _sourceNames: []
   _current: 0
+  _isPowerSource: 0
 --- !u!114 &114000013365385466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16439,6 +16449,7 @@ MonoBehaviour:
   _connected: 0
   _sourceNames: []
   _current: 0
+  _isPowerSource: 0
 --- !u!114 &114000013622880568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16447,7 +16458,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012195747530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63b434933dfe9374783e7849698994df, type: 3}
+  m_Script: {fileID: 11500000, guid: a4b07034a00ff7d49acb27e51bfb1a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _components: []
@@ -16467,6 +16478,7 @@ MonoBehaviour:
   _sourceNames:
   - TestStart
   _current: 5
+  _isPowerSource: 0
 --- !u!114 &114000013646484826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16482,6 +16494,7 @@ MonoBehaviour:
   _sourceNames:
   - TestStart (1)
   _current: 5
+  _isPowerSource: 0
 --- !u!114 &114000013801407986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16509,6 +16522,7 @@ MonoBehaviour:
   _connected: 0
   _sourceNames: []
   _current: 0
+  _isPowerSource: 0
 --- !u!212 &212000010002241362
 SpriteRenderer:
   m_ObjectHideFlags: 1

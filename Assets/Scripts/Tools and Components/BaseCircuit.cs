@@ -19,6 +19,9 @@ public class BaseCircuit : EngComponent
 	protected float _current;
 	protected List<BaseCircuit> _pseudoParents = new List<BaseCircuit>();
 	protected List<BaseCircuit> _pseudoChildren = new List<BaseCircuit>();
+	[SerializeField]
+	protected bool _isPowerSource;
+
 	public virtual float Current
 	{
 		get
@@ -51,6 +54,19 @@ public class BaseCircuit : EngComponent
 		}
 	}
 
+	public bool IsPowerSource
+	{
+		get
+		{
+			return _isPowerSource;
+		}
+
+		set
+		{
+			_isPowerSource = value;
+		}
+	}
+
 	protected virtual void Start()
 	{
 		if (_sourceNames == null)
@@ -62,103 +78,106 @@ public class BaseCircuit : EngComponent
 
 	protected override void Update()
 	{
-		base.Update();
-		if (_oldResults != null)
+		if (!IsPowerSource)
 		{
-			VerifyCurrent(_updateResults);
-		}
-		_oldResults = _updateResults;
-		if (_pseudoParents.Count == 0)
-		{
-			if (_updateResults.Where(x => x.transform.GetComponent<BaseCircuit>().Current > 0).Any())
+			base.Update();
+			if (_oldResults != null)
 			{
+				VerifyCurrent(_updateResults);
+			}
+			_oldResults = _updateResults;
+			if (_pseudoParents.Count == 0)
+			{
+				if (_updateResults.Where(x => x.transform.GetComponent<BaseCircuit>().Current > 0).Any())
+				{
 
-				foreach (BaseCircuit circuitInstance in _updateResults.Select(x => x.transform.GetComponent<BaseCircuit>()).Where(x => x.Current > 0))
-				{
-					_pseudoParents.Add(circuitInstance);
-				}
-			}
-		}
-		else if (_updateResults.Where(x => x.transform.GetComponent<BaseCircuit>().SourceNames.Except(SourceNames).Any() && !_pseudoParents.Contains(x.transform.GetComponent<BaseCircuit>()) && !_pseudoChildren.Contains(x.transform.GetComponent<BaseCircuit>())).Any())
-		{
-			foreach (BaseCircuit circ in _updateResults.Where(x => x.transform.GetComponent<BaseCircuit>().SourceNames.Except(SourceNames).Any() && !_pseudoParents.Contains(x.transform.GetComponent<BaseCircuit>())).Select(x => x.transform.GetComponent<BaseCircuit>()))
-			{
-				if (!circ.GetType().IsAssignableFrom(typeof(Transistor)))
-				{
-					_pseudoParents.Add(circ);
-				}
-				else if (circ.transform.position.y == transform.position.y && transform.position.x > circ.transform.position.x)
-				{
-					_pseudoParents.Add(circ);
-				}
-			}
-		}
-		if (_pseudoParents.Contains(this))
-		{
-			_pseudoParents.Remove(this);
-		}
-		if (SourceNames.Count != 0 && PseudoParents.Count > 0)
-		{
-			foreach (List<string> source in _pseudoParents.Select(x => x.SourceNames))
-			{
-				if (!SourceNames.Any() || source.Except(SourceNames).Any())
-				{
-					foreach (string sourceName in source.Except(SourceNames))
+					foreach (BaseCircuit circuitInstance in _updateResults.Select(x => x.transform.GetComponent<BaseCircuit>()).Where(x => x.Current > 0))
 					{
-						if (sourceName != gameObject.name)
-						{
-							SourceNames.Add(sourceName);
-						}
+						_pseudoParents.Add(circuitInstance);
 					}
 				}
-
 			}
-		}
-		List<BaseCircuit> currentConns = _updateResults.Select(x => x.transform.GetComponent<BaseCircuit>()).ToList();
-		if (currentConns.Any())
-		{
-			if (_pseudoParents.Count > 0)
+			else if (_updateResults.Where(x => x.transform.GetComponent<BaseCircuit>().SourceNames.Except(SourceNames).Any() && !_pseudoParents.Contains(x.transform.GetComponent<BaseCircuit>()) && !_pseudoChildren.Contains(x.transform.GetComponent<BaseCircuit>())).Any())
 			{
-				List<BaseCircuit> parents = currentConns.Where(x => _pseudoParents.Contains(x)).ToList();
-				List<string> results = new List<string>();
-				foreach (BaseCircuit parent in parents)
+				foreach (BaseCircuit circ in _updateResults.Where(x => x.transform.GetComponent<BaseCircuit>().SourceNames.Except(SourceNames).Any() && !_pseudoParents.Contains(x.transform.GetComponent<BaseCircuit>())).Select(x => x.transform.GetComponent<BaseCircuit>()))
 				{
-					foreach (string name in SourceNames)
+					if (!circ.GetType().IsAssignableFrom(typeof(Transistor)))
 					{
-						if (!parent.SourceNames.Contains(name) && !results.Contains(name))
-						{
-							results.Add(name);
-						}
-						else
-						{
-							results.Remove(name);
-						}
+						_pseudoParents.Add(circ);
+					}
+					else if (circ.transform.position.y == transform.position.y && transform.position.x > circ.transform.position.x)
+					{
+						_pseudoParents.Add(circ);
 					}
 				}
-				if (results.Any())
+			}
+			if (_pseudoParents.Contains(this))
+			{
+				_pseudoParents.Remove(this);
+			}
+			if (PseudoParents.Count > 0)
+			{
+				foreach (List<string> source in _pseudoParents.Select(x => x.SourceNames))
 				{
-					SourceNames.RemoveAll(x => results.Contains(x));
+					if (!SourceNames.Any() || source.Except(SourceNames).Any())
+					{
+						foreach (string sourceName in source.Except(SourceNames))
+						{
+							if (sourceName != gameObject.name)
+							{
+								SourceNames.Add(sourceName);
+							}
+						}
+					}
+
 				}
 			}
-			_pseudoParents.RemoveAll(x => x == null);
+			List<BaseCircuit> currentConns = _updateResults.Select(x => x.transform.GetComponent<BaseCircuit>()).ToList();
+			if (currentConns.Any())
+			{
+				if (_pseudoParents.Count > 0)
+				{
+					List<BaseCircuit> parents = currentConns.Where(x => _pseudoParents.Contains(x)).ToList();
+					List<string> results = new List<string>();
+					foreach (BaseCircuit parent in parents)
+					{
+						foreach (string name in SourceNames)
+						{
+							if (!parent.SourceNames.Contains(name) && !results.Contains(name))
+							{
+								results.Add(name);
+							}
+							else
+							{
+								results.Remove(name);
+							}
+						}
+					}
+					if (results.Any())
+					{
+						SourceNames.RemoveAll(x => results.Contains(x));
+					}
+				}
+				_pseudoParents.RemoveAll(x => x == null);
 
 
+			}
+			else
+			{
+				_pseudoParents = new List<BaseCircuit>();
+			}
+			_pseudoChildren.RemoveAll(x => x == null);
+			float power = 0;
+			if (_pseudoParents.Count == 0)
+			{
+				Connected = false;
+			}
+			foreach (BaseCircuit parentCircuit in _pseudoParents)
+			{
+				power += parentCircuit.Current;
+			}
+			Current = power;
 		}
-		else
-		{
-			_pseudoParents = new List<BaseCircuit>();
-		}
-		_pseudoChildren.RemoveAll(x => x == null);
-		float power = 0;
-		if (_pseudoParents.Count == 0)
-		{
-			Connected = false;
-		}
-		foreach (BaseCircuit parentCircuit in _pseudoParents)
-		{
-			power += parentCircuit.Current;
-		}
-		Current = power;
 	}
 
 	protected void VerifyCurrent(List<RaycastHit2D> rayCollection)
