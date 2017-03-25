@@ -180,9 +180,7 @@
       <Key>nadia.third.agree</Key>
       <ResponseText>Alright, I will have a look at it.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
-      <ResponseNodes>
-        <string>nadia.puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -379,9 +377,7 @@
       <Key>matilda.fourth.try</Key>
       <ResponseText>I could try...</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
-      <ResponseNodes>
-        <string>matilda.puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -516,9 +512,7 @@
       <Key>arleana.third.ok</Key>
       <ResponseText>Alright, let me have a look.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
-      <ResponseNodes>
-        <string>arleana.puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -702,9 +696,7 @@
       <Key>john.fourth.alright</Key>
       <ResponseText>I suppose I could have a look.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
-      <ResponseNodes>
-        <string>john.puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -890,9 +882,7 @@
       <Key>johanna.fourth.promise</Key>
       <ResponseText>Okay, I promise!</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
-      <ResponseNodes>
-        <string>johanna.puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -1089,9 +1079,7 @@
       <Key>nicholas.fourth.bbl</Key>
       <ResponseText>I’ll come back later after I see the rest of the train.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
-      <ResponseNodes>
-        <string>nicholas.puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -1226,9 +1214,7 @@
       <Key>gina.third.ty</Key>
       <ResponseText>Thank you, I’ll talk to him.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
-      <ResponseNodes>
-        <string>gina.puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -1363,9 +1349,7 @@
       <Key>francois.third.alright</Key>
       <ResponseText>Alright, mate, best of luck to you!</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
-      <ResponseNodes>
-        <string>francois.puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -1538,9 +1522,7 @@
       <Key>iullia.fourth.willu</Key>
       <ResponseText>Will you? That would be a great help.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
-      <ResponseNodes>
-        <string>iullia.puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -1725,9 +1707,7 @@
       <Key>rudolph.fourth.alright</Key>
       <ResponseText>Alright, hope you feel better about your decisions.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
-      <ResponseNodes>
-        <string>rudolph.puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -1912,9 +1892,7 @@
       <Key>zayn.fourth.cya</Key>
       <ResponseText>I’ll come by to chat later if you can think of other stories. </ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
-      <ResponseNodes>
-        <string>zayn.puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -2049,9 +2027,7 @@
       <Key>camilla.third.thanks</Key>
       <ResponseText>Thanks, I hope it goes well for you. </ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
-      <ResponseNodes>
-        <string>camilla.puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>

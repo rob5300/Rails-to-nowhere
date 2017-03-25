@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <OpenDoorNode>zayn.puzzle</OpenDoorNode>
+  <OpenDoorNode>zayn.fourth.cya</OpenDoorNode>
   <CarriageObjects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
   <Name>Zayn Smith</Name>
   <Interactable>true</Interactable>
