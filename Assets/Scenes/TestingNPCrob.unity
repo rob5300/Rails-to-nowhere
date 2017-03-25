@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692558, g: 0.49678743, b: 0.57508624, a: 1}
+  m_IndirectSpecularColor: {r: 0.18053626, g: 0.22601849, b: 0.30718803, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -317,12 +317,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d724a869d2971544da60a051c96c7f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugTextObject: {fileID: 0}
+  _MessageAnimator: {fileID: 0}
+  _MessageText: {fileID: 0}
+  HoverName: {fileID: 0}
+  HoverDescription: {fileID: 0}
+  CrosshairOb: {fileID: 0}
+  _ThoughtsText: {fileID: 0}
+  _ThoughtsObject: {fileID: 0}
+  _ThoughtContButton: {fileID: 0}
+  _ThoughtExitButton: {fileID: 0}
   dialogueUIObjects:
     Parent: {fileID: 618476788}
     MainTextArea: {fileID: 1568792194}
     ResponseButtonArea: {fileID: 188337334}
     ResponseButton: {fileID: 289594830}
+  inventoryUIObjects:
+    Parent: {fileID: 0}
+    BaseInventoryItem: {fileID: 0}
+    InventoryItemArea: {fileID: 0}
+    ItemInformationPanel: {fileID: 0}
+    ItemInfoName: {fileID: 0}
+    ItemInfoType: {fileID: 0}
+    ItemInfoQuantity: {fileID: 0}
+    ItemInfoSprite: {fileID: 0}
+    ItemInfoDescription: {fileID: 0}
+    ItemInfoViewMemoryButton: {fileID: 0}
+    ItemInfoDropItemButton: {fileID: 0}
+    MemoryParent: {fileID: 0}
+    Memory: {fileID: 0}
+    MemoryName: {fileID: 0}
 --- !u!1 &188337334
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +580,10 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_IsPrefabParent: 0
@@ -592,6 +619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractDistance: 5
   Controller: {fileID: 213548460}
+  blurEffect: {fileID: 0}
 --- !u!114 &213548457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1565,6 +1593,10 @@ Prefab:
         type: 2}
       propertyPath: Essential
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011304046794, guid: 3850b40bbf9e03344b0fd182822d8574, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65000013011763940, guid: 3850b40bbf9e03344b0fd182822d8574, type: 2}
