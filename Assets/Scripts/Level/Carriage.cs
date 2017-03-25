@@ -47,29 +47,33 @@ public class Carriage : MonoBehaviour {
 
         Puzzle2D = placedOpener;
         placedOpener.SetActive(false);
+        placedOpener.transform.parent = transform;
     }
 
     public void Place3DPuzzle(GameObject puzzle3D) {
         GameObject puzzle = (GameObject)Instantiate(puzzle3D, Puzzle3DPosition.position, Puzzle3DPosition.rotation);
         puzzle.GetComponent<CogPuzzle>().PuzzleComplete += PuzzleController.OnPuzzleCompleted;
 
-        Puzzle3D = puzzle3D;
+        Puzzle3D = puzzle;
         Puzzle3D.SetActive(false);
+        puzzle.transform.parent = transform;
     }
 
     public void PlaceCarriageNPC(StoryNPC npc) {
         GameObject newNPC = (GameObject)Instantiate(npc.ModelPrefab, NPCPosition.position, NPCPosition.rotation);
-        newNPC.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
+        newNPC.transform.localScale = new Vector3(3f, 3f, 3f);
         StoryNPC newStoryNPC = newNPC.AddComponent<StoryNPC>();
         newStoryNPC.Name = npc.Name;
         newStoryNPC.MemoryItemKey = npc.MemoryItemKey;
         newStoryNPC.MemoryResponseTotal = npc.MemoryResponseTotal;
-        newStoryNPC.InitialDialogueNodeName = npc.InitialDialogueNodeName;
+        newStoryNPC.InitialDialogueNodeKey = npc.InitialDialogueNodeKey;
         newStoryNPC.Health = npc.Health;
         newStoryNPC.Interactable = npc.Interactable;
         newStoryNPC.NPCDeath += OnNPCDeath;
         newStoryNPC.EnablePuzzlesNode = npc.EnablePuzzlesNode;
         newStoryNPC.EnablePuzzles += ShowPuzzles;
+
+        newStoryNPC.transform.parent = transform;
     }
 
     public void PlaceCarriageNPC(FillerNPC npc) {
@@ -79,12 +83,14 @@ public class Carriage : MonoBehaviour {
         newFillerNPC.Name = npc.Name;
         newFillerNPC.MemoryItemKey = npc.MemoryItemKey;
         newFillerNPC.MemoryResponseTotal = npc.MemoryResponseTotal;
-        newFillerNPC.InitialDialogueNodeName = npc.InitialDialogueNodeName;
+        newFillerNPC.InitialDialogueNodeKey = npc.InitialDialogueNodeKey;
         newFillerNPC.Health = npc.Health;
         newFillerNPC.Interactable = npc.Interactable;
         newFillerNPC.NPCDeath += OnNPCDeath;
         newFillerNPC.OpenDoorNode = npc.OpenDoorNode;
         newFillerNPC.DialogueDoorOpen += AllPuzzlesComplete;
+
+        newFillerNPC.transform.parent = transform;
     }
 
     public void SetupExtraEvents() {

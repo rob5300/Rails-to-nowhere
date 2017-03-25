@@ -180,9 +180,7 @@
       <Key>nadia.third.agree</Key>
       <ResponseText>Alright, I will have a look at it.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
-      <ResponseNodes>
-        <string>continue to puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -193,7 +191,7 @@
       <ResponseText>I don’t know how to fix it.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed</string>
+        <string>nadia.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -205,7 +203,7 @@
       <ResponseText>Just give me the key.Now. I don’t have time for this.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill her</string>
+        <string>nadia.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -255,7 +253,7 @@
       <ResponseText>I know you have a key. Give it to me, or else!</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill her</string>
+        <string>matilda.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -379,9 +377,7 @@
       <Key>matilda.fourth.try</Key>
       <ResponseText>I could try...</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
-      <ResponseNodes>
-        <string>continue to puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -392,7 +388,7 @@
       <ResponseText>I'm a bit busy right now.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed.</string>
+        <string>matilda.failed.</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -442,7 +438,7 @@
       <ResponseText>If yoou have a key, you better give it to me, or else!</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill her</string>
+        <string>arleana.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -516,9 +512,7 @@
       <Key>arleana.third.ok</Key>
       <ResponseText>Alright, let me have a look.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
-      <ResponseNodes>
-        <string>continue to puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -529,7 +523,7 @@
       <ResponseText>I'd rather help a woman who is more polite.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed</string>
+        <string>arleana.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -555,7 +549,7 @@
       <ResponseText>I need your key. Give it to me, or else!</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>kill him</string>
+        <string>john.kill</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -691,7 +685,7 @@
       <ResponseText>You’re a sick old man. You can keep your key.</ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
       <ResponseNodes>
-        <string>task failed</string>
+        <string>john.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
@@ -702,9 +696,7 @@
       <Key>john.fourth.alright</Key>
       <ResponseText>I suppose I could have a look.</ResponseText>
       <IsMemoryResponse>true</IsMemoryResponse>
-      <ResponseNodes>
-        <string>continue to puzzle</string>
-      </ResponseNodes>
+      <ResponseNodes />
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>
@@ -717,6 +709,1336 @@
       <ResponseNodes>
         <string>n</string>
         <string>m</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.first</Key>
+    <Value>
+      <Text>Ohhhh my goood finally someone comes to save me! Are you my prince? </Text>
+      <Key>johanna.first</Key>
+      <ResponseText>""</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>johanna.first.key</string>
+        <string>johanna.first.prince</string>
+        <string>johanna.first.danger</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.first.key</Key>
+    <Value>
+      <Text>Ahhh! Leave me alone!!!</Text>
+      <Key>johanna.first.key</Key>
+      <ResponseText>Give me the key you have otherwise things might get...bad for you.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>johanna.kill</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.first.prince</Key>
+    <Value>
+      <Text> How mean, when you see a woman all by herself like this, don’t your protective instincts kick in?</Text>
+      <Key>johanna.first.prince</Key>
+      <ResponseText>I'm sorry to burst your bubble, but I'm no prince.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>johanna.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.first.danger</Key>
+    <Value>
+      <Text>Yes yes! I’m in danger of being alone and scared in this dark place. Please stay here with me!</Text>
+      <Key>johanna.first.danger</Key>
+      <ResponseText>...Are you in danger?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>johanna.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.second</Key>
+    <Value>
+      <Text>I like having a brave and strong man around… and better if he’s rich. Then I don’t have to worry about anything. </Text>
+      <Key>johanna.second</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>johanna.second.accomplishment</string>
+        <string>johanna.second.slut</string>
+        <string>johanna.second.survive</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.second.accomplishment</Key>
+    <Value>
+      <Text>That would be a waste of my energy.</Text>
+      <Key>johanna.second.accomplishment</Key>
+      <ResponseText>Don’t you prefer a feeling of accomplishment over something you’ve gained yourself rather than what’s been given to you.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>johanna.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.second.slut</Key>
+    <Value>
+      <Text>YOU’RE SUCH A JERK! Get lost, I don’t want you near me.</Text>
+      <Key>johanna.second.slut</Key>
+      <ResponseText>You sound like a slut who hooks up with rich old men.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>johanna.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.second.survive</Key>
+    <Value>
+      <Text>I’m glad you aren’t part of those who blame me.</Text>
+      <Key>johanna.second.survive</Key>
+      <ResponseText>Everyone does what they can in order to survive I suppose.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>johanna.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.third</Key>
+    <Value>
+      <Text>Actually, my brother is a really rich company owner. Actually, I’m married to the VP of that company, hahah! Both of them do some shady stuff there and warned me to keep my mouth shut. Whoopsie, did I talk too much? </Text>
+      <Key>johanna.third</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>johanna.third.kinda</string>
+        <string>johanna.third.more</string>
+        <string>johanna.third.warning</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.third.kinda</Key>
+    <Value>
+      <Text>I get it, I get it, sometimes I can't help myself!</Text>
+      <Key>johanna.third.kinda</Key>
+      <ResponseText>Err... kind of.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>johanna.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.third.more</Key>
+    <Value>
+      <Text>WELL, if you ask so nicely…My brother keeps stealing funds from his engineering company for his own benefit. But you know what’s funny? Whenever the police finds out, he blames his employees! What a great strategist.</Text>
+      <Key>johanna.third.more</Key>
+      <ResponseText>Can you tell me more about that? I just want to get to know you better.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>johanna.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.third.warning</Key>
+    <Value>
+      <Text>Eh? What are you insinuating? I’m a fine, gracious lady who would not do such a thing. It’s not polite.</Text>
+      <Key>johanna.third.warning</Key>
+      <ResponseText>You talk a lot, no wonder they gave you a special warning.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>johanna.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.fourth</Key>
+    <Value>
+      <Text>Actually my brother is in one of the carriages if you want to talk to him. I can give you the key to go ahead but… you must promise to come back and keep me company, alright?</Text>
+      <Key>johanna.fourth</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>johanna.fourth.promise</string>
+        <string>johanna.fourth.idk</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.fourth.promise</Key>
+    <Value>
+      <Text>I'll be waiting for you, my prince~</Text>
+      <Key>johanna.fourth.promise</Key>
+      <ResponseText>Okay, I promise!</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes />
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>johanna.fourth.idk</Key>
+    <Value>
+      <Text>So you're one of those who get joy out of playing with a woman's heart, huh? Fine, off you go.</Text>
+      <Key>johanna.fourth.idk</Key>
+      <ResponseText>Hmmm, I don’t know if I can come back.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>johanna.failed</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.first</Key>
+    <Value>
+      <Text>Oh, hi! How rare to see someone wandering around here. </Text>
+      <Key>nicholas.first</Key>
+      <ResponseText>""</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nicholas.first.odd</string>
+        <string>nicholas.first.key</string>
+        <string>nicholas.first.nowonder</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.first.odd</Key>
+    <Value>
+      <Text>The game designer made it so.</Text>
+      <Key>nicholas.first.odd</Key>
+      <ResponseText>Hey! This train is a bit odd. Why is there only one person in every carriage?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nicholas.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.first.key</Key>
+    <Value>
+      <Text>Dude... are you out of your mind?</Text>
+      <Key>nicholas.first.key</Key>
+      <ResponseText>Give me the key you have. I know you have it... or else...</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nicholas.kill</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.first.nowonder</Key>
+    <Value>
+      <Text>Yeah, true. Since there are so few passengers, each was given a separate carriage, even if most of them didn’t want to stay alone.</Text>
+      <Key>nicholas.first.nowonder</Key>
+      <ResponseText>Hey! Yeah, but since every carriage is locked it’s no wonder.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nicholas.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.second</Key>
+    <Value>
+      <Text>It’s a bit boring around here since nobody comes to talk to me. Why don’t you tell me about yourself?</Text>
+      <Key>nicholas.second</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nicholas.second.hoping</string>
+        <string>nicholas.second.why</string>
+        <string>nicholas.second.hbu</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.second.hoping</Key>
+    <Value>
+      <Text>Oh, I see! So this is why you’re taking this journey!</Text>
+      <Key>nicholas.second.hoping</Key>
+      <ResponseText>I don’t…. really know a lot about myself. I’m hoping to find out.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nicholas.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.second.why</Key>
+    <Value>
+      <Text>Why do you ask?</Text>
+      <Key>nicholas.second.why</Key>
+      <ResponseText>I was just trying to make small talk, no need to get so defensive.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nicholas.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.second.hbu</Key>
+    <Value>
+      <Text> Ahh, you think so? Well, there are a few things…</Text>
+      <Key>nicholas.second.hbu</Key>
+      <ResponseText>I’m just a regular guy. How about you, though? You seem like the kind who has a story to tell.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nicholas.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.third</Key>
+    <Value>
+      <Text>I actually used to have a crush on this guy who worked with me… but he had a crush on some other guy. I didn’t want to interfere, but I still feel the same about him.</Text>
+      <Key>nicholas.third</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nicholas.third.heartbreak</string>
+        <string>nicholas.third.triangle</string>
+        <string>nicholas.third.sorry</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.third.heartbreak</Key>
+    <Value>
+      <Text>Yeah... except it doesn't feel that good.</Text>
+      <Key>nicholas.third.heartbreak</Key>
+      <ResponseText>Good ol’ heartbreak.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nicholas.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.third.triangle</Key>
+    <Value>
+      <Text>It sounds cliche but well, you could call it that, I suppose.</Text>
+      <Key>nicholas.third.triangle</Key>
+      <ResponseText>Oh, a love triangle? </ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nicholas.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.third.sorry</Key>
+    <Value>
+      <Text>Actually, you kind of remind me of him.</Text>
+      <Key>nicholas.third.sorry</Key>
+      <ResponseText>Sorry to hear that. I’m sure you’ll find someone better.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nicholas.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.fourth</Key>
+    <Value>
+      <Text>Ah, you seem a bit restless. Did you want to pass ahead? I could lend you my key. I wish we could have talked more, though.</Text>
+      <Key>nicholas.fourth</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nicholas.fourth.thanks</string>
+        <string>nicholas.fourth.bbl</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.fourth.thanks</Key>
+    <Value>
+      <Text>Bye, I guess...</Text>
+      <Key>nicholas.fourth.thanks</Key>
+      <ResponseText>Thanks, I’ll use it well.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>nicholas.failed</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>nicholas.fourth.bbl</Key>
+    <Value>
+      <Text>I'll be waiting here!</Text>
+      <Key>nicholas.fourth.bbl</Key>
+      <ResponseText>I’ll come back later after I see the rest of the train.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes />
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>gina.first</Key>
+    <Value>
+      <Text>Are you new here? I’ve never seen you before.</Text>
+      <Key>gina.first</Key>
+      <ResponseText>""</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>gina.first.key</string>
+        <string>gina.first.yes</string>
+        <string>gina.first.curious</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>gina.first.key</Key>
+    <Value>
+      <Text>Please leave me alone right now!</Text>
+      <Key>gina.first.key</Key>
+      <ResponseText>Give me the key to the next car, or else...</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>gina.kill</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>gina.first.yes</Key>
+    <Value>
+      <Text>Not much of a talker, are you?</Text>
+      <Key>gina.first.yes</Key>
+      <ResponseText>You could say that. </ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>gina.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>gina.first.curious</Key>
+    <Value>
+      <Text>You do have a point. I guess isolation is starting to get to me.</Text>
+      <Key>gina.first.curious</Key>
+      <ResponseText>I’m curious about how you ‘see’ people when you’re alone behind locked doors.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>gina.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>gina.second</Key>
+    <Value>
+      <Text>Life is hard. I don’t really like my job, I don’t have many friends...I don’t earn a lot of money. But I try my best, we all have to. I once witnessed my boss bribing someone, but I had to keep my mouth shut. At this age, it’s hard to find a different job.</Text>
+      <Key>gina.second</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>gina.second.tell</string>
+        <string>gina.second.survive</string>
+        <string>gina.second.urproblem</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>gina.second.tell</Key>
+    <Value>
+      <Text>I suppose you’re right. I was just scared... thinking of the bad consequences on my life. It is, after all, every man for himself.</Text>
+      <Key>gina.second.tell</Key>
+      <ResponseText>You should have told on your boss regardless. What if he did it more than once? He would end up ruining a lot of other people’s lives.(R:</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>gina.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>gina.second.survive</Key>
+    <Value>
+      <Text>We do, don’t we?</Text>
+      <Key>gina.second.survive</Key>
+      <ResponseText>We all need to survive somehow.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>gina.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>gina.second.urproblem</Key>
+    <Value>
+      <Text>What a cold person you are.</Text>
+      <Key>gina.second.urproblem</Key>
+      <ResponseText>Well, that’s your problem.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>gina.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>gina.third</Key>
+    <Value>
+      <Text>My boss is a few carriages ahead. I don’t want to see him, but if you’re curious, I can open the door ahead for you. </Text>
+      <Key>gina.third</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>gina.third.bye</string>
+        <string>gina.third.ty</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>gina.third.bye</Key>
+    <Value>
+      <Text>Good luck.</Text>
+      <Key>gina.third.bye</Key>
+      <ResponseText>I’ll be on my way, then.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>gina.failed</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>gina.third.ty</Key>
+    <Value>
+      <Text>You're welcome, good luck!</Text>
+      <Key>gina.third.ty</Key>
+      <ResponseText>Thank you, I’ll talk to him.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes />
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>francois.first</Key>
+    <Value>
+      <Text>What brings you here, stranger?</Text>
+      <Key>francois.first</Key>
+      <ResponseText>""</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>francois.first.fate</string>
+        <string>francois.first.idk</string>
+        <string>francois.first.key</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>francois.first.fate</Key>
+    <Value>
+      <Text>Hahaha, you're a funny guy...You’re not hitting on me, are you?</Text>
+      <Key>francois.first.fate</Key>
+      <ResponseText>Fate.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>francois.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>francois.first.idk</Key>
+    <Value>
+      <Text>Quite a mysterious guy, aren’t you? Well, you can keep me company for a while. I’ve been dying to talk to someone.</Text>
+      <Key>francois.first.idk</Key>
+      <ResponseText>Oh, I wish I knew that.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>francois.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>francois.first.key</Key>
+    <Value>
+      <Text>Dude, chill...wait, stay away, what are you doing?</Text>
+      <Key>francois.first.key</Key>
+      <ResponseText>Give me the key...now.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>francois.kill</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>francois.second</Key>
+    <Value>
+      <Text>Boy, I can’t stop thinking about this woman who lives in the same neighbourhood as me. She’s married with a daughter, but her husband is never at home. Maybe I have a chance? </Text>
+      <Key>francois.second</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>francois.second.adultery</string>
+        <string>francois.second.goahead</string>
+        <string>francois.second.iwonder</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>francois.second.adultery</Key>
+    <Value>
+      <Text>You’re so boring. One has to take the opportunities that are given to them.</Text>
+      <Key>francois.second.adultery</Key>
+      <ResponseText>Isn’t adultery a crime? You might end up arrested if you’re not careful.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>francois.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>francois.second.goahead</Key>
+    <Value>
+      <Text>I know, right? I saw the woman somewhere on this train, maybe this is my chance.</Text>
+      <Key>francois.second.goahead</Key>
+      <ResponseText>I say go ahead, mate! Guy can’t keep his woman if he’s never around. </ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>francois.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>francois.second.iwonder</Key>
+    <Value>
+      <Text>How she feels? I’m young, handsome, rich, who wouldn’t love me?</Text>
+      <Key>francois.second.iwonder</Key>
+      <ResponseText>I wonder how the woman feels about that…</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>francois.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>francois.third</Key>
+    <Value>
+      <Text>So, I’m thinking of looking for her in this train. I’m going to unlock the door ahead, so you can follow me. </Text>
+      <Key>francois.third</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>francois.third.think</string>
+        <string>francois.third.alright</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>francois.third.think</Key>
+    <Value>
+      <Text>Yeah, yeah...bye</Text>
+      <Key>francois.third.think</Key>
+      <ResponseText>I’d think about it more if I were you.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>francois.failed</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>francois.third.alright</Key>
+    <Value>
+      <Text>Thanks dude! Cheers!</Text>
+      <Key>francois.third.alright</Key>
+      <ResponseText>Alright, mate, best of luck to you!</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes />
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.first</Key>
+    <Value>
+      <Text>How rare to see another person around here!</Text>
+      <Key>iullia.first</Key>
+      <ResponseText>""</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>iullia.first.key</string>
+        <string>iullia.first.get</string>
+        <string>iullia.first.lonely</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.first.key</Key>
+    <Value>
+      <Text>What...what's wrong with you, sir?</Text>
+      <Key>iullia.first.key</Key>
+      <ResponseText>Give me the key or you'll be sorry.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>iullia.kill</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.first.get</Key>
+    <Value>
+      <Text>I suppose it’s a given with everyone being in separate carriages.</Text>
+      <Key>iullia.first.get</Key>
+      <ResponseText>Yeah, I seem to get that a lot.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>iullia.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.first.lonely</Key>
+    <Value>
+      <Text>Not really. I can’t wait to get to my destination, though. I have to admit this place is sort of creepy.</Text>
+      <Key>iullia.first.lonely</Key>
+      <ResponseText>Aren’t you scared or lonely here by yourself?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>iullia.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.second</Key>
+    <Value>
+      <Text>I’m a kindergarten teacher. I’ve always loved kids and spending time with them. But I get really sad when I see children who have problems at home. </Text>
+      <Key>iullia.second</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>iullia.second.cantprevent</string>
+        <string>iullia.second.what</string>
+        <string>iullia.second.pink</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.second.cantprevent</Key>
+    <Value>
+      <Text>You’re right, but I still always wish I could do something to help those children.</Text>
+      <Key>iullia.second.cantprevent</Key>
+      <ResponseText>Problems will always happen and we can’t prevent them as outsiders.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>iullia.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.second.what</Key>
+    <Value>
+      <Text>Like parents arguing, divorcing… things like that</Text>
+      <Key>iullia.second.what</Key>
+      <ResponseText>What sort of problems?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>iullia.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.second.pink</Key>
+    <Value>
+      <Text> I guess you’re right… this world is unfair.</Text>
+      <Key>iullia.second.pink</Key>
+      <ResponseText>Well, we can’t expect everything to be pink.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>iullia.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.third</Key>
+    <Value>
+      <Text>One of my students’ parents have split up recently. She’s such a delightful child, imagine how lonely she’ll grow. I heard some bad rumours about her father… that he cheated on her mother…</Text>
+      <Key>iullia.third</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>iullia.third.private</string>
+        <string>iullia.third.poor</string>
+        <string>iullia.third.wish</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.third.private</Key>
+    <Value>
+      <Text>I suppose you’re right… this big mouth of mine.</Text>
+      <Key>iullia.third.private</Key>
+      <ResponseText>Is it really okay to speak about other families’ private matters?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>iullia.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.third.poor</Key>
+    <Value>
+      <Text>I hope so too. She’s a really good kid.</Text>
+      <Key>iullia.third.poor</Key>
+      <ResponseText>Poor girl. I hope she doesn’t take her parents’ negative example.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>iullia.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.third.wish</Key>
+    <Value>
+      <Text>I wish I could do something myself.</Text>
+      <Key>iullia.third.wish</Key>
+      <ResponseText>I wish someone could help their situation somewhat.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>iullia.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.fourth</Key>
+    <Value>
+      <Text>I think her and her mother might be someone on this train. If you want to talk to them, I could open the door ahead.</Text>
+      <Key>iullia.fourth</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>iullia.fourth.willu</string>
+        <string>iullia.fourth.sure</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.fourth.willu</Key>
+    <Value>
+      <Text>No problem, if you find them, maybe you'll be able to do something.</Text>
+      <Key>iullia.fourth.willu</Key>
+      <ResponseText>Will you? That would be a great help.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes />
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>iullia.fourth.sure</Key>
+    <Value>
+      <Text>Bye!</Text>
+      <Key>iullia.fourth.sure</Key>
+      <ResponseText>Sure, I’ll be going then.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>iullia.failed</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.first</Key>
+    <Value>
+      <Text>...</Text>
+      <Key>rudolph.first</Key>
+      <ResponseText>""</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>rudolph.first.alright</string>
+        <string>rudolph.first.key</string>
+        <string>rudolph.first.drink</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.first.alright</Key>
+    <Value>
+      <Text>None of your beeswax.</Text>
+      <Key>rudolph.first.alright</Key>
+      <ResponseText>Hello? Are you alright?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>rudolph.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.first.key</Key>
+    <Value>
+      <Text>Wanna go at it, huh?</Text>
+      <Key>rudolph.first.key</Key>
+      <ResponseText>Give me the carriage key. Now.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>rudolph.kill</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.first.drink</Key>
+    <Value>
+      <Text>I really do, now that you mention it. This place is dry.</Text>
+      <Key>rudolph.first.drink</Key>
+      <ResponseText>You look like you need a drink, mate.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>rudolph.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.second</Key>
+    <Value>
+      <Text>I’m so sick of my job. I do nothing but drink every night because of it. I’ve had enough of corruption, guilt, ...god, why am I telling this to a stranger. </Text>
+      <Key>rudolph.second</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>rudolph.second.corruption</string>
+        <string>rudolph.second.guilt</string>
+        <string>rudolph.second.rough</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.second.corruption</Key>
+    <Value>
+      <Text>Mmm...my boss is a pretty messed up man. But he’s still my boss. I have to go with what he says if I want to keep my job.</Text>
+      <Key>rudolph.second.corruption</Key>
+      <ResponseText>Corruption?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>rudolph.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.second.guilt</Key>
+    <Value>
+      <Text>There’s something like that…</Text>
+      <Key>rudolph.second.guilt</Key>
+      <ResponseText>Guilt?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>rudolph.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.second.rough</Key>
+    <Value>
+      <Text>Easier said than done.</Text>
+      <Key>rudolph.second.rough</Key>
+      <ResponseText>Sounds like you’re having a rough time. Take it easy. </ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>rudolph.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.third</Key>
+    <Value>
+      <Text>One of my coworkers got accused by my boss for embezzlement… of course he was innocent, but my boss needed a scapegoat. I promised I’d help but I turned my back on him because I didn’t want to lose my job. </Text>
+      <Key>rudolph.third</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>rudolph.third.promise</string>
+        <string>rudolph.third.right</string>
+        <string>rudolph.third.messedup</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.third.promise</Key>
+    <Value>
+      <Text>Perhaps I should have. Now that co-worker in in prison and his partner set fire to my boss’s office to get revenge.</Text>
+      <Key>rudolph.third.promise</Key>
+      <ResponseText>You should have kept your promise.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>rudolph.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.third.right</Key>
+    <Value>
+      <Text>I keep hoping so. But I can’t help thinking I did more harm than good.</Text>
+      <Key>rudolph.third.right</Key>
+      <ResponseText>You did the right thing for yourself. Why should you ruin your life for the sake of others?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>rudolph.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.third.messedup</Key>
+    <Value>
+      <Text>Well,yeah...</Text>
+      <Key>rudolph.third.messedup</Key>
+      <ResponseText>That’s pretty messed up. </ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>rudolph.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.fourth</Key>
+    <Value>
+      <Text>I don’t feel like talking anymore. I’ll just open the toor ahead so leave me alone. </Text>
+      <Key>rudolph.fourth</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>rudolph.fourth.alright</string>
+        <string>rudolph.fourth.bye</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.fourth.alright</Key>
+    <Value>
+      <Text>...</Text>
+      <Key>rudolph.fourth.alright</Key>
+      <ResponseText>Alright, hope you feel better about your decisions.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes />
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>rudolph.fourth.bye</Key>
+    <Value>
+      <Text>...</Text>
+      <Key>rudolph.fourth.bye</Key>
+      <ResponseText>See ya, dude.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>rudolph.failed</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.first</Key>
+    <Value>
+      <Text>Cm’ere, let’s have a chat. You’re the first face I see in a while.</Text>
+      <Key>zayn.first</Key>
+      <ResponseText>""</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>zayn.first.notime</string>
+        <string>zayn.first.about</string>
+        <string>zayn.first.key</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.first.notime</Key>
+    <Value>
+      <Text>Come on, don’t be a party pooper.</Text>
+      <Key>zayn.first.notime</Key>
+      <ResponseText>I don’t really have the time…</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>zayn.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.first.about</Key>
+    <Value>
+      <Text>You know, this and that.</Text>
+      <Key>zayn.first.about</Key>
+      <ResponseText>What about?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>zayn.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.first.key</Key>
+    <Value>
+      <Text>Hey, dude, chill...wait, what are you doing?</Text>
+      <Key>zayn.first.key</Key>
+      <ResponseText>You have the key, right? Give it to me, now!</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>zayn.kill</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.second</Key>
+    <Value>
+      <Text>Sorry if I’m loud, I’m just used to socializing a lot at my job. I’m a barman, you see… lots of random people come and tell me about their problems.</Text>
+      <Key>zayn.second</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>zayn.second.notfun</string>
+        <string>zayn.second.what</string>
+        <string>zayn.second.noproblems</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.second.notfun</Key>
+    <Value>
+      <Text>It’s alright, I’ve been doing this for a long time.</Text>
+      <Key>zayn.second.notfun</Key>
+      <ResponseText>Doesn’t sound all that fun to me. That’s the kind of stuff you can get too immersed into.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>zayn.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.second.what</Key>
+    <Value>
+      <Text>Regular day to day problems mostly, but once in a while you have people who are going through some pretty crazy shit.</Text>
+      <Key>zayn.second.what</Key>
+      <ResponseText>What kind of problems?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>zayn.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.second.noproblems</Key>
+    <Value>
+      <Text>You and I both, mate.</Text>
+      <Key>zayn.second.noproblems</Key>
+      <ResponseText>Well, I don’t have any problems to talk about, aside from being stuck here.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>zayn.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.third</Key>
+    <Value>
+      <Text>There was this Japanese guy who had a crush on his male coworker of all people! In fact, they came to drink at the bar I work at pretty damn often! I think his ‘crush’ was married too, how about that!</Text>
+      <Key>zayn.third</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>zayn.third.twisted</string>
+        <string>zayn.third.ifeel</string>
+        <string>zayn.third.dotdot</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.third.twisted</Key>
+    <Value>
+      <Text>Yeah, it’s the kind of story that you remember because it’s so unusual.</Text>
+      <Key>zayn.third.twisted</Key>
+      <ResponseText>Sounds pretty twisted. </ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>zayn.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.third.ifeel</Key>
+    <Value>
+      <Text>Well, it’s their own problem.</Text>
+      <Key>zayn.third.ifeel</Key>
+      <ResponseText>I feel for the two.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>zayn.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.third.dotdot</Key>
+    <Value>
+      <Text>I guess you don’t really like stories like that.</Text>
+      <Key>zayn.third.dotdot</Key>
+      <ResponseText>...</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>zayn.fourth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.fourth</Key>
+    <Value>
+      <Text>Anyway, I won’t bore you any longer. You can go, I’ll unlock the door. </Text>
+      <Key>zayn.fourth</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>zayn.fourth.cya</string>
+        <string>zayn.fourth.thankgod</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.fourth.cya</Key>
+    <Value>
+      <Text>Oh, well I'm sure I'll be able to think of something!</Text>
+      <Key>zayn.fourth.cya</Key>
+      <ResponseText>I’ll come by to chat later if you can think of other stories. </ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes />
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>zayn.fourth.thankgod</Key>
+    <Value>
+      <Text>Dude, you're making me reconsider my offer.</Text>
+      <Key>zayn.fourth.thankgod</Key>
+      <ResponseText>Thank God.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>zayn.failed</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>camilla.first</Key>
+    <Value>
+      <Text>I miss having a cup of tea with my friends....It’s so lonely in here</Text>
+      <Key>camilla.first</Key>
+      <ResponseText>""</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>camilla.first.tea</string>
+        <string>camilla.first.key</string>
+        <string>camilla.first.others</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>camilla.first.tea</Key>
+    <Value>
+      <Text>Will you, sir? Thank you so much! There’s some hot tea on the table over there. We could have a small chat too.</Text>
+      <Key>camilla.first.tea</Key>
+      <ResponseText>I could have tea with you if you want.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>camilla.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>camilla.first.key</Key>
+    <Value>
+      <Text>Y-you're scaring me..wait, don't come any closer!</Text>
+      <Key>camilla.first.key</Key>
+      <ResponseText>Give me your key, or else you'll regret it...</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>camilla.kill</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>camilla.first.others</Key>
+    <Value>
+      <Text>Yes but maybe they don’t want to be bothered…</Text>
+      <Key>camilla.first.others</Key>
+      <ResponseText>There are other people in here, if you’re that lonely, go talk to them.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>camilla.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>camilla.second</Key>
+    <Value>
+      <Text>It’s not even about this place, per se. My friend recently moved out of our neighbourhood because she split with her husband. Ever since then, I’ve been really lonely. </Text>
+      <Key>camilla.second</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>camilla.second.toobad</string>
+        <string>camilla.second.whatcanudo</string>
+        <string>camilla.second.otherfriends</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>camilla.second.toobad</Key>
+    <Value>
+      <Text>I know, poor her. They had a small daughter too. I heard he was unfaithful…</Text>
+      <Key>camilla.second.toobad</Key>
+      <ResponseText>Too bad for your friend…</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>camilla.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>camilla.second.whatcanudo</Key>
+    <Value>
+      <Text>Yeah...</Text>
+      <Key>camilla.second.whatcanudo</Key>
+      <ResponseText>Well, what can you do. </ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>camilla.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>camilla.second.otherfriends</Key>
+    <Value>
+      <Text>The other ladies in the neighbourhood aren’t the kind I wish to associate with.</Text>
+      <Key>camilla.second.otherfriends</Key>
+      <ResponseText>Can’t you find other friends?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>camilla.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>camilla.third</Key>
+    <Value>
+      <Text>Thank you for allowing to get this off my chest. As thanks, I’ll unlock the door ahead.</Text>
+      <Key>camilla.third</Key>
+      <ResponseText>continue</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>camilla.third.thanks</string>
+        <string>camilla.third.bye</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>camilla.third.thanks</Key>
+    <Value>
+      <Text>Same goes for you, sir!</Text>
+      <Key>camilla.third.thanks</Key>
+      <ResponseText>Thanks, I hope it goes well for you. </ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes />
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>camilla.third.bye</Key>
+    <Value>
+      <Text>...</Text>
+      <Key>camilla.third.bye</Key>
+      <ResponseText>Bye</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>camilla.failed</string>
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>

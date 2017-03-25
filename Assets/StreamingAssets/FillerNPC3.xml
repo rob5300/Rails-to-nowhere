@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <OpenDoorNode></OpenDoorNode>
-  <CarriageObjects />
+  <OpenDoorNode>gina.third.ty</OpenDoorNode>
+  <CarriageObjects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
   <Name>Gina Schneider</Name>
   <Interactable>true</Interactable>
   <Health>1</Health>
   <MemoryResponseTotal>0</MemoryResponseTotal>
   <MemoryItemKey></MemoryItemKey>
-  <InitialDialogueNodeName>gina.first</InitialDialogueNodeName>
+  <InitialDialogueNodeKey>gina.first</InitialDialogueNodeKey>
   <ModelPrefab>Gina_Schneider_Unity</ModelPrefab>
 </Inject>

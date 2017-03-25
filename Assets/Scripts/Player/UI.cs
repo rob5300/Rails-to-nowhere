@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections.Generic;
-using System;
+using System.Linq;
 
 public class UI : MonoBehaviour {
 
@@ -16,7 +16,11 @@ public class UI : MonoBehaviour {
     public static GameObject puzzle2D;
     public static Animator MessageAnimator;
     public static Text MessageText;
-    public static Text TaskText;
+    public static Text ThoughtsText;
+    public static GameObject ThoughtsObject;
+    public static GameObject ThoughtContButton;
+    public static GameObject ThoughtExitButton;
+    public static List<string> thoughtTextSequence;
 
     public static int DialogueMemoryCount = 0;
     public static int DialogueMemoryTotal = 0;
@@ -28,7 +32,10 @@ public class UI : MonoBehaviour {
     public Text HoverName;
     public Text HoverDescription;
     public GameObject CrosshairOb;
-    public Text taskText;
+    public Text _ThoughtsText;
+    public GameObject _ThoughtsObject;
+    public GameObject _ThoughtContButton;
+    public GameObject _ThoughtExitButton;
     public DialogueUI dialogueUIObjects = new DialogueUI();
     public InventoryUI inventoryUIObjects = new InventoryUI();
 
@@ -51,7 +58,10 @@ public class UI : MonoBehaviour {
         Crosshair = CrosshairOb;
         MessageAnimator = _MessageAnimator;
         MessageText = _MessageText;
-        TaskText = taskText;
+        ThoughtsText = _ThoughtsText;
+        ThoughtsObject = _ThoughtsObject;
+        ThoughtContButton = _ThoughtContButton;
+        ThoughtExitButton = _ThoughtExitButton;
 
         //Disable UI objects incase they are left enabled.
         dialogueUI.ResponseButton.SetActive(false);
@@ -112,9 +122,42 @@ public class UI : MonoBehaviour {
         MessageAnimator.SetTrigger("Play");
     }
 
-    public static void SetTask(string tasktext) {
-        if (tasktext == "") tasktext = "nothing! Relax!";
-        TaskText.text = "Current task: " + tasktext;
+    public static void ThoughtSequence(string[] thoughttext) {
+        MenuOpen = true;
+        thoughtTextSequence = thoughttext.ToList();
+        ThoughtsText.text = "\"" + thoughtTextSequence[0] + "\"";
+        thoughtTextSequence.RemoveAt(0);
+        if(thoughtTextSequence.Count > 0) {
+            ThoughtContButton.SetActive(true);
+            ThoughtExitButton.SetActive(false);
+        }
+        else {
+            ThoughtContButton.SetActive(false);
+            ThoughtExitButton.SetActive(true);
+        }
+        ThoughtsObject.SetActive(true);
+        LockPlayerController();
+        UnlockCursor();
+    }
+
+    public void ContinueThoughtThoughtText() {
+        ThoughtsText.text = "\"" + thoughtTextSequence[0] + "\"";
+        thoughtTextSequence.RemoveAt(0);
+        if (thoughtTextSequence.Count > 0) {
+            ThoughtContButton.SetActive(true);
+            ThoughtExitButton.SetActive(false);
+        }
+        else {
+            ThoughtContButton.SetActive(false);
+            ThoughtExitButton.SetActive(true);
+        }
+    }
+
+    public void CloseThought() {
+        ThoughtsObject.SetActive(false);
+        MenuOpen = false;
+        UnlockPlayerController();
+        LockCursor();
     }
 
     //Dialogue Code
@@ -126,7 +169,7 @@ public class UI : MonoBehaviour {
         DialogueMemoryCount = 0;
         dialogueUIOpen = true;
         MenuOpen = true;
-        DialogueNode node = DialogueController.GetNode(npc.InitialDialogueNodeName);
+        DialogueNode node = DialogueController.GetNode(npc.InitialDialogueNodeKey);
         dialogueUI.MainTextArea.text = node.Text;
         //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
         ShowResponses(node);

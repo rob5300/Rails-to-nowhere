@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <EnablePuzzlesNode>memer</EnablePuzzlesNode>
+  <EnablePuzzlesNode>arleana.third.ok</EnablePuzzlesNode>
   <Carriage>StoryCarriage1</Carriage>
   <Essential>false</Essential>
   <Name>Arleana Lev</Name>
@@ -8,6 +8,6 @@
   <Health>1</Health>
   <MemoryResponseTotal>3</MemoryResponseTotal>
   <MemoryItemKey>memory.arleana</MemoryItemKey>
-  <InitialDialogueNodeName>ArleanaDialogue1</InitialDialogueNodeName>
+  <InitialDialogueNodeKey>arleana.first</InitialDialogueNodeKey>
   <ModelPrefab>Arleana_Unity</ModelPrefab>
 </Inject>

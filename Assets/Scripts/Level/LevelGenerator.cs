@@ -42,7 +42,7 @@ public class LevelGenerator : MonoBehaviour {
         //Load Story NPCS.
         StoryNPC.LoadStoryNPCs();
         //Load Filler NPCS.
-        FillerNPC.LoadFillerNPCSDUMMY();
+        FillerNPC.LoadStoryNPCs();
         //Load in Filler carriages.
         _fillerCarriages.Add(Resources.Load<GameObject>("Carriages/FillerCarriage1"));
         CogPuzzle.Load3DPuzzlePrefabs();

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <EnablePuzzlesNode></EnablePuzzlesNode>
+  <EnablePuzzlesNode>nadia.third.agree</EnablePuzzlesNode>
   <Carriage>StoryCarriage1</Carriage>
   <Essential>false</Essential>
   <Name>Nadia Lev</Name>
@@ -8,6 +8,6 @@
   <Health>1</Health>
   <MemoryResponseTotal>3</MemoryResponseTotal>
   <MemoryItemKey>memory.nadia</MemoryItemKey>
-  <InitialDialogueNodeName>NadiaDialogue1</InitialDialogueNodeName>
+  <InitialDialogueNodeKey>nadia.first</InitialDialogueNodeKey>
   <ModelPrefab>Nadia_Unity</ModelPrefab>
 </Inject>

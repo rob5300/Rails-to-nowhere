@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <OpenDoorNode></OpenDoorNode>
-  <CarriageObjects />
+  <OpenDoorNode>rudolph.fourth.alright</OpenDoorNode>
+  <CarriageObjects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
   <Name>Rudolph Knauss</Name>
   <Interactable>true</Interactable>
   <Health>1</Health>
   <MemoryResponseTotal>0</MemoryResponseTotal>
   <MemoryItemKey></MemoryItemKey>
-  <InitialDialogueNodeName>rudolph.first</InitialDialogueNodeName>
+  <InitialDialogueNodeKey>rudolph.first</InitialDialogueNodeKey>
   <ModelPrefab>Rudoph_Knauss_Unity</ModelPrefab>
 </Inject>

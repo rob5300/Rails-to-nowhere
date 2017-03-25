@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <OpenDoorNode></OpenDoorNode>
+  <OpenDoorNode>johanna.fourth.promise</OpenDoorNode>
   <CarriageObjects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <string>Arleana_Unity</string>
   </CarriageObjects>
@@ -9,6 +9,6 @@
   <Health>1</Health>
   <MemoryResponseTotal>0</MemoryResponseTotal>
   <MemoryItemKey></MemoryItemKey>
-  <InitialDialogueNodeName>jonanna.first</InitialDialogueNodeName>
+  <InitialDialogueNodeKey>jonanna.first</InitialDialogueNodeKey>
   <ModelPrefab>Johanna_Starr_Unity</ModelPrefab>
 </Inject>
