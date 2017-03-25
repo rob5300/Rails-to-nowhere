@@ -22,7 +22,7 @@ GameObject:
   - 212: {fileID: 212000011231123460}
   - 114: {fileID: 114000010273499204}
   - 61: {fileID: 61000010456214964}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TransistorSprite
   m_TagString: Circuit
   m_Icon: {fileID: 0}
