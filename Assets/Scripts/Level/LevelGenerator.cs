@@ -33,9 +33,12 @@ public class LevelGenerator : MonoBehaviour {
     }
 
     public void LevelLoad(Scene scene, LoadSceneMode mode) {
+        //Things to do on the level load.
         PopulateObjectLists();
         PopulateCarriageLists();
         GenerateLevel();
+        Progression.GenerateKeyCode();
+        Progression.SetTotalValues(TotalCarriageAmount, StoryCarriageAmount, StoryCarriageAmount * 2);
     }
 
     void PopulateObjectLists() {
