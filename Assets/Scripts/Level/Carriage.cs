@@ -54,7 +54,7 @@ public class Carriage : MonoBehaviour {
         GameObject puzzle = (GameObject)Instantiate(puzzle3D, Puzzle3DPosition.position, Puzzle3DPosition.rotation);
         puzzle.GetComponent<CogPuzzle>().PuzzleComplete += PuzzleController.OnPuzzleCompleted;
 
-        Puzzle3D = puzzle3D;
+        Puzzle3D = puzzle;
         Puzzle3D.SetActive(false);
         puzzle.transform.parent = transform;
     }
