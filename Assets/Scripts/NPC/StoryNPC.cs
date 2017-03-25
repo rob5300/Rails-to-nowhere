@@ -13,8 +13,10 @@ public class StoryNPC : NPC {
 
     [SerializeField]
     private bool essential = false;
-    public string EnablePuzzlesNode { get; set; }
-    public GameObject Carriage { get; set; }
+    [SerializeField]
+    private string enablePuzzlesNode;
+    [SerializeField]
+    private GameObject carriage;
     public bool Essential {
         get {
             return essential;
@@ -22,6 +24,26 @@ public class StoryNPC : NPC {
 
         set {
             essential = value;
+        }
+    }
+
+    public GameObject Carriage {
+        get {
+            return carriage;
+        }
+
+        set {
+            carriage = value;
+        }
+    }
+
+    public string EnablePuzzlesNode {
+        get {
+            return enablePuzzlesNode;
+        }
+
+        set {
+            enablePuzzlesNode = value;
         }
     }
 

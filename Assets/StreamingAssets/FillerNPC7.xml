@@ -7,6 +7,6 @@
   <Health>1</Health>
   <MemoryResponseTotal>0</MemoryResponseTotal>
   <MemoryItemKey></MemoryItemKey>
-  <InitialDialogueNodeName>zayn.first</InitialDialogueNodeName>
+  <InitialDialogueNodeKey>zayn.first</InitialDialogueNodeKey>
   <ModelPrefab>Zayn_Smith_Unity</ModelPrefab>
 </Inject>

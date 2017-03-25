@@ -169,7 +169,7 @@ public class UI : MonoBehaviour {
         DialogueMemoryCount = 0;
         dialogueUIOpen = true;
         MenuOpen = true;
-        DialogueNode node = DialogueController.GetNode(npc.InitialDialogueNodeName);
+        DialogueNode node = DialogueController.GetNode(npc.InitialDialogueNodeKey);
         dialogueUI.MainTextArea.text = node.Text;
         //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
         ShowResponses(node);

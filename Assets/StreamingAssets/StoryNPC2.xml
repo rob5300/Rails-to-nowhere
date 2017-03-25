@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <EnablePuzzlesNode>matilda.puzzle</EnablePuzzlesNode>
+  <EnablePuzzlesNode>matilda.fourth.try</EnablePuzzlesNode>
   <Carriage>StoryCarriage1</Carriage>
   <Essential>false</Essential>
   <Name>Matilda Lev</Name>
@@ -8,6 +8,6 @@
   <Health>1</Health>
   <MemoryResponseTotal>4</MemoryResponseTotal>
   <MemoryItemKey>memory.matilda</MemoryItemKey>
-  <InitialDialogueNodeName>MatildaDialogue1</InitialDialogueNodeName>
+  <InitialDialogueNodeKey>matilda.first</InitialDialogueNodeKey>
   <ModelPrefab>Arleana_Unity</ModelPrefab>
 </Inject>

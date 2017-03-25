@@ -7,6 +7,6 @@
   <Health>1</Health>
   <MemoryResponseTotal>0</MemoryResponseTotal>
   <MemoryItemKey></MemoryItemKey>
-  <InitialDialogueNodeName>gina.first</InitialDialogueNodeName>
+  <InitialDialogueNodeKey>gina.first</InitialDialogueNodeKey>
   <ModelPrefab>Gina_Schneider_Unity</ModelPrefab>
 </Inject>

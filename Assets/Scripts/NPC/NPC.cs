@@ -18,7 +18,7 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 	[SerializeField]
 	private float _health = 1;
     [SerializeField]
-    private string initialDialogueNodeName;
+    private string initialDialogueNodeKey;
     [SerializeField]
     private int memoryResponseTotal = 0;
     [SerializeField]
@@ -85,13 +85,13 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
         }
     }
 
-    public string InitialDialogueNodeName {
+    public string InitialDialogueNodeKey {
         get {
-            return initialDialogueNodeName;
+            return initialDialogueNodeKey;
         }
 
         set {
-            initialDialogueNodeName = value;
+            initialDialogueNodeKey = value;
         }
     }
 
