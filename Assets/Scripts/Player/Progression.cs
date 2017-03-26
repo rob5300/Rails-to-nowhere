@@ -30,8 +30,6 @@ public class Progression {
         code = rand.Next(9999);
     }
 
-    
-
     public static EndingType GetEndingType() {
         //Calculate total percentage.
 
@@ -50,5 +48,18 @@ public class Progression {
         TotalNPCs = totalNPCs;
         TotalMemories = totalMemories;
         TotalPuzzles = totalPuzzles;
+    }
+
+    public static string GetEndingBranchDialogueNode() {
+        if(GetEndingType() == EndingType.True) {
+            return "ending.true";
+        }
+        else if (GetEndingType() == EndingType.Bad) {
+            return "ending.bad";
+        }
+        else {
+            //Neutral ending
+            return "ending.neutral";
+        }
     }
 }

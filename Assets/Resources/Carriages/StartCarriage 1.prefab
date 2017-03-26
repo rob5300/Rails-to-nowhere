@@ -9669,10 +9669,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012755981250}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.01, y: 0, z: -5.95}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 1.072, y: 2.51, z: 4.723}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children: []
   m_Father: {fileID: 4000010950710644}
   m_RootOrder: 9
@@ -10153,7 +10153,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013435679288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.71, y: 3.34, z: 0}
+  m_LocalPosition: {x: -8.71, y: 3.34, z: 1.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -22552,7 +22552,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.95760655, b: 0.7205882, a: 1}
-  m_Intensity: 0.97
+  m_Intensity: 1.63
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -22586,7 +22586,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.95760655, b: 0.7205882, a: 1}
-  m_Intensity: 0.97
+  m_Intensity: 1.63
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -22870,12 +22870,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013416302662}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1948b8fcf68ffb8439b3ea54b33bcaa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Puzzle3DTotal: 1
+  Puzzle3DTotal: 0
   Puzzle2DTotal: 0
   Completed3DPuzzles: 0
   Completed2DPuzzles: 0

@@ -13,6 +13,7 @@ public class UI : MonoBehaviour {
     public static bool inventoryOpen = false;
     public static bool puzzle2DOpen = false;
     public static bool dialogueUIOpen = false;
+    public static bool allowExit = true;
     public static GameObject puzzle2D;
     public static Animator MessageAnimator;
     public static Text MessageText;
@@ -177,6 +178,26 @@ public class UI : MonoBehaviour {
         dialogueUI.Parent.SetActive(true);
     }
 
+    public static void NewDialogueConversation(DialogueNode node, bool canExit = true) {
+        allowExit = canExit;
+        if (!allowExit) {
+            dialogueUI.ExitButton.SetActive(false);
+        }
+        //Set NPC and memory id to null to avoid issues and to prevent node checks.
+        DialogueNPC = null;
+        DialogueMemoryID = null;
+        //Set the memory total to -1 to show that no memory should ever be awarded.
+        DialogueMemoryTotal = -1;
+        DialogueMemoryCount = 0;
+        dialogueUIOpen = true;
+        MenuOpen = true;
+        dialogueUI.MainTextArea.text = node.Text;
+        //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
+        ShowResponses(node);
+
+        dialogueUI.Parent.SetActive(true);
+    }
+
     public static void ContinueDialogueConversation(DialogueNode node) {
         dialogueUI.MainTextArea.text = node.Text;
         //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
@@ -187,6 +208,9 @@ public class UI : MonoBehaviour {
 
     //Checks if a node corrisponds to a special node on the npc. If it does then invoke that corrisponding event on the npc.
     private static void SpecialNodeCheck(DialogueNode node) {
+        //Return if this dialogue sequence is not from an NPC.
+        if (DialogueNPC == null) return;
+
         if(DialogueNPC is StoryNPC) {
             if(((StoryNPC)DialogueNPC).EnablePuzzlesNode == node.Key){
                 ((StoryNPC)DialogueNPC).InvokeEnablePuzzles();
@@ -202,7 +226,11 @@ public class UI : MonoBehaviour {
     public static void ShowResponses(DialogueNode currentNode) {
         CleanupSpeechUI();
         GameObject button;
-        foreach (DialogueNode response in DialogueController.GetNodeResponses(currentNode)) {
+        List<DialogueNode> responses = DialogueController.GetNodeResponses(currentNode);
+        if(responses.Count == 0 && !allowExit) {
+            dialogueUI.ExitButton.SetActive(true);
+        }
+        foreach (DialogueNode response in responses) {
             button = (GameObject)Instantiate(dialogueUI.ResponseButton, dialogueUI.ResponseButtonArea.transform);
             responseButtons.Add(button);
             button.GetComponent<Button>().GetComponentInChildren<Text>().text = response.ResponseText;
@@ -223,7 +251,7 @@ public class UI : MonoBehaviour {
 
         //We award a memory here, this assumes that the dialogue was closed ONLY this way.
 
-        if(DialogueMemoryCount >= DialogueMemoryTotal) {
+        if(DialogueMemoryCount >= DialogueMemoryTotal && DialogueMemoryTotal != -1) {
             Player.player.inventory.AddItem(DialogueMemoryID, 1);
             UI.ShowMessage("You were awarded the memory: " + Item.GetItem(DialogueMemoryID).Name);
         }
@@ -369,7 +397,7 @@ public struct DialogueUI {
     public InputField MainTextArea;
     public GameObject ResponseButtonArea;
     public GameObject ResponseButton;
-
+    public GameObject ExitButton;
 }
 
 [System.Serializable]

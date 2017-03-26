@@ -3,10 +3,12 @@ using System.Collections.Generic;
 
 public class Carriage : MonoBehaviour {
 
+    public static List<GameObject> CarriageList = new List<GameObject>();
+
     public Transform FrontMountPoint;
     public Transform RearMountPoint;
 
-    public enum CarriageType {Story, Filler};
+    public enum CarriageType {Story, Filler, Ending};
     public CarriageType Type;
 
     public Door CarriageDoor;
@@ -24,17 +26,19 @@ public class Carriage : MonoBehaviour {
     //Used when ALL puzzles are done.
 
     public void Start() {
-        SetupExtraEvents();
+        if(Type != CarriageType.Ending) SetupExtraEvents();
+        //Adds the carriage to the carriage list.
+        CarriageList.Add(gameObject);
     }
 
     public void AllPuzzlesComplete() {
         UI.ShowMessage("The door was unlocked!");
-        CarriageDoor.Unlock();
+        CarriageDoor.Open();
     }
 
     public void OnNPCDeath(NPC npc) {
         UI.ShowMessage(npc.name + " died. The door mysteriously opened itself...");
-        CarriageDoor.Unlock();
+        CarriageDoor.Open();
     }
 
     public void Place2DPuzzle(GameObject puzzleToPlace) {
@@ -43,7 +47,8 @@ public class Carriage : MonoBehaviour {
         placedOpener.transform.position += new Vector3(0, 5, 0);
         GameObject placedPuzzle = Instantiate(puzzleToPlace);
         placedOpener.GetComponent<Puzzle2DEnvironmentLoader>().Puzzle = placedPuzzle;
-		placedPuzzle.GetComponent<TwoDimensionalPuzzle>().PuzzleComplete += PuzzleController.OnPuzzleCompleted;
+        //Checks for the component in children as the component does not live on the prefab parent.
+		placedPuzzle.GetComponentInChildren<TwoDimensionalPuzzle>().PuzzleComplete += PuzzleController.OnPuzzleCompleted;
 		placedPuzzle.SetActive(false);
         Puzzle2D = placedOpener;
         placedOpener.SetActive(false);
@@ -61,7 +66,6 @@ public class Carriage : MonoBehaviour {
 
     public void PlaceCarriageNPC(StoryNPC npc) {
         GameObject newNPC = (GameObject)Instantiate(npc.ModelPrefab, NPCPosition.position, NPCPosition.rotation);
-        newNPC.transform.localScale = new Vector3(3f, 3f, 3f);
         StoryNPC newStoryNPC = newNPC.AddComponent<StoryNPC>();
         newStoryNPC.Name = npc.Name;
         newStoryNPC.MemoryItemKey = npc.MemoryItemKey;
@@ -78,7 +82,6 @@ public class Carriage : MonoBehaviour {
 
     public void PlaceCarriageNPC(FillerNPC npc) {
         GameObject newNPC = (GameObject)Instantiate(npc.ModelPrefab, NPCPosition.position, NPCPosition.rotation);
-        newNPC.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
         FillerNPC newFillerNPC = newNPC.AddComponent<FillerNPC>();
         newFillerNPC.Name = npc.Name;
         newFillerNPC.MemoryItemKey = npc.MemoryItemKey;

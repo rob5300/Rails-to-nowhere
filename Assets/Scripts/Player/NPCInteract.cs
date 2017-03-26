@@ -10,6 +10,7 @@ public class NPCInteract : MonoBehaviour {
 
     void OnRaycastHit(GameObject hit) {
         NPC npc = hit.gameObject.GetComponent<NPC>();
+        if (npc == null) npc = hit.gameObject.GetComponentInParent<NPC>();
         if (npc != null && !UI.MenuOpen) {
             if (npc.Interactable && npc.InitialDialogueNodeKey != null) UI.NewDialogueConversation(npc);
         }
