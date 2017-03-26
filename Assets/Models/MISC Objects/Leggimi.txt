@@ -1,0 +1,17 @@
+Termini e Condizioni
+
+Articolo 1
+
+	1.1 È consentito di:
+
+		a) 	Utilizzare uno o più modelli all'interno di un progetto, ma solo se si aggiunge il seguente testo alla documentazione che accompagna il progetto:
+
+			"Uno o più modelli su questo progetto sono stati scaricati da (link). I seguenti modelli sono stati creati dagli studenti IUDAV."
+
+	1.2 Non è consentito di: 
+
+	a)	Vendere o distribuire uno o più modelli (modificato o meno) da soli o in un pacchetto.
+
+	b)	Utilizzare i modelli per la creazione di prodotti tramite stampanti 3D.
+
+	c)	Rilasciare i modelli o i prodotti derivati sotto licenze open source.
