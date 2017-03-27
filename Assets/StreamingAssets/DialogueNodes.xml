@@ -2125,4 +2125,118 @@
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>ending.true</Key>
+    <Value>
+      <Text>...</Text>
+      <Key>ending.true</Key>
+      <ResponseText>""</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>true.one</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>true.one</Key>
+    <Value>
+      <Text>I see. You’re right, despite of my appearance, I am not the one because of whom you ended up here. I am here to guide you, to help you resolve your thoughts and move on. I go by many names, but the one you’d know me by is the Grim Reaper.</Text>
+      <Key>true.one</Key>
+      <ResponseText>Are you going to continue ignoring my questions? I might… have made mistakes, I might have hurt others, but do I not deserve to know? Despite all, I have always done my best, but I am human, I am not perfect. You can’t condemn me for being flawed, because my flaws make me human.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>true.two</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>true.two</Key>
+    <Value>
+      <Text>You think this must be a dream, right? You can call it a dream if you want. But don’t keep your eyes closed for too long. Reality might leave you behind</Text>
+      <Key>true.two</Key>
+      <ResponseText>...</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>true.three</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>true.three</Key>
+    <Value>
+      <Text>You’re dead now, you can’t go back. Besides, would you really be happy if you did? There’s nothing left for you in that world? </Text>
+      <Key>true.three</Key>
+      <ResponseText>What am I supposed to do now? Go back?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>true.four</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>true.four</Key>
+    <Value>
+      <Text>You won’t disappear, you’ll finally be able to rest in a place far away from here. Do you want that?</Text>
+      <Key>true.four</Key>
+      <ResponseText>Then… do I just disappear? Somehow that seems like a sad thought.  </ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>true.five</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>true.five</Key>
+    <Value>
+      <Text>[He smiles at you]</Text>
+      <Key>true.five</Key>
+      <ResponseText>I...I do.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes />
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>ending.neutral</Key>
+    <Value>
+      <Text>...</Text>
+      <Key>ending.neutral</Key>
+      <ResponseText>""</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>neutral.one</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>neutral.one</Key>
+    <Value>
+      <Text>It seems you’re genuinely confused, still. Perhaps you need something to refresh your memory...</Text>
+      <Key>neutral.one</Key>
+      <ResponseText>Mistakes? I...don’t know.   (Inner voice: After going through this train and seeing people from my past, I started to doubt my resolve. I no longer knew what was right or wrong. While my actions seemed justified at that time, after being faced with the aftermath of my actions, I started to feel guilty. Still, I didn’t know whether I truly wanted to change anything.) </ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes />
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>ending.bad</Key>
+    <Value>
+      <Text>...</Text>
+      <Key>ending.bad</Key>
+      <ResponseText>""</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>bad.one</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>bad.one</Key>
+    <Value>
+      <Text>I see, so that is your resolve. You’ve not learned much about the world, have you? That’s alright, there’s a place for people like you as well. I genuinely hope that you’re content with your choices, for you won’t have another opportunity to change them.</Text>
+      <Key>bad.one</Key>
+      <ResponseText>Mistakes? HAHAHHA No, you’re wrong. Do you know those people? Do you know what they did? I tried so hard to deal with it peacefully, to turn to the law and let the right people do the job. But you know what? It didn’t matter in the end! Justice is dead, so I had to take things in my own hand. For that, I won’t feel sorry. For the ones who let me down, even less. </ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes />
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
 </ArrayOfKeyValuePairOfStringDialogueNode>
