@@ -133,7 +133,7 @@ public class BaseCircuit : EngComponent
 				}
 			}
 			List<BaseCircuit> currentConns = _updateResults.Select(x => x.transform.GetComponent<BaseCircuit>()).ToList();
-			if (currentConns.Any())
+			if (currentConns.Where(x => x.Current > 0).Any())
 			{
 				if (_pseudoParents.Count > 0)
 				{
@@ -165,6 +165,8 @@ public class BaseCircuit : EngComponent
 			else
 			{
 				_pseudoParents = new List<BaseCircuit>();
+				_sourceNames = new List<string>();
+				_current = 0;
 			}
 			_pseudoChildren.RemoveAll(x => x == null);
 			float power = 0;

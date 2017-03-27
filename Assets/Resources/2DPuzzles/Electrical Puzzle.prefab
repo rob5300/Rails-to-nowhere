@@ -16478,7 +16478,7 @@ MonoBehaviour:
   _sourceNames:
   - TestStart
   _current: 5
-  _isPowerSource: 0
+  _isPowerSource: 1
 --- !u!114 &114000013646484826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16494,7 +16494,7 @@ MonoBehaviour:
   _sourceNames:
   - TestStart (1)
   _current: 5
-  _isPowerSource: 0
+  _isPowerSource: 1
 --- !u!114 &114000013801407986
 MonoBehaviour:
   m_ObjectHideFlags: 1

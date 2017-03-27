@@ -2385,6 +2385,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7ab4d912690edf48a836ab1cc17a456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ReachDistance: 0
+  NPCHitDelay: 0
 --- !u!4 &508680891 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -7630,16 +7632,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114000013632079698, guid: 68bf2f2e4757d1f4a82862ef404dc51e,
-        type: 2}
-      propertyPath: _sourceNames.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013646484826, guid: 68bf2f2e4757d1f4a82862ef404dc51e,
-        type: 2}
-      propertyPath: _sourceNames.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4000013478763760, guid: 68bf2f2e4757d1f4a82862ef404dc51e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7671,34 +7663,6 @@ Prefab:
     - target: {fileID: 4000013478763760, guid: 68bf2f2e4757d1f4a82862ef404dc51e, type: 2}
       propertyPath: m_RootOrder
       value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010004968480, guid: 68bf2f2e4757d1f4a82862ef404dc51e, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011667634038, guid: 68bf2f2e4757d1f4a82862ef404dc51e, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013632079698, guid: 68bf2f2e4757d1f4a82862ef404dc51e,
-        type: 2}
-      propertyPath: _isPowerSource
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013646484826, guid: 68bf2f2e4757d1f4a82862ef404dc51e,
-        type: 2}
-      propertyPath: _isPowerSource
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013632079698, guid: 68bf2f2e4757d1f4a82862ef404dc51e,
-        type: 2}
-      propertyPath: _sourceNames.Array.data[0]
-      value: TestStart
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013646484826, guid: 68bf2f2e4757d1f4a82862ef404dc51e,
-        type: 2}
-      propertyPath: _sourceNames.Array.data[0]
-      value: TestStart (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68bf2f2e4757d1f4a82862ef404dc51e, type: 2}
@@ -7832,11 +7796,16 @@ MonoBehaviour:
   _ThoughtsObject: {fileID: 0}
   _ThoughtContButton: {fileID: 0}
   _ThoughtExitButton: {fileID: 0}
+  _CutsceneImage: {fileID: 0}
+  _CutsceneObject: {fileID: 0}
+  _CutsceneContButton: {fileID: 0}
+  _CutsceneExitButton: {fileID: 0}
   dialogueUIObjects:
     Parent: {fileID: 1610167100}
     MainTextArea: {fileID: 291047781}
     ResponseButtonArea: {fileID: 1312436233}
     ResponseButton: {fileID: 2144697740}
+    ExitButton: {fileID: 0}
   inventoryUIObjects:
     Parent: {fileID: 1803139062}
     BaseInventoryItem: {fileID: 1581101645}
@@ -7983,6 +7952,7 @@ MonoBehaviour:
   RearMountPoint: {fileID: 996905056}
   Type: 0
   CarriageDoor: {fileID: 1427630365}
+  FrontWallandDoor: {fileID: 0}
   NPCPosition: {fileID: 627353220}
   Puzzle3DPosition: {fileID: 0}
   Puzzle2DPosition: {fileID: 0}
