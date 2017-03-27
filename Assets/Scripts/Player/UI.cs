@@ -432,7 +432,7 @@ public class UI : MonoBehaviour {
     //Cutscene code
     #region
     public static void StartImageCutscene(List<Sprite> cutsceneSprites, string postCutSceneDialogueNodeKey) {
-        UI.ui.ExitSpeechUI();
+        ui.ExitSpeechUI();
         MenuOpen = true;
         CutsceneSprites = cutsceneSprites;
         CutsceneImage.sprite = CutsceneSprites[0];
@@ -446,6 +446,8 @@ public class UI : MonoBehaviour {
             CutsceneContButton.SetActive(false);
             CutsceneExitButton.SetActive(true);
         }
+        LockPlayerController();
+        UnlockCursor();
     }
 
     public void ContinueCutscene() {
@@ -467,6 +469,10 @@ public class UI : MonoBehaviour {
         CutsceneSprites = new List<Sprite>();
         if(PostCutSceneDialogueNodeKey != null && PostCutSceneDialogueNodeKey != "") {
             NewDialogueConversation(DialogueController.GetNode(PostCutSceneDialogueNodeKey), false);
+        }
+        else {
+            UnlockPlayerController();
+            LockCursor();
         }
     }
     #endregion

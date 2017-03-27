@@ -23,7 +23,12 @@ public static class DialogueController {
         ////Placeholder nodes and event nodes should ALWAYS be added here in code, cannot be done any other way (well easily anyway).
         _placeholderNodes.Add("$endingbranch", delegate(){ return Progression.GetEndingBranchDialogueNode(); });
         _eventNodes.Add("#endcutscene", delegate () {
-            UI.StartImageCutscene(new List<Sprite> { Resources.Load<Sprite>("Memories/memoryArleana") }, "ending.postcutscene");
+            UI.StartImageCutscene(new List<Sprite> {
+                Resources.Load<Sprite>("EndCutscene/scene1"),
+                Resources.Load<Sprite>("EndCutscene/scene2"),
+                Resources.Load<Sprite>("EndCutscene/scene3"),
+                Resources.Load<Sprite>("EndCutscene/scene4"),
+                Resources.Load<Sprite>("EndCutscene/scene5") }, "ending.postcutscene");
         });
         LoadDictionary();
     }
