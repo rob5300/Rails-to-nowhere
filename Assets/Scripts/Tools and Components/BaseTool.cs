@@ -81,11 +81,11 @@ public abstract class BaseTool : MonoBehaviour {
 	/// </summary>
 	protected virtual void CheckPlaceRemoveCalls()
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButton(0))
 		{
 			PlaceObject(_mouseInWorldSpace);
 		}
-		if (Input.GetMouseButtonDown(1))
+		if (Input.GetMouseButton(1))
 		{
 			RemoveObject(_mouseInWorldSpace);
 		}
@@ -130,6 +130,12 @@ public abstract class BaseTool : MonoBehaviour {
 	{
 		GameObject closestBoardObj = _boardAreas.OrderBy(x => Vector2.Distance(position, x.transform.position)).First();
 		GameObject closestCircuitObj = _blocks.OrderBy(x => Vector2.Distance(position, x.transform.position)).First().gameObject;
+		Vector2 closestBoardObjV2Pos = new Vector2(closestBoardObj.transform.position.x, closestBoardObj.transform.position.y);
+		Vector2 closestCircuitObjV2Pos = new Vector2(closestCircuitObj.transform.position.x, closestCircuitObj.transform.position.y);
+		if (closestCircuitObjV2Pos == closestBoardObjV2Pos)
+		{
+			return;
+		}
 		if (Vector2.Distance(closestBoardObj.transform.position, position) < 1 && Vector2.Distance(closestBoardObj.transform.position, closestCircuitObj.transform.position) > 0.1)
 		{
 			GameObject block = Instantiate(Prefab, closestBoardObj.transform.position, closestBoardObj.transform.rotation) as GameObject;
