@@ -22,6 +22,13 @@ public class UI : MonoBehaviour {
     public static GameObject ThoughtContButton;
     public static GameObject ThoughtExitButton;
     public static List<string> thoughtTextSequence;
+    public static string PostCutSceneDialogueNodeKey;
+
+    public static Image CutsceneImage;
+    public static GameObject CutsceneObject;
+    public static GameObject CutsceneContButton;
+    public static GameObject CutsceneExitButton;
+    public static List<Sprite> CutsceneSprites;
 
     public static int DialogueMemoryCount = 0;
     public static int DialogueMemoryTotal = 0;
@@ -37,6 +44,10 @@ public class UI : MonoBehaviour {
     public GameObject _ThoughtsObject;
     public GameObject _ThoughtContButton;
     public GameObject _ThoughtExitButton;
+    public Image _CutsceneImage;
+    public GameObject _CutsceneObject;
+    public GameObject _CutsceneContButton;
+    public GameObject _CutsceneExitButton;
     public DialogueUI dialogueUIObjects = new DialogueUI();
     public InventoryUI inventoryUIObjects = new InventoryUI();
 
@@ -63,6 +74,10 @@ public class UI : MonoBehaviour {
         ThoughtsObject = _ThoughtsObject;
         ThoughtContButton = _ThoughtContButton;
         ThoughtExitButton = _ThoughtExitButton;
+        CutsceneObject = _CutsceneObject;
+        CutsceneImage = _CutsceneImage;
+        CutsceneContButton = _CutsceneContButton;
+        CutsceneExitButton = _CutsceneExitButton;
 
         //Disable UI objects incase they are left enabled.
         dialogueUI.ResponseButton.SetActive(false);
@@ -72,6 +87,8 @@ public class UI : MonoBehaviour {
         inventoryUI.BaseInventoryItem.SetActive(false);
         inventoryUI.ItemInformationPanel.SetActive(false);
         inventoryUI.MemoryParent.SetActive(false);
+
+        CutsceneObject.SetActive(false);
 
         //Load Dialogue Nodes
         DialogueController.LoadDictionary();
@@ -118,6 +135,8 @@ public class UI : MonoBehaviour {
         }
     }
 
+    //Message and thoughts code
+    #region
     public static void ShowMessage(string message) {
         MessageText.text = message;
         MessageAnimator.SetTrigger("Play");
@@ -160,6 +179,7 @@ public class UI : MonoBehaviour {
         UnlockPlayerController();
         LockCursor();
     }
+    #endregion
 
     //Dialogue Code
     #region
@@ -226,18 +246,32 @@ public class UI : MonoBehaviour {
     public static void ShowResponses(DialogueNode currentNode) {
         CleanupSpeechUI();
         GameObject button;
-        List<DialogueNode> responses = DialogueController.GetNodeResponses(currentNode);
-        if(responses.Count == 0 && !allowExit) {
-            dialogueUI.ExitButton.SetActive(true);
-        }
-        foreach (DialogueNode response in responses) {
-            button = (GameObject)Instantiate(dialogueUI.ResponseButton, dialogueUI.ResponseButtonArea.transform);
-            responseButtons.Add(button);
-            button.GetComponent<Button>().GetComponentInChildren<Text>().text = response.ResponseText;
-            button.name = response.Key;
-            button.SetActive(true);
-        }
+        //If the first node response key contains a #, then its a special event for the ui to handle.
+        if (currentNode.ResponseNodes[0].Contains("#")) {
+            if (currentNode.ResponseNodes[0].Contains("#")) {
+                button = (GameObject)Instantiate(dialogueUI.ResponseButton, dialogueUI.ResponseButtonArea.transform);
+                responseButtons.Add(button);
+                button.GetComponent<Button>().GetComponentInChildren<Text>().text = "[View Cutscene]";
+                button.GetComponent<UIEventFowarder>().NodeEvent += DialogueController.GetEventNodeDelegate(currentNode.ResponseNodes[0]);
+                button.SetActive(true);
+            }
 
+        }
+        //response nodes are normal, get responses normally.
+        else {
+            List<DialogueNode> responses = DialogueController.GetNodeResponses(currentNode);
+            if (responses.Count == 0 && !allowExit) {
+                dialogueUI.ExitButton.SetActive(true);
+            }
+            foreach (DialogueNode response in responses) {
+                button = (GameObject)Instantiate(dialogueUI.ResponseButton, dialogueUI.ResponseButtonArea.transform);
+                responseButtons.Add(button);
+                button.GetComponent<Button>().GetComponentInChildren<Text>().text = response.ResponseText;
+                button.GetComponent<UIEventFowarder>().Buttonevent += HandleDialogueResponse;
+                button.name = response.Key;
+                button.SetActive(true);
+            }
+        }
         UnlockCursor();
         LockPlayerController();
     }
@@ -261,8 +295,8 @@ public class UI : MonoBehaviour {
         //To advance the dialogue if there is too much to display or its split.
     }
 
-    public static void HandleDialogueResponse(string nodekey) {
-        DialogueNode node = DialogueController.GetNode(nodekey);
+    public static void HandleDialogueResponse(GameObject originalObject) {
+        DialogueNode node = DialogueController.GetNode(originalObject.name);
         if (node.IsMemoryResponse) DialogueMemoryCount++;
         ContinueDialogueConversation(node);
     }
@@ -386,6 +420,45 @@ public class UI : MonoBehaviour {
             puzzle2D.SetActive(false);
             MenuOpen = false;
             puzzle2DOpen = false;
+        }
+    }
+    #endregion
+
+    //Cutscene code
+    #region
+    public static void StartImageCutscene(List<Sprite> cutsceneSprites, string postCutSceneDialogueNodeKey) {
+        CutsceneSprites = cutsceneSprites;
+        CutsceneImage.sprite = CutsceneSprites[0];
+        PostCutSceneDialogueNodeKey = postCutSceneDialogueNodeKey;
+        CutsceneObject.SetActive(true);
+        if(CutsceneSprites.Count > 1) {
+            CutsceneContButton.SetActive(true);
+            CutsceneExitButton.SetActive(false);
+        }
+        else {
+            CutsceneContButton.SetActive(false);
+            CutsceneExitButton.SetActive(true);
+        }
+    }
+
+    public void ContinueCutscene() {
+        CutsceneSprites.RemoveAt(0);
+        CutsceneImage.sprite = CutsceneSprites[0];
+        if (CutsceneSprites.Count > 1) {
+            CutsceneContButton.SetActive(true);
+            CutsceneExitButton.SetActive(false);
+        }
+        else {
+            CutsceneContButton.SetActive(false);
+            CutsceneExitButton.SetActive(true);
+        }
+    }
+
+    public void ExitCutscene() {
+        CutsceneObject.SetActive(false);
+        CutsceneSprites = new List<Sprite>();
+        if(PostCutSceneDialogueNodeKey != null && PostCutSceneDialogueNodeKey != "") {
+            NewDialogueConversation(DialogueController.GetNode(PostCutSceneDialogueNodeKey), false);
         }
     }
     #endregion

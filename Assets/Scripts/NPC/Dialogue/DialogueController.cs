@@ -6,18 +6,25 @@ using UnityEngine;
 public static class DialogueController {
 
     private delegate string PlaceHolderNode();
+    public delegate void NodeEvent();
 
     private static Dictionary<string, DialogueNode> _nodeLibrary = new Dictionary<string, DialogueNode>();
+    //Placeholder nodes are denoted by having $ in their key.
     private static Dictionary<string, PlaceHolderNode> _placeholderNodes = new Dictionary<string, PlaceHolderNode>();
+    //Event nodes are denoted by having # in their key.
+    private static Dictionary<string, NodeEvent> _eventNodes = new Dictionary<string, NodeEvent>();
 
     public static Dictionary<string, DialogueNode> NodeDictionary {
         get { return _nodeLibrary; }
     }
 
-    ////For testing purposes.
     static DialogueController() {
         ////Dialogue nodes can be added with just the constructor and AddDialogueNode. Make sure to check the constructors to see which suits your new node best.
+        ////Placeholder nodes and event nodes should ALWAYS be added here in code, cannot be done any other way (well easily anyway).
         _placeholderNodes.Add("$endingbranch", delegate(){ return Progression.GetEndingBranchDialogueNode(); });
+        _eventNodes.Add("#endcutscene", delegate () {
+            UI.StartImageCutscene(new List<Sprite> { Resources.Load<Sprite>("Memories/memoryArleana") }, "ending.postcutscene");
+        });
         LoadDictionary();
     }
 
@@ -47,6 +54,10 @@ public static class DialogueController {
             return null;
         }
         return GetNode(_placeholderNodes[placeholderNode].Invoke());
+    }
+
+    public static NodeEvent GetEventNodeDelegate(string eventNodeKey) {
+        return _eventNodes[eventNodeKey];
     }
 
     public static void DeleteNode(DialogueNode node) {
