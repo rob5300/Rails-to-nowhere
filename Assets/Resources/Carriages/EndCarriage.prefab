@@ -1442,6 +1442,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!1 &1000010830592088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000012693545124}
+  - 65: {fileID: 65000013294396750}
+  - 114: {fileID: 114000012932460594}
+  m_Layer: 0
+  m_Name: Carriage Disable Trigger (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000010836669042
 GameObject:
   m_ObjectHideFlags: 1
@@ -3825,6 +3842,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012174447564}
   - 65: {fileID: 65000011600462672}
+  - 111: {fileID: 111000010720438716}
+  - 114: {fileID: 114000011665181758}
   m_Layer: 0
   m_Name: Locked Door
   m_TagString: Untagged
@@ -9138,7 +9157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011483310596}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 14.03, y: 0, z: 1.49}
+  m_LocalPosition: {x: 14.03, y: -0.17, z: 1.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_Children:
@@ -10881,6 +10900,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000013266544510}
   m_RootOrder: 0
+--- !u!4 &4000012693545124
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010830592088}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.48, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000013115009988}
+  m_RootOrder: 17
 --- !u!4 &4000012731356110
 Transform:
   m_ObjectHideFlags: 1
@@ -11463,7 +11495,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011421567902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.894445, y: -1.467504, z: -14.710858}
+  m_LocalPosition: {x: 4.851053, y: 9.012108, z: 50.39446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -11484,6 +11516,7 @@ Transform:
   - {fileID: 4000013189845074}
   - {fileID: 4000013922623234}
   - {fileID: 4000010258483568}
+  - {fileID: 4000012693545124}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000013120241326
@@ -11605,7 +11638,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013324713504}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2.11, y: -0.3, z: 1.19}
+  m_LocalPosition: {x: -2.27, y: -0.3, z: 1.19}
   m_LocalScale: {x: 0.3658783, y: 0.3658782, z: 0.3658783}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children:
@@ -22510,6 +22543,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.3897614, y: 0.66148293, z: 4.049741}
   m_Center: {x: 0.031498194, y: 0.31192285, z: 0.5585379}
+--- !u!65 &65000013294396750
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010830592088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.284834, y: 9.692333, z: 24.635471}
+  m_Center: {x: -0.14242268, y: 4.3461676, z: 0.2004236}
 --- !u!65 &65000013343594752
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -23438,6 +23483,22 @@ Light:
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!111 &111000010720438716
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012364636768}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8c8dffd8564584841a25d85c6d2376b8, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8c8dffd8564584841a25d85c6d2376b8, type: 2}
+  - {fileID: 7400000, guid: 86d442d43eed26344a2053391929fbe6, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114000010051278522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23590,6 +23651,20 @@ MonoBehaviour:
   Interactable: 1
   key: 5
   inputpad: {fileID: 114000011012093986}
+--- !u!114 &114000011665181758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012364636768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80cc2dfb65f8644eaf4624f865534cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Locked Door
+  Interactable: 1
+  Locked: 1
 --- !u!114 &114000011883871850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23640,6 +23715,17 @@ MonoBehaviour:
   Interactable: 1
   key: enter
   inputpad: {fileID: 114000011012093986}
+--- !u!114 &114000012932460594
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010830592088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0259af288351042848f6a8ab12d10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000013012498904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23668,8 +23754,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FrontMountPoint: {fileID: 4000011604885976}
   RearMountPoint: {fileID: 4000012535943450}
-  Type: 2
+  Type: 3
   CarriageDoor: {fileID: 0}
+  FrontWallandDoor: {fileID: 0}
   NPCPosition: {fileID: 4000010439457558}
   Puzzle3DPosition: {fileID: 0}
   Puzzle2DPosition: {fileID: 0}

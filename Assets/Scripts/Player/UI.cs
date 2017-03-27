@@ -247,29 +247,30 @@ public class UI : MonoBehaviour {
         CleanupSpeechUI();
         GameObject button;
         //If the first node response key contains a #, then its a special event for the ui to handle.
-        if (currentNode.ResponseNodes[0].Contains("#")) {
+        if (currentNode.ResponseNodes.Count > 0) {
             if (currentNode.ResponseNodes[0].Contains("#")) {
-                button = (GameObject)Instantiate(dialogueUI.ResponseButton, dialogueUI.ResponseButtonArea.transform);
-                responseButtons.Add(button);
-                button.GetComponent<Button>().GetComponentInChildren<Text>().text = "[View Cutscene]";
-                button.GetComponent<UIEventFowarder>().NodeEvent += DialogueController.GetEventNodeDelegate(currentNode.ResponseNodes[0]);
-                button.SetActive(true);
+                if (currentNode.ResponseNodes[0].Contains("#")) {
+                    button = (GameObject)Instantiate(dialogueUI.ResponseButton, dialogueUI.ResponseButtonArea.transform);
+                    responseButtons.Add(button);
+                    button.GetComponent<Button>().GetComponentInChildren<Text>().text = "[View Cutscene]";
+                    button.GetComponent<UIEventFowarder>().NodeEvent += DialogueController.GetEventNodeDelegate(currentNode.ResponseNodes[0]);
+                    button.SetActive(true);
+                }
             }
-
-        }
-        //response nodes are normal, get responses normally.
-        else {
-            List<DialogueNode> responses = DialogueController.GetNodeResponses(currentNode);
-            if (responses.Count == 0 && !allowExit) {
-                dialogueUI.ExitButton.SetActive(true);
-            }
-            foreach (DialogueNode response in responses) {
-                button = (GameObject)Instantiate(dialogueUI.ResponseButton, dialogueUI.ResponseButtonArea.transform);
-                responseButtons.Add(button);
-                button.GetComponent<Button>().GetComponentInChildren<Text>().text = response.ResponseText;
-                button.GetComponent<UIEventFowarder>().Buttonevent += HandleDialogueResponse;
-                button.name = response.Key;
-                button.SetActive(true);
+            //response nodes are normal, get responses normally.
+            else {
+                List<DialogueNode> responses = DialogueController.GetNodeResponses(currentNode);
+                if (responses.Count == 0 && !allowExit) {
+                    dialogueUI.ExitButton.SetActive(true);
+                }
+                foreach (DialogueNode response in responses) {
+                    button = (GameObject)Instantiate(dialogueUI.ResponseButton, dialogueUI.ResponseButtonArea.transform);
+                    responseButtons.Add(button);
+                    button.GetComponent<Button>().GetComponentInChildren<Text>().text = response.ResponseText;
+                    button.GetComponent<UIEventFowarder>().Buttonevent += HandleDialogueResponse;
+                    button.name = response.Key;
+                    button.SetActive(true);
+                }
             }
         }
         UnlockCursor();
@@ -427,6 +428,8 @@ public class UI : MonoBehaviour {
     //Cutscene code
     #region
     public static void StartImageCutscene(List<Sprite> cutsceneSprites, string postCutSceneDialogueNodeKey) {
+        UI.ui.ExitSpeechUI();
+        MenuOpen = true;
         CutsceneSprites = cutsceneSprites;
         CutsceneImage.sprite = CutsceneSprites[0];
         PostCutSceneDialogueNodeKey = postCutSceneDialogueNodeKey;
@@ -455,6 +458,7 @@ public class UI : MonoBehaviour {
     }
 
     public void ExitCutscene() {
+        MenuOpen = false;
         CutsceneObject.SetActive(false);
         CutsceneSprites = new List<Sprite>();
         if(PostCutSceneDialogueNodeKey != null && PostCutSceneDialogueNodeKey != "") {

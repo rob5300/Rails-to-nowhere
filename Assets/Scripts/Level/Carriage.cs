@@ -4,14 +4,18 @@ using System.Collections.Generic;
 public class Carriage : MonoBehaviour {
 
     public static List<GameObject> CarriageList = new List<GameObject>();
+    public static Carriage StartCarriage;
+    public static GameObject LastCarriageWall;
+    public static GameObject previousDestroyFrontWallandDoor;
 
     public Transform FrontMountPoint;
     public Transform RearMountPoint;
 
-    public enum CarriageType {Story, Filler, Ending};
+    public enum CarriageType {Start, Story, Filler, Ending};
     public CarriageType Type;
 
     public Door CarriageDoor;
+    public GameObject FrontWallandDoor;
 
     public Transform NPCPosition;
     public Transform Puzzle3DPosition;
@@ -25,10 +29,34 @@ public class Carriage : MonoBehaviour {
     public delegate void CarriageEvent();
     //Used when ALL puzzles are done.
 
+    public static void DisableLastCarraige() {
+        CarriageList[0].GetComponent<Carriage>().CloseDoorAndDisableSelf();
+        CarriageList.RemoveAt(0);
+    }
+
+    public static void EnableNextCarriage() {
+        CarriageList[1].SetActive(true);
+    }
+
+    public void Awake() {
+        if (Type == CarriageType.Start) {
+            StartCarriage = this;
+        }
+    }
+
     public void Start() {
         if(Type != CarriageType.Ending) SetupExtraEvents();
-        //Adds the carriage to the carriage list.
-        CarriageList.Add(gameObject);
+    }
+
+    public void CloseDoorAndDisableSelf() {
+        CarriageDoor.Close();
+        LastCarriageWall = FrontWallandDoor;
+        if(previousDestroyFrontWallandDoor != null) {
+            Destroy(previousDestroyFrontWallandDoor);
+        }
+        previousDestroyFrontWallandDoor = LastCarriageWall;
+        FrontWallandDoor.transform.parent = null;
+        Destroy(gameObject, 2f);
     }
 
     public void AllPuzzlesComplete() {
@@ -37,7 +65,7 @@ public class Carriage : MonoBehaviour {
     }
 
     public void OnNPCDeath(NPC npc) {
-        UI.ShowMessage(npc.name + " died. The door mysteriously opened itself...");
+        UI.ShowMessage(npc.Name + " died. The door mysteriously opened itself...");
         CarriageDoor.Open();
     }
 
@@ -76,6 +104,7 @@ public class Carriage : MonoBehaviour {
         newStoryNPC.NPCDeath += OnNPCDeath;
         newStoryNPC.EnablePuzzlesNode = npc.EnablePuzzlesNode;
         newStoryNPC.EnablePuzzles += ShowPuzzles;
+        newStoryNPC.NPCDeath += OnNPCDeath;
 
         newStoryNPC.transform.parent = transform;
     }
@@ -92,6 +121,7 @@ public class Carriage : MonoBehaviour {
         newFillerNPC.NPCDeath += OnNPCDeath;
         newFillerNPC.OpenDoorNode = npc.OpenDoorNode;
         newFillerNPC.DialogueDoorOpen += AllPuzzlesComplete;
+        newFillerNPC.NPCDeath += OnNPCDeath;
 
         newFillerNPC.transform.parent = transform;
     }
@@ -105,5 +135,4 @@ public class Carriage : MonoBehaviour {
         Puzzle3D.SetActive(true);
         Puzzle2D.SetActive(true);
     }
-
 }

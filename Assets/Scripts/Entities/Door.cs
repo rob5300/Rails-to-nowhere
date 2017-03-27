@@ -9,6 +9,7 @@ public class Door : Entity {
         if (Locked) {
             GetComponent<Animation>().Play("Door Open");
             Locked = false;
+            Carriage.EnableNextCarriage();
         }
     }
 

@@ -218,6 +218,9 @@ public class LevelGenerator : MonoBehaviour {
     }
 
     void GenerateLevel() {
+        //Adds the carriage to the carriage list.
+        Carriage.CarriageList.Add(Carriage.StartCarriage.gameObject);
+
         Carriage previousCarriage = startCarriage;
         GameObject placing;
         Carriage placingCarriage;
@@ -230,26 +233,31 @@ public class LevelGenerator : MonoBehaviour {
             previousCarriage = placingCarriage;
 
             //If the carriage is the ending carriage, do not perform npc placement or puzzle placement.
-            if (placingCarriage.Type == Carriage.CarriageType.Ending) {
-                return;
-            }
+            if (placingCarriage.Type != Carriage.CarriageType.Ending) {
+                //We give the carriage the npc to add and the puzzle to add.
+                //We HAVE to remove it after we are finished to ensure that the element at index 0 is the next one to place.
+                if (_carriageNPCs[0] is StoryNPC) {
+                    placingCarriage.PlaceCarriageNPC((StoryNPC)_carriageNPCs[0]);
+                }
+                else if (_carriageNPCs[0] is FillerNPC) {
+                    placingCarriage.PlaceCarriageNPC((FillerNPC)_carriageNPCs[0]);
+                }
+                _carriageNPCs.RemoveAt(0);
 
-            //We give the carriage the npc to add and the puzzle to add.
-            //We HAVE to remove it after we are finished to ensure that the element at index 0 is the next one to place.
-            if (_carriageNPCs[0] is StoryNPC) {
-                placingCarriage.PlaceCarriageNPC((StoryNPC)_carriageNPCs[0]);
+                if (placingCarriage.Type == Carriage.CarriageType.Story) {
+                    placingCarriage.Place3DPuzzle(_3DPuzzlesToPlace[0]);
+                    placingCarriage.Place2DPuzzle(_2DPuzzlesToPlace[0]);
+                    _2DPuzzlesToPlace.RemoveAt(0);
+                    _3DPuzzlesToPlace.RemoveAt(0);
+                }
             }
-            else if (_carriageNPCs[0] is FillerNPC) {
-                placingCarriage.PlaceCarriageNPC((FillerNPC)_carriageNPCs[0]);
-            }
-            _carriageNPCs.RemoveAt(0);
-
-            if (placingCarriage.Type == Carriage.CarriageType.Story) {
-                placingCarriage.Place3DPuzzle(_3DPuzzlesToPlace[0]);
-                placingCarriage.Place2DPuzzle(_2DPuzzlesToPlace[0]);
-                _2DPuzzlesToPlace.RemoveAt(0);
-                _3DPuzzlesToPlace.RemoveAt(0); 
+            //Disable the new carriage if its not the starting carriage.
+            if (placingCarriage.Type != Carriage.CarriageType.Start) {
+                Carriage.CarriageList.Add(placing);
+                placing.SetActive(false);
             }
         }
+        //Open the starting carriage door once all carriages have been placed.
+        Carriage.StartCarriage.CarriageDoor.Open();
     }
 }
