@@ -203,11 +203,17 @@ public class BaseCircuit : EngComponent
 
 	protected virtual void OnDestroy()
 	{
-		foreach (RaycastHit2D rayResult in _updateResults)
+		if (_updateResults != null)
 		{
-			foreach (BaseCircuit pseudoParent in _pseudoParents)
+			if (_updateResults.Any())
 			{
-				pseudoParent._pseudoChildren.Remove(this);
+				foreach (RaycastHit2D rayResult in _updateResults)
+				{
+					foreach (BaseCircuit pseudoParent in _pseudoParents)
+					{
+						pseudoParent._pseudoChildren.Remove(this);
+					}
+				}
 			}
 		}
 	}
