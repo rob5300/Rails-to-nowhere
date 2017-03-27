@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <EnablePuzzlesNode>matilda.fourth.try</EnablePuzzlesNode>
-  <Carriage>StoryCarriage1</Carriage>
   <Essential>false</Essential>
+  <Carriage>StoryCarriage1</Carriage>
+  <EnablePuzzlesNode>matilda.fourth.try</EnablePuzzlesNode>
   <Name>Matilda Lev</Name>
   <Interactable>true</Interactable>
-  <Health>1</Health>
+  <Health>2</Health>
   <MemoryResponseTotal>4</MemoryResponseTotal>
   <MemoryItemKey>memory.matilda</MemoryItemKey>
   <InitialDialogueNodeKey>matilda.first</InitialDialogueNodeKey>

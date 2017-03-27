@@ -22,6 +22,7 @@ public class UI : MonoBehaviour {
     public static GameObject ThoughtContButton;
     public static GameObject ThoughtExitButton;
     public static List<string> thoughtTextSequence;
+    public static List<string> innerDialogueTextSequence;
     public static string PostCutSceneDialogueNodeKey;
 
     public static Image CutsceneImage;
@@ -29,6 +30,12 @@ public class UI : MonoBehaviour {
     public static GameObject CutsceneContButton;
     public static GameObject CutsceneExitButton;
     public static List<Sprite> CutsceneSprites;
+
+    public static Text InnerDialogueText;
+    public static Text InnerDialogueName;
+    public static GameObject InnerDialogueObject;
+    public static GameObject InnerDialogueContButton;
+    public static GameObject InnerDialogueExitButton;
 
     public static int DialogueMemoryCount = 0;
     public static int DialogueMemoryTotal = 0;
@@ -40,14 +47,23 @@ public class UI : MonoBehaviour {
     public Text HoverName;
     public Text HoverDescription;
     public GameObject CrosshairOb;
+
     public Text _ThoughtsText;
     public GameObject _ThoughtsObject;
     public GameObject _ThoughtContButton;
     public GameObject _ThoughtExitButton;
+
     public Image _CutsceneImage;
     public GameObject _CutsceneObject;
     public GameObject _CutsceneContButton;
     public GameObject _CutsceneExitButton;
+
+    public Text _InnerDialogueText;
+    public Text _InnerDialogueName;
+    public GameObject _InnerDialogueObject;
+    public GameObject _InnerDialogueContButton;
+    public GameObject _InnerDialogueExitButton;
+
     public DialogueUI dialogueUIObjects = new DialogueUI();
     public InventoryUI inventoryUIObjects = new InventoryUI();
 
@@ -68,16 +84,25 @@ public class UI : MonoBehaviour {
         dialogueUI = dialogueUIObjects;
         inventoryUI = inventoryUIObjects;
         Crosshair = CrosshairOb;
+
         MessageAnimator = _MessageAnimator;
         MessageText = _MessageText;
+
         ThoughtsText = _ThoughtsText;
         ThoughtsObject = _ThoughtsObject;
         ThoughtContButton = _ThoughtContButton;
         ThoughtExitButton = _ThoughtExitButton;
+
         CutsceneObject = _CutsceneObject;
         CutsceneImage = _CutsceneImage;
         CutsceneContButton = _CutsceneContButton;
         CutsceneExitButton = _CutsceneExitButton;
+
+        InnerDialogueText = _InnerDialogueText;
+        InnerDialogueObject = _InnerDialogueObject;
+        InnerDialogueContButton = _InnerDialogueContButton;
+        InnerDialogueExitButton = _InnerDialogueExitButton;
+        InnerDialogueName = _InnerDialogueName;
 
         //Disable UI objects incase they are left enabled.
         dialogueUI.ResponseButton.SetActive(false);
@@ -89,6 +114,7 @@ public class UI : MonoBehaviour {
         inventoryUI.MemoryParent.SetActive(false);
 
         CutsceneObject.SetActive(false);
+        InnerDialogueObject.SetActive(false);
 
         //Load Dialogue Nodes
         DialogueController.LoadDictionary();
@@ -142,9 +168,9 @@ public class UI : MonoBehaviour {
         MessageAnimator.SetTrigger("Play");
     }
 
-    public static void ThoughtSequence(string[] thoughttext) {
+    public static void ThoughtSequence(List<string> thoughttext) {
         MenuOpen = true;
-        thoughtTextSequence = thoughttext.ToList();
+        thoughtTextSequence = thoughttext;
         ThoughtsText.text = "\"" + thoughtTextSequence[0] + "\"";
         thoughtTextSequence.RemoveAt(0);
         if(thoughtTextSequence.Count > 0) {
@@ -311,28 +337,6 @@ public class UI : MonoBehaviour {
     }
     #endregion
 
-    public static void UnlockCursor() {
-        Cursor.lockState = CursorLockMode.None;
-        Crosshair.SetActive(false);
-        Cursor.visible = true;
-    }
-
-    public static void UnlockPlayerController() {
-        Player.player.Controller.enabled = true;
-        Player.player.blurEffect.enabled = false;
-    }
-
-    public static void LockPlayerController() {
-        Player.player.Controller.enabled = false;
-        Player.player.blurEffect.enabled = true;
-    }
-
-    public static void LockCursor() {
-        Cursor.lockState = CursorLockMode.Locked;
-        Crosshair.SetActive(true);
-        Cursor.visible = false;
-    }
-
     //Inventory Code
     #region
     public static void UpdateInventoryUI() {
@@ -466,6 +470,70 @@ public class UI : MonoBehaviour {
         }
     }
     #endregion
+
+    //Inner dialogue
+    #region
+    public static void InnerDialogue(List<string> innerDialogueText, string name) {
+        MenuOpen = true;
+        innerDialogueTextSequence = innerDialogueText;
+        InnerDialogueName.text = name + ":";
+        InnerDialogueText.text = "\"" + innerDialogueTextSequence[0] + "\"";
+        innerDialogueTextSequence.RemoveAt(0);
+        if (innerDialogueTextSequence.Count > 0) {
+            InnerDialogueContButton.SetActive(true);
+            InnerDialogueExitButton.SetActive(false);
+        }
+        else {
+            InnerDialogueContButton.SetActive(false);
+            InnerDialogueExitButton.SetActive(true);
+        }
+        InnerDialogueObject.SetActive(true);
+        LockPlayerController();
+        UnlockCursor();
+    }
+
+    public void ContinueInnerDialogueText() {
+        InnerDialogueText.text = "\"" + innerDialogueTextSequence[0] + "\"";
+        innerDialogueTextSequence.RemoveAt(0);
+        if (innerDialogueTextSequence.Count > 0) {
+            InnerDialogueContButton.SetActive(true);
+            InnerDialogueExitButton.SetActive(false);
+        }
+        else {
+            InnerDialogueContButton.SetActive(false);
+            InnerDialogueExitButton.SetActive(true);
+        }
+    }
+
+    public void CloseInnerDialogue() {
+        InnerDialogueObject.SetActive(false);
+        MenuOpen = false;
+        UnlockPlayerController();
+        LockCursor();
+    }
+    #endregion
+
+    public static void UnlockCursor() {
+        Cursor.lockState = CursorLockMode.None;
+        Crosshair.SetActive(false);
+        Cursor.visible = true;
+    }
+
+    public static void UnlockPlayerController() {
+        Player.player.Controller.enabled = true;
+        Player.player.blurEffect.enabled = false;
+    }
+
+    public static void LockPlayerController() {
+        Player.player.Controller.enabled = false;
+        Player.player.blurEffect.enabled = true;
+    }
+
+    public static void LockCursor() {
+        Cursor.lockState = CursorLockMode.Locked;
+        Crosshair.SetActive(true);
+        Cursor.visible = false;
+    }
 }
 
 [System.Serializable]
