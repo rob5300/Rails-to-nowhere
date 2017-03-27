@@ -21,23 +21,32 @@ public class CogPuzzle : Puzzle {
     }
 
     public void CheckPuzzle() {
+        int totalMounts = CogMounts.Length;
+        int correctMounts = 0;
         foreach (CogMount mount in CogMounts) {
             if (mount.HasCog) {
-                if (mount.AttachedCog.Size != mount.Size) {
-                    PuzzleError();
-                    return;
+                if (mount.AttachedCog.Size == mount.Size) {
+                    correctMounts++;
+                    mount.CorrectMount();
+                }
+                else {
+                    mount.IncorrectMount();
                 }
             }
             else {
-                PuzzleError();
-                return;
+                mount.IncorrectMount();
             }
         }
-        PuzzleDone(CarriagePuzzleController.PuzzleType.T3D);
+        if (correctMounts == totalMounts) {
+            PuzzleDone(CarriagePuzzleController.PuzzleType.T3D);
+            UI.ShowMessage("The cogs all fit and turn.");
+        }
+        else{
+            PuzzleError();
+        }
     }
 
     void PuzzleError() {
-        UI.ShowMessage("Puzzle Failed");
+        UI.ShowMessage("The cogs don't seem to be in the correct places...");
     }
-
 }

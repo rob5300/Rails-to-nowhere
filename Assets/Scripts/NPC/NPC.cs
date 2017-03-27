@@ -130,7 +130,7 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 
     public void Die() {
         NPCDeath.Invoke(this);
-        Destroy(this);
+        Destroy(gameObject, 0.1f);
     }
 
     public void AwardMemory() {
