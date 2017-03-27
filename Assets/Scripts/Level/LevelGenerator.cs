@@ -102,6 +102,8 @@ public class LevelGenerator : MonoBehaviour {
                 }
             }
         }
+        //Place ending carriage at the very end.
+        _carriagesToPlace.Add(Resources.Load<GameObject>("Carriages/EndCarriage"));
     }
 
     private void Select3DPuzzle() {
@@ -226,6 +228,11 @@ public class LevelGenerator : MonoBehaviour {
             Vector3 positionToPlaceAt = previousCarriage.FrontMountPoint.position - placingCarriage.RearMountPoint.position;
             placing.transform.position = positionToPlaceAt;
             previousCarriage = placingCarriage;
+
+            //If the carriage is the ending carriage, do not perform npc placement or puzzle placement.
+            if (placingCarriage.Type == Carriage.CarriageType.Ending) {
+                return;
+            }
 
             //We give the carriage the npc to add and the puzzle to add.
             //We HAVE to remove it after we are finished to ensure that the element at index 0 is the next one to place.

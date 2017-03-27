@@ -4,8 +4,6 @@ using System.Linq.Expressions;
 using System.Reflection;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(Animator))]
 public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
 {
     public delegate void NPCEvent(NPC npc);

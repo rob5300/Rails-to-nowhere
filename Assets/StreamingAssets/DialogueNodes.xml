@@ -2042,4 +2042,87 @@
       </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>ending.start</Key>
+    <Value>
+      <Text>[You look at the man]</Text>
+      <Key>ending.start</Key>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>ending.first</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>ending.first</Key>
+    <Value>
+      <Text>Hey, did you know that when a person dies, the matters they left unresolved keep living on, like an echo? When the soul learns to accept them, it can finally move on. But you’ve held on for such a long time. Could it be… are you afraid of dying?</Text>
+      <Key>ending.first</Key>
+      <ResponseText>You… Are you behind all this?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>ending.second</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>ending.second</Key>
+    <Value>
+      <Text>You are dead, Thane. You’re inside my mind, my world, except everything you saw was made by you.</Text>
+      <Key>ending.second</Key>
+      <ResponseText>Dying? What are you talking about? I’m standing right here, breathing, how can I be dead?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>ending.third</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>ending.third</Key>
+    <Value>
+      <Text>Oh, you know who I am.</Text>
+      <Key>ending.third</Key>
+      <ResponseText>Who are you?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>#endcutscene</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>ending.postcutscene</Key>
+    <Value>
+      <Text>Oh, you know who I am.</Text>
+      <Key>ending.postcutscene</Key>
+      <ResponseText />
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>ending.fifth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>ending.fifth</Key>
+    <Value>
+      <Text>Oh, so you finally remembered.</Text>
+      <Key>ending.fifth</Key>
+      <ResponseText>No, you’re not him.</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>ending.sixth</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
+  <KeyValuePairOfStringDialogueNode>
+    <Key>ending.sixth</Key>
+    <Value>
+      <Text>I gave you what you wanted. Why are you still unhappy? You should be able to admit your mistakes now.</Text>
+      <Key>ending.sixth</Key>
+      <ResponseText>Who are you, really? Why are you doing this to me?</ResponseText>
+      <IsMemoryResponse>false</IsMemoryResponse>
+      <ResponseNodes>
+        <string>$endingbranch</string>
+      </ResponseNodes>
+    </Value>
+  </KeyValuePairOfStringDialogueNode>
 </ArrayOfKeyValuePairOfStringDialogueNode>

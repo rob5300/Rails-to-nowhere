@@ -2,9 +2,17 @@
 
 public class UIEventFowarder : MonoBehaviour {
 
-    //Currently only for the speech ui, later can be made to foward anywhere.
+    public delegate void UIEvent(GameObject originalObject);
+    public event UIEvent Buttonevent;
+    public event DialogueController.NodeEvent NodeEvent;
+
 	public void Event() {
-        UI.HandleDialogueResponse(gameObject.name);
+        if (Buttonevent != null) {
+            Buttonevent.Invoke(gameObject); 
+        }
+        if (NodeEvent != null) {
+            NodeEvent.Invoke(); 
+        }
     }
 
 }

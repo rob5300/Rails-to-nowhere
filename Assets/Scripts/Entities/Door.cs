@@ -1,21 +1,21 @@
 ﻿using UnityEngine;
 
 [AddComponentMenu("Entities/Door", 3)]
-[RequireComponent(typeof(Rigidbody))]
 public class Door : Entity {
 
 	public bool Locked = true;
 
-    private void Start() {
+    public void Open() {
         if (Locked) {
-            GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<Animation>().Play("Door Open");
+            Locked = false;
         }
     }
 
-    public void Unlock() {
-        if (Locked) {
-            GetComponent<Rigidbody>().isKinematic = false;
-            Locked = false;
+    public void Close() {
+        if (!Locked) {
+            GetComponent<Animation>().Play("Door Close");
+            Locked = true;
         }
     }
 
