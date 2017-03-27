@@ -5,7 +5,19 @@ using System.Linq;
 
 public class Transistor : BaseCircuit 
 {
-	
+
+	public override float Current
+	{
+		get
+		{
+			return _current;
+		}
+
+		set
+		{
+			_current = value;
+		}
+	}
 	// Update is called once per frame
 	protected override void Update () 
     {
@@ -22,6 +34,8 @@ public class Transistor : BaseCircuit
 				}
 				else
 				{
+					_pseudoParents = new List<BaseCircuit>();
+					_sourceNames = new List<string>();
 					Current = 0f;
 				}
 

@@ -39,6 +39,7 @@ public class TwoDimensionalPuzzle : Puzzle {
 				if (actualBlock.Current >= RequiredPower)
 				{
 					PuzzleDone(CarriagePuzzleController.PuzzleType.T2D);
+					print("done");
 				}
 			}
 

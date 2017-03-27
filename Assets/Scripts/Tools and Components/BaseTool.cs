@@ -114,7 +114,7 @@ public abstract class BaseTool : MonoBehaviour {
 	protected virtual void RemoveObject(Vector3 position)
 	{
 		GameObject closestObj = _blocks.OrderBy(x => Vector2.Distance(position, x.transform.position)).First().gameObject;
-		if (Vector2.Distance(closestObj.transform.position, position) < 1 && closestObj.tag == Prefab.tag && closestObj.name.Contains(Prefab.name))
+		if (Vector2.Distance(closestObj.transform.position, position) < 0.2 && closestObj.tag == Prefab.tag && closestObj.name.Contains(Prefab.name))
 		{
 			_blocks.Remove(closestObj.GetComponent<EngComponent>());
 			closestObj.transform.parent.GetComponent<TwoDimensionalPuzzle>()._components.Remove(closestObj.GetComponent<EngComponent>());
@@ -136,7 +136,7 @@ public abstract class BaseTool : MonoBehaviour {
 		{
 			return;
 		}
-		if (Vector2.Distance(closestBoardObj.transform.position, position) < 1 && Vector2.Distance(closestBoardObj.transform.position, closestCircuitObj.transform.position) > 0.1)
+		if (Vector2.Distance(closestBoardObj.transform.position, position) < 0.6 && Vector2.Distance(closestBoardObj.transform.position, closestCircuitObj.transform.position) > 0.1)
 		{
 			GameObject block = Instantiate(Prefab, closestBoardObj.transform.position, closestBoardObj.transform.rotation) as GameObject;
 			SpriteRenderer renderer = block.GetComponent<SpriteRenderer>();
