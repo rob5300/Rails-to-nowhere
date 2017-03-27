@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 [RequireComponent(typeof(BoxCollider))]
-public class ThoughtTrigger : MonoBehaviour {
+public class InnerDialogueTrigger : MonoBehaviour {
 
     public List<string> ThoughtText;
+    public string nameOfPersonTalking;
     public bool Activated = false;
 
     private void OnTriggerEnter(Collider other) {
         if (!Activated && other.tag == "Player") {
-            UI.ThoughtSequence(ThoughtText);
+            UI.InnerDialogue(ThoughtText, nameOfPersonTalking);
             Activated = true;
         }
     }

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Inject>
-  <EnablePuzzlesNode>john.fourth.alright</EnablePuzzlesNode>
-  <Carriage>StoryCarriage1</Carriage>
   <Essential>false</Essential>
+  <Carriage>StoryCarriage1</Carriage>
+  <EnablePuzzlesNode>john.fourth.alright</EnablePuzzlesNode>
   <Name>John Pierce</Name>
   <Interactable>true</Interactable>
-  <Health>1</Health>
+  <Health>2</Health>
   <MemoryResponseTotal>4</MemoryResponseTotal>
   <MemoryItemKey>memory.john</MemoryItemKey>
   <InitialDialogueNodeKey>john.first</InitialDialogueNodeKey>

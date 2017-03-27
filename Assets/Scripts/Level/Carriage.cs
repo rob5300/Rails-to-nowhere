@@ -72,7 +72,7 @@ public class Carriage : MonoBehaviour {
     public void Place2DPuzzle(GameObject puzzleToPlace) {
         GameObject puzzleOpener = Resources.Load<GameObject>("2DPuzzles/Electrical Puzzle Open");
         GameObject placedOpener = (GameObject)Instantiate(puzzleOpener, Puzzle2DPosition.position, Puzzle2DPosition.rotation);
-        placedOpener.transform.position += new Vector3(0, 5, 0);
+        placedOpener.transform.position += new Vector3(0, 0.5f, 0);
         GameObject placedPuzzle = Instantiate(puzzleToPlace);
         placedOpener.GetComponent<Puzzle2DEnvironmentLoader>().Puzzle = placedPuzzle;
         //Checks for the component in children as the component does not live on the prefab parent.
