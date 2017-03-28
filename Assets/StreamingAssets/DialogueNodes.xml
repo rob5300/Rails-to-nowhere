@@ -2236,7 +2236,9 @@
       <Key>bad.one</Key>
       <ResponseText>Mistakes? HAHAHHA No, you’re wrong. Do you know those people? Do you know what they did? I tried so hard to deal with it peacefully, to turn to the law and let the right people do the job. But you know what? It didn’t matter in the end! Justice is dead, so I had to take things in my own hand. For that, I won’t feel sorry. For the ones who let me down, even less. </ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
-      <ResponseNodes />
+      <ResponseNodes>
+        <string>#ending</string>
+      </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
 </ArrayOfKeyValuePairOfStringDialogueNode>

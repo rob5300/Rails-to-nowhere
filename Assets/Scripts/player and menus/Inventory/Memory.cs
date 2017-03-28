@@ -12,6 +12,7 @@ public class Memory : Item {
 
     public override void OnAddToInventory() {
         CodeDigit = Progression.GetNextDigit();
+        Progression.MemoriesGained++;
     }
 
 }

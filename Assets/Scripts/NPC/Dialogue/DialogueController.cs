@@ -30,6 +30,7 @@ public static class DialogueController {
                 Resources.Load<Sprite>("EndCutscene/scene4"),
                 Resources.Load<Sprite>("EndCutscene/scene5") }, "ending.postcutscene");
         });
+        _eventNodes.Add("#ending", delegate () { UI.Ending(); });
         LoadDictionary();
     }
 
