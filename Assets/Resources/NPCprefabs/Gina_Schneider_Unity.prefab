@@ -1733,7 +1733,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010250449436}
-  m_LocalRotation: {x: -0.009142423, y: 0.15591203, z: -0.61588407, w: 0.7722011}
+  m_LocalRotation: {x: -0.009142424, y: 0.15591204, z: -0.6158841, w: 0.7722012}
   m_LocalPosition: {x: 0.23823427, y: 0.000007698282, z: 0.0000000055697265}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2001,7 +2001,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012522757310}
-  m_LocalRotation: {x: 0.050929084, y: 0.03363797, z: 0.21759094, w: 0.9741298}
+  m_LocalRotation: {x: 0.05092909, y: 0.033637974, z: 0.21759096, w: 0.97412986}
   m_LocalPosition: {x: 0.02543537, y: 0.0000009629833, z: -0.000000008745673}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2214,7 +2214,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013368635546}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.072, y: 2.51, z: 4.723}
+  m_LocalPosition: {x: -4.162668, y: -0.16462505, z: -0.97947216}
   m_LocalScale: {x: 3.0000029, y: 3, z: 3.0000029}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children:
@@ -2323,7 +2323,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013206385364}
-  m_LocalRotation: {x: -0.8365933, y: 0.03608382, z: -0.0023287265, w: 0.5466298}
+  m_LocalRotation: {x: -0.83659333, y: 0.036083825, z: -0.0023287267, w: 0.54662985}
   m_LocalPosition: {x: -0.036862846, y: 0.46625242, z: -0.11709978}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2526,7 +2526,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 4f2980b7df7589744bf46e0ff72b9700, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1

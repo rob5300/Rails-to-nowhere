@@ -35,7 +35,7 @@ public class Carriage : MonoBehaviour {
     }
 
     public static void EnableNextCarriage() {
-        CarriageList[1].SetActive(true);
+        if(CarriageList.Count > 0) CarriageList[1].SetActive(true);
     }
 
     public void Awake() {

@@ -22,12 +22,13 @@ public class PauseScript : MonoBehaviour {
         if (image.gameObject.activeInHierarchy == false && !UI.MenuOpen)
         {
             UI.MenuOpen = true;
+            UI.allowExit = true;
             image.gameObject.SetActive(true);
             Time.timeScale = 0;
             UI.LockPlayerController();
             UI.UnlockCursor();
         }
-        else
+        else if(image.gameObject.activeInHierarchy == true && UI.allowExit)
         {
             image.gameObject.SetActive(false);
             UI.MenuOpen = false;

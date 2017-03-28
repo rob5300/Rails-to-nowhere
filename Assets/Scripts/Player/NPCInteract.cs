@@ -13,7 +13,7 @@ public class NPCInteract : MonoBehaviour {
     float timeSinceHit = 0f;
 
     void Start() {
-        Player.InteractEvent += OnRaycastHit;
+        Player.player.InteractEvent += OnRaycastHit;
     }
 
     void OnRaycastHit(GameObject hit) {
