@@ -22,12 +22,14 @@ public class Inventory {
         ItemSlot itemSlot = GetItemSlot(id);
         if (itemSlot != null) {
             itemSlot.ItemQuantity += amount;
+            Item.GetItem(id).OnAddToInventory();
         }
         else {
             foreach (ItemSlot slot in itemSlots) {
                 if (slot.ItemID == "" || slot.ItemID == null || slot.ItemID == string.Empty) {
                     slot.ItemID = id;
                     slot.ItemQuantity = amount;
+                    Item.GetItem(id).OnAddToInventory();
                     break;
                 }
             }

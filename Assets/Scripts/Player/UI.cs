@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public class UI : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class UI : MonoBehaviour {
     public static bool MenuOpen = false;
     public static DialogueUI dialogueUI;
     public static InventoryUI inventoryUI;
+
     public static bool inventoryOpen = false;
     public static bool puzzle2DOpen = false;
     public static bool dialogueUIOpen = false;
@@ -42,6 +44,9 @@ public class UI : MonoBehaviour {
     public static string DialogueMemoryID = "";
     public static NPC DialogueNPC;
 
+    public static Image EndingImage;
+    public static Text EndingText;
+
     public Animator _MessageAnimator;
     public Text _MessageText;
     public Text HoverName;
@@ -63,6 +68,9 @@ public class UI : MonoBehaviour {
     public GameObject _InnerDialogueObject;
     public GameObject _InnerDialogueContButton;
     public GameObject _InnerDialogueExitButton;
+
+    public Image _EndingImage;
+    public Text _EndingText;
 
     public DialogueUI dialogueUIObjects = new DialogueUI();
     public InventoryUI inventoryUIObjects = new InventoryUI();
@@ -116,6 +124,9 @@ public class UI : MonoBehaviour {
         CutsceneObject.SetActive(false);
         InnerDialogueObject.SetActive(false);
 
+        EndingImage = _EndingImage;
+        EndingText = _EndingText;
+
         //Load Dialogue Nodes
         DialogueController.LoadDictionary();
     }
@@ -126,6 +137,7 @@ public class UI : MonoBehaviour {
                 inventoryUI.Parent.SetActive(true);
                 inventoryOpen = true;
                 MenuOpen = true;
+                allowExit = true;
 
                 CleanInventoryUI();
                 UpdateInventoryUI();
@@ -147,7 +159,7 @@ public class UI : MonoBehaviour {
             if (puzzle2DOpen) {
                 Hide2DPuzzle();
             }
-            if (dialogueUIOpen) {
+            if (dialogueUIOpen && allowExit) {
                 ExitSpeechUI();
             }
             if (inventoryOpen) {
@@ -216,6 +228,7 @@ public class UI : MonoBehaviour {
         DialogueMemoryCount = 0;
         dialogueUIOpen = true;
         MenuOpen = true;
+        allowExit = true;
         DialogueNode node = DialogueController.GetNode(npc.InitialDialogueNodeKey);
         dialogueUI.MainTextArea.text = node.Text;
         //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
@@ -224,7 +237,7 @@ public class UI : MonoBehaviour {
         dialogueUI.Parent.SetActive(true);
     }
 
-    public static void NewDialogueConversation(DialogueNode node, bool canExit = true) {
+    public static void NewDialogueConversation(DialogueNode node, bool canExit) {
         allowExit = canExit;
         if (!allowExit) {
             dialogueUI.ExitButton.SetActive(false);
@@ -286,10 +299,8 @@ public class UI : MonoBehaviour {
             //response nodes are normal, get responses normally.
             else {
                 List<DialogueNode> responses = DialogueController.GetNodeResponses(currentNode);
-                if (responses.Count == 0 && !allowExit) {
-                    dialogueUI.ExitButton.SetActive(true);
-                }
                 foreach (DialogueNode response in responses) {
+                    if (response.IsMemoryResponse) Debug.Log("Memory Response: " + response.ResponseText);
                     button = (GameObject)Instantiate(dialogueUI.ResponseButton, dialogueUI.ResponseButtonArea.transform);
                     responseButtons.Add(button);
                     button.GetComponent<Button>().GetComponentInChildren<Text>().text = response.ResponseText;
@@ -299,22 +310,31 @@ public class UI : MonoBehaviour {
                 }
             }
         }
+        else {
+            //If there are no dialogue responses left, we allow the user to exit now.
+            if (!allowExit) {
+                dialogueUI.ExitButton.SetActive(true);
+                allowExit = true;
+            }
+        }
         UnlockCursor();
         LockPlayerController();
     }
 
     public void ExitSpeechUI() {
-        dialogueUI.Parent.SetActive(false);
-        MenuOpen = false;
-        dialogueUIOpen = false;
-        LockCursor();
-        UnlockPlayerController();
+        if (allowExit) {
+            dialogueUI.Parent.SetActive(false);
+            MenuOpen = false;
+            dialogueUIOpen = false;
+            LockCursor();
+            UnlockPlayerController();
 
-        //We award a memory here, this assumes that the dialogue was closed ONLY this way.
+            //We award a memory here, this assumes that the dialogue was closed ONLY this way.
 
-        if(DialogueMemoryCount >= DialogueMemoryTotal && DialogueMemoryTotal != -1) {
-            Player.player.inventory.AddItem(DialogueMemoryID, 1);
-            UI.ShowMessage("You were awarded the memory: " + Item.GetItem(DialogueMemoryID).Name);
+            if (DialogueMemoryCount >= DialogueMemoryTotal && DialogueMemoryTotal != -1) {
+                Player.player.inventory.AddItem(DialogueMemoryID, 1);
+                UI.ShowMessage("You were awarded the memory: " + Item.GetItem(DialogueMemoryID).Name);
+            } 
         }
     }
 
@@ -397,6 +417,7 @@ public class UI : MonoBehaviour {
         inventoryUI.Memory.sprite = ((Memory)selectedItem).MemorySprite;
         inventoryUI.MemoryName.text = selectedItem.Name;
         inventoryUI.MemoryParent.SetActive(true);
+        inventoryUI.MemoryCodeDigit.text = ((Memory)selectedItem).CodeDigit.ToString();
     }
 
     public void CloseMemory() {
@@ -414,6 +435,7 @@ public class UI : MonoBehaviour {
             puzzle2D = puzzleObject;
             puzzle2D.SetActive(true);
             MenuOpen = true;
+            allowExit = true;
             puzzle2DOpen = true;
         }
     }
@@ -481,6 +503,7 @@ public class UI : MonoBehaviour {
     #region
     public static void InnerDialogue(List<string> innerDialogueText, string name) {
         MenuOpen = true;
+        allowExit = false;
         innerDialogueTextSequence = innerDialogueText;
         InnerDialogueName.text = name + ":";
         InnerDialogueText.text = "\"" + innerDialogueTextSequence[0] + "\"";
@@ -518,6 +541,29 @@ public class UI : MonoBehaviour {
         LockCursor();
     }
     #endregion
+
+    public static void Ending() {
+        MenuOpen = true;
+        allowExit = false;
+        UnlockCursor();
+        LockPlayerController();
+        Progression.EndingType end = Progression.GetEndingType();
+        if(end == Progression.EndingType.True) {
+            EndingImage.sprite = Resources.Load<Sprite>("EndImage/heaven");
+            EndingText.text = "\"Welcome to Heaven\"";
+            EndingImage.gameObject.SetActive(true);
+        }
+        else if(end == Progression.EndingType.Neutral) {
+            EndingImage.color = Color.black;
+            EndingText.text = "\"Looks like you will need to start over to do better...\"";
+        }
+        else {
+            //Bad ending
+            EndingImage.sprite = Resources.Load<Sprite>("EndImage/hell");
+            EndingText.text = "\"Welcome to Hell\"";
+            EndingImage.gameObject.SetActive(true);
+        }
+    }
 
     public static void UnlockCursor() {
         Cursor.lockState = CursorLockMode.None;
@@ -570,4 +616,5 @@ public struct InventoryUI
     public GameObject MemoryParent;
     public Image Memory;
     public Text MemoryName;
+    public Text MemoryCodeDigit;
 }

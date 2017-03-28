@@ -11,7 +11,7 @@ public class Player : MonoBehaviour {
     public BlurOptimized blurEffect;
 
     public delegate void WorldEvent(GameObject eventObject);
-    public static event WorldEvent InteractEvent;
+    public event WorldEvent InteractEvent;
 
     RaycastHit _hit;
 

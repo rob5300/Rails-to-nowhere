@@ -7,7 +7,7 @@ public class Pickup : MonoBehaviour
 
     void Start()
     {
-        Player.InteractEvent += OnRaycastHit;
+        Player.player.InteractEvent += OnRaycastHit;
     }
 
     void OnRaycastHit(GameObject hit)

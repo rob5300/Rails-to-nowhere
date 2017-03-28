@@ -32,6 +32,7 @@ public class LevelGenerator : MonoBehaviour {
         SceneManager.sceneLoaded -= LevelLoad;
     }
 
+    //####THIS IS WHERE GENERATION GETS TRIGGERED AND BEGINS####
     public void LevelLoad(Scene scene, LoadSceneMode mode) {
         //Things to do on the level load.
         PopulateObjectLists();
@@ -218,6 +219,8 @@ public class LevelGenerator : MonoBehaviour {
     }
 
     void GenerateLevel() {
+        //Clear the carriage list incase the game was already played once.
+        Carriage.CarriageList = new List<GameObject>();
         //Adds the carriage to the carriage list.
         Carriage.CarriageList.Add(Carriage.StartCarriage.gameObject);
 

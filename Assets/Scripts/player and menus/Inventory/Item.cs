@@ -44,7 +44,15 @@ public class Item {
 
     public static Item GetItem(string ItemID)
     {
+        if (!ItemList.ContainsKey(ItemID)) {
+            Debug.LogError("The ItemID: " + ItemID + " does not exist.");
+            return null;
+        }
         return ItemList[ItemID.ToLower()];
+    }
+
+    public virtual void OnAddToInventory() {
+
     }
 
     public static bool IsValidItemID(string ItemID)
