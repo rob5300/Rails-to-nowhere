@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using UnityEngine;
 
 public class Progression {
 
@@ -17,7 +15,9 @@ public class Progression {
     public static int PuzzlesComplete = 0;
     public static int TotalPuzzles = 0;
     public static int TotalProgressPercantage;
+
     private static int code;
+    private static int codeDigitsGivenOut = 0;
 
     public static int Code {
         get {
@@ -26,8 +26,17 @@ public class Progression {
     }
 
     public static void GenerateKeyCode() {
-        Random rand = new Random();
+        System.Random rand = new System.Random();
         code = rand.Next(9999);
+        Debug.Log("Code: " + code);
+    }
+
+    //returns the next digit to add to a memory from the code.
+    public static int GetNextDigit() {
+        codeDigitsGivenOut++;
+        if (codeDigitsGivenOut > 4) codeDigitsGivenOut = 5;
+        //I cheat and return the value after incrementing the codeDigitsGivenOut int, soo i remove 1 to compensate to return the correct digit.
+        return Convert.ToInt32(code.ToString().ToCharArray()[codeDigitsGivenOut - 1]);
     }
 
     public static EndingType GetEndingType() {
