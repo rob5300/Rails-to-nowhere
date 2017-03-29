@@ -1076,7 +1076,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 131698604}
   - 108: {fileID: 131698605}
-  - 114: {fileID: 131698606}
   m_Layer: 0
   m_Name: Background scroll light R
   m_TagString: Untagged
@@ -1133,17 +1132,6 @@ Light:
   m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &131698606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 131698603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdd507c868ab0c946948f8cc69f358c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &133115010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,7 +2577,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 298329840}
   - 108: {fileID: 298329839}
-  - 114: {fileID: 298329841}
   m_Layer: 0
   m_Name: Background scroll light L
   m_TagString: Untagged
@@ -2646,17 +2633,6 @@ Transform:
   - {fileID: 1656044808}
   m_Father: {fileID: 2115671746}
   m_RootOrder: 21
---- !u!114 &298329841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 298329838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdd507c868ab0c946948f8cc69f358c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &303052050
 GameObject:
   m_ObjectHideFlags: 0
