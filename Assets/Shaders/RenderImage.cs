@@ -4,6 +4,8 @@ using System.Collections;
 
 [ExecuteInEditMode]
 public class RenderImage : MonoBehaviour {
+    //Script was included with the brightness shader. Same source as .shader file.
+
 	#region Variables
 	public Shader curShader;
 	public float brightnessAmount = 1.0f;
@@ -26,7 +28,6 @@ public class RenderImage : MonoBehaviour {
 		}
 	}
 	#endregion
-	// Use this for initialization
 	void Start () 
 	{
 		if(!SystemInfo.supportsImageEffects)
@@ -53,10 +54,9 @@ public class RenderImage : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () 
 	{
-		brightnessAmount = Mathf.Clamp(brightnessAmount, 0.0f, 1.5f);
+		brightnessAmount = Mathf.Clamp(brightnessAmount, 0.0f, 5f);
 		saturationAmount = Mathf.Clamp(saturationAmount, 0.0f, 2.0f);
 		contrastAmount = Mathf.Clamp(contrastAmount, 0.0f, 3.0f);
 	}
@@ -69,6 +69,5 @@ public class RenderImage : MonoBehaviour {
 		}
 		
 	}
-	
 	
 }
