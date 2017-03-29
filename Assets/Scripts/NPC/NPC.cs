@@ -129,6 +129,7 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
     }
 
     public void Die() {
+		Progression.NPCsAlive -= 1;
         NPCDeath.Invoke(this);
         Destroy(gameObject, 0.1f);
     }

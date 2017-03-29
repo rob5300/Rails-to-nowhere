@@ -40,17 +40,22 @@ public class Progression {
     }
 
     public static EndingType GetEndingType() {
-        //Calculate total percentage.
+		//Calculate total percentage.
+		decimal npcResult = NPCsAlive / TotalNPCs;
+		decimal puzzleResult = PuzzlesComplete / TotalPuzzles;
+		decimal memoryResult = MemoriesGained / 4;
+		decimal progressionResult = (npcResult + puzzleResult + memoryResult) / 3;
 
-        if(TotalProgressPercantage >= TrueEndingThresholdPercentage) {
+        if(progressionResult == 100) {
             return EndingType.True;
         }
-        else if(TotalProgressPercantage > BadEndingThresholdPercentage) {
+		else if(progressionResult == 0) {
+			return EndingType.Bad;
+		}
+		else { 
             return EndingType.Neutral;
         }
-        else {
-            return EndingType.Bad;
-        }
+
     }
 
     public static void SetTotalValues(int totalNPCs, int totalMemories, int totalPuzzles) {
