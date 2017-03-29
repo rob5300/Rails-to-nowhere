@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 112000190, guid: 4890923eb71055342b6e79aab5a2eba9,
+  m_LightingDataAsset: {fileID: 112000158, guid: 4890923eb71055342b6e79aab5a2eba9,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -2819,7 +2819,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 310078502}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.71, y: 3.34, z: 1.19}
+  m_LocalPosition: {x: 7.93, y: 3.34, z: 1.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -2838,9 +2838,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThoughtText:
-  - Oww...
-  - What happened...
-  - Where am I?
+  - That was wierd... Who was that?
+  - I should try to get out of here.
+  - Where am I even? A train?
   - I need to try to find out whats going on here...
   Activated: 0
 --- !u!65 &310078505
@@ -2854,8 +2854,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.0289927, y: 10.036228, z: 15.7945}
-  m_Center: {x: 2.0144968, y: 1.6317637, z: 0.003047943}
+  m_Size: {x: 8.564765, y: 10.036228, z: 15.7945}
+  m_Center: {x: 3.257649, y: 1.6317637, z: 0.003047943}
 --- !u!1 &311237437
 GameObject:
   m_ObjectHideFlags: 0
@@ -10379,7 +10379,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 992133590}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.37, y: 3.34, z: 1.19}
+  m_LocalPosition: {x: -14.3, y: 3.34, z: 1.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -10397,9 +10397,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThoughtText:
-  - Have fun in here...
-  - You won't be leaving any time soon!
-  nameOfPersonTalking: ???
+  - "Hey Wake up. You can\u2019t keep on dreaming forever. Even in a perfect reality,
+    your world would still be flawed."
+  - What? Who are you?
+  - "It doesn\u2019t matter who I am. What matters now is who you are, though you
+    don\u2019t seem to remember."
+  - Show yourself!
+  - Thane, was it? We might see each other soon.
+  - Wha-  What is this place? How did I get here?
+  name1: ?????
+  name2: You (Thane)
   Activated: 0
 --- !u!65 &992133593
 BoxCollider:
@@ -14385,6 +14392,7 @@ GameObject:
   - 224: {fileID: 1363875041}
   - 222: {fileID: 1363875043}
   - 114: {fileID: 1363875042}
+  - 114: {fileID: 1363875044}
   m_Layer: 5
   m_Name: Dialogue Text
   m_TagString: Untagged
@@ -14407,8 +14415,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 356, y: 156}
-  m_SizeDelta: {x: 672, y: 134}
+  m_AnchoredPosition: {x: 351, y: 149}
+  m_SizeDelta: {x: 619, y: 174}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1363875042
 MonoBehaviour:
@@ -14431,8 +14439,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b4144e1e82b631f40814f62b91d5154d, type: 3}
-    m_FontSize: 24
-    m_FontStyle: 2
+    m_FontSize: 25
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -14455,6 +14463,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1363875040}
+--- !u!114 &1363875044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1363875040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1373735020
 GameObject:
   m_ObjectHideFlags: 0
@@ -15480,15 +15502,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.534}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 917b53b69cd01254a8e334ee1490699c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

@@ -38,6 +38,9 @@ public class UI : MonoBehaviour {
     public static GameObject InnerDialogueObject;
     public static GameObject InnerDialogueContButton;
     public static GameObject InnerDialogueExitButton;
+    public static bool InnerDialogueAlternate = false;
+    public static string InnerDialogueName1;
+    public static string InnerDialogueName2;
 
     public static int DialogueMemoryCount = 0;
     public static int DialogueMemoryTotal = 0;
@@ -506,11 +509,14 @@ public class UI : MonoBehaviour {
 
     //Inner dialogue
     #region
-    public static void InnerDialogue(List<string> innerDialogueText, string name) {
+    public static void InnerDialogue(List<string> innerDialogueText, string name1, string name2) {
         MenuOpen = true;
         allowExit = false;
+        InnerDialogueAlternate = true;
+        InnerDialogueName1 = name1;
+        InnerDialogueName2 = name2;
         innerDialogueTextSequence = innerDialogueText;
-        InnerDialogueName.text = name + ":";
+        InnerDialogueName.text = name1 + ":";
         InnerDialogueText.text = "\"" + innerDialogueTextSequence[0] + "\"";
         innerDialogueTextSequence.RemoveAt(0);
         if (innerDialogueTextSequence.Count > 0) {
@@ -527,6 +533,17 @@ public class UI : MonoBehaviour {
     }
 
     public void ContinueInnerDialogueText() {
+        InnerDialogueAlternate = !InnerDialogueAlternate;
+        if (InnerDialogueAlternate) {
+            InnerDialogueName.text = InnerDialogueName1 + ":";
+            InnerDialogueName.fontStyle = FontStyle.Bold;
+            InnerDialogueText.fontStyle = FontStyle.Normal;
+        }
+        else {
+            InnerDialogueName.text = InnerDialogueName2 + ":";
+            InnerDialogueText.fontStyle = FontStyle.Italic;
+            InnerDialogueName.fontStyle = FontStyle.Italic;
+        }
         InnerDialogueText.text = "\"" + innerDialogueTextSequence[0] + "\"";
         innerDialogueTextSequence.RemoveAt(0);
         if (innerDialogueTextSequence.Count > 0) {
@@ -555,18 +572,18 @@ public class UI : MonoBehaviour {
         Progression.EndingType end = Progression.GetEndingType();
         if(end == Progression.EndingType.True) {
             EndingImage.sprite = Resources.Load<Sprite>("EndImage/heaven");
-            EndingText.text = "\"Welcome to Heaven\"";
+            EndingText.text = "\"Welcome to Heaven\" You earned it!";
             EndingImage.gameObject.SetActive(true);
         }
         else if(end == Progression.EndingType.Neutral) {
             EndingImage.color = Color.black;
-            EndingText.text = "\"Looks like you will need to start over to do better...\"";
+            EndingText.text = "\"Looks like you will need to start over to do better... Try restarting and see if you can get the good ending!\"";
             EndingImage.gameObject.SetActive(true);
         }
         else {
             //Bad ending
             EndingImage.sprite = Resources.Load<Sprite>("EndImage/hell");
-            EndingText.text = "\"Welcome to Hell\"";
+            EndingText.text = "\"Welcome to Hell\" You'd better try to be nicer next time...";
             EndingImage.gameObject.SetActive(true);
         }
     }
