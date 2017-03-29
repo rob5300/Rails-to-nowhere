@@ -38,6 +38,9 @@ public class UI : MonoBehaviour {
     public static GameObject InnerDialogueObject;
     public static GameObject InnerDialogueContButton;
     public static GameObject InnerDialogueExitButton;
+    public static bool InnerDialogueAlternate = false;
+    public static string InnerDialogueName1;
+    public static string InnerDialogueName2;
 
     public static int DialogueMemoryCount = 0;
     public static int DialogueMemoryTotal = 0;
@@ -231,13 +234,14 @@ public class UI : MonoBehaviour {
         allowExit = true;
         DialogueNode node = DialogueController.GetNode(npc.InitialDialogueNodeKey);
         dialogueUI.MainTextArea.text = node.Text;
+        dialogueUI.NameText.text = npc.Name;
         //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
         ShowResponses(node);
 
         dialogueUI.Parent.SetActive(true);
     }
 
-    public static void NewDialogueConversation(DialogueNode node, bool canExit) {
+    public static void NewDialogueConversation(DialogueNode node, string Name, bool canExit) {
         allowExit = canExit;
         if (!allowExit) {
             dialogueUI.ExitButton.SetActive(false);
@@ -251,6 +255,12 @@ public class UI : MonoBehaviour {
         dialogueUIOpen = true;
         MenuOpen = true;
         dialogueUI.MainTextArea.text = node.Text;
+        if (Name == "" || Name == null) {
+            dialogueUI.NameText.text = "???:";
+        }
+        else {
+            dialogueUI.NameText.text = Name;
+        }
         //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
         ShowResponses(node);
 
@@ -288,13 +298,11 @@ public class UI : MonoBehaviour {
         //If the first node response key contains a #, then its a special event for the ui to handle.
         if (currentNode.ResponseNodes.Count > 0) {
             if (currentNode.ResponseNodes[0].Contains("#")) {
-                if (currentNode.ResponseNodes[0].Contains("#")) {
-                    button = (GameObject)Instantiate(dialogueUI.ResponseButton, dialogueUI.ResponseButtonArea.transform);
-                    responseButtons.Add(button);
-                    button.GetComponent<Button>().GetComponentInChildren<Text>().text = "[View Cutscene]";
-                    button.GetComponent<UIEventFowarder>().NodeEvent += DialogueController.GetEventNodeDelegate(currentNode.ResponseNodes[0]);
-                    button.SetActive(true);
-                }
+                button = (GameObject)Instantiate(dialogueUI.ResponseButton, dialogueUI.ResponseButtonArea.transform);
+                responseButtons.Add(button);
+                button.GetComponent<Button>().GetComponentInChildren<Text>().text = "...";
+                button.GetComponent<UIEventFowarder>().NodeEvent += DialogueController.GetEventNodeDelegate(currentNode.ResponseNodes[0]);
+                button.SetActive(true);
             }
             //response nodes are normal, get responses normally.
             else {
@@ -490,7 +498,7 @@ public class UI : MonoBehaviour {
         CutsceneObject.SetActive(false);
         CutsceneSprites = new List<Sprite>();
         if(PostCutSceneDialogueNodeKey != null && PostCutSceneDialogueNodeKey != "") {
-            NewDialogueConversation(DialogueController.GetNode(PostCutSceneDialogueNodeKey), false);
+            NewDialogueConversation(DialogueController.GetNode(PostCutSceneDialogueNodeKey), "Yuu", false);
         }
         else {
             UnlockPlayerController();
@@ -501,11 +509,14 @@ public class UI : MonoBehaviour {
 
     //Inner dialogue
     #region
-    public static void InnerDialogue(List<string> innerDialogueText, string name) {
+    public static void InnerDialogue(List<string> innerDialogueText, string name1, string name2) {
         MenuOpen = true;
         allowExit = false;
+        InnerDialogueAlternate = true;
+        InnerDialogueName1 = name1;
+        InnerDialogueName2 = name2;
         innerDialogueTextSequence = innerDialogueText;
-        InnerDialogueName.text = name + ":";
+        InnerDialogueName.text = name1 + ":";
         InnerDialogueText.text = "\"" + innerDialogueTextSequence[0] + "\"";
         innerDialogueTextSequence.RemoveAt(0);
         if (innerDialogueTextSequence.Count > 0) {
@@ -522,6 +533,17 @@ public class UI : MonoBehaviour {
     }
 
     public void ContinueInnerDialogueText() {
+        InnerDialogueAlternate = !InnerDialogueAlternate;
+        if (InnerDialogueAlternate) {
+            InnerDialogueName.text = InnerDialogueName1 + ":";
+            InnerDialogueName.fontStyle = FontStyle.Bold;
+            InnerDialogueText.fontStyle = FontStyle.Normal;
+        }
+        else {
+            InnerDialogueName.text = InnerDialogueName2 + ":";
+            InnerDialogueText.fontStyle = FontStyle.Italic;
+            InnerDialogueName.fontStyle = FontStyle.Italic;
+        }
         InnerDialogueText.text = "\"" + innerDialogueTextSequence[0] + "\"";
         innerDialogueTextSequence.RemoveAt(0);
         if (innerDialogueTextSequence.Count > 0) {
@@ -550,18 +572,18 @@ public class UI : MonoBehaviour {
         Progression.EndingType end = Progression.GetEndingType();
         if(end == Progression.EndingType.True) {
             EndingImage.sprite = Resources.Load<Sprite>("EndImage/heaven");
-            EndingText.text = "\"Welcome to Heaven\"";
+            EndingText.text = "\"Welcome to Heaven\" You earned it!";
             EndingImage.gameObject.SetActive(true);
         }
         else if(end == Progression.EndingType.Neutral) {
             EndingImage.color = Color.black;
-            EndingText.text = "\"Looks like you will need to start over to do better...\"";
+            EndingText.text = "\"Looks like you will need to start over to do better... Try restarting and see if you can get the good ending!\"";
             EndingImage.gameObject.SetActive(true);
         }
         else {
             //Bad ending
             EndingImage.sprite = Resources.Load<Sprite>("EndImage/hell");
-            EndingText.text = "\"Welcome to Hell\"";
+            EndingText.text = "\"Welcome to Hell\" You'd better try to be nicer next time...";
             EndingImage.gameObject.SetActive(true);
         }
     }
@@ -592,10 +614,11 @@ public class UI : MonoBehaviour {
 [System.Serializable]
 public struct DialogueUI {
     public GameObject Parent;
-    public InputField MainTextArea;
+    public Text MainTextArea;
     public GameObject ResponseButtonArea;
     public GameObject ResponseButton;
     public GameObject ExitButton;
+    public Text NameText;
 }
 
 [System.Serializable]

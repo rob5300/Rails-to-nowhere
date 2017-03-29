@@ -9,6 +9,6 @@
   <Health>2</Health>
   <MemoryResponseTotal>0</MemoryResponseTotal>
   <MemoryItemKey></MemoryItemKey>
-  <InitialDialogueNodeKey>jonanna.first</InitialDialogueNodeKey>
+  <InitialDialogueNodeKey>johanna.first</InitialDialogueNodeKey>
   <ModelPrefab>Johanna_Starr_Unity</ModelPrefab>
 </Inject>

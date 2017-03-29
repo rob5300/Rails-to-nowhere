@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public float InteractDistance;
     public MonoBehaviour Controller;
     public BlurOptimized blurEffect;
+    public Animator handsAnimator;
 
     public delegate void WorldEvent(GameObject eventObject);
     public event WorldEvent InteractEvent;

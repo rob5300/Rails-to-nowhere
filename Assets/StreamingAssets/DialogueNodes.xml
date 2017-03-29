@@ -2214,7 +2214,9 @@
       <Key>neutral.one</Key>
       <ResponseText>Mistakes? I...don’t know.   (Inner voice: After going through this train and seeing people from my past, I started to doubt my resolve. I no longer knew what was right or wrong. While my actions seemed justified at that time, after being faced with the aftermath of my actions, I started to feel guilty. Still, I didn’t know whether I truly wanted to change anything.) </ResponseText>
       <IsMemoryResponse>false</IsMemoryResponse>
-      <ResponseNodes />
+      <ResponseNodes>
+        <string>#ending</string>
+      </ResponseNodes>
     </Value>
   </KeyValuePairOfStringDialogueNode>
   <KeyValuePairOfStringDialogueNode>

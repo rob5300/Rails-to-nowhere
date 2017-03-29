@@ -9,5 +9,5 @@
   <MemoryResponseTotal>4</MemoryResponseTotal>
   <MemoryItemKey>memory.matilda</MemoryItemKey>
   <InitialDialogueNodeKey>matilda.first</InitialDialogueNodeKey>
-  <ModelPrefab>Arleana_Unity</ModelPrefab>
+  <ModelPrefab>Girl FBX</ModelPrefab>
 </Inject>
