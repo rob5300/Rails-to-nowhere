@@ -9,5 +9,5 @@
   <MemoryResponseTotal>3</MemoryResponseTotal>
   <MemoryItemKey>memory.arleana</MemoryItemKey>
   <InitialDialogueNodeKey>arleana.first</InitialDialogueNodeKey>
-  <ModelPrefab>Arleana_Unity</ModelPrefab>
+  <ModelPrefab>Girl FBX</ModelPrefab>
 </Inject>

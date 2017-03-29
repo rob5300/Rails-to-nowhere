@@ -20860,7 +20860,7 @@ MonoBehaviour:
   initialDialogueNodeKey: arleana.first
   memoryResponseTotal: 3
   memoryItemKey: memory.arleana
-  modelPrefab: {fileID: 1000013122798736, guid: 9986b141feaf14e48ada3524eb2b46d6,
+  modelPrefab: {fileID: 1000013261881990, guid: b2d57fd71f072324b9323e677f934658,
     type: 2}
   essential: 0
   enablePuzzlesNode: arleana.third.ok
@@ -20882,7 +20882,7 @@ MonoBehaviour:
   initialDialogueNodeKey: matilda.first
   memoryResponseTotal: 4
   memoryItemKey: memory.matilda
-  modelPrefab: {fileID: 1000013122798736, guid: 9986b141feaf14e48ada3524eb2b46d6,
+  modelPrefab: {fileID: 1000013261881990, guid: b2d57fd71f072324b9323e677f934658,
     type: 2}
   essential: 0
   enablePuzzlesNode: matilda.fourth.try
@@ -21101,7 +21101,7 @@ MonoBehaviour:
   _name: Johanna Starr
   _interactable: 1
   _health: 2
-  initialDialogueNodeKey: jonanna.first
+  initialDialogueNodeKey: johanna.first
   memoryResponseTotal: 0
   memoryItemKey: 
   modelPrefab: {fileID: 1000013322545598, guid: e7bd2e6e38088bd41b9a6aedb227acb4,
