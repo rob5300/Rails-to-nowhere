@@ -32,6 +32,7 @@ public class CarriagePuzzleController : MonoBehaviour {
         if (type == PuzzleType.T2D) {
             if ((Completed2DPuzzles + 1) < Puzzle2DTotal) {
                 Completed2DPuzzles++;
+                Progression.PuzzlesComplete++;
             }
             else {
                 _allpuzzle2DDone = true;
@@ -40,6 +41,7 @@ public class CarriagePuzzleController : MonoBehaviour {
         else if (type == PuzzleType.T3D) {
             if ((Completed3DPuzzles + 1) < Puzzle3DTotal) {
                 Completed3DPuzzles++;
+                Progression.PuzzlesComplete++;
             }
             else {
                 _allpuzzle3DDone = true;

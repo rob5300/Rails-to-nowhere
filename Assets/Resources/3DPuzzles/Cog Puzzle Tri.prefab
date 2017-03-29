@@ -389,7 +389,7 @@ Transform:
   m_GameObject: {fileID: 1000014213963844}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 1.58, y: 2.48, z: 0.98}
-  m_LocalScale: {x: 0.5519943, y: 0.30800018, z: 0.5519939}
+  m_LocalScale: {x: 0.6646799, y: 0.37087604, z: 0.6646792}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011156502816}
@@ -448,7 +448,7 @@ Transform:
   m_Children:
   - {fileID: 4000013011126742}
   m_Father: {fileID: 4000011112722948}
-  m_RootOrder: 8
+  m_RootOrder: 2
 --- !u!4 &4000011112722948
 Transform:
   m_ObjectHideFlags: 1
@@ -456,19 +456,19 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013908844142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.00945, y: -0.16462505, z: -0.2286272}
+  m_LocalPosition: {x: -1.3330991, y: 9.435972, z: 0.66755754}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013256883284}
   - {fileID: 4000010237475152}
+  - {fileID: 4000011033820680}
   - {fileID: 4000014110403070}
   - {fileID: 4000012756539544}
   - {fileID: 4000011225674162}
   - {fileID: 4000013143300172}
   - {fileID: 4000012977162504}
   - {fileID: 4000011305682950}
-  - {fileID: 4000011033820680}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000011156502816
@@ -511,7 +511,7 @@ Transform:
   - {fileID: 4000011169470416}
   - {fileID: 4000012450502664}
   m_Father: {fileID: 4000011112722948}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!4 &4000011305682950
 Transform:
   m_ObjectHideFlags: 1
@@ -524,7 +524,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000011112722948}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!4 &4000011865135748
 Transform:
   m_ObjectHideFlags: 1
@@ -585,13 +585,13 @@ Transform:
   m_GameObject: {fileID: 1000014200560900}
   m_LocalRotation: {x: -0.062620856, y: -0, z: -0, w: 0.9980374}
   m_LocalPosition: {x: -1.555, y: 1.031, z: 1.819}
-  m_LocalScale: {x: 0.77, y: 0.77, z: 0.77}
+  m_LocalScale: {x: 0.9271894, y: 0.9271896, z: 0.9271896}
   m_LocalEulerAnglesHint: {x: -7.13, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011865135748}
   - {fileID: 4000013709615026}
   m_Father: {fileID: 4000011112722948}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &4000012977162504
 Transform:
   m_ObjectHideFlags: 1
@@ -604,7 +604,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000011112722948}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!4 &4000013011126742
 Transform:
   m_ObjectHideFlags: 1
@@ -632,7 +632,7 @@ Transform:
   - {fileID: 4000010647370742}
   - {fileID: 4000010674768418}
   m_Father: {fileID: 4000011112722948}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!4 &4000013256883284
 Transform:
   m_ObjectHideFlags: 1
@@ -674,7 +674,7 @@ Transform:
   - {fileID: 4000010372028850}
   - {fileID: 4000011900393800}
   m_Father: {fileID: 4000011112722948}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &4000014225729718
 Transform:
   m_ObjectHideFlags: 1
@@ -1218,7 +1218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Cog
   Interactable: 1
-  Size: 3
+  Size: 4
   MountPosition: {fileID: 4000013709615026}
   Mounted: 0
 --- !u!114 &114000010379476240
@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MountPosition: {fileID: 4000011156502816}
   ParentPuzzle: {fileID: 114000010847687974}
-  Size: 3
+  Size: 4
   AttachedCog: {fileID: 0}
   HasCog: 0
 --- !u!114 &114000010653741518

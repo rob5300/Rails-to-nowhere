@@ -6,6 +6,7 @@ public class InputPad : MonoBehaviour {
 
     public Text OutputText;
     public string currentlyEnteredCode = "";
+    public Door doorToOpen;
 
     public void Start() {
         OutputText.text = "****";
@@ -22,6 +23,7 @@ public class InputPad : MonoBehaviour {
         if(Convert.ToInt32(currentlyEnteredCode) == Progression.Code) {
             //Code matches.
             OutputText.color = Color.green;
+            doorToOpen.Open();
         }
         else {
             OutputText.color = Color.red;

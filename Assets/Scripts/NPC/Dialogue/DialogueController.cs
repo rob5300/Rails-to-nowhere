@@ -30,6 +30,7 @@ public static class DialogueController {
                 Resources.Load<Sprite>("EndCutscene/scene4"),
                 Resources.Load<Sprite>("EndCutscene/scene5") }, "ending.postcutscene");
         });
+        _eventNodes.Add("#ending", delegate () { UI.Ending(); });
         LoadDictionary();
     }
 
@@ -79,6 +80,8 @@ public static class DialogueController {
     }
 
     public static void LoadDictionary() {
+        _nodeLibrary = new Dictionary<string, DialogueNode>();
+
         FileInfo info = new FileInfo(Application.streamingAssetsPath.Replace('/', '\\') + "\\" + "DialogueNodes.xml");
         List<KeyValuePair<string, DialogueNode>> nodeList = new List<KeyValuePair<string, DialogueNode>>().DeserialiseSingularNonGameObject(info.FullName);
         _nodeLibrary = new Dictionary<string, DialogueNode>();

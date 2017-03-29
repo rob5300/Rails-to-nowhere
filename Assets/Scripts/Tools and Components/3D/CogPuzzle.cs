@@ -8,7 +8,8 @@ public class CogPuzzle : Puzzle {
     public static void Load3DPuzzlePrefabs() {
         PuzzleList = new List<GameObject>(){
             Resources.Load<GameObject>("3DPuzzles/Cog Puzzle"),
-            Resources.Load<GameObject>("3DPuzzles/Cog Puzzle Tri")
+            Resources.Load<GameObject>("3DPuzzles/Cog Puzzle Tri"),
+            Resources.Load<GameObject>("3DPuzzles/Cog Puzzle Tri 2")
         };
     }
 

@@ -36,7 +36,11 @@ public class Progression {
         codeDigitsGivenOut++;
         if (codeDigitsGivenOut > 4) codeDigitsGivenOut = 5;
         //I cheat and return the value after incrementing the codeDigitsGivenOut int, soo i remove 1 to compensate to return the correct digit.
-        return Convert.ToInt32(code.ToString().ToCharArray()[codeDigitsGivenOut - 1]);
+        string stringcode = Code.ToString();
+        char[] codechararray = stringcode.ToCharArray();
+
+        int toreturn = Convert.ToInt32(codechararray[codeDigitsGivenOut - 1].ToString());
+        return toreturn;
     }
 
     public static EndingType GetEndingType() {
