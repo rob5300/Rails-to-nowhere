@@ -65,8 +65,9 @@ public class LevelGenerator : MonoBehaviour {
         GameObject toAddCandidate;
         StoryNPC storyNPCCandidate;
         FillerNPC fillerNPCCandidate;
-        //Select random carriages and place into list.
-        while (_carriagesToPlace.Count < TotalCarriageAmount) {
+		//Select random carriages and place into list.
+		_2DPuzzlesToPlace = Get2DPuzzles();
+		while (_carriagesToPlace.Count < TotalCarriageAmount) {
             counter++;
             //The logic here is moved to a method to allow the filler carriage count to be 0. This avoids a DevideByZero.
             if (StoryToFillerCalc()) {
@@ -78,7 +79,7 @@ public class LevelGenerator : MonoBehaviour {
                 //_carriagesToPlace.Add(Resources.Load<GameObject>("Carriages/" + storyNPCCandidate.Carriage));
                 //Select a 3d Puzzle to use.
                 Select3DPuzzle();
-				_2DPuzzlesToPlace.Add(Select2DPuzzle());
+
                 storyCount++;
                 storyPlaced++;
             }
@@ -132,9 +133,9 @@ public class LevelGenerator : MonoBehaviour {
         }
     }
 
-	private GameObject Select2DPuzzle()
+	private List<GameObject> Get2DPuzzles()
 	{
-		 return Resources.Load<GameObject>("2DPuzzles/Electrical Puzzle");
+		return Resources.LoadAll<GameObject>("2DPuzzles").Where(x => x.name != "Electrical Puzzle Open").OrderBy(x => x.name).ToList();
 	}
 
     private StoryNPC SelectStoryNPC() {
