@@ -11,6 +11,7 @@ public class NPCInteract : MonoBehaviour {
     Vector3 fowardDirection;
     RaycastHit npcHit;
     float timeSinceHit = 0f;
+    NPC npcToDamage;
 
     void Start() {
         Player.player.InteractEvent += OnRaycastHit;
@@ -36,12 +37,18 @@ public class NPCInteract : MonoBehaviour {
                     if (npc == null) npc = npcHit.collider.GetComponentInParent<NPC>();
                     if (npc != null && (Time.time - timeSinceHit) > NPCHitDelay) {
                         //If we have hit an npc and the time delay is passed, damage them.
-                        npc.Damage(1);
+                        npcToDamage = npc;
+                        Invoke("DamageNPC", 0.5f);
+                        Player.player.handsAnimator.SetTrigger("Punch");
                         timeSinceHit = Time.time;
                     }
                 }
             }
         }
+    }
+
+    void DamageNPC() {
+        npcToDamage.Damage(1);
     }
 }
 

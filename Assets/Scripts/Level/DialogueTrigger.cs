@@ -6,12 +6,13 @@ public class DialogueTrigger : MonoBehaviour {
 
     public bool hasbeenactivated = false;
     public bool CanExitDialogue = true;
+    public string Name;
     public string dialogueNode = "";
 
     private void OnTriggerEnter(Collider other) {
         if(other.tag == "Player" && !hasbeenactivated) {
             hasbeenactivated = true;
-            UI.NewDialogueConversation(DialogueController.GetNode(dialogueNode), CanExitDialogue);
+            UI.NewDialogueConversation(DialogueController.GetNode(dialogueNode), Name, CanExitDialogue);
         }
     }
 

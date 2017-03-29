@@ -231,13 +231,14 @@ public class UI : MonoBehaviour {
         allowExit = true;
         DialogueNode node = DialogueController.GetNode(npc.InitialDialogueNodeKey);
         dialogueUI.MainTextArea.text = node.Text;
+        dialogueUI.NameText.text = npc.Name;
         //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
         ShowResponses(node);
 
         dialogueUI.Parent.SetActive(true);
     }
 
-    public static void NewDialogueConversation(DialogueNode node, bool canExit) {
+    public static void NewDialogueConversation(DialogueNode node, string Name, bool canExit) {
         allowExit = canExit;
         if (!allowExit) {
             dialogueUI.ExitButton.SetActive(false);
@@ -251,6 +252,12 @@ public class UI : MonoBehaviour {
         dialogueUIOpen = true;
         MenuOpen = true;
         dialogueUI.MainTextArea.text = node.Text;
+        if (Name == "" || Name == null) {
+            dialogueUI.NameText.text = "???:";
+        }
+        else {
+            dialogueUI.NameText.text = Name;
+        }
         //Currently there is no handeling for if the text overlaps the box. In future there will be handeling for cycling through the same text contents using a buffer.
         ShowResponses(node);
 
@@ -288,13 +295,11 @@ public class UI : MonoBehaviour {
         //If the first node response key contains a #, then its a special event for the ui to handle.
         if (currentNode.ResponseNodes.Count > 0) {
             if (currentNode.ResponseNodes[0].Contains("#")) {
-                if (currentNode.ResponseNodes[0].Contains("#")) {
-                    button = (GameObject)Instantiate(dialogueUI.ResponseButton, dialogueUI.ResponseButtonArea.transform);
-                    responseButtons.Add(button);
-                    button.GetComponent<Button>().GetComponentInChildren<Text>().text = "[View Cutscene]";
-                    button.GetComponent<UIEventFowarder>().NodeEvent += DialogueController.GetEventNodeDelegate(currentNode.ResponseNodes[0]);
-                    button.SetActive(true);
-                }
+                button = (GameObject)Instantiate(dialogueUI.ResponseButton, dialogueUI.ResponseButtonArea.transform);
+                responseButtons.Add(button);
+                button.GetComponent<Button>().GetComponentInChildren<Text>().text = "...";
+                button.GetComponent<UIEventFowarder>().NodeEvent += DialogueController.GetEventNodeDelegate(currentNode.ResponseNodes[0]);
+                button.SetActive(true);
             }
             //response nodes are normal, get responses normally.
             else {
@@ -490,7 +495,7 @@ public class UI : MonoBehaviour {
         CutsceneObject.SetActive(false);
         CutsceneSprites = new List<Sprite>();
         if(PostCutSceneDialogueNodeKey != null && PostCutSceneDialogueNodeKey != "") {
-            NewDialogueConversation(DialogueController.GetNode(PostCutSceneDialogueNodeKey), false);
+            NewDialogueConversation(DialogueController.GetNode(PostCutSceneDialogueNodeKey), "Yuu", false);
         }
         else {
             UnlockPlayerController();
@@ -592,10 +597,11 @@ public class UI : MonoBehaviour {
 [System.Serializable]
 public struct DialogueUI {
     public GameObject Parent;
-    public InputField MainTextArea;
+    public Text MainTextArea;
     public GameObject ResponseButtonArea;
     public GameObject ResponseButton;
     public GameObject ExitButton;
+    public Text NameText;
 }
 
 [System.Serializable]

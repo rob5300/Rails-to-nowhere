@@ -17,6 +17,7 @@ public class Progression {
     public static int TotalProgressPercantage;
 
     private static int code;
+    private static string stringCode;
     private static int codeDigitsGivenOut = 0;
 
     public static int Code {
@@ -28,7 +29,19 @@ public class Progression {
     public static void GenerateKeyCode() {
         System.Random rand = new System.Random();
         code = rand.Next(9999);
-        Debug.Log("Code: " + code);
+        stringCode = code.ToString();
+        //Incase the number is not 4 digits long, we add on zeroes.
+        //An alternative is to ensure the random number is between 1000 and 9999.
+        if (code < 1000) {
+            stringCode = "0" + code.ToString();
+        }
+        if(code < 100) {
+            stringCode = "00" + code.ToString();
+        }
+        if(code < 10) {
+            stringCode = "000" + code.ToString();
+        }
+        Debug.Log("Code: " + stringCode);
     }
 
     //returns the next digit to add to a memory from the code.
@@ -36,11 +49,8 @@ public class Progression {
         codeDigitsGivenOut++;
         if (codeDigitsGivenOut > 4) codeDigitsGivenOut = 5;
         //I cheat and return the value after incrementing the codeDigitsGivenOut int, soo i remove 1 to compensate to return the correct digit.
-        string stringcode = Code.ToString();
-        char[] codechararray = stringcode.ToCharArray();
-
-        int toreturn = Convert.ToInt32(codechararray[codeDigitsGivenOut - 1].ToString());
-        return toreturn;
+        return Convert.ToInt32(stringCode.ToCharArray()[codeDigitsGivenOut - 1].ToString());
+        //We must convert back to a string from char to ensure a literal conversion.
     }
 
     public static EndingType GetEndingType() {
