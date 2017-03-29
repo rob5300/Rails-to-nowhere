@@ -1144,7 +1144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd507c868ab0c946948f8cc69f358c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggle: {fileID: 1580696715}
 --- !u!1 &133115010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,7 +2635,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd507c868ab0c946948f8cc69f358c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggle: {fileID: 1656044809}
 --- !u!1 &303052050
 GameObject:
   m_ObjectHideFlags: 0
@@ -8774,6 +8772,7 @@ GameObject:
   - 20: {fileID: 860277019}
   - 114: {fileID: 860277020}
   - 114: {fileID: 860277021}
+  - 114: {fileID: 860277022}
   m_Layer: 0
   m_Name: Hands Camera
   m_TagString: Untagged
@@ -8834,7 +8833,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 860277017}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdc35e0180670ab4e8d2f9439137791f, type: 3}
   m_Name: 
@@ -8889,6 +8888,21 @@ MonoBehaviour:
   blurIterations: 2
   blurType: 0
   blurShader: {fileID: 4800000, guid: f9d5fa183cd6b45eeb1491f74863cd91, type: 3}
+--- !u!114 &860277022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 860277017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96784631d46dc4b4cbfe66e50d1dc5db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curShader: {fileID: 4800000, guid: ffd941e6adb3951448ea7f720aac4e17, type: 3}
+  brightnessAmount: 1
+  saturationAmount: 1
+  contrastAmount: 1
 --- !u!1 &866072271
 GameObject:
   m_ObjectHideFlags: 0
@@ -16731,11 +16745,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000011141902174, guid: 1f13b205b9e56cc4cbfc5b750e61e6f8,
     type: 2}
   m_PrefabInternal: {fileID: 1580696713}
---- !u!1 &1580696715 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000010126763828, guid: 1f13b205b9e56cc4cbfc5b750e61e6f8,
-    type: 2}
-  m_PrefabInternal: {fileID: 1580696713}
 --- !u!1 &1581101645
 GameObject:
   m_ObjectHideFlags: 0
@@ -17969,11 +17978,6 @@ Prefab:
 --- !u!4 &1656044808 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011141902174, guid: 1f13b205b9e56cc4cbfc5b750e61e6f8,
-    type: 2}
-  m_PrefabInternal: {fileID: 1656044807}
---- !u!1 &1656044809 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000010126763828, guid: 1f13b205b9e56cc4cbfc5b750e61e6f8,
     type: 2}
   m_PrefabInternal: {fileID: 1656044807}
 --- !u!1 &1660699743

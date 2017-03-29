@@ -556,6 +556,7 @@ public class UI : MonoBehaviour {
         else if(end == Progression.EndingType.Neutral) {
             EndingImage.color = Color.black;
             EndingText.text = "\"Looks like you will need to start over to do better...\"";
+            EndingImage.gameObject.SetActive(true);
         }
         else {
             //Bad ending

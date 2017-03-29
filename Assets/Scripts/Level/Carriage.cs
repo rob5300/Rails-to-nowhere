@@ -66,7 +66,6 @@ public class Carriage : MonoBehaviour {
 
     public void OnNPCDeath(NPC npc) {
         UI.ShowMessage(npc.Name + " died. The door mysteriously opened itself...");
-        Progression.NPCsAlive--;
         CarriageDoor.Open();
     }
 

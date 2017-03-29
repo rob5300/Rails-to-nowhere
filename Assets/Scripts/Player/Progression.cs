@@ -64,6 +64,7 @@ public class Progression {
 
     public static void SetTotalValues(int totalNPCs, int totalMemories, int totalPuzzles) {
         TotalNPCs = totalNPCs;
+        NPCsAlive = totalNPCs;
         TotalMemories = totalMemories;
         TotalPuzzles = totalPuzzles;
     }
