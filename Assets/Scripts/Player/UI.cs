@@ -466,6 +466,7 @@ public class UI : MonoBehaviour {
 
     public static void Hide2DPuzzle() {
         if (puzzle2DOpen) {
+            TwoDimensionalUIController.UI.gameObject.SetActive(false);
             LockCursor();
             UnlockPlayerController();
             puzzle2D.SetActive(false);

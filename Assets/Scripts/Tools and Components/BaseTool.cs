@@ -14,7 +14,7 @@ public abstract class BaseTool : MonoBehaviour {
 	protected Vector3 _mouseInWorldSpace; //this is in case a method is overidden that needs this value
 	private TwoDimensionalUIController _2DUI;
 
-	/// <summary>
+	public Transform Child;
 	/// The prefab to be spawned by the BaseTool instance.
 	/// </summary>
 	public GameObject Prefab
@@ -54,9 +54,8 @@ public abstract class BaseTool : MonoBehaviour {
 	{
         _2DUI = TwoDimensionalUIController.UI;
 		_blocks = GameObject.FindGameObjectWithTag("Board").transform.GetComponentsInChildren<EngComponent>().ToList();
-		Transform child = GameObject.FindGameObjectWithTag("Board").transform.GetChild(0);
 		_boardAreas = new List<GameObject>();
-		foreach (Transform childChild in child)
+		foreach (Transform childChild in Child)
 		{
 			_boardAreas.Add(childChild.gameObject);
 		}
