@@ -55,12 +55,12 @@ public class Progression {
 
     public static EndingType GetEndingType() {
 		//Calculate total percentage.
-		decimal npcResult = NPCsAlive / TotalNPCs;
-		decimal puzzleResult = PuzzlesComplete / TotalPuzzles;
-		decimal memoryResult = MemoriesGained / 4;
+		decimal npcResult = (NPCsAlive / TotalNPCs) * 100;
+		decimal puzzleResult = (PuzzlesComplete / TotalPuzzles) * 100;
+		decimal memoryResult = (MemoriesGained / 4) * 100;
 		decimal progressionResult = (npcResult + puzzleResult + memoryResult) / 3;
 
-        if(progressionResult == 100) {
+        if(progressionResult >= 99) {
             return EndingType.True;
         }
 		else if(progressionResult == 0) {

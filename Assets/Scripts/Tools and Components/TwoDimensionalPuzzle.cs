@@ -18,9 +18,14 @@ public class TwoDimensionalPuzzle : Puzzle {
 	void Start()
 	{
 		_components = GetComponentsInChildren<EngComponent>().ToList();
-		TwoDimensionalUIController.UI.gameObject.SetActive(true);
-        TwoDimensionalUIController.UI.FindComponents();
+
     }
+
+	void OnEnable()
+	{
+		TwoDimensionalUIController.UI.gameObject.SetActive(true);
+		TwoDimensionalUIController.UI.FindComponents();
+	}
 
 	void Update()
 	{
@@ -41,6 +46,7 @@ public class TwoDimensionalPuzzle : Puzzle {
 				if (actualBlock.Current >= RequiredPower)
 				{
 					PuzzleDone(CarriagePuzzleController.PuzzleType.T2D);
+					UI.ShowMessage("The circuit appears to be conducting electricity once more!");
                     TwoDimensionalUIController.UI.ValidateInventory();
                     UI.Hide2DPuzzle();
 				}

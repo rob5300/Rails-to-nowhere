@@ -150,5 +150,5 @@ MonoBehaviour:
   Name: Battery
   Interactable: 1
   ItemID: puzzle.battery
-  Quantity: 10
+  Quantity: 6
   Power: 100

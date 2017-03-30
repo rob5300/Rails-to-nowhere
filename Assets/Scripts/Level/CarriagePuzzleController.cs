@@ -36,6 +36,7 @@ public class CarriagePuzzleController : MonoBehaviour {
             }
             else {
                 _allpuzzle2DDone = true;
+				Progression.PuzzlesComplete++;
             }
         }
         else if (type == PuzzleType.T3D) {
@@ -45,6 +46,7 @@ public class CarriagePuzzleController : MonoBehaviour {
             }
             else {
                 _allpuzzle3DDone = true;
+				Progression.PuzzlesComplete++;
             }
         }
 

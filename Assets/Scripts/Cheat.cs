@@ -11,5 +11,12 @@ public class Cheat : MonoBehaviour {
             Carriage.CarriageList[Carriage.CarriageList.Count - 1].SetActive(true);
             Player.player.transform.position = new Vector3(217f, 2.2f, 0.27f);
         }
+		if (Input.GetKeyDown(KeyCode.M)) {
+			Carriage.CarriageList[Carriage.CarriageList.Count - 1].SetActive(true);
+			Player.player.transform.position = new Vector3(217f, 2.2f, 0.27f);
+			Progression.NPCsAlive = 7;
+			Progression.MemoriesGained = 4;
+			Progression.PuzzlesComplete = 8;
+		}
 	}
 }
