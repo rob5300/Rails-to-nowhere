@@ -6286,7 +6286,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011794161090, guid: c6275fa7ee09f5e479cda7da2e0def44, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.599396
+      value: -4.48
       objectReference: {fileID: 0}
     - target: {fileID: 4000011794161090, guid: c6275fa7ee09f5e479cda7da2e0def44, type: 2}
       propertyPath: m_LocalPosition.y
@@ -6294,7 +6294,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011794161090, guid: c6275fa7ee09f5e479cda7da2e0def44, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 4.524702
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 4000011794161090, guid: c6275fa7ee09f5e479cda7da2e0def44, type: 2}
       propertyPath: m_LocalRotation.x
@@ -14401,7 +14401,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 887145980}
         m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
@@ -14794,7 +14794,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000013815758494, guid: fc1f17083fc8f884988bcc9f72704c2d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.954862
+      value: -3.86
       objectReference: {fileID: 0}
     - target: {fileID: 4000013815758494, guid: fc1f17083fc8f884988bcc9f72704c2d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -15191,6 +15191,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000011826145736, guid: f2166decdce26d94c86ef493aff91ce9, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014187128028, guid: f2166decdce26d94c86ef493aff91ce9,
+        type: 2}
+      propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

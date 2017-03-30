@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012152076716}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.015, y: 3.253, z: 5.294}
+  m_LocalPosition: {x: -3.86, y: 3.1524525, z: 4.297284}
   m_LocalScale: {x: 5.326685, y: 5.3266883, z: 5.3266883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -150,5 +150,5 @@ MonoBehaviour:
   Name: Solder Wire Coil
   Interactable: 1
   ItemID: puzzle.solderwire
-  Quantity: 4
+  Quantity: 20
   TileAmount: 5
