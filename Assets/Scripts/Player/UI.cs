@@ -595,7 +595,8 @@ public class UI : MonoBehaviour {
         UnlockCursor();
         LockPlayerController();
         Progression.EndingType end = Progression.GetEndingType();
-        if(end == Progression.EndingType.True) {
+        //Progression.EndingType end = Progression.EndingType.True;
+        if (end == Progression.EndingType.True) {
             EndingImage.sprite = Resources.Load<Sprite>("EndImage/heaven");
             AudioSource.PlayClipAtPoint(HeavenAudio, Camera.main.transform.position);
             EndingText.text = "\"Gaining my memories back was more painful than I thought. My mistakes and my crimes towards other people as well as towards myself came back to haunt me. Oblivion was much too high of a reward for me to deserve, so I was left to repent for eternity.However, as tormenting as the memories were sometimes, they gave me comfort.They assured me that one day, those who committed crimes against me would also receive their punishment.After all, Justice was not dead\"";
@@ -603,14 +604,14 @@ public class UI : MonoBehaviour {
         }
         else if(end == Progression.EndingType.Neutral) {
             EndingImage.color = Color.black;
-            EndingText.text = "People who do not forgive do not deserve to be forgiven.";
+            EndingText.text = "After going through this train and seeing people from my past, I started to doubt my resolve. I no longer knew what was right or wrong. While my actions seemed justified at that time, after being faced with the aftermath of my actions, I started to feel guilty. Still, I didn’t know whether I truly wanted to change anything.";
             EndingImage.gameObject.SetActive(true);
         }
         else {
             //Bad ending
             AudioSource.PlayClipAtPoint(HellAudio, Camera.main.transform.position);
             EndingImage.sprite = Resources.Load<Sprite>("EndImage/hell");
-            EndingText.text = "Maybe you can refresh your mind and start anew.";
+            EndingText.text = "People who do not forgive do not deserve to be forgiven.";
             EndingImage.gameObject.SetActive(true);
         }
     }
