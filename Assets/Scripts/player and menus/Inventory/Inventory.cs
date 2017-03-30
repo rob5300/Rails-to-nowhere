@@ -61,7 +61,7 @@ public class Inventory {
     }
 
     public List<Item> GetItems() {
-        return itemSlots.Select(x => Item.GetItem(x.ItemID)).ToList();
+        return itemSlots.Where(x => x.ItemID != null && x.ItemID != string.Empty && x.ItemID != "").Select(x => Item.GetItem(x.ItemID)).ToList();
     }
 
     public List<ItemSlot> GetPopulatedItemSlots() {

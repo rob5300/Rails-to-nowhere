@@ -18,8 +18,9 @@ public class TwoDimensionalPuzzle : Puzzle {
 	void Start()
 	{
 		_components = GetComponentsInChildren<EngComponent>().ToList();
-		GameObject.Find("2D Puzzle UI").SetActive(true);
-	}
+		TwoDimensionalUIController.UI.gameObject.SetActive(true);
+        TwoDimensionalUIController.UI.FindComponents();
+    }
 
 	void Update()
 	{
@@ -40,8 +41,8 @@ public class TwoDimensionalPuzzle : Puzzle {
 				if (actualBlock.Current >= RequiredPower)
 				{
 					PuzzleDone(CarriagePuzzleController.PuzzleType.T2D);
-					GameObject.Find("2D Puzzle UI").SetActive(false);
-					UI.Hide2DPuzzle();
+                    TwoDimensionalUIController.UI.ValidateInventory();
+                    UI.Hide2DPuzzle();
 				}
 			}
 

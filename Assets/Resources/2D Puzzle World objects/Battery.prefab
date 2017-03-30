@@ -21,6 +21,9 @@ GameObject:
   - 4: {fileID: 4000011837738284}
   - 33: {fileID: 33000010414381944}
   - 23: {fileID: 23000013236967050}
+  - 54: {fileID: 54000013114498052}
+  - 65: {fileID: 65000012084037248}
+  - 114: {fileID: 114000013020996444}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -50,8 +53,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012665695298}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.044169, y: 3.632, z: 4.5851283}
-  m_LocalScale: {x: 0.46514738, y: 0.46514738, z: 0.46514738}
+  m_LocalPosition: {x: -10.642, y: 3.448, z: 4.569}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011837738284}
@@ -106,3 +109,46 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012273913710}
   m_Mesh: {fileID: 4300000, guid: cbce105bcdf22fe45afe18d1732d4503, type: 3}
+--- !u!54 &54000013114498052
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012273913710}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65000012084037248
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012273913710}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 1.049968, z: 0.6}
+  m_Center: {x: 0, y: 0.024384975, z: 0}
+--- !u!114 &114000013020996444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012273913710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0431c6310c8b0b741a9b05106779b76b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Battery
+  Interactable: 1
+  ItemID: puzzle.battery
+  Quantity: 1
+  Power: 100

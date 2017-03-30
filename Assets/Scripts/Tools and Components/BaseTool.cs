@@ -52,7 +52,7 @@ public abstract class BaseTool : MonoBehaviour {
 	/// </summary>
 	protected virtual void Start()
 	{
-		_2DUI = GameObject.Find("2D Puzzle UI").GetComponent<TwoDimensionalUIController>();
+        _2DUI = TwoDimensionalUIController.UI;
 		_blocks = GameObject.FindGameObjectWithTag("Board").transform.GetComponentsInChildren<EngComponent>().ToList();
 		Transform child = GameObject.FindGameObjectWithTag("Board").transform.GetChild(0);
 		_boardAreas = new List<GameObject>();
@@ -115,18 +115,26 @@ public abstract class BaseTool : MonoBehaviour {
 	/// <param name="position">Position is traditionally the mouse in world position. See base.Update().</param>
 	protected virtual void RemoveObject(Vector3 position)
 	{
-		GameObject closestObj = _blocks.OrderBy(x => Vector2.Distance(position, x.transform.position)).First().gameObject;
+        if (TwoDimensionalUIController.UI.Power == 0)
+        {
+            return;
+        }
+        GameObject closestObj = _blocks.OrderBy(x => Vector2.Distance(position, x.transform.position)).First().gameObject;
 		if (Vector2.Distance(closestObj.transform.position, position) < 0.2 && closestObj.tag == Prefab.tag && closestObj.name.Contains(Prefab.name))
 		{
 			_blocks.Remove(closestObj.GetComponent<EngComponent>());
 			if (Prefab.name.ToUpper().Contains("TRANSISTOR"))
 			{
-				Player.player.Inventory.TransistorCount--;
+				Player.player.Inventory.TransistorCount++;
 			}
 			else if (Prefab.name.ToUpper().Contains("RESISTOR"))
 			{
-				Player.player.Inventory.ResistorCount--;
+				Player.player.Inventory.ResistorCount++;
 			}
+            else
+            {
+                TwoDimensionalUIController.UI.SolderWireAmount++;
+            }
 			closestObj.transform.parent.GetComponent<TwoDimensionalPuzzle>()._components.Remove(closestObj.GetComponent<EngComponent>());
 			Destroy(closestObj);
 			_2DUI.Power -= 5;
@@ -147,14 +155,48 @@ public abstract class BaseTool : MonoBehaviour {
 		{
 			return;
 		}
+        if (Prefab.name.ToUpper().Contains("TRANSISTOR"))
+        {
+            if (TwoDimensionalUIController.UI.TransistorAmount == 0)
+            {
+                return;
+            }
+        }
+        else if (Prefab.name.ToUpper().Contains("RESISTOR"))
+        {
+            if (TwoDimensionalUIController.UI.ResistorAmount == 0)
+            {
+                return;
+            }
+        }
+        else if(TwoDimensionalUIController.UI.SolderWireAmount == 0)
+        {
+            return;
+        }
+        if (TwoDimensionalUIController.UI.Power == 0)
+        {
+            return;
+        }
 		if (Vector2.Distance(closestBoardObj.transform.position, position) < 0.6 && Vector2.Distance(closestBoardObj.transform.position, closestCircuitObj.transform.position) > 0.1)
 		{
-			GameObject block = Instantiate(Prefab, closestBoardObj.transform.position, closestBoardObj.transform.rotation) as GameObject;
+            if (Prefab.name.ToUpper().Contains("TRANSISTOR"))
+            {
+                Player.player.Inventory.TransistorCount--;
+            }
+            else if (Prefab.name.ToUpper().Contains("RESISTOR"))
+            {
+                Player.player.Inventory.ResistorCount--;
+            }
+            else
+            {
+                TwoDimensionalUIController.UI.SolderWireAmount--;
+            }
+            GameObject block = Instantiate(Prefab, closestBoardObj.transform.position, closestBoardObj.transform.rotation) as GameObject;
 			SpriteRenderer renderer = block.GetComponent<SpriteRenderer>();
 			renderer.sortingOrder = 101;
-			block.transform.position = new Vector3(block.transform.position.x, closestBoardObj.transform.position.y, 0.1046143f);
 			block.transform.parent = closestBoardObj.transform.parent.parent;
-			closestBoardObj.transform.parent.parent.GetComponent<TwoDimensionalPuzzle>()._components.Add(block.GetComponent<BaseCircuit>());
+            block.transform.position = new Vector3(block.transform.position.x, closestBoardObj.transform.position.y, closestBoardObj.transform.position.z-1);
+            closestBoardObj.transform.parent.parent.GetComponent<TwoDimensionalPuzzle>()._components.Add(block.GetComponent<BaseCircuit>());
 			_blocks.Add(block.GetComponent<EngComponent>());
 			_2DUI.Power -= 5;
 		}

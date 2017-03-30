@@ -17,22 +17,68 @@ public class TwoDimensionalUIController : MonoBehaviour {
 	private Text _resistorField;
 	private bool _firstRun = true;
 
+    public static TwoDimensionalUIController UI;
+    private int _oldPower;
+    private int _oldSolderCount;
+    private int _oldBatteryCount;
+
+    private void Start()
+    {
+        if (!UI) UI = this;
+        gameObject.SetActive(false);
+    }
+
+    // Use this for initialization
+
 	// Use this for initialization
-	void OnEnable()
+	public void FindComponents()
 	{
 		_powerField = transform.FindChild("txtPower").GetComponent<Text>();
 		_solderField = transform.FindChild("txtSolderAmount").GetComponent<Text>();
 		_transistorField = transform.FindChild("txtTransistorAmount").GetComponent<Text>();
 		_resistorField = transform.FindChild("txtResistorAmount").GetComponent<Text>();
-		Power = Player.player.Inventory.GetItems().Select(x => x.Prefab.GetComponent<WorldBattery>()).Sum(x => x.Power);
-		SolderWireAmount = Player.player.Inventory.GetItems().Select(x => x.Prefab.GetComponent<WorldSolder>()).Sum(x => x.TileAmount);
-	}
+        List<Inventory.ItemSlot> slots = Player.player.Inventory.GetPopulatedItemSlots().Where(x => x.ItemID == "puzzle.battery").ToList();
+        List<WorldBattery> batteries = Player.player.Inventory.GetItems().Where(x => x.Prefab.GetComponentInChildren<WorldBattery>() != null).Select(x => x.Prefab.GetComponentInChildren<WorldBattery>()).ToList();
+        if (slots.Sum(x => x.ItemQuantity) != _oldBatteryCount || _oldBatteryCount == 0)
+        {
+            if (slots.Count != 0)
+            {
+                Power = slots.Sum(x => x.ItemQuantity) * batteries[0].Power;
+            }
+            else
+            {
+                Power = 0;
+            }
+        }
+        else
+        {
+            Power = _oldBatteryCount;
+        }
+        List<Inventory.ItemSlot> solderSlots = Player.player.Inventory.GetPopulatedItemSlots().Where(x => x.ItemID == "puzzle.solderwire").ToList();
+        List<WorldSolder> solderCoils = Player.player.Inventory.GetItems().Where(x => x.Prefab.GetComponentInChildren<WorldSolder>() != null).Select(x => x.Prefab.GetComponentInChildren<WorldSolder>()).ToList();
+        if (solderSlots.Sum(x => x.ItemQuantity) != _oldSolderCount || _oldSolderCount == 0)
+        {
+            if (solderSlots.Count != 0)
+            {
+                SolderWireAmount = solderSlots.Sum(x => x.ItemQuantity) * solderCoils[0].TileAmount;
+            }
+            else
+            {
+                SolderWireAmount = 0;
+            }
+        }
+        else
+        {
+            SolderWireAmount = _oldSolderCount;
+        }
+        ResistorAmount = Player.player.Inventory.ResistorCount;
+        TransistorAmount = Player.player.Inventory.TransistorCount;
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		ResistorAmount = Player.player.Inventory.ResistorCount;
-		TransistorAmount = Player.player.Inventory.TransistorCount;
 		_resistorField.text = ResistorAmount.ToString("000");
 		_transistorField.text = TransistorAmount.ToString("000");
 		_powerField.text = Power.ToString("000");
@@ -43,7 +89,7 @@ public class TwoDimensionalUIController : MonoBehaviour {
 		}
 	}
 
-	void OnDisable()
+	public void ValidateInventory()
 	{
 		if (_firstRun)
 		{
@@ -55,12 +101,21 @@ public class TwoDimensionalUIController : MonoBehaviour {
 		if (Convert.ToDecimal(batteryAmount.Sum(x => x.Power) % Power) != 0)
 		{
 			Player.player.Inventory.RemoveItem(batteryAmount[0].ItemID, 1);
-			OnDisable();
+            ValidateInventory();
 		}
-		if (Convert.ToDecimal(solderAmount.Sum(x => x.TileAmount) % SolderWireAmount) != 0)
-		{
-			Player.player.Inventory.RemoveItem(solderAmount[0].ItemID, 1);
-			OnDisable();
-		}
+
+        _oldPower = Power;
+        List<Inventory.ItemSlot> slots = Player.player.Inventory.GetPopulatedItemSlots().Where(x => x.ItemID == "puzzle.battery").ToList();
+        _oldBatteryCount = slots.Sum(x => x.ItemQuantity);
+
+        if (Convert.ToDecimal(solderAmount.Sum(x => x.TileAmount) % SolderWireAmount) != 0)
+        {
+            Player.player.Inventory.RemoveItem(solderAmount[0].ItemID, 1);
+            ValidateInventory();
+        }
+        _oldSolderCount = SolderWireAmount;
+        List<Inventory.ItemSlot> solderSlots = Player.player.Inventory.GetPopulatedItemSlots().Where(x => x.ItemID == "puzzle.solderwire").ToList();
+        _oldSolderCount = solderSlots.Sum(x => x.ItemQuantity);
+        gameObject.SetActive(false);
 	}
 }
