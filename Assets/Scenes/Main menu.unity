@@ -5625,11 +5625,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243000011504258484, guid: 5b6e0e0ab9083954da24b8addfa96df3,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: e6543ad51a8f19c4a96bdede0bdf5d31, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 55364951099266e48a2ed55790911482, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.72
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
