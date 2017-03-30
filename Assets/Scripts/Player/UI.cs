@@ -50,6 +50,12 @@ public class UI : MonoBehaviour {
     public static Image EndingImage;
     public static Text EndingText;
 
+    public static  AudioClip HeavenAudio;
+    public static AudioClip HellAudio;
+    public static AudioClip CutsceneAudio;
+    public static AudioSource CutsceneSource;
+    public static AudioClip NeutralAudio;
+
     public Animator _MessageAnimator;
     public Text _MessageText;
     public Text HoverName;
@@ -74,6 +80,11 @@ public class UI : MonoBehaviour {
 
     public Image _EndingImage;
     public Text _EndingText;
+
+    public AudioClip _heavenAudio;
+    public AudioClip _hellAudio;
+    public AudioClip _cutsceneAudio;
+    public AudioClip _neutralAudio;
 
     public DialogueUI dialogueUIObjects = new DialogueUI();
     public InventoryUI inventoryUIObjects = new InventoryUI();
@@ -129,6 +140,11 @@ public class UI : MonoBehaviour {
 
         EndingImage = _EndingImage;
         EndingText = _EndingText;
+
+        HeavenAudio = _heavenAudio;
+        HellAudio = _hellAudio;
+        NeutralAudio = _neutralAudio;
+        CutsceneAudio = _cutsceneAudio;
 
         //Load Dialogue Nodes
         DialogueController.LoadDictionary();
@@ -478,6 +494,12 @@ public class UI : MonoBehaviour {
         }
         LockPlayerController();
         UnlockCursor();
+
+        //Play cutscene audio
+        CutsceneSource = Camera.main.gameObject.AddComponent<AudioSource>();
+        CutsceneSource.clip = CutsceneAudio;
+        CutsceneSource.loop = true;
+        if(!CutsceneSource.isPlaying) CutsceneSource.Play();
     }
 
     public void ContinueCutscene() {
@@ -504,6 +526,9 @@ public class UI : MonoBehaviour {
             UnlockPlayerController();
             LockCursor();
         }
+
+        //Stop the audio.
+        CutsceneSource.Stop();
     }
     #endregion
 
@@ -572,18 +597,20 @@ public class UI : MonoBehaviour {
         Progression.EndingType end = Progression.GetEndingType();
         if(end == Progression.EndingType.True) {
             EndingImage.sprite = Resources.Load<Sprite>("EndImage/heaven");
-            EndingText.text = "\"Welcome to Heaven\" You earned it!";
+            AudioSource.PlayClipAtPoint(HeavenAudio, Camera.main.transform.position);
+            EndingText.text = "\"Gaining my memories back was more painful than I thought. My mistakes and my crimes towards other people as well as towards myself came back to haunt me. Oblivion was much too high of a reward for me to deserve, so I was left to repent for eternity.However, as tormenting as the memories were sometimes, they gave me comfort.They assured me that one day, those who committed crimes against me would also receive their punishment.After all, Justice was not dead\"";
             EndingImage.gameObject.SetActive(true);
         }
         else if(end == Progression.EndingType.Neutral) {
             EndingImage.color = Color.black;
-            EndingText.text = "\"Looks like you will need to start over to do better... Try restarting and see if you can get the good ending!\"";
+            EndingText.text = "People who do not forgive do not deserve to be forgiven.";
             EndingImage.gameObject.SetActive(true);
         }
         else {
             //Bad ending
+            AudioSource.PlayClipAtPoint(HellAudio, Camera.main.transform.position);
             EndingImage.sprite = Resources.Load<Sprite>("EndImage/hell");
-            EndingText.text = "\"Welcome to Hell\" You'd better try to be nicer next time...";
+            EndingText.text = "Maybe you can refresh your mind and start anew.";
             EndingImage.gameObject.SetActive(true);
         }
     }

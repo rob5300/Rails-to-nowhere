@@ -8,6 +8,7 @@ public class Door : Entity {
     public void Open() {
         if (Locked) {
             GetComponent<Animation>().Play("Door Open");
+            GetComponent<AudioSource>().Play();
             Locked = false;
             Carriage.EnableNextCarriage();
         }
