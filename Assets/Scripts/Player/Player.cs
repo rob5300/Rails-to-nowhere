@@ -5,7 +5,7 @@ using UnityStandardAssets.ImageEffects;
 public class Player : MonoBehaviour {
 
     public static Player player;
-    public Inventory Inventory = new Inventory(4);
+    public Inventory Inventory = new Inventory(10);
     public float InteractDistance;
     public MonoBehaviour Controller;
     public BlurOptimized blurEffect;

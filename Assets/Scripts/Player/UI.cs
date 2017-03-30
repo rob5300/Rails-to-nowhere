@@ -243,7 +243,12 @@ public class UI : MonoBehaviour {
     public static void NewDialogueConversation(NPC npc) {
         DialogueNPC = npc;
         DialogueMemoryID = npc.MemoryItemKey;
-        DialogueMemoryTotal = npc.MemoryResponseTotal;
+        if (npc is StoryNPC) {
+            DialogueMemoryTotal = npc.MemoryResponseTotal; 
+        }
+        else {
+            DialogueMemoryTotal = -1;
+        }
         DialogueMemoryCount = 0;
         dialogueUIOpen = true;
         MenuOpen = true;
