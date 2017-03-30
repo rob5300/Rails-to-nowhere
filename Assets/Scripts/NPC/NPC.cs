@@ -135,7 +135,7 @@ public abstract class NPC : MonoBehaviour, IUnityXMLSerialisable
     }
 
     public void AwardMemory() {
-        Player.player.inventory.AddItem(MemoryItemKey, 1);
+        Player.player.Inventory.AddItem(MemoryItemKey, 1);
     }
 
     public virtual List<string> GetSerialiseTargets()

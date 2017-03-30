@@ -11,7 +11,10 @@ public class Inventory {
         }
     }
 
-    public Inventory(int capacity) {
+	public int ResistorCount { get; set; }
+	public int TransistorCount { get; set; }
+
+	public Inventory(int capacity) {
         itemSlots = new List<ItemSlot>(capacity);
         for(int i = 0; i < capacity; i++) {
             itemSlots.Add(new ItemSlot());

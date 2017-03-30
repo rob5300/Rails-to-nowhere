@@ -25,6 +25,7 @@ public class Cog : Entity {
         }
     }
 
+
     public void OnPickup() {
         Mounted = false;
         GetComponent<Rigidbody>().isKinematic = false;

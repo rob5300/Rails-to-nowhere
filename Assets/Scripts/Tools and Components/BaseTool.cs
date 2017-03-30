@@ -12,6 +12,7 @@ public abstract class BaseTool : MonoBehaviour {
 	protected List<GameObject> _boardAreas;
 	protected bool _move = false;
 	protected Vector3 _mouseInWorldSpace; //this is in case a method is overidden that needs this value
+	private TwoDimensionalUIController _2DUI;
 
 	/// <summary>
 	/// The prefab to be spawned by the BaseTool instance.
@@ -51,6 +52,7 @@ public abstract class BaseTool : MonoBehaviour {
 	/// </summary>
 	protected virtual void Start()
 	{
+		_2DUI = GameObject.Find("2D Puzzle UI").GetComponent<TwoDimensionalUIController>();
 		_blocks = GameObject.FindGameObjectWithTag("Board").transform.GetComponentsInChildren<EngComponent>().ToList();
 		Transform child = GameObject.FindGameObjectWithTag("Board").transform.GetChild(0);
 		_boardAreas = new List<GameObject>();
@@ -117,8 +119,17 @@ public abstract class BaseTool : MonoBehaviour {
 		if (Vector2.Distance(closestObj.transform.position, position) < 0.2 && closestObj.tag == Prefab.tag && closestObj.name.Contains(Prefab.name))
 		{
 			_blocks.Remove(closestObj.GetComponent<EngComponent>());
+			if (Prefab.name.ToUpper().Contains("TRANSISTOR"))
+			{
+				Player.player.Inventory.TransistorCount--;
+			}
+			else if (Prefab.name.ToUpper().Contains("RESISTOR"))
+			{
+				Player.player.Inventory.ResistorCount--;
+			}
 			closestObj.transform.parent.GetComponent<TwoDimensionalPuzzle>()._components.Remove(closestObj.GetComponent<EngComponent>());
 			Destroy(closestObj);
+			_2DUI.Power -= 5;
 		}
 	}
 
@@ -145,6 +156,7 @@ public abstract class BaseTool : MonoBehaviour {
 			block.transform.parent = closestBoardObj.transform.parent.parent;
 			closestBoardObj.transform.parent.parent.GetComponent<TwoDimensionalPuzzle>()._components.Add(block.GetComponent<BaseCircuit>());
 			_blocks.Add(block.GetComponent<EngComponent>());
+			_2DUI.Power -= 5;
 		}
 	}
 }

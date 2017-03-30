@@ -17,7 +17,7 @@ public class Pickup : MonoBehaviour
         if (hit.GetComponent<WorldItem>() != null) {
             if (objWorldItem.Interactable == true) {
                 if (pastId == hit.GetInstanceID()) Debug.LogError("Same item!");
-                Player.player.inventory.AddItem(objWorldItem.ItemID, objWorldItem.Quantity);
+                Player.player.Inventory.AddItem(objWorldItem.ItemID, objWorldItem.Quantity);
                 Destroy(hit.gameObject);
             }
         }

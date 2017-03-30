@@ -34,15 +34,17 @@ public class Item {
         Prefab = gameObject;
     }
 
+
     private static Dictionary<string, Item> ItemList = new Dictionary<string, Item>();
     private static Item box = new Item("Box", "item.box", "I am a box that does nothing", Resources.Load<GameObject>("ItemsToPickup/Cube"));
-    private static Item battery = new Item("AA Battery", "puzzle.battery", "A double a battery.");
+	private static Item solderWire = new Item("Solder Wire Coil", "puzzle.solderwire", "Used in fixing electronic components.");
+	private static Item battery = new Item("AA Battery", "puzzle.battery", "Used to provide power to electronic tools.");
     private static Memory memoryMatilda = new Memory("Matilda's Memory", "memory.matilda", "A memory from Matilda.", Resources.Load<Sprite>("Memories/memoryMatilda"));
     private static Memory memoryArleana = new Memory("Arleana's Memory", "memory.arleana", "A memory from Arleana.", Resources.Load<Sprite>("Memories/memoryArleana"));
     private static Memory memoryJohn = new Memory("John's Memory", "memory.john", "A memory from John.", Resources.Load<Sprite>("Memories/memoryJohn"));
     private static Memory memoryNadia = new Memory("Nadia's Memory", "memory.nadia", "A memory from Nadia.", Resources.Load<Sprite>("Memories/memoryNadia"));
 
-    public static Item GetItem(string ItemID)
+	public static Item GetItem(string ItemID)
     {
         if (!ItemList.ContainsKey(ItemID)) {
             Debug.LogError("The ItemID: " + ItemID + " does not exist.");

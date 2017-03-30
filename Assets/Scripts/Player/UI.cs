@@ -340,7 +340,7 @@ public class UI : MonoBehaviour {
             //We award a memory here, this assumes that the dialogue was closed ONLY this way.
 
             if (DialogueMemoryCount >= DialogueMemoryTotal && DialogueMemoryTotal != -1) {
-                Player.player.inventory.AddItem(DialogueMemoryID, 1);
+                Player.player.Inventory.AddItem(DialogueMemoryID, 1);
                 UI.ShowMessage("You were awarded the memory: " + Item.GetItem(DialogueMemoryID).Name);
             } 
         }
@@ -372,7 +372,7 @@ public class UI : MonoBehaviour {
         UIItemSlot newSlot;
         inventoryUI.ItemInformationPanel.SetActive(false);
 
-        List<Inventory.ItemSlot> popItemSlots = Player.player.inventory.GetPopulatedItemSlots();
+        List<Inventory.ItemSlot> popItemSlots = Player.player.Inventory.GetPopulatedItemSlots();
         if (popItemSlots.Count < 0) return;
         foreach (Inventory.ItemSlot itemSlot in popItemSlots) {
             newInvItem = (GameObject)Instantiate(inventoryUI.BaseInventoryItem, inventoryUI.InventoryItemArea.transform);
@@ -416,7 +416,7 @@ public class UI : MonoBehaviour {
     }
 
     public void ItemDrop() {
-        Player.player.inventory.RemoveItem(selectedItem.ID, 1);
+        Player.player.Inventory.RemoveItem(selectedItem.ID, 1);
         CleanInventoryUI();
         UpdateInventoryUI();
     }
