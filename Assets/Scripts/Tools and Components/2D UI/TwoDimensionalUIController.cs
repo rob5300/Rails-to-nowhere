@@ -33,10 +33,10 @@ public class TwoDimensionalUIController : MonoBehaviour {
 	// Use this for initialization
 	public void FindComponents()
 	{
-		_powerField = transform.FindChild("txtPower").GetComponent<Text>();
-		_solderField = transform.FindChild("txtSolderAmount").GetComponent<Text>();
-		_transistorField = transform.FindChild("txtTransistorAmount").GetComponent<Text>();
-		_resistorField = transform.FindChild("txtResistorAmount").GetComponent<Text>();
+		_powerField = transform.Find("txtPower").GetComponent<Text>();
+		_solderField = transform.Find("txtSolderAmount").GetComponent<Text>();
+		_transistorField = transform.Find("txtTransistorAmount").GetComponent<Text>();
+		_resistorField = transform.Find("txtResistorAmount").GetComponent<Text>();
         List<Inventory.ItemSlot> slots = Player.player.Inventory.GetPopulatedItemSlots().Where(x => x.ItemID == "puzzle.battery").ToList();
 		List<WorldBattery> batteries = Player.player.Inventory.GetItems().Where(x => x.Prefab != null).Where(x => x.Prefab.GetComponentInChildren<WorldBattery>() != null).Select(x => x.Prefab.GetComponentInChildren<WorldBattery>()).ToList();
         if (slots.Sum(x => x.ItemQuantity) != _oldBatteryCount || _oldBatteryCount == 0)
@@ -85,7 +85,7 @@ public class TwoDimensionalUIController : MonoBehaviour {
 		_solderField.text = SolderWireAmount.ToString("000");
 		if (_firstRun)
 		{
-			transform.FindChild("lblTutorial").gameObject.SetActive(true);
+			transform.Find("lblTutorial").gameObject.SetActive(true);
 		}
 	}
 
@@ -93,7 +93,7 @@ public class TwoDimensionalUIController : MonoBehaviour {
 	{
 		if (_firstRun)
 		{
-			transform.FindChild("lblTutorial").gameObject.SetActive(false);
+			transform.Find("lblTutorial").gameObject.SetActive(false);
 			_firstRun = false;
 		}
         List<Inventory.ItemSlot> slots = Player.player.Inventory.GetPopulatedItemSlots().Where(x => x.ItemID == "puzzle.battery").ToList();
