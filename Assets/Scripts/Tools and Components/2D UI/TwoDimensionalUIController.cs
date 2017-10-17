@@ -22,11 +22,16 @@ public class TwoDimensionalUIController : MonoBehaviour {
     private int _oldSolderCount;
     private int _oldBatteryCount;
 	private int _oldSolderQuantity;
-    private void Start()
+    private void Awake()
     {
         if (!UI) UI = this;
-        gameObject.SetActive(false);
+        
     }
+
+	private void Start()
+	{
+		gameObject.SetActive(false);
+	}
 
     // Use this for initialization
 
